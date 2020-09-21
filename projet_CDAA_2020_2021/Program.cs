@@ -18,7 +18,7 @@ namespace projet_CDAA_2020_2021
 
             //j.input();
             Console.WriteLine(j.ToString());
-            j.nom = "nom test";
+            j.Nom = "nom test";
             Jeu j2 = new Jeu("jeu", "jeu", "jeu", "jeu", Genre.Action_RPG, 15.0, DateTime.Now, false);
             Console.WriteLine(j == j2);
 

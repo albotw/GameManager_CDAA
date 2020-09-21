@@ -4,21 +4,29 @@ namespace projet_CDAA_2020_2021.core
 {
     public class Jeu
     {
-        public  string nom { get; set; }
+        private string nom;
+        public string Nom { get => nom; set => nom = value; }
 
-        public string description { get; set; }
+        private string description;
+        public string Description { get => description; set => description = value; }
 
-        public string plateforme { get; set; }
+        private string plateforme;
+        public string Plateforme { get => plateforme; set => plateforme = value; }
 
-        public string editeur { get; set; }
+        private string editeur;
+        public string Editeur { get => editeur; set => editeur = value; }
 
-        public Genre genre { get; set; }
+        private Genre genre;
+        public Genre Genre { get => genre; set => genre = value; }
 
-        public double prix { get; set; }
+        private double prix;
+        public double Prix { get => prix; set => prix = value; }
 
-        public DateTime sortie { get; set; }
+        private DateTime sortie;
+        public DateTime Sortie { get => sortie; set => sortie = value; }
 
-        public bool reconditionne { get; set; }
+        private bool reconditionne;
+        public bool Reconditionne { get => reconditionne; set => reconditionne = value; }
 
         public Jeu()
         {

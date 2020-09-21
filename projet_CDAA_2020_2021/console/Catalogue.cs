@@ -41,16 +41,14 @@ namespace projet_CDAA_2020_2021.console
 
         public Jeu getJeu(string name)
         {
-            Jeu tmp = null;
-            foreach(Jeu j in lj)
+            foreach (Jeu j in lj)
             {
-                if (j.nom == name)
+                if (j.Nom == name)
                 {
-                    tmp = j;
+                    return j;
                 }
             }
-
-            return tmp;
+            return null;
         }
 
         public List<Jeu> getJeux(Genre g)
@@ -59,7 +57,7 @@ namespace projet_CDAA_2020_2021.console
 
             foreach(Jeu j in lj)
             {
-                if (j.genre == g)
+                if (j.Genre == g)
                 {
                     tmp.Add(j);
                 }
