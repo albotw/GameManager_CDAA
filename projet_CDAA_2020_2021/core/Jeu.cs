@@ -52,7 +52,7 @@ namespace projet_CDAA_2020_2021.core
             this.reconditionne = reconditionne;
         }
 
-        public override String ToString()
+        public override string ToString()
         {
             string s = "";
             s += "\nnom: " + this.nom;
@@ -60,14 +60,14 @@ namespace projet_CDAA_2020_2021.core
             s += "\nplateforme: " + this.plateforme;
             s += "\nediteur: " + this.editeur;
             s += "\ngenre: " + Enum.GetName(typeof(Genre), this.genre);
-            s += "\nprix: " + this.prix;
-            s += "\nsortie: " + this.sortie.ToLongDateString();
-            s += "\nreconditionné: " + this.reconditionne;
+            s += "\nprix: " + this.prix + " euros";
+            s += "\nsortie: " + this.sortie.ToString("F", new System.Globalization.CultureInfo("fr-FR"));
+            s += "\nreconditionné: " + (this.reconditionne == true ? "oui" : "non");
 
             return s;
         }
 
-        public void input()
+        public virtual void input2()
         {
             Console.Write("nom ?"); this.nom = Console.ReadLine();
             Console.Write("description ? "); this.description = Console.ReadLine();
@@ -87,7 +87,37 @@ namespace projet_CDAA_2020_2021.core
             annee = Int32.Parse(Console.ReadLine());
             this.sortie = new DateTime(annee, mois, jour);
 
-            Console.Write("reconditionné ? (true | false) "); this.reconditionne = Boolean.Parse(Console.ReadLine());
+            Console.Write("reconditionné ? (oui | non) "); this.reconditionne = (Console.ReadLine() == "oui" ? true : false);
+        }
+
+        public virtual void input()
+        {
+            
+            Program.cli.WriteMiddle("nom ?", 10);
+            Console.CursorVisible = true;
+            Console.SetCursorPosition(110, 11);
+            this.nom = Console.ReadLine();
+
+
+
+            Program.cli.WriteMiddle("description ? ", 10); this.description = Console.ReadLine();
+            Program.cli.WriteMiddle("plateforme ? ", 10); this.plateforme = Console.ReadLine();
+            Console.Write("editeur ? "); this.editeur = Console.ReadLine();
+
+            string tmp;
+            Console.Write("Genre ? "); tmp = Console.ReadLine();
+            this.genre = (Genre)Enum.Parse(typeof(Genre), tmp, true);
+
+            Console.Write("prix ? "); this.prix = Double.Parse(Console.ReadLine());
+
+            int jour, mois, annee;
+            Console.Write("Date de sortie (j, m, a) ? ");
+            jour = Int32.Parse(Console.ReadLine());
+            mois = Int32.Parse(Console.ReadLine());
+            annee = Int32.Parse(Console.ReadLine());
+            this.sortie = new DateTime(annee, mois, jour);
+
+            Console.Write("reconditionné ? (oui | non) "); this.reconditionne = (Console.ReadLine() == "oui" ? true : false);
         }
 
         public override bool Equals(object obj)
@@ -101,6 +131,12 @@ namespace projet_CDAA_2020_2021.core
                     && this.prix == tmp.prix);
             }
             return false;
+        }
+
+
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(nom, description, plateforme, editeur, genre, prix, sortie, reconditionne);
         }
 
         public static bool operator== (Jeu j1, Jeu j2)

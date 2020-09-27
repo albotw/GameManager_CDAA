@@ -1,0 +1,48 @@
+﻿+-----------------------------------------------------------------------+
+|				--- Gestionnaire de catalogue ---
+|		> Ajouter un jeu
+|		> Supprimer un jeu
+|
+|		> rechercher un jeu: _______________
+|		> rechercher un genre: _____________
+|
+
+nom | description | plateforme | editeur | genre | prix | sortie | reconditionné |
+
++---------------------------------+--------------------------------------+-------------------+------------+-----+--------+------------+-----+
+| Call of Duty Modern Warfare	  | Jeu de guerre développé par treyarch | PC, PS4, XBOX ONE | Activision | FPS | 45.0 € | 15/04/2020 | oui |
++---------------------------------+--------------------------------------+-------------------+------------+-----+--------+------------+-----+
+
+
+
+
+Séléction du texte:
+	On fait une boucle qui regarde si on appuie sur les flèches.
+	on a un entier pos qui détermine sur quelle commande se trouve le curseur
+	quand on appuie sur bas, si on atteint la limite, soit on retourne a 0 soit on bloque
+	pour séléctionner une commande, on appuie sur entrée. En fonction de pos, la commande est celle qui correspond à celle affichée.
+	a chaque clic clavier, on redessine le menu.
+	le menu récupère pos et met en valeur l'option choisie.
+
+
+Système d'interface:
+	La classe CLI possède une pile d'éléments à afficher.
+	chaque élément se dessine lui même à partir de ses coordonnées locales.
+	Les éléments peuvent placer d'autres éléments dans la pile.
+	rafraichissement basé sur les évènements.
+	Seule la fenêtre la plus haute à le droit de se clean
+
+	classe abstraite CLIElement représentant un élément de base.
+		=> int X, Y position du coin en haut à gauche de l'élément
+		=> int width, length
+		=> méthode Draw();
+
+	Classe CLIWindow pour représenter une fenêtre
+		=> possède une bordure
+
+	Classe CLIModalWindow qui permet la saisie
+		=> peut saisir plusieurs entrées
+
+	Classe CLITable pour afficher un tableau de cellules de taille fixe
+
+	Classe CLIMenu pour afficher un menu avec différentes options.
