@@ -6,14 +6,22 @@ namespace projet_CDAA_2020_2021.CLI
 {
     class CLIWindow : CLIElement
     {
+        private int width;
+        public int Width { get => width; set => width = value; }
+
+        private int height;
+        public int Height { get => height; set => height = value; }
+
         public CLIWindow() : base()
         {
-
+            this.width = 1;
+            this.height = 1;
         }
 
-        public CLIWindow(int x, int y, int width, int height) : base(x, y, width, height)
+        public CLIWindow(int x, int y, int width, int height) : base(x, y)
         {
-
+            this.width = width - 1;
+            this.height = height - 1;
         }
 
         public override void Draw()

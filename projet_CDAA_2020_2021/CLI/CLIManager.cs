@@ -12,16 +12,20 @@ namespace projet_CDAA_2020_2021
         public static int windowHeight = 60;
 
         public int userPos = 0;
-
-        private string[] menu;
         private int menuOffset = 4;
 
         private CLIWindow w;
         private CLIWindow w2;
 
+        private CLIMenu menu;
+
         public void init()
         {
-            menu = new string[4];
+            string[] menu_strings = new string[4];
+            menu_strings[0] = "Ajouter un jeu";
+            menu_strings[1] = "Supprimer un jeu";
+            menu_strings[2] = "Rechercher un jeu";
+            menu_strings[3] = "Rechercher un genre";
 
             Console.CursorVisible = false;
             //Console.WriteLine(Console.LargestWindowWidth);
@@ -30,11 +34,9 @@ namespace projet_CDAA_2020_2021
 
             w = new CLIWindow(0, 0, 220, 60);
             w2 = new CLIWindow(40, 40, 10, 10);
+            menu = new CLIMenu(60, 4, menu_strings);
 
-            menu[0] = "[ ] Ajouter un jeu";
-            menu[1] = "[ ] Supprimer un jeu";
-            menu[2] = "[ ] Rechercher un jeu";
-            menu[3] = "[ ] Rechercher un genre";
+            
         }
 
         public void Update()
@@ -47,7 +49,7 @@ namespace projet_CDAA_2020_2021
             WriteMiddle("+---------------------------------+--------------------------------------+-------------------+------------+-----+--------+------------+-----+", 30);
             WriteMiddle("| Call of Duty Modern Warfare	  | Jeu de guerre développé par treyarch | PC, PS4, XBOX ONE | Activision | FPS | 45.0 € | 15/04/2020 | oui |", 31);
             WriteMiddle("+---------------------------------+--------------------------------------+-------------------+------------+-----+--------+------------+-----+", 32);
-            DrawMenu();
+            menu.Draw();
         }
 
         public void drawBorder2()
@@ -83,28 +85,6 @@ namespace projet_CDAA_2020_2021
             int cursorX = (windowWidth / 2) - (text.Length / 2);
             Console.SetCursorPosition(cursorX, line);
             Console.WriteLine(text);
-        }
-
-        public void DrawMenu()
-        {
-            for(int i = 0; i < menu.Length; i++)
-            {
-                if (i == userPos)
-                {
-                    char[] tmp = menu[i].ToCharArray();
-                    tmp[1] = 'X';
-                    menu[i] = new string(tmp);
-                }
-                else
-                {
-                    char[] tmp = menu[i].ToCharArray();
-                    tmp[1] = ' ';
-                    menu[i] = new string(tmp);
-                }
-
-                Console.SetCursorPosition(60, menuOffset + i);
-                Console.WriteLine(menu[i]);
-            }
         }
     }
 }

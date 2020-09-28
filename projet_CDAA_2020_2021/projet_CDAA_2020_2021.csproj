@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="CLI\CLIElement.cs" />
     <Compile Include="CLI\CLIManager.cs" />
+    <Compile Include="CLI\CLIMenu.cs" />
     <Compile Include="CLI\CLIWindow.cs" />
     <Compile Include="core\Catalogue.cs" />
     <Compile Include="core\Genre.cs" />

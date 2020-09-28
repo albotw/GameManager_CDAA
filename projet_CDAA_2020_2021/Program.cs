@@ -12,7 +12,7 @@ namespace projet_CDAA_2020_2021
         {
             c = new Catalogue();
 
-            if (false)
+            if (true)
             {
                 cli = new CLIManager();
                 cli.init();
