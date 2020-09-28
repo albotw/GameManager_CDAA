@@ -1,7 +1,0 @@
-Z:\CDAA\projet_CDAA_2020_2021\projet_CDAA_2020_2021\obj\Debug\projet_CDAA_2020_2021.csprojAssemblyReference.cache
-Z:\CDAA\projet_CDAA_2020_2021\projet_CDAA_2020_2021\obj\Debug\projet_CDAA_2020_2021.csproj.CoreCompileInputs.cache
-Z:\CDAA\projet_CDAA_2020_2021\projet_CDAA_2020_2021\bin\Debug\projet_CDAA_2020_2021.exe.config
-Z:\CDAA\projet_CDAA_2020_2021\projet_CDAA_2020_2021\bin\Debug\projet_CDAA_2020_2021.exe
-Z:\CDAA\projet_CDAA_2020_2021\projet_CDAA_2020_2021\bin\Debug\projet_CDAA_2020_2021.pdb
-Z:\CDAA\projet_CDAA_2020_2021\projet_CDAA_2020_2021\obj\Debug\projet_CDAA_2020_2021.exe
-Z:\CDAA\projet_CDAA_2020_2021\projet_CDAA_2020_2021\obj\Debug\projet_CDAA_2020_2021.pdb
