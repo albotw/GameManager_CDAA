@@ -9,7 +9,7 @@ namespace projet_CDAA_2020_2021
     class CLIManager
     {
         public static int windowWidth = 220;
-        public static int windowHeight = 64;
+        public static int windowHeight = 60;
 
         public int userPos = 0;
 
@@ -24,9 +24,11 @@ namespace projet_CDAA_2020_2021
             menu = new string[4];
 
             Console.CursorVisible = false;
+            //Console.WriteLine(Console.LargestWindowWidth);
+            //Console.WriteLine(Console.LargestWindowHeight);
             Console.SetWindowSize(windowWidth, windowHeight);
 
-            w = new CLIWindow(0, 0, 220, 64);
+            w = new CLIWindow(0, 0, 220, 60);
             w2 = new CLIWindow(40, 40, 10, 10);
 
             menu[0] = "[ ] Ajouter un jeu";

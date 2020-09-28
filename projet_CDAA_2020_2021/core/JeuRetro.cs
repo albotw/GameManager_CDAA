@@ -51,19 +51,7 @@ namespace projet_CDAA_2020_2021.core
 
         public override int GetHashCode()
         {
-            HashCode hash = new HashCode();
-            hash.Add(base.GetHashCode());
-            hash.Add(Nom);
-            hash.Add(Description);
-            hash.Add(Plateforme);
-            hash.Add(Editeur);
-            hash.Add(Genre);
-            hash.Add(Prix);
-            hash.Add(Sortie);
-            hash.Add(Reconditionne);
-            hash.Add(etat);
-            hash.Add(notice);
-            return hash.ToHashCode();
+            return 0;
         }
 
         public static bool operator== (JeuRetro j1, JeuRetro j2)

@@ -136,7 +136,8 @@ namespace projet_CDAA_2020_2021.core
 
         public override int GetHashCode()
         {
-            return HashCode.Combine(nom, description, plateforme, editeur, genre, prix, sortie, reconditionne);
+            //return HashCode.Combine(nom, description, plateforme, editeur, genre, prix, sortie, reconditionne);
+            return 0;
         }
 
         public static bool operator== (Jeu j1, Jeu j2)
