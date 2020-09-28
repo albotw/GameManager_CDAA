@@ -8,6 +8,9 @@ namespace projet_CDAA_2020_2021.core
         Aventure,
         Football,
         Course,
-        Compilation
+        Compilation,
+        FPS,
+        TPS,
+        Infiltration
     }
 }

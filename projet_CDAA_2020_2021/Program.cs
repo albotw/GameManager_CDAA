@@ -11,30 +11,35 @@ namespace projet_CDAA_2020_2021
         static void Main()
         {
             c = new Catalogue();
-            cli = new CLIManager();
-            cli.init();
-            cli.Update();
-            
-            ConsoleKeyInfo cki;
-            do
+
+            if (false)
             {
-                cki = Console.ReadKey(true);
-                switch (cki.Key)
+                cli = new CLIManager();
+                cli.init();
+                cli.Update();
+
+                ConsoleKeyInfo cki;
+                do
                 {
-                    case ConsoleKey.UpArrow:
-                        if (cli.userPos != 0) cli.userPos--;
-                        cli.Update();
-                        break;
-                    case ConsoleKey.DownArrow:
-                        if (cli.userPos != 3) cli.userPos++;
-                        cli.Update();
-                        break;
-                    case ConsoleKey.Enter:
-                        cli.WriteMiddle("selected: " + cli.userPos, 40);
-                        dispatchCommand(cli.userPos);
-                        break;
-                }
-            } while (cki.Key != ConsoleKey.Escape);
+                    cki = Console.ReadKey(true);
+                    switch (cki.Key)
+                    {
+                        case ConsoleKey.UpArrow:
+                            if (cli.userPos != 0) cli.userPos--;
+                            cli.Update();
+                            break;
+                        case ConsoleKey.DownArrow:
+                            if (cli.userPos != 3) cli.userPos++;
+                            cli.Update();
+                            break;
+                        case ConsoleKey.Enter:
+                            cli.WriteMiddle("selected: " + cli.userPos, 40);
+                            dispatchCommand(cli.userPos);
+                            break;
+                    }
+                } while (cki.Key != ConsoleKey.Escape);
+            }
+            
         }
 
         public static void dispatchCommand(int command)

@@ -17,6 +17,12 @@ namespace projet_CDAA_2020_2021.core
             lastUpdate = DateTime.Now;
         }
 
+        public void Init()
+        {
+            Add(new Jeu("Metal Gear Solid 2: Subsistance", "Un jeu de Hideo Kojima", "PC, PS2", "Konami, avec Hideo Kojima", Genre.Infiltration, 9.99, new DateTime(2003, 07, 14), false)); 
+            Add(new Jeu("Metal Gear Solid", "Un jeu de Hideo Kojima", "PC, PS1, GameCube", "Konami, avec Hideo Kojima", Genre.Infiltration, 9.99, new DateTime(2000, 04, 21), false)); 
+        }
+
         public void Add(Jeu j)
         {
             if (!jeux.Contains(j))
@@ -72,6 +78,11 @@ namespace projet_CDAA_2020_2021.core
 
                     case "reconditionne":
                         if (j.Reconditionne == (bool)arg)
+                            tmp.Add(j);
+                        break;
+
+                    case "retro":
+                        if (j.GetType().Equals(typeof(JeuRetro)))
                             tmp.Add(j);
                         break;
                 }

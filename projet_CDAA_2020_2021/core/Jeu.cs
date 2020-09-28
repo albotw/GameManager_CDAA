@@ -2,7 +2,7 @@
 
 namespace projet_CDAA_2020_2021.core
 {
-    public class Jeu
+    public class Jeu : IEquatable<Jeu>, IComparable<Jeu>
     {
         private string nom;
         public string Nom { get => nom; set => nom = value; }
@@ -138,6 +138,27 @@ namespace projet_CDAA_2020_2021.core
         {
             //return HashCode.Combine(nom, description, plateforme, editeur, genre, prix, sortie, reconditionne);
             return 0;
+        }
+
+        public bool Equals(Jeu other)
+        {
+            if (other == null)
+            {
+                return false;
+            }
+            else
+            {
+                return (other.nom == this.nom
+                    && other.Plateforme == this.plateforme
+                    && other.reconditionne == this.reconditionne
+                    && other.prix == this.prix);
+            }
+        }
+
+        public int CompareTo(Jeu other)
+        {
+            if (other == null) return 1;
+            else return this.nom.CompareTo(other.nom);
         }
 
         public static bool operator== (Jeu j1, Jeu j2)
