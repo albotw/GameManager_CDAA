@@ -4,7 +4,7 @@ using System.Text;
 
 namespace projet_CDAA_2020_2021.CLI
 {
-    abstract class CLIElement
+    public abstract class CLIElement
     {
         private int x;
         public int X { get => x; set => x = value; }

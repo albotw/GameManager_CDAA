@@ -1,4 +1,5 @@
 ﻿using projet_CDAA_2020_2021.core;
+using projet_CDAA_2020_2021.CLI;
 using System;
 
 namespace projet_CDAA_2020_2021
@@ -11,6 +12,7 @@ namespace projet_CDAA_2020_2021
         static void Main()
         {
             c = new Catalogue();
+            c.Init();
 
             if (true)
             {
@@ -25,21 +27,16 @@ namespace projet_CDAA_2020_2021
                     switch (cki.Key)
                     {
                         case ConsoleKey.UpArrow:
-                            if (cli.userPos != 0) cli.userPos--;
                             cli.Update();
                             break;
                         case ConsoleKey.DownArrow:
-                            if (cli.userPos != 3) cli.userPos++;
                             cli.Update();
                             break;
                         case ConsoleKey.Enter:
-                            cli.WriteMiddle("selected: " + cli.userPos, 40);
-                            dispatchCommand(cli.userPos);
                             break;
                     }
                 } while (cki.Key != ConsoleKey.Escape);
             }
-            
         }
 
         public static void dispatchCommand(int command)

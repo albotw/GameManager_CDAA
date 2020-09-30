@@ -11,6 +11,7 @@ namespace projet_CDAA_2020_2021.core
         Compilation,
         FPS,
         TPS,
-        Infiltration
+        Infiltration,
+        Combat
     }
 }

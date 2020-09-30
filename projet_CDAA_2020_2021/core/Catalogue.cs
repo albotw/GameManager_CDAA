@@ -5,33 +5,48 @@ namespace projet_CDAA_2020_2021.core
 {
     public class Catalogue
     {
-        private Jeux jeux;
+        private Jeux lesJeux;
         private DateTime lastUpdate;
 
         public Catalogue()
         {
-            jeux = new Jeux();
+            lesJeux = new Jeux();
             lastUpdate = DateTime.Now;
         }
 
         public void Add(Jeu j)
         {
-            jeux.Add(j);
+            lesJeux.Add(j);
         }
 
         public void Remove(Jeu j)
         {
-            jeux.Remove(j);
+            lesJeux.Remove(j);
         }
 
         public List<Jeu> getAll(string property, object arg)
         {
-            return jeux.getAll(property, arg);
+            return lesJeux.Search(property, arg);
         }
 
         public Jeu getJeu(string name)
         {
             return getJeu(name);
+        }
+
+        public List<Jeu> Sort()
+        {
+            return lesJeux.Sort();
+        }
+
+        public void Init()
+        {
+            lesJeux.Init();
+        }
+
+        public Jeux getJeux()
+        {
+            return this.lesJeux;
         }
     }
 }

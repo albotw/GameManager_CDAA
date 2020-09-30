@@ -66,7 +66,16 @@ namespace projet_CDAA_2020_2021.CLI
 
         public override void Clear()
         {
-            throw new NotImplementedException();
+            for (int i = 0; i < content.Length; i++)
+            {
+                Console.SetCursorPosition(this.X, this.Y + 1 + i);
+                char[] tmp = new char[content[i].Length];
+                for (int j = 0; j < tmp.Length; j++)
+                {
+                    tmp[j] = ' ';
+                }
+                Console.Write(tmp);
+            }
         }
     }
 }

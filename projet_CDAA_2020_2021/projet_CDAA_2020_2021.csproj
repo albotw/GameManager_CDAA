@@ -52,6 +52,10 @@
     <Compile Include="core\Jeu.cs" />
     <Compile Include="core\JeuRetro.cs" />
     <Compile Include="core\Jeux.cs" />
+    <Compile Include="utilities\IComparator.xaml.cs">
+      <DependentUpon>IComparator.cs</DependentUpon>
+    </Compile>
+    <Compile Include="utilities\QuickSort.cs" />
     <Compile Include="datastructures\Ensemble.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -63,6 +67,10 @@
   <ItemGroup>
     <Content Include="doc\Affichage console.txt" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Compile Include="utilities\IComparator.cs">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </Compile>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
