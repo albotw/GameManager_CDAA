@@ -21,6 +21,12 @@ namespace projet_CDAA_2020_2021.CLI
             this.userPos = 0;
         }
 
+        public CLIMenu(int x, int y) : base(x, y)
+        {
+            this.content = new string[MAX_SIZE];
+            this.userPos = 0;
+        }
+
         public CLIMenu(int x, int y, string[] info) : base(x, y)
         {
             this.userPos = 0;
@@ -34,7 +40,7 @@ namespace projet_CDAA_2020_2021.CLI
         {
             switch (config)
             {
-                case 0:
+                case 1:
                     content[0] = "[ ] Ajouter un jeu";
                     content[1] = "[ ] Supprimer un jeu";
                     content[2] = "[ ] Rechercher un jeu";
@@ -47,20 +53,23 @@ namespace projet_CDAA_2020_2021.CLI
         {
             for (int i = 0; i < content.Length; i++)
             {
-                if (i == userPos)
+                if (content[i] != null)
                 {
-                    char[] tmp = content[i].ToArray();
-                    tmp[1] = 'X';
-                    content[i] = new string(tmp);
+                    if (i == userPos)
+                    {
+                        char[] tmp = content[i].ToArray();
+                        tmp[1] = 'X';
+                        content[i] = new string(tmp);
+                    }
+                    else
+                    {
+                        char[] tmp = content[i].ToCharArray();
+                        tmp[1] = ' ';
+                        content[i] = new string(tmp);
+                    }
+                    Console.SetCursorPosition(this.X, this.Y + 1 + i);
+                    Console.Write(content[i]);
                 }
-                else
-                {
-                    char[] tmp = content[i].ToCharArray();
-                    tmp[1] = ' ';
-                    content[i] = new string(tmp);
-                }
-                Console.SetCursorPosition(this.X, this.Y + 1 + i);
-                Console.Write(content[i]);
             }
         }
 
@@ -68,13 +77,16 @@ namespace projet_CDAA_2020_2021.CLI
         {
             for (int i = 0; i < content.Length; i++)
             {
-                Console.SetCursorPosition(this.X, this.Y + 1 + i);
-                char[] tmp = new char[content[i].Length];
-                for (int j = 0; j < tmp.Length; j++)
+                if (content[i] != null)
                 {
-                    tmp[j] = ' ';
+                    Console.SetCursorPosition(this.X, this.Y + 1 + i);
+                    char[] tmp = new char[content[i].Length];
+                    for (int j = 0; j < tmp.Length; j++)
+                    {
+                        tmp[j] = ' ';
+                    }
+                    Console.Write(tmp);
                 }
-                Console.Write(tmp);
             }
         }
 

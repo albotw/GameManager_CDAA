@@ -14,12 +14,15 @@ namespace projet_CDAA_2020_2021
             c = new Catalogue();
             c.Init();
 
-            if (true)
+            if (false)
             {
                 cli = new CLIManager();
                 cli.init();
+                cli.Update();
                 cli.Loop();
             }
+
+            Jeux j2 = new Jeux(c.Sort());
         }
 
         public static void dispatchCommand(int command)

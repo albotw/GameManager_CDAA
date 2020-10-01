@@ -32,7 +32,7 @@ namespace projet_CDAA_2020_2021.CLI
             drawStack.Push(w);
             w2 = new CLIWindow(60, 4, 10, 10);
             drawStack.Push(w2);
-            menu = new CLIMenu(60, 4, menu_strings);
+            menu = new CLIMenu(60, 4);
             menu.Init(1);
             drawStack.Push(menu);
         }

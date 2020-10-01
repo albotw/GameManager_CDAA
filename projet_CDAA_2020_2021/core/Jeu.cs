@@ -2,7 +2,7 @@
 
 namespace projet_CDAA_2020_2021.core
 {
-    public class Jeu : IEquatable<Jeu>, IComparable<Jeu>
+    public class Jeu : IEquatable<Jeu>, IComparable<Jeu>, IFieldComparable<Jeu>
     {
         private string nom;
         public string Nom { get => nom; set => nom = value; }
@@ -90,6 +90,7 @@ namespace projet_CDAA_2020_2021.core
             Console.Write("reconditionné ? (oui | non) "); this.reconditionne = (Console.ReadLine() == "oui" ? true : false);
         }
 
+        //TODO: adapter à la CLI.
         public virtual void input()
         {
             
@@ -120,6 +121,7 @@ namespace projet_CDAA_2020_2021.core
             Console.Write("reconditionné ? (oui | non) "); this.reconditionne = (Console.ReadLine() == "oui" ? true : false);
         }
 
+        //méthode Equals de Object
         public override bool Equals(object obj)
         {
             if (obj != null)
@@ -140,6 +142,7 @@ namespace projet_CDAA_2020_2021.core
             return 0;
         }
 
+        //méthode Equals de IEquatable
         public bool Equals(Jeu other)
         {
             if (other == null)
@@ -155,12 +158,43 @@ namespace projet_CDAA_2020_2021.core
             }
         }
 
+        //méthode CompareFieldTo de IComparable (classification par défaut)
         public int CompareTo(Jeu other)
         {
             if (other == null) return 1;
             else return this.nom.CompareTo(other.nom);
         }
 
+        //méthode CompareFieldTo de IFieldComparison (classification par d'autres champs).
+        public int CompareFieldTo(string field, Jeu other)
+        {
+            if (other != null)
+            {
+                switch (field)
+                {
+                    case "description":
+                        return this.description.CompareTo(other.Description);
+                    case "plateforme":
+                        return this.plateforme.CompareTo(other.plateforme);
+                    case "editeur":
+                        return this.editeur.CompareTo(other.editeur);
+                    case "genre":
+                        return this.genre.CompareTo(other.Genre);
+                    case "prix":
+                        return this.prix.CompareTo(other.prix);
+                    case "sortie":
+                        return this.sortie.CompareTo(other.sortie);
+                    case "reconditionne":
+                        return this.reconditionne.CompareTo(other.reconditionne);
+                    default:
+                        return -1;
+                }
+            }
+            else
+            {
+                return 1;
+            }
+        }
         public static bool operator== (Jeu j1, Jeu j2)
         {
             if ((Object)j1 == null)

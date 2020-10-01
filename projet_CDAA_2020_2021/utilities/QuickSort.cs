@@ -7,41 +7,49 @@ using System.Threading.Tasks;
 
 namespace projet_CDAA_2020_2021.core
 {
-    class QuickSort<T> where T : IComparable<T>
+    class QuickSort<T> where T : IFieldComparable<T>
     {
-        public void Sort(ref T[] tab, int gauche, int droite)
+        public void Sort(ref T[] tab, int gauche, int droite, string champ, bool inverse)
         {
+            //tableau impossible à trier
             if (gauche >= droite)
             {
                 return;
             }
 
-            int p = Partition( ref tab, gauche, droite);
+            int p = Partition( ref tab, gauche, droite, champ, inverse);
             
-            Sort(ref tab, gauche, p);
-            Sort(ref tab, p + 1, droite);
+            Sort(ref tab, gauche, p, champ, inverse);
+            Sort(ref tab, p + 1, droite, champ, inverse);
         }
 
-        private int Partition(ref T[] tab, int gauche, int droite)
+        private int Partition(ref T[] tab, int gauche, int droite, string champ, bool inverse)
         {
             //on prend l'élément du milieu
             T pivot = tab[gauche + (droite - gauche) / 2];
 
-            //on copie les limites du tableau comme des pointeurs.
-            int cpy_gauche = gauche;    // = 0;
-            int cpy_droite = droite;    // = Length (10);
+            //on copie les limites du tableau comme des pointeurs pour se déplacer dans le tableau.
+            int cpy_gauche = gauche;
+            int cpy_droite = droite;
             while(true)
             {
-                //on cherche le 1er élément plus grand que le pivot à partir 
-                while (pivot.CompareTo(tab[cpy_gauche]) > 0)
+                if (inverse == false)
                 {
-                    cpy_gauche++;
-                }
+                    //on cherche le 1er élément plus grand que le pivot à partir 
+                    while (pivot.CompareFieldTo(champ, tab[cpy_gauche]) > 0)
+                        cpy_gauche++;
 
-                //on cherche le 1er élément plus petit que le pivot à droite de celui ci
-                while(pivot.CompareTo(tab[cpy_droite]) < 0)
+                    //on cherche le 1er élément plus petit que le pivot à droite de celui ci
+                    while (pivot.CompareFieldTo(champ, tab[cpy_droite]) < 0)
+                        cpy_droite--;
+                }
+                else
                 {
-                    cpy_droite--;
+                    while (pivot.CompareFieldTo(champ, tab[cpy_gauche]) < 0)
+                        cpy_gauche++;
+
+                    while (pivot.CompareFieldTo(champ, tab[cpy_droite]) > 0)
+                        cpy_droite--;
                 }
 
                 //dans le cas ou tous les éléments sont bien placés par rapport au pivot, on retourne le pointeur de droite comme nouvelle limite du tableau
