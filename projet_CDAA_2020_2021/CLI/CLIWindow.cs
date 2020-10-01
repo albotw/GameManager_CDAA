@@ -28,33 +28,33 @@ namespace projet_CDAA_2020_2021.CLI
         {
             Console.SetCursorPosition(X, Y);
             Console.Write("+");
-            Console.SetCursorPosition(X+Width, Y);
+            Console.SetCursorPosition(X + Width, Y);
             Console.Write("+");
-            Console.SetCursorPosition(X, Y+Height);
+            Console.SetCursorPosition(X, Y + Height);
             Console.Write("+");
-            Console.SetCursorPosition(X+Width, Y+Height);
+            Console.SetCursorPosition(X + Width, Y + Height);
             Console.Write("+");
 
-            for (int i = X+1; i < X +Width; i++)
+            for (int i = X + 1; i < X + Width; i++)
             {
                 Console.SetCursorPosition(i, Y);
                 Console.Write("=");
-                Console.SetCursorPosition(i, Y+Height);
+                Console.SetCursorPosition(i, Y + Height);
                 Console.Write("=");
             }
 
-            for (int i = Y+1; i < Y+Height; i++)
+            for (int i = Y + 1; i < Y + Height; i++)
             {
                 Console.SetCursorPosition(X, i);
                 Console.Write("|");
-                Console.SetCursorPosition(X+Width, i);
+                Console.SetCursorPosition(X + Width, i);
                 Console.Write("|");
             }
         }
 
         public override void Clear()
         {
-            for(int i = X; i < X+width; i++)
+            for (int i = X; i < X + width; i++)
             {
                 Console.SetCursorPosition(i, Y);
                 Console.Write(" ");
@@ -69,6 +69,11 @@ namespace projet_CDAA_2020_2021.CLI
                 Console.SetCursorPosition(X + Width, i);
                 Console.Write(" ");
             }
+        }
+
+        public override void handleInput(ConsoleKey key)
+        {
+
         }
     }
 }

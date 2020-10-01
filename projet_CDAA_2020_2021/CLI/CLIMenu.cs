@@ -25,14 +25,14 @@ namespace projet_CDAA_2020_2021.CLI
         {
             this.userPos = 0;
             this.content = new string[info.Length];
-            for(int i = 0; i < info.Length; i++)
+            for (int i = 0; i < info.Length; i++)
             {
                 content[i] = info[i].Insert(0, "[ ] ");
             }
         }
         public void Init(int config)
         {
-            switch(config)
+            switch (config)
             {
                 case 0:
                     content[0] = "[ ] Ajouter un jeu";
@@ -75,6 +75,20 @@ namespace projet_CDAA_2020_2021.CLI
                     tmp[j] = ' ';
                 }
                 Console.Write(tmp);
+            }
+        }
+
+        public override void handleInput(ConsoleKey key)
+        {
+            switch (key)
+            {
+                case ConsoleKey.UpArrow:
+                    if (this.userPos > 0) this.userPos--;
+                    break;
+
+                case ConsoleKey.DownArrow:
+                    if (this.userPos < content.Length - 1) this.userPos++;
+                    break;
             }
         }
     }

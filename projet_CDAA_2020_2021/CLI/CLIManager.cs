@@ -22,11 +22,6 @@ namespace projet_CDAA_2020_2021.CLI
         {
             drawStack = new Stack<CLIElement>();
 
-            string[] menu_strings = new string[4];
-            menu_strings[0] = "Ajouter un jeu";
-            menu_strings[1] = "Supprimer un jeu";
-            menu_strings[2] = "Rechercher un jeu";
-            menu_strings[3] = "Rechercher un genre";
 
             Console.CursorVisible = false;
             //Console.WriteLine(Console.LargestWindowWidth);
@@ -38,8 +33,19 @@ namespace projet_CDAA_2020_2021.CLI
             w2 = new CLIWindow(60, 4, 10, 10);
             drawStack.Push(w2);
             menu = new CLIMenu(60, 4, menu_strings);
+            menu.Init(1);
             drawStack.Push(menu);
-            
+        }
+
+        public void Loop()
+        {
+            ConsoleKeyInfo cki;
+            do
+            {
+                cki = Console.ReadKey(true);
+                drawStack.Peek().handleInput(cki.Key);
+                Update();
+            } while (cki.Key != ConsoleKey.Escape);
         }
 
         public void Update()

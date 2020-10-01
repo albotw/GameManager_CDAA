@@ -18,30 +18,13 @@ namespace projet_CDAA_2020_2021
             {
                 cli = new CLIManager();
                 cli.init();
-                cli.Update();
-
-                ConsoleKeyInfo cki;
-                do
-                {
-                    cki = Console.ReadKey(true);
-                    switch (cki.Key)
-                    {
-                        case ConsoleKey.UpArrow:
-                            cli.Update();
-                            break;
-                        case ConsoleKey.DownArrow:
-                            cli.Update();
-                            break;
-                        case ConsoleKey.Enter:
-                            break;
-                    }
-                } while (cki.Key != ConsoleKey.Escape);
+                cli.Loop();
             }
         }
 
         public static void dispatchCommand(int command)
         {
-            switch(command)
+            switch (command)
             {
                 case 0:
                     Jeu j = new Jeu();
@@ -54,7 +37,7 @@ namespace projet_CDAA_2020_2021
                     j2.input();
                     c.Remove(j2);
                     break;
-                    
+
             }
         }
     }

@@ -12,7 +12,7 @@ namespace projet_CDAA_2020_2021.CLI
         private int y;
         public int Y { get => y; set => y = value; }
 
-        
+
 
         public CLIElement(int x, int y)
         {
@@ -29,5 +29,7 @@ namespace projet_CDAA_2020_2021.CLI
         public abstract void Draw();
 
         public abstract void Clear();
+
+        public abstract void handleInput(ConsoleKey key);
     }
 }
