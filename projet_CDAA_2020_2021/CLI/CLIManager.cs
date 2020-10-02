@@ -20,6 +20,8 @@ namespace projet_CDAA_2020_2021.CLI
 
         public void init()
         {
+            Console.Title = "Gestion des jeux | 4 entrées";
+            ConsoleHelper.SetCurrentFont("Cascadia code", 15);
             drawStack = new Stack<CLIElement>();
 
 
@@ -30,11 +32,13 @@ namespace projet_CDAA_2020_2021.CLI
 
             w = new CLIWindow(0, 0, 220, 60);
             drawStack.Push(w);
-            w2 = new CLIWindow(60, 4, 10, 10);
-            drawStack.Push(w2);
-            menu = new CLIMenu(60, 4);
-            menu.Init(1);
-            drawStack.Push(menu);
+            //w2 = new CLIWindow(60, 4, 10, 10);
+            //drawStack.Push(w2);
+            //menu = new CLIMenu(60, 4);
+            //menu.Init(1);
+            //drawStack.Push(menu);
+            CLIInput entree = new CLIInput(60, 4, 50, "Entrez le nom du jeu");
+            drawStack.Push(entree);
         }
 
         public void Loop()

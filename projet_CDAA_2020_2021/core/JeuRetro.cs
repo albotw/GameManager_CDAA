@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace projet_CDAA_2020_2021.core
 {
-    class JeuRetro : Jeu
+    class JeuRetro : Jeu, IFieldComparable<JeuRetro>
     {
         private string etat;
         public string Etat { get => etat; set => etat = value; }
@@ -56,7 +56,7 @@ namespace projet_CDAA_2020_2021.core
         }
 
         //TODO: tests
-        public override int CompareFieldTo(string field, JeuRetro other)
+        public int CompareFieldTo(string field, JeuRetro other)
         {
             if (other != null)
             {

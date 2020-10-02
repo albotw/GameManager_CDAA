@@ -14,7 +14,7 @@ namespace projet_CDAA_2020_2021
             c = new Catalogue();
             c.Init();
 
-            if (false)
+            if (true)
             {
                 cli = new CLIManager();
                 cli.init();
@@ -22,9 +22,15 @@ namespace projet_CDAA_2020_2021
                 cli.Loop();
             }
 
-            Console.WriteLine(c.ToString());
-            Jeux j2 = new Jeux(c.Sort("prix", false));
-            Console.WriteLine(j2.ToString());
+            if (false)
+            {
+                Console.WriteLine(c.getJeux().ToString());
+                Console.WriteLine("\n\n\n APPLICATION TRI\n\n\n");
+                Jeux j2 = new Jeux(c.Sort("prix", false));
+                Console.WriteLine(j2.ToString());
+                while (true) { }
+            }
+            
         }
 
         public static void dispatchCommand(int command)

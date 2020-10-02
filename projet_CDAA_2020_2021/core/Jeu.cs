@@ -166,7 +166,7 @@ namespace projet_CDAA_2020_2021.core
         }
 
         //? méthode CompareFieldTo de IFieldComparison (classification par d'autres champs).
-        public virtual int CompareFieldTo(string field, Jeu other)
+        public int CompareFieldTo(string field, Jeu other)
         {
             if (other != null)
             {

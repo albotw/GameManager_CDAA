@@ -13,6 +13,11 @@ nom | description | plateforme | editeur | genre | prix | sortie | reconditionn�
 | Call of Duty Modern Warfare	  | Jeu de guerre développé par treyarch | PC, PS4, XBOX ONE | Activision | FPS | 45.0 € | 15/04/2020 | oui |
 +---------------------------------+--------------------------------------+-------------------+------------+-----+--------+------------+-----+
 
++------------------------+
+| Entrez le nom du jeu:	 |
+|						 |
+| > ___________________  |
++------------------------+
 
 
 
