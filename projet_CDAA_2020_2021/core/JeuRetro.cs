@@ -19,7 +19,7 @@ namespace projet_CDAA_2020_2021.core
             this.notice = true;
         }
 
-        public JeuRetro(string nom, string description, string plateforme, string editeur, Genre genre, double prix, DateTime sortie, bool reconditionne, string etat, bool notice) : base (nom, description, plateforme, editeur, genre, prix, sortie, reconditionne)
+        public JeuRetro(string nom, string description, string plateforme, string editeur, Genre genre, double prix, DateTime sortie, bool reconditionne, string etat, bool notice) : base(nom, description, plateforme, editeur, genre, prix, sortie, reconditionne)
         {
             this.etat = etat;
             this.notice = notice;
@@ -35,6 +35,7 @@ namespace projet_CDAA_2020_2021.core
             return s;
         }
 
+        //TODO: modifier pour la CLI
         public override void input()
         {
             base.input();
@@ -54,7 +55,29 @@ namespace projet_CDAA_2020_2021.core
             return 0;
         }
 
-        public static bool operator== (JeuRetro j1, JeuRetro j2)
+        //TODO: tests
+        public override int CompareFieldTo(string field, JeuRetro other)
+        {
+            if (other != null)
+            {
+                base.CompareFieldTo(field, other);
+                switch (field)
+                {
+                    case "etat":
+                        return this.etat.CompareTo(other.etat);
+                    case "notice":
+                        return this.notice.CompareTo(other.notice);
+                    default:
+                        return -1;
+                }
+            }
+            else
+            {
+                return 1;
+            }
+        }
+
+        public static bool operator ==(JeuRetro j1, JeuRetro j2)
         {
             if ((Object)j1 == null)
                 return (Object)j2 == null;
@@ -62,7 +85,7 @@ namespace projet_CDAA_2020_2021.core
                 return j1.Equals(j2);
         }
 
-        public static bool operator!= (JeuRetro j1, JeuRetro j2)
+        public static bool operator !=(JeuRetro j1, JeuRetro j2)
         {
             return !(j1 == j2);
         }

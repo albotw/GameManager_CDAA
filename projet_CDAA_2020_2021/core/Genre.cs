@@ -12,6 +12,8 @@ namespace projet_CDAA_2020_2021.core
         FPS,
         TPS,
         Infiltration,
-        Combat
+        Combat,
+        RTS,
+        MMO
     }
 }

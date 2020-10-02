@@ -8,7 +8,7 @@ namespace projet_CDAA_2020_2021.core
     public class Jeux
     {
         private DateTime lastUpdate;
-        public DateTime LastUpdate { get => lastUpdate;}
+        public DateTime LastUpdate { get => lastUpdate; }
 
         private List<Jeu> liste;
 
@@ -26,7 +26,7 @@ namespace projet_CDAA_2020_2021.core
 
         public void Init()
         {
-            Add(new Jeu("Metal Gear Solid 2: Subsistance", "Un jeu de Hideo Kojima", "PC, PS2", "Konami, avec Hideo Kojima", Genre.Infiltration, 9.99, new DateTime(2003, 07, 14), false)); 
+            Add(new Jeu("Metal Gear Solid 2: Subsistance", "Un jeu de Hideo Kojima", "PC, PS2", "Konami, avec Hideo Kojima", Genre.Infiltration, 9.99, new DateTime(2003, 07, 14), false));
             Add(new Jeu("Metal Gear Solid", "Un jeu de Hideo Kojima", "PC, PS1, GameCube", "Konami, avec Hideo Kojima", Genre.Infiltration, 9.99, new DateTime(2000, 04, 21), false));
             Add(new Jeu("Metal Gear Solid V: The Phantom Pain", "Un jeu de Hideo Kojima", "PC, PS4, PS3", "Konami avec Hideo Kojima", Genre.Infiltration, 50.00, new DateTime(2013, 08, 22), false));
             Add(new Jeu("Dragon Ball: Fighter Z", "JAPOOON", "PC, PS4, XBOX ONE", "Akira Toriyama", Genre.Combat, 50.00, new DateTime(2017, 05, 13), false));
@@ -37,7 +37,7 @@ namespace projet_CDAA_2020_2021.core
             if (!liste.Contains(j))
             {
                 this.liste.Add(j);
-            this.lastUpdate = DateTime.Now;
+                this.lastUpdate = DateTime.Now;
             }
         }
 
@@ -56,9 +56,9 @@ namespace projet_CDAA_2020_2021.core
         {
             List<Jeu> tmp = new List<Jeu>();
 
-            foreach(Jeu j in liste)
+            foreach (Jeu j in liste)
             {
-                switch(property)
+                switch (property)
                 {
                     case "genre":
                         if (j.Genre == (Genre)arg)
@@ -100,11 +100,11 @@ namespace projet_CDAA_2020_2021.core
             return tmp;
         }
 
-        public List<Jeu> Sort()
+        public List<Jeu> Sort(string field, bool reverse)
         {
             QuickSort<Jeu> qk = new QuickSort<Jeu>();
             Jeu[] tmp = liste.ToArray();
-            qk.Sort(ref tmp, 0, liste.Count -1 );
+            qk.Sort(ref tmp, 0, liste.Count - 1, field, reverse);
             return new List<Jeu>(tmp);
         }
 
@@ -115,7 +115,7 @@ namespace projet_CDAA_2020_2021.core
 
         public Jeu getJeu(string name)
         {
-            foreach(Jeu j in liste)
+            foreach (Jeu j in liste)
             {
                 if (j.Nom == name)
                 {
@@ -131,9 +131,9 @@ namespace projet_CDAA_2020_2021.core
             string s = base.ToString();
             s += "\ndenière modification : " + lastUpdate.ToString("F", new System.Globalization.CultureInfo("fr-FR"));
             s += "\n Contenu:";
-            foreach(Jeu j in liste)
+            foreach (Jeu j in liste)
             {
-                s += "\n\n" + j.ToString(); 
+                s += "\n\n" + j.ToString();
             }
             return s;
         }

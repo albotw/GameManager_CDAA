@@ -34,9 +34,9 @@ namespace projet_CDAA_2020_2021.core
             return getJeu(name);
         }
 
-        public List<Jeu> Sort()
+        public List<Jeu> Sort(string field, bool reverse)
         {
-            return lesJeux.Sort();
+            return lesJeux.Sort(field, reverse);
         }
 
         public void Init()

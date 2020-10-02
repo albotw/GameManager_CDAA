@@ -22,7 +22,9 @@ namespace projet_CDAA_2020_2021
                 cli.Loop();
             }
 
-            Jeux j2 = new Jeux(c.Sort());
+            Console.WriteLine(c.ToString());
+            Jeux j2 = new Jeux(c.Sort("prix", false));
+            Console.WriteLine(j2.ToString());
         }
 
         public static void dispatchCommand(int command)

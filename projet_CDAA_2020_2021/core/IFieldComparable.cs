@@ -6,6 +6,10 @@ using System.Threading.Tasks;
 
 namespace projet_CDAA_2020_2021.core
 {
+    /*
+        * interface qui permet la comparaison par rapport à plusieurs champs.
+        * crée car IComparable ne permet de préciser sur quel champ comparer.
+    */
     public interface IFieldComparable<T>
     {
         int CompareFieldTo(string field, T other);

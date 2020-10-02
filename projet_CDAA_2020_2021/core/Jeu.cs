@@ -67,7 +67,7 @@ namespace projet_CDAA_2020_2021.core
             return s;
         }
 
-        public virtual void input2()
+        public virtual void input()
         {
             Console.Write("nom ?"); this.nom = Console.ReadLine();
             Console.Write("description ? "); this.description = Console.ReadLine();
@@ -91,9 +91,9 @@ namespace projet_CDAA_2020_2021.core
         }
 
         //TODO: adapter à la CLI.
-        public virtual void input()
+        public virtual void input2()
         {
-            
+
             Program.cli.WriteMiddle("nom ?", 10);
             Console.CursorVisible = true;
             Console.SetCursorPosition(110, 11);
@@ -121,7 +121,7 @@ namespace projet_CDAA_2020_2021.core
             Console.Write("reconditionné ? (oui | non) "); this.reconditionne = (Console.ReadLine() == "oui" ? true : false);
         }
 
-        //méthode Equals de Object
+        //? méthode Equals de Object
         public override bool Equals(object obj)
         {
             if (obj != null)
@@ -142,7 +142,7 @@ namespace projet_CDAA_2020_2021.core
             return 0;
         }
 
-        //méthode Equals de IEquatable
+        //? méthode Equals de IEquatable
         public bool Equals(Jeu other)
         {
             if (other == null)
@@ -158,15 +158,15 @@ namespace projet_CDAA_2020_2021.core
             }
         }
 
-        //méthode CompareFieldTo de IComparable (classification par défaut)
+        //? méthode CompareFieldTo de IComparable (classification par défaut)
         public int CompareTo(Jeu other)
         {
             if (other == null) return 1;
             else return this.nom.CompareTo(other.nom);
         }
 
-        //méthode CompareFieldTo de IFieldComparison (classification par d'autres champs).
-        public int CompareFieldTo(string field, Jeu other)
+        //? méthode CompareFieldTo de IFieldComparison (classification par d'autres champs).
+        public virtual int CompareFieldTo(string field, Jeu other)
         {
             if (other != null)
             {
@@ -195,7 +195,7 @@ namespace projet_CDAA_2020_2021.core
                 return 1;
             }
         }
-        public static bool operator== (Jeu j1, Jeu j2)
+        public static bool operator ==(Jeu j1, Jeu j2)
         {
             if ((Object)j1 == null)
                 return (Object)j2 == null;
@@ -203,7 +203,7 @@ namespace projet_CDAA_2020_2021.core
                 return j1.Equals(j2);
         }
 
-        public static bool operator!= (Jeu j1, Jeu j2)
+        public static bool operator !=(Jeu j1, Jeu j2)
         {
             return !(j1 == j2);
         }
