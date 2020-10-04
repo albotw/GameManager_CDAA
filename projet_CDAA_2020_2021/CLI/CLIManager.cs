@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.ComponentModel.Design;
 using System.Text;
 
+using static System.Console;
+
 namespace projet_CDAA_2020_2021.CLI
 {
     class CLIManager
@@ -20,15 +22,15 @@ namespace projet_CDAA_2020_2021.CLI
 
         public void init()
         {
-            Console.Title = "Gestion des jeux | 4 entrées";
-            ConsoleHelper.SetCurrentFont("Cascadia code", 15);
+            Title = "Gestion des jeux | 4 entrées";
+            ConsoleHelper.SetCurrentFont("Consolas", 16);
             drawStack = new Stack<CLIElement>();
 
 
-            Console.CursorVisible = false;
+            CursorVisible = false;
             //Console.WriteLine(Console.LargestWindowWidth);
             //Console.WriteLine(Console.LargestWindowHeight);
-            Console.SetWindowSize(windowWidth, windowHeight);
+            SetWindowSize(windowWidth, windowHeight);
 
             w = new CLIWindow(0, 0, 220, 60);
             drawStack.Push(w);
@@ -37,7 +39,7 @@ namespace projet_CDAA_2020_2021.CLI
             //menu = new CLIMenu(60, 4);
             //menu.Init(1);
             //drawStack.Push(menu);
-            CLIInput entree = new CLIInput(60, 4, 50, "Entrez le nom du jeu");
+            CLIInputWindow entree = new CLIInputWindow(60, 4, 50, "Entrez le nom du jeu");
             drawStack.Push(entree);
         }
 
@@ -46,9 +48,10 @@ namespace projet_CDAA_2020_2021.CLI
             ConsoleKeyInfo cki;
             do
             {
-                cki = Console.ReadKey(true);
-                drawStack.Peek().handleInput(cki.Key);
                 Update();
+                cki = ReadKey(true);
+                drawStack.Peek().handleInput(cki.Key);
+                
             } while (cki.Key != ConsoleKey.Escape);
         }
 
@@ -61,18 +64,21 @@ namespace projet_CDAA_2020_2021.CLI
                 tmp[i].Clear();
                 tmp[i].Draw();
             }
+            drawStack.Peek().Draw();
 
             WriteMiddle("--- Gestionnaire de catalogue ---", 2);
-            WriteMiddle("+---------------------------------+--------------------------------------+-------------------+------------+-----+--------+------------+-----+", 30);
-            WriteMiddle("| Call of Duty Modern Warfare	  | Jeu de guerre développé par treyarch | PC, PS4, XBOX ONE | Activision | FPS | 45.0 € | 15/04/2020 | oui |", 31);
-            WriteMiddle("+---------------------------------+--------------------------------------+-------------------+------------+-----+--------+------------+-----+", 32);
+            WriteMiddle("| NOM                             | DESCRIPTION	                       | PLATEFORME        | EDITEUR    |GENRE|PRIX    |SORTIE      |RECONDITIONNE|", 29);
+            WriteMiddle("+---------------------------------+--------------------------------------+-------------------+------------+-----+--------+------------+-------------+", 30);
+            WriteMiddle("| Call of Duty Modern Warfare     | Jeu de guerre développé par treyarch | PC, PS4, XBOX ONE | Activision | FPS | 45.0 € | 15/04/2020 | oui         |", 31);
+            WriteMiddle("+---------------------------------+--------------------------------------+-------------------+------------+-----+--------+------------+-------------+", 32);
+            SetCursorPosition(0, 0);
         }
 
         public void WriteMiddle(string text, int line)
         {
             int cursorX = (windowWidth / 2) - (text.Length / 2);
-            Console.SetCursorPosition(cursorX, line);
-            Console.WriteLine(text);
+            SetCursorPosition(cursorX, line);
+            WriteLine(text);
         }
     }
 }

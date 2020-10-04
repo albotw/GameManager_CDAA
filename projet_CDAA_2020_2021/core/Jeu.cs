@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace projet_CDAA_2020_2021.core
 {
@@ -65,6 +66,23 @@ namespace projet_CDAA_2020_2021.core
             s += "\nreconditionné: " + (this.reconditionne == true ? "oui" : "non");
 
             return s;
+        }
+
+        //pour affichage dans une CLITable
+        public List<string> ToStringTable()
+        {
+            List<string> output= new List<string>();
+
+            output.Add(nom);
+            output.Add(description);
+            output.Add(plateforme);
+            output.Add(editeur);
+            output.Add(genre.ToString());
+            output.Add("" + prix);
+            output.Add(sortie.ToString("F", new System.Globalization.CultureInfo("fr-FR")));
+            output.Add((this.reconditionne == true ? "oui" : "non"));
+
+            return output;
         }
 
         public virtual void input()

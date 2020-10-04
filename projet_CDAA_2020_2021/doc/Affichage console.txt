@@ -9,9 +9,10 @@
 
 nom | description | plateforme | editeur | genre | prix | sortie | reconditionné |
 
-+---------------------------------+--------------------------------------+-------------------+------------+-----+--------+------------+-----+
-| Call of Duty Modern Warfare	  | Jeu de guerre développé par treyarch | PC, PS4, XBOX ONE | Activision | FPS | 45.0 € | 15/04/2020 | oui |
-+---------------------------------+--------------------------------------+-------------------+------------+-----+--------+------------+-----+
+| NOM                             | DESCRIPTION	                         | PLATEFORME        | EDITEUR    |GENRE|PRIX    |SORTIE      |RECONDITIONNE|
++---------------------------------+--------------------------------------+-------------------+------------+-----+--------+------------+-------------+
+| Call of Duty Modern Warfare     | Jeu de guerre développé par treyarch | PC, PS4, XBOX ONE | Activision | FPS | 45.0 € | 15/04/2020 | oui         |
++---------------------------------+--------------------------------------+-------------------+------------+-----+--------+------------+-------------+
 
 +------------------------+
 | Entrez le nom du jeu:	 |
@@ -31,6 +32,9 @@ Séléction du texte:
 
 
 Système d'interface:
+	
+	!!! VOIR UTILISATION STRINGBUILDER !!!
+
 	La classe CLI possède une pile d'éléments à afficher.
 	chaque élément se dessine lui même à partir de ses coordonnées locales.
 	Les éléments peuvent placer d'autres éléments dans la pile.
@@ -39,15 +43,37 @@ Système d'interface:
 
 	classe abstraite CLIElement représentant un élément de base.
 		=> int X, Y position du coin en haut à gauche de l'élément
-		=> int width, length
+		=> int width, length ? NON car pas utilisé pour tous les éléments.
 		=> méthode Draw();
 
 	Classe CLIWindow pour représenter une fenêtre
 		=> possède une bordure
 
 	Classe CLIModalWindow qui permet la saisie
-		=> peut saisir plusieurs entrées
+		=> peut saisir plusieurs entrées ? NON une entrée par InputWindow, pop du stack puis création d'une nouvelle.
 
 	Classe CLITable pour afficher un tableau de cellules de taille fixe
 
 	Classe CLIMenu pour afficher un menu avec différentes options.
+
+CLITable:
+	Un string pour les entêtes;
+	Un string pour la bordure horizontale des cellules
+
+	Le contenu est rangé dans un string[][] ?
+	utilisation d'une méthode statique dans jeu pour retourner tous les attributs sous forme d'une List<String>
+	utilisation d'une méthode statique dans Jeux pour retourner tous les attributs dans un string[][].
+	
+	Pour l'affichage, dans le cas ou la taille du string est > à la taille de la cellule, on coupe.
+	à l'inverse, on rajoute des espaces.
+	principe d'affichage:
+		on affiche la ligne d'en tête précalc.
+		on affiche la ligne horizontale
+		pour chaque ligne de data[][]
+			on crée un string vide out
+			pour chaque string de data[i]
+				si plus petit que la taille de la cellule
+					on ajoute le texte dans out
+					pour chaque caractère manquant on ajoute un espace
+				sinon
+					

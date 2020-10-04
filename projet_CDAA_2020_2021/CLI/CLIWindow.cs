@@ -20,47 +20,43 @@ namespace projet_CDAA_2020_2021.CLI
 
         public CLIWindow(int x, int y, int width, int height) : base(x, y)
         {
-            this.width = width - 1;
-            this.height = height - 1;
+            this.width = width-1;
+            this.height = height-1;
         }
 
         public override void Draw()
         {
-            Console.SetCursorPosition(X, Y);
-            Console.Write("+");
-            Console.SetCursorPosition(X + Width, Y);
-            Console.Write("+");
-            Console.SetCursorPosition(X, Y + Height);
-            Console.Write("+");
-            Console.SetCursorPosition(X + Width, Y + Height);
-            Console.Write("+");
+            StringBuilder horizontal = new StringBuilder();
+            horizontal.Append('+');
+            horizontal.Append('=', width -2);
+            horizontal.Append('+');
 
-            for (int i = X + 1; i < X + Width; i++)
-            {
-                Console.SetCursorPosition(i, Y);
-                Console.Write("=");
-                Console.SetCursorPosition(i, Y + Height);
-                Console.Write("=");
-            }
+            Console.SetCursorPosition(X, Y);
+            Console.Write(horizontal.ToString());
+            Console.SetCursorPosition(X, Y + height);
+            Console.Write(horizontal.ToString());
+
 
             for (int i = Y + 1; i < Y + Height; i++)
             {
                 Console.SetCursorPosition(X, i);
                 Console.Write("|");
-                Console.SetCursorPosition(X + Width, i);
+                Console.SetCursorPosition(X + width -1, i);
                 Console.Write("|");
             }
         }
 
         public override void Clear()
         {
-            for (int i = X; i < X + width; i++)
-            {
-                Console.SetCursorPosition(i, Y);
-                Console.Write(" ");
-                Console.SetCursorPosition(i, Y + Height);
-                Console.Write(" ");
-            }
+            StringBuilder horizontal = new StringBuilder();
+            horizontal.Append(' ', width);
+
+            Console.SetCursorPosition(X, Y);
+            Console.Write(horizontal.ToString());
+            Console.SetCursorPosition(X, Y + Height);
+            Console.Write(horizontal.ToString());
+
+            horizontal = null;
 
             for (int i = Y; i < Y + Height; i++)
             {
