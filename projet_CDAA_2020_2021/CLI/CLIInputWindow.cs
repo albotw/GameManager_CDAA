@@ -10,17 +10,17 @@ namespace projet_CDAA_2020_2021.CLI
     class CLIInputWindow : CLIWindow
     {
         private string text;
-        public string Text;
+        public string Text { set => text = value;  }
 
         private string userText;
-        public string UserText;
+        public string UserText { get => userText; }
 
         private string placeholder = "<ESPACE> pour rentrer du texte";
 
         public CLIInputWindow() : base()
         {
             text = "";
-            UserText = "";
+            userText = "";
         }
 
         ~CLIInputWindow()
@@ -42,6 +42,12 @@ namespace projet_CDAA_2020_2021.CLI
             SetCursorPosition(this.X +1, this.Y + 3);
             Write(" > " + (this.userText == "" ? this.placeholder : this.userText));
             //Console.CursorVisible = true;
+        }
+
+
+        public void Flush()
+        {
+            this.userText = "";
         }
 
         public override void Clear()

@@ -110,6 +110,16 @@ namespace projet_CDAA_2020_2021.core
             return new List<Jeu>(tmp);
         }
 
+        public List<string[]> ToStringArray()
+        {
+            List<string[]> output = new List<string[]>();
+            foreach(Jeu j in liste)
+            {
+                output.Add(j.ToStringArray().ToArray());
+            }
+
+            return output;
+        }
         public int Size()
         {
             return this.liste.Count;

@@ -76,4 +76,45 @@ CLITable:
 					on ajoute le texte dans out
 					pour chaque caractère manquant on ajoute un espace
 				sinon
-					
+
+====================================================================================================================================================
+
+On crée la fenêtre d'entourage
+On crée la table du catalogue
+On crée le menu.
+
+l'utilisateur choisit une commande => menu invoque DispatchCommand avec l'identifiant de la commande
+	Chaque commande permet la création/suppresions d'éléments d'interface.
+
+Pour ajouter un jeu:
+	l'utilisateur se déplace dans le menu et prend la commande 0
+	On récupère chaque param avec des CLIInputWindow qui sont:
+		crée
+		ajoute dans drawStack
+		on récupère la valeur user
+		on la supprime du drawStack
+		on vérifie la valeur
+		si valide on passe à la suite, sinon on recommence.
+	une fois qu'on a toutes les valeurs, on crée le jeu et on l'ajoute au catalogue.
+
+Pour supprimer un jeu
+	l'utilisateur se déplace dans le menu et prend la commande 1
+	on crée une CLIInputWindow pour récupérer le nom du jeu
+	si le jeu existe on le supprime
+	sinon rien ne se passe
+
+pour trier
+	l'utilisateur se déplace dans le menu et prend la commande 2
+	On crée un CLIMenu pour choisir le champ de tri
+	le CLIMenu retourne la commande 2X en fonction du paramètre choisi
+	on récupère les données dans une instance tempoiraire de Jeux triée
+	on recrée une table et on affiche les données de l'instance temporaire.
+
+
+pour rechercher
+	l'utilisateur se déplace dans le menu et prend la commande 3
+	On crée un CLIMenu pour choisir le champ de la recherche
+	le CLIMenu retourne la commande 3X en fonction du champ choisi
+	On crée une CLIInputWindow pour récupérer la recherche
+	on applique la recherche dans une nouvelle instance de jeux
+	on recrée une table et on affiche les données de l'instance temporaire.

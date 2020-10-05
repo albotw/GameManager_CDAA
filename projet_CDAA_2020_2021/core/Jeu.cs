@@ -62,14 +62,14 @@ namespace projet_CDAA_2020_2021.core
             s += "\nediteur: " + this.editeur;
             s += "\ngenre: " + Enum.GetName(typeof(Genre), this.genre);
             s += "\nprix: " + this.prix + " euros";
-            s += "\nsortie: " + this.sortie.ToString("F", new System.Globalization.CultureInfo("fr-FR"));
+            s += "\nsortie: " + this.sortie.ToString("d", new System.Globalization.CultureInfo("fr-FR"));
             s += "\nreconditionné: " + (this.reconditionne == true ? "oui" : "non");
 
             return s;
         }
 
         //pour affichage dans une CLITable
-        public List<string> ToStringTable()
+        public List<string> ToStringArray()
         {
             List<string> output= new List<string>();
 
@@ -79,7 +79,7 @@ namespace projet_CDAA_2020_2021.core
             output.Add(editeur);
             output.Add(genre.ToString());
             output.Add("" + prix);
-            output.Add(sortie.ToString("F", new System.Globalization.CultureInfo("fr-FR")));
+            output.Add(sortie.ToString("d", new System.Globalization.CultureInfo("fr-FR")));
             output.Add((this.reconditionne == true ? "oui" : "non"));
 
             return output;
@@ -90,37 +90,6 @@ namespace projet_CDAA_2020_2021.core
             Console.Write("nom ?"); this.nom = Console.ReadLine();
             Console.Write("description ? "); this.description = Console.ReadLine();
             Console.Write("plateforme ? "); this.plateforme = Console.ReadLine();
-            Console.Write("editeur ? "); this.editeur = Console.ReadLine();
-
-            string tmp;
-            Console.Write("Genre ? "); tmp = Console.ReadLine();
-            this.genre = (Genre)Enum.Parse(typeof(Genre), tmp, true);
-
-            Console.Write("prix ? "); this.prix = Double.Parse(Console.ReadLine());
-
-            int jour, mois, annee;
-            Console.Write("Date de sortie (j, m, a) ? ");
-            jour = Int32.Parse(Console.ReadLine());
-            mois = Int32.Parse(Console.ReadLine());
-            annee = Int32.Parse(Console.ReadLine());
-            this.sortie = new DateTime(annee, mois, jour);
-
-            Console.Write("reconditionné ? (oui | non) "); this.reconditionne = (Console.ReadLine() == "oui" ? true : false);
-        }
-
-        //TODO: adapter à la CLI.
-        public virtual void input2()
-        {
-
-            Program.cli.WriteMiddle("nom ?", 10);
-            Console.CursorVisible = true;
-            Console.SetCursorPosition(110, 11);
-            this.nom = Console.ReadLine();
-
-
-
-            Program.cli.WriteMiddle("description ? ", 10); this.description = Console.ReadLine();
-            Program.cli.WriteMiddle("plateforme ? ", 10); this.plateforme = Console.ReadLine();
             Console.Write("editeur ? "); this.editeur = Console.ReadLine();
 
             string tmp;
