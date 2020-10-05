@@ -23,16 +23,15 @@ namespace projet_CDAA_2020_2021.CLI
         public void init()
         {
             Title = "Gestion des jeux | 4 entrées";
-            ConsoleHelper.SetCurrentFont("Consolas", 16);
+            //ConsoleHelper.SetCurrentFont("Consolas", 16);
             drawStack = new Stack<CLIElement>();
 
 
             CursorVisible = false;
-            //Console.WriteLine(Console.LargestWindowWidth);
-            //Console.WriteLine(Console.LargestWindowHeight);
-            SetWindowSize(windowWidth, windowHeight);
+            Title = "[" + LargestWindowWidth + "x" + LargestWindowHeight + "]";
+            SetWindowSize(LargestWindowWidth, LargestWindowHeight);
 
-            w = new CLIWindow(0, 0, 220, 60);
+            w = new CLIWindow(0, 0, 180, 40);
             drawStack.Push(w);
             //w2 = new CLIWindow(60, 4, 10, 10);
             //drawStack.Push(w2);

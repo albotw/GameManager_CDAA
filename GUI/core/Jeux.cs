@@ -128,6 +128,17 @@ namespace projet_CDAA_2020_2021.core
             return null;
         }
 
+        public List<string> getNames()
+        {
+            List<string> output = new List<string>();
+            foreach(Jeu j in liste)
+            {
+                output.Add(j.Nom);
+            }
+
+            return output;
+        }
+
         public override string ToString()
         {
             string s = base.ToString();

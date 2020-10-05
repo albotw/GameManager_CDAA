@@ -47,5 +47,20 @@ namespace projet_CDAA_2020_2021.CLI
 
             this.data = data;
         }
+
+        public override void Draw()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void Clear()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void handleInput(ConsoleKey key)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
