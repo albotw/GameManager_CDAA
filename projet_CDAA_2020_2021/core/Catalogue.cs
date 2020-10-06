@@ -24,14 +24,9 @@ namespace projet_CDAA_2020_2021.core
             lesJeux.Remove(j);
         }
 
-        public List<Jeu> getAll(string property, object arg)
+        public List<Jeu> Search(string property, object arg)
         {
             return lesJeux.Search(property, arg);
-        }
-
-        public Jeu getJeu(string name)
-        {
-            return getJeu(name);
         }
 
         public List<Jeu> Sort(string field, bool reverse)

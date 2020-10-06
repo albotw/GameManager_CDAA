@@ -54,7 +54,7 @@ namespace projet_CDAA_2020_2021.CLI
         {
             base.Clear();
             StringBuilder space = new StringBuilder();
-            space.Append(' ', this.Width);
+            space.Append(' ', this.Width+1);
 
             SetCursorPosition(this.X+1, this.Y + 1);
             Write(space.ToString());
@@ -62,7 +62,6 @@ namespace projet_CDAA_2020_2021.CLI
             Write(space.ToString());
 
             space = null;
-
         }
 
         public override void handleInput(ConsoleKey key)

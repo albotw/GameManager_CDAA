@@ -85,6 +85,7 @@ namespace projet_CDAA_2020_2021.core
             return output;
         }
 
+        //inutile car utilisation de la CLI
         public virtual void input()
         {
             Console.Write("nom ?"); this.nom = Console.ReadLine();
@@ -122,13 +123,6 @@ namespace projet_CDAA_2020_2021.core
             return false;
         }
 
-
-        public override int GetHashCode()
-        {
-            //return HashCode.Combine(nom, description, plateforme, editeur, genre, prix, sortie, reconditionne);
-            return 0;
-        }
-
         //? méthode Equals de IEquatable
         public bool Equals(Jeu other)
         {
@@ -159,6 +153,8 @@ namespace projet_CDAA_2020_2021.core
             {
                 switch (field)
                 {
+                    case "nom":
+                        return this.nom.CompareTo(other.nom);
                     case "description":
                         return this.description.CompareTo(other.Description);
                     case "plateforme":
@@ -182,6 +178,8 @@ namespace projet_CDAA_2020_2021.core
                 return 1;
             }
         }
+
+        // pour pouvoir faire j1 == j2
         public static bool operator ==(Jeu j1, Jeu j2)
         {
             if ((Object)j1 == null)
@@ -190,6 +188,7 @@ namespace projet_CDAA_2020_2021.core
                 return j1.Equals(j2);
         }
 
+        //pour pouvoir faire j1 != j2
         public static bool operator !=(Jeu j1, Jeu j2)
         {
             return !(j1 == j2);

@@ -21,7 +21,7 @@ namespace projet_CDAA_2020_2021
                 cli = new CLIManager();
                 cli.init();
 
-                CLIWindow w = new CLIWindow(0, 0, 220, 70);
+                CLIWindow w = new CLIWindow(0, 0, 180, 40);
                 cli.AddElement(w);
 
                 string[] tableHeader = { "NOM", "DESCRIPTION", "PLATEFORME", "EDITEUR", "GENRE", "PRIX", "SORTIE", "RECONDITIONNE" };

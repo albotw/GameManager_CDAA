@@ -5,6 +5,8 @@ namespace projet_CDAA_2020_2021.core
 {
     class JeuRetro : Jeu, IFieldComparable<JeuRetro>
     {
+        //TODO: vériifer l'implémentation dans le programme.
+
         private string etat;
         public string Etat { get => etat; set => etat = value; }
 

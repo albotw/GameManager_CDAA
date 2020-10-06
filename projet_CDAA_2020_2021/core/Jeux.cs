@@ -49,7 +49,7 @@ namespace projet_CDAA_2020_2021.core
             this.lastUpdate = DateTime.Now;
         }
 
-        public List<Jeu> Search()
+        public List<Jeu> GetAll()
         {
             return this.liste;
         }
@@ -62,6 +62,10 @@ namespace projet_CDAA_2020_2021.core
             {
                 switch (property)
                 {
+                    case "nom":
+                        if (j.Nom == (string)arg)
+                            tmp.Add(j);
+                        break;
                     case "genre":
                         if (j.Genre == (Genre)arg)
                             tmp.Add(j);
@@ -119,23 +123,6 @@ namespace projet_CDAA_2020_2021.core
             }
 
             return output;
-        }
-        public int Size()
-        {
-            return this.liste.Count;
-        }
-
-        public Jeu getJeu(string name)
-        {
-            foreach (Jeu j in liste)
-            {
-                if (j.Nom == name)
-                {
-                    return j;
-                }
-            }
-
-            return null;
         }
 
         public override string ToString()

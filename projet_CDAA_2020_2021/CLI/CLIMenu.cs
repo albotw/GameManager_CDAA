@@ -16,7 +16,6 @@ namespace projet_CDAA_2020_2021.CLI
 
         private int userPos;
 
-
         public CLIMenu() : base()
         {
             this.commands = new string[MAX_SIZE];
