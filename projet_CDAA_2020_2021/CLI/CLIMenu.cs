@@ -50,13 +50,33 @@ namespace projet_CDAA_2020_2021.CLI
 
                     commands[0] = "[ ] Ajouter un jeu";
                     commands[1] = "[ ] Supprimer un jeu";
-                    commands[2] = "[ ] Rechercher un jeu";
-                    commands[3] = "[ ] Rechercher un genre";
+                    commands[2] = "[ ] Trier par champ";
+                    commands[3] = "[ ] Faire une recherche";
 
                     commandID[0] = 0;
                     commandID[1] = 1;
                     commandID[2] = 2;
                     commandID[3] = 3;
+                    break;
+
+                case 2:
+                    this.commands = new string[8];
+                    this.commandID = new int[8];
+
+                    commands[0] = "[ ] Nom";
+                    commands[1] = "[ ] Description";
+                    commands[2] = "[ ] Plateforme";
+                    commands[3] = "[ ] Editeur";
+                    commands[4] = "[ ] Genre";
+                    commands[5] = "[ ] Prix";
+                    commands[6] = "[ ] Sortie";
+                    commands[7] = "[ ] Reconditionne";
+
+                    for (int i = 20; i < 28; i++)
+                    {
+                        commandID[i - 20] = i;
+                    }
+
                     break;
             }
         }
@@ -115,7 +135,7 @@ namespace projet_CDAA_2020_2021.CLI
                     break;
 
                 case ConsoleKey.Enter:
-                    Program.dispatchCommand(0);
+                    Program.dispatchCommand(commandID[this.userPos]);
                     break;
             }
         }

@@ -27,6 +27,7 @@ namespace projet_CDAA_2020_2021.CLI
 
         public void DeleteTop()
         {
+            drawStack.Peek().Clear();
             drawStack.Pop();
         }
 

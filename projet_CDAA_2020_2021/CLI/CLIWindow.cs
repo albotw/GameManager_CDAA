@@ -58,7 +58,7 @@ namespace projet_CDAA_2020_2021.CLI
 
             horizontal = null;
 
-            for (int i = Y; i < Y + Height; i++)
+            for (int i = Y; i <= Y + Height; i++)
             {
                 Console.SetCursorPosition(X, i);
                 Console.Write(" ");

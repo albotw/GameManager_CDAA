@@ -106,12 +106,13 @@ namespace projet_CDAA_2020_2021.core
             return tmp;
         }
 
-        public List<Jeu> Sort(string field, bool reverse)
+        public void Sort(string field, bool reverse)
         {
             QuickSort<Jeu> qk = new QuickSort<Jeu>();
             Jeu[] tmp = liste.ToArray();
             qk.Sort(ref tmp, 0, liste.Count - 1, field, reverse);
-            return new List<Jeu>(tmp);
+            this.liste = new List<Jeu>(tmp);
+            //return new List<Jeu>(tmp);
         }
 
         public List<string[]> ToStringArray()

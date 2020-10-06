@@ -1,6 +1,7 @@
 ﻿using projet_CDAA_2020_2021.core;
 using projet_CDAA_2020_2021.CLI;
 using System;
+using System.Runtime.CompilerServices;
 
 namespace projet_CDAA_2020_2021
 {
@@ -15,13 +16,14 @@ namespace projet_CDAA_2020_2021
         {
             c = new Catalogue();
             c.Init();
+            //c.Sort("nom", false);
 
             if (true)
             {
                 cli = new CLIManager();
                 cli.init();
 
-                CLIWindow w = new CLIWindow(0, 0, 180, 40);
+                CLIWindow w = new CLIWindow(0, 0, 200, 40);
                 cli.AddElement(w);
 
                 string[] tableHeader = { "NOM", "DESCRIPTION", "PLATEFORME", "EDITEUR", "GENRE", "PRIX", "SORTIE", "RECONDITIONNE" };
@@ -29,21 +31,12 @@ namespace projet_CDAA_2020_2021
                 table = new CLITable(2, 30, tableHeader,sizes,  null);
                 table.Data = c.getJeux().ToStringArray().ToArray();
 
-                CLIMenu menu = new CLIMenu(20, 3);
+                CLIMenu menu = new CLIMenu(5, 5);
                 menu.Init(1);
 
                 cli.AddElement(table);
                 cli.AddElement(menu);
                 cli.Loop();
-            }
-
-            if (false)
-            {
-                Console.WriteLine(c.getJeux().ToString());
-                Console.WriteLine("\n\n\n APPLICATION TRI\n\n\n");
-                Jeux j2 = new Jeux(c.Sort("prix", false));
-                Console.WriteLine(j2.ToString());
-                while (true) { }
             }
         }
 
@@ -56,7 +49,7 @@ namespace projet_CDAA_2020_2021
         {
             switch (command)
             {
-                case 0:
+                case 0:                     //Ajout d'un jeu
                     Jeu j = new Jeu();
 
                     CLIInputWindow tmp = new CLIInputWindow(50, 3, 50, "Entrez le nom du jeu");
@@ -119,17 +112,64 @@ namespace projet_CDAA_2020_2021
                     j.Reconditionne = (tmp.UserText == "oui" ? true : false);
                     cli.DeleteTop();
 
-                    tmp.Clear();
-
                     //j.input();
                     c.Add(j);
                     break;
 
-                case 1:
+                case 1:             // TODO: suppression d'un jeu
                     Jeu j2 = new Jeu();
                     j2.input();
                     c.Remove(j2);
                     break;
+
+                case 2:             //Tri des jeux: menu de choix du champ
+                    CLIMenu fieldSelector = new CLIMenu(35, 5);
+                    fieldSelector.Init(2);
+                    cli.AddElement(fieldSelector);
+                    cli.Update();
+                    break;
+
+                //VARIANTES DE TRI
+                case 20:
+                    c.Sort("nom", false);
+                    cli.DeleteTop();
+                    break;
+
+                case 21:
+                    c.Sort("description", false);
+                    cli.DeleteTop();
+                    break;
+
+                case 22:
+                    c.Sort("plateforme", false);
+                    cli.DeleteTop();
+                    break;
+
+                case 23:
+                    c.Sort("editeur", false);
+                    cli.DeleteTop();
+                    break;
+
+                case 24:
+                    c.Sort("genre", false);
+                    cli.DeleteTop();
+                    break;
+
+                case 25:
+                    c.Sort("prix", false);
+                    cli.DeleteTop();
+                    break;
+
+                case 26:
+                    c.Sort("sortie", false);
+                    cli.DeleteTop();
+                    break;
+
+                case 27:
+                    c.Sort("reconditionne", false);
+                    cli.DeleteTop();
+                    break;
+
 
             }
         }
