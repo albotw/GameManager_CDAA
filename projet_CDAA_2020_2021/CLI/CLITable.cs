@@ -95,7 +95,15 @@ namespace projet_CDAA_2020_2021.CLI
 
         public override void Clear()
         {
-            
+            //TODO Implémentation.
+            SetCursorPosition(this.X, this.Y);
+            StringBuilder space = new StringBuilder();
+            space.Append(' ', separator.Length);
+            for(int i = 0; i <= data.Length*2 +2 ; i++)
+            {
+                Console.Write(space.ToString());
+                SetCursorPosition(this.X, this.Y + i);
+            }
         }
 
         public override void handleInput(ConsoleKey key)

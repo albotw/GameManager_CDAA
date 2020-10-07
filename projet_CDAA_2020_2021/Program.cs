@@ -9,6 +9,8 @@ namespace projet_CDAA_2020_2021
     {
         public static Catalogue c;
 
+        public static Jeux searchResult = null;
+
         public static CLIManager cli;
 
         public static CLITable table;
@@ -16,7 +18,6 @@ namespace projet_CDAA_2020_2021
         {
             c = new Catalogue();
             c.Init();
-            //c.Sort("nom", false);
 
             if (true)
             {
@@ -24,6 +25,8 @@ namespace projet_CDAA_2020_2021
                 cli.init();
 
                 CLIWindow w = new CLIWindow(0, 0, 200, 40);
+                //taille yann PC FIXE: 200x40
+
                 cli.AddElement(w);
 
                 string[] tableHeader = { "NOM", "DESCRIPTION", "PLATEFORME", "EDITEUR", "GENRE", "PRIX", "SORTIE", "RECONDITIONNE" };
@@ -42,13 +45,25 @@ namespace projet_CDAA_2020_2021
 
         public static void updateMainTable()
         {
-            table.Data = c.getJeux().ToStringArray().ToArray();
+            if (searchResult == null)
+            {
+                table.Data = c.getJeux().ToStringArray().ToArray();
+            }
+            else
+            {
+                table.Data = searchResult.ToStringArray().ToArray();
+            }
         }
 
         public static void dispatchCommand(int command)
         {
             switch (command)
             {
+                //TODO: Optimisation
+                case -1:
+                    searchResult = null;
+                    break;
+
                 case 0:                     //Ajout d'un jeu
                     Jeu j = new Jeu();
 
@@ -170,6 +185,26 @@ namespace projet_CDAA_2020_2021
                     cli.DeleteTop();
                     break;
 
+                case 3:
+                    CLIMenu propertySelector = new CLIMenu(35, 5);
+                    propertySelector.Init(3);
+                    cli.AddElement(propertySelector);
+                    cli.Update();
+                    break;
+
+                case 30:
+                    tmp = new CLIInputWindow(55, 5, 40, "Entrez le nom");
+                    cli.AddElement(tmp);
+                    cli.Update();
+                    tmp.handleInput(Console.ReadKey(true).Key);
+                    searchResult = new Jeux(c.getJeux().Search("nom", tmp.UserText));
+                    cli.DeleteTop();
+                    cli.DeleteTop();
+                    table.Clear();
+                    updateMainTable();
+                    break;
+
+                //TODO: faire tous les cas de recherche
 
             }
         }

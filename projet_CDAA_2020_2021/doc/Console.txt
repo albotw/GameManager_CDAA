@@ -1,0 +1,9 @@
+﻿Params classe console:
+
+	Nom
+	Fabriquant
+	Génération
+	Sortie
+	nb ports manettes
+	support (DVD, Cartouche)
+	type (salon ou portable)

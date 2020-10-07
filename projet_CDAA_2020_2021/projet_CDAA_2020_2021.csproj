@@ -50,13 +50,15 @@
     <Compile Include="CLI\CLITable.cs" />
     <Compile Include="CLI\CLIWindow.cs" />
     <Compile Include="core\Catalogue.cs" />
-    <Compile Include="core\Genre.cs" />
+    <Compile Include="core\consoles\Console.cs" />
+    <Compile Include="core\consoles\Support.cs" />
+    <Compile Include="core\jeux\Genre.cs" />
     <Compile Include="core\IFieldComparable.cs" />
-    <Compile Include="core\Jeu.cs" />
-    <Compile Include="core\JeuRetro.cs" />
-    <Compile Include="core\Jeux.cs" />
+    <Compile Include="core\jeux\Jeu.cs" />
+    <Compile Include="core\jeux\JeuRetro.cs" />
+    <Compile Include="core\jeux\Jeux.cs" />
+    <Compile Include="datastructures\Panier.cs" />
     <Compile Include="utilities\QuickSort.cs" />
-    <Compile Include="datastructures\Ensemble.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="test.cs" />
@@ -66,6 +68,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="doc\Affichage console.txt" />
+    <Content Include="doc\Console.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
