@@ -1,0 +1,6 @@
+﻿Lier le type JeuRetro à l'affichage et aux commandes
+Rapport a faire
+Commentaires à ajouter
+Optimisations et polissage
+Fichiers de config pour les dimensions de l'affichage ? OU mode noCLI avec que des toString() ?
+implémenter système de catégories pour gérer plusieurs types.

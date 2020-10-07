@@ -9,7 +9,7 @@ namespace projet_CDAA_2020_2021
     {
         public static Catalogue c;
 
-        public static Jeux searchResult = null;
+        public static EnsembleJeux searchResult = null;
 
         public static CLIManager cli;
 
@@ -60,7 +60,8 @@ namespace projet_CDAA_2020_2021
             switch (command)
             {
                 //TODO: Optimisation
-                case -1:
+
+                case -1:                    //suppression de la table de recherche et affichage de la table principale.
                     searchResult = null;
                     break;
 
@@ -197,7 +198,7 @@ namespace projet_CDAA_2020_2021
                     cli.AddElement(tmp);
                     cli.Update();
                     tmp.handleInput(Console.ReadKey(true).Key);
-                    searchResult = new Jeux(c.getJeux().Search("nom", tmp.UserText));
+                    searchResult = new EnsembleJeux(c.getJeux().Search("nom", tmp.UserText));
                     cli.DeleteTop();
                     cli.DeleteTop();
                     table.Clear();

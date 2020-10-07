@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace projet_CDAA_2020_2021.core
+namespace projet_CDAA_2020_2021.core.jeux
 {
     class JeuRetro : Jeu, IFieldComparable<JeuRetro>
     {

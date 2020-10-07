@@ -5,12 +5,12 @@ namespace projet_CDAA_2020_2021.core
 {
     public class Catalogue
     {
-        private Jeux lesJeux;
+        private EnsembleJeux lesJeux;
         private DateTime lastUpdate;
 
         public Catalogue()
         {
-            lesJeux = new Jeux();
+            lesJeux = new EnsembleJeux();
             lastUpdate = DateTime.Now;
         }
 
@@ -40,7 +40,7 @@ namespace projet_CDAA_2020_2021.core
             lesJeux.Init();
         }
 
-        public Jeux getJeux()
+        public EnsembleJeux getJeux()
         {
             return this.lesJeux;
         }

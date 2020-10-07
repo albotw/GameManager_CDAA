@@ -10,16 +10,22 @@ namespace projet_CDAA_2020_2021.core.consoles
     {
         private string nom;
         public string Nom { get => nom; set => nom = value; }
+
         private string fabriquant;
         public string Fabriquant { get => fabriquant; set => fabriquant = value; }
+
         private int generation;
         public int Generation { get => generation; set => generation = value; }
+
         private DateTime sortie;
         public DateTime Sortie { get => sortie; set => sortie = value; }
+
         private int ports;
         public int Ports { get => ports; set => ports = value; }
+
         private Support support;
         public Support Support { get => support; set => support = value; }
+
         private string type;
         public string Type { get => type; set => type = value; }
 
@@ -72,6 +78,71 @@ namespace projet_CDAA_2020_2021.core.consoles
             output.Add(type);
 
             return output;
+        }
+
+        /*
+        public override bool Equals(object obj)
+        {
+            if (obj != null)
+            {
+                Console tmp = obj as Console;
+                return (this.nom == tmp.Nom
+                    && this.fabriquant == tmp.Fabriquant
+                    && this.generation == tmp.Generation)
+            }
+            return false;
+        }
+        */
+
+        public bool Equals (Console other)
+        {
+            if (other != null)
+                return (this.nom == other.Nom
+                    && this.fabriquant == other.Fabriquant
+                    && this.generation == other.Generation);
+            else
+                return false;
+        }
+
+        public int CompareTo(Console other)
+        {
+            if (other == null)
+                return 1;
+            else
+                return this.nom.CompareTo(other.nom);
+        }
+
+        public int CompareFieldTo(string field, Console other)
+        {
+            if (other != null)
+            {
+                switch (field)
+                {
+                    case "nom": return this.nom.CompareTo(other.Nom);
+                    case "fabriquant": return this.fabriquant.CompareTo(other.Fabriquant);
+                    case "generation": return this.generation.CompareTo(other.Generation);
+                    case "sortie": return this.sortie.CompareTo(other.Sortie);
+                    case "ports": return this.ports.CompareTo(other.Ports);
+                    case "support": return this.support.CompareTo(other.Support);
+                    case "type": return this.type.CompareTo(other.Type);
+                    default: return -1;
+                }
+            }
+            else
+                return 1;
+        }
+
+        public static bool operator == (Console c1, Console c2)
+        {
+            if (c1 == null)
+                return c2 == null;
+            else
+                return c1.Equals(c2);
+        }
+        
+        public static bool operator != (Console c1, Console c2)
+        {
+            return !(c1 == c2);
         }
     }
 }

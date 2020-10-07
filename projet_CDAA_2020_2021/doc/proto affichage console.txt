@@ -1,0 +1,21 @@
+﻿+-----------------------------------------------------------------------+
+|				--- Gestionnaire de catalogue ---
+|		> Ajouter un jeu
+|		> Supprimer un jeu
+|
+|		> rechercher un jeu: _______________
+|		> rechercher un genre: _____________
+|
+
+nom | description | plateforme | editeur | genre | prix | sortie | reconditionné |
+
+| NOM                             | DESCRIPTION	                         | PLATEFORME        | EDITEUR    |GENRE|PRIX    |SORTIE      |RECONDITIONNE|
++---------------------------------+--------------------------------------+-------------------+------------+-----+--------+------------+-------------+
+| Call of Duty Modern Warfare     | Jeu de guerre développé par treyarch | PC, PS4, XBOX ONE | Activision | FPS | 45.0 € | 15/04/2020 | oui         |
++---------------------------------+--------------------------------------+-------------------+------------+-----+--------+------------+-------------+
+
++------------------------+
+| Entrez le nom du jeu:	 |
+|						 |
+| > ___________________  |
++------------------------+

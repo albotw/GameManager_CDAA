@@ -1,28 +1,4 @@
-﻿+-----------------------------------------------------------------------+
-|				--- Gestionnaire de catalogue ---
-|		> Ajouter un jeu
-|		> Supprimer un jeu
-|
-|		> rechercher un jeu: _______________
-|		> rechercher un genre: _____________
-|
-
-nom | description | plateforme | editeur | genre | prix | sortie | reconditionné |
-
-| NOM                             | DESCRIPTION	                         | PLATEFORME        | EDITEUR    |GENRE|PRIX    |SORTIE      |RECONDITIONNE|
-+---------------------------------+--------------------------------------+-------------------+------------+-----+--------+------------+-------------+
-| Call of Duty Modern Warfare     | Jeu de guerre développé par treyarch | PC, PS4, XBOX ONE | Activision | FPS | 45.0 € | 15/04/2020 | oui         |
-+---------------------------------+--------------------------------------+-------------------+------------+-----+--------+------------+-------------+
-
-+------------------------+
-| Entrez le nom du jeu:	 |
-|						 |
-| > ___________________  |
-+------------------------+
-
-
-
-Séléction du texte:
+﻿Séléction du texte:
 	On fait une boucle qui regarde si on appuie sur les flèches.
 	on a un entier pos qui détermine sur quelle commande se trouve le curseur
 	quand on appuie sur bas, si on atteint la limite, soit on retourne a 0 soit on bloque

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace projet_CDAA_2020_2021.core
+namespace projet_CDAA_2020_2021.core.jeux
 {
     public class Jeu : IEquatable<Jeu>, IComparable<Jeu>, IFieldComparable<Jeu>
     {
@@ -110,6 +110,7 @@ namespace projet_CDAA_2020_2021.core
         }
 
         //? méthode Equals de Object
+        /*
         public override bool Equals(object obj)
         {
             if (obj != null)
@@ -122,6 +123,7 @@ namespace projet_CDAA_2020_2021.core
             }
             return false;
         }
+        */
 
         //? méthode Equals de IEquatable
         public bool Equals(Jeu other)

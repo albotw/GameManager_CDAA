@@ -1,5 +1,5 @@
 ﻿using System;
-namespace projet_CDAA_2020_2021.core
+namespace projet_CDAA_2020_2021.core.jeux
 {
     public enum Genre
     {

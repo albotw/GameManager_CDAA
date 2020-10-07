@@ -7,3 +7,9 @@
 	nb ports manettes
 	support (DVD, Cartouche)
 	type (salon ou portable)
+
+reprendre tout le système fait pour jeu.
+
+Pour changer de type, utiliser une commande du style "changer la catégorie (<catégorie actuelle>)" pour le menu de base.
+dans updateMainTable(), utiliser un switch pour déterminer quelle table principale utiliser
+a voir pour rendre les commandes uniformes par rapport à la catégorie.

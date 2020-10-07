@@ -51,12 +51,14 @@
     <Compile Include="CLI\CLIWindow.cs" />
     <Compile Include="core\Catalogue.cs" />
     <Compile Include="core\consoles\Console.cs" />
+    <Compile Include="core\consoles\EnsembleConsoles.cs" />
     <Compile Include="core\consoles\Support.cs" />
     <Compile Include="core\jeux\Genre.cs" />
     <Compile Include="core\IFieldComparable.cs" />
     <Compile Include="core\jeux\Jeu.cs" />
     <Compile Include="core\jeux\JeuRetro.cs" />
-    <Compile Include="core\jeux\Jeux.cs" />
+    <Compile Include="core\jeux\EnsembleJeux.cs" />
+    <Compile Include="datastructures\Ensemble.cs" />
     <Compile Include="datastructures\Panier.cs" />
     <Compile Include="utilities\QuickSort.cs" />
     <Compile Include="Program.cs" />
@@ -69,6 +71,8 @@
   <ItemGroup>
     <Content Include="doc\Affichage console.txt" />
     <Content Include="doc\Console.txt" />
+    <Content Include="doc\proto affichage console.txt" />
+    <Content Include="doc\TODO.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

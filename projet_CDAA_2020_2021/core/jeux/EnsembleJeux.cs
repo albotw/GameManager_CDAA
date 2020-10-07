@@ -1,30 +1,20 @@
-﻿using System;
+﻿using projet_CDAA_2020_2021.datastructures;
+using System;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using System.Text;
 
-namespace projet_CDAA_2020_2021.core
+namespace projet_CDAA_2020_2021.core.jeux
 {
-    public class Jeux
+    public class EnsembleJeux : Ensemble<Jeu>
     {
-        private DateTime lastUpdate;
-        public DateTime LastUpdate { get => lastUpdate; }
+        public EnsembleJeux() : base()
+        {}
 
-        private List<Jeu> liste;
+        public EnsembleJeux(List<Jeu> liste) : base (liste)
+        { }
 
-        public Jeux()
-        {
-            liste = new List<Jeu>();
-            lastUpdate = DateTime.Now;
-        }
-
-        public Jeux(List<Jeu> liste)
-        {
-            this.liste = liste;
-            lastUpdate = DateTime.Now;
-        }
-
-        public void Init()
+        public override void Init()
         {
             Add(new Jeu("Metal Gear Solid 2: Subsistance", "Un jeu de Hideo Kojima", "PC, PS2", "Konami, avec Hideo Kojima", Genre.Infiltration, 9.99, new DateTime(2003, 07, 14), false));
             Add(new Jeu("Metal Gear Solid", "Un jeu de Hideo Kojima", "PC, PS1, GameCube", "Konami, avec Hideo Kojima", Genre.Infiltration, 9.99, new DateTime(2000, 04, 21), false));
@@ -34,27 +24,7 @@ namespace projet_CDAA_2020_2021.core
             Add(new Jeu("Genshin Impact", "Copier Coller de Zelda BotW mais en moins bien", "PC, PS4, iOS, Android", "MiHoYo", Genre.Action_RPG, 0.00, new DateTime(2020, 09, 25), false));
         }
 
-        public void Add(Jeu j)
-        {
-            if (!liste.Contains(j))
-            {
-                this.liste.Add(j);
-                this.lastUpdate = DateTime.Now;
-            }
-        }
-
-        public void Remove(Jeu j)
-        {
-            this.liste.Remove(j);
-            this.lastUpdate = DateTime.Now;
-        }
-
-        public List<Jeu> GetAll()
-        {
-            return this.liste;
-        }
-
-        public List<Jeu> Search(string property, object arg)
+        public override List<Jeu> Search(string property, object arg)
         {
             List<Jeu> tmp = new List<Jeu>();
 
@@ -106,16 +76,7 @@ namespace projet_CDAA_2020_2021.core
             return tmp;
         }
 
-        public void Sort(string field, bool reverse)
-        {
-            QuickSort<Jeu> qk = new QuickSort<Jeu>();
-            Jeu[] tmp = liste.ToArray();
-            qk.Sort(ref tmp, 0, liste.Count - 1, field, reverse);
-            this.liste = new List<Jeu>(tmp);
-            //return new List<Jeu>(tmp);
-        }
-
-        public List<string[]> ToStringArray()
+        public override List<string[]> ToStringArray()
         {
             List<string[]> output = new List<string[]>();
             foreach(Jeu j in liste)
@@ -126,6 +87,8 @@ namespace projet_CDAA_2020_2021.core
             return output;
         }
 
+        //Inutile pour le moment.
+        /*
         public override string ToString()
         {
             string s = base.ToString();
@@ -136,6 +99,6 @@ namespace projet_CDAA_2020_2021.core
                 s += "\n\n" + j.ToString();
             }
             return s;
-        }
+        }*/
     }
 }
