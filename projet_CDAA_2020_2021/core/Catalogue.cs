@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using projet_CDAA_2020_2021.core.jeux;
+using projet_CDAA_2020_2021.core.consoles;
 
 namespace projet_CDAA_2020_2021.core
 {

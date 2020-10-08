@@ -13,7 +13,7 @@ namespace projet_CDAA_2020_2021.core.consoles
         public EnsembleConsoles() : base()
         { }
 
-        public EnsembleConsoles(List<Console> l) : base (l)
+        public EnsembleConsoles(List<Console> l) : base(l)
         { }
 
         public override void Init()
@@ -23,12 +23,55 @@ namespace projet_CDAA_2020_2021.core.consoles
 
         public override List<Console> Search(string property, object arg)
         {
-            throw new NotImplementedException();
+            List<Console> output = new List<Console>();
+
+            foreach (Console c in liste)
+            {
+                switch (property)
+                {
+                    case "nom":
+                        if (c.Nom == (string)arg)
+                            output.Add(c);
+                        break;
+                    case "fabriquant":
+                        if (c.Fabriquant == (string)arg)
+                            output.Add(c);
+                        break;
+                    case "generation":
+                        if (c.Generation == (int)arg)
+                            output.Add(c);
+                        break;
+                    case "sortie":
+                        if (c.Sortie == (DateTime)arg)
+                            output.Add(c);
+                        break;
+                    case "ports":
+                        if (c.Ports == (int)arg)
+                            output.Add(c);
+                        break;
+                    case "support":
+                        if (c.Support == (Support)arg)
+                            output.Add(c);
+                        break;
+                    case "type":
+                        if (c.Type == (string)arg)
+                            output.Add(c);
+                        break;
+                }
+            }
+
+            return output;
         }
 
         public override List<string[]> ToStringArray()
         {
-            throw new NotImplementedException();
+            List<string[]> output = new List<string[]>();
+            foreach (Console c in liste)
+            {
+                output.Add(c.ToStringArray().ToArray());
+            }
+
+            return output;
         }
     }
 }

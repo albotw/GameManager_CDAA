@@ -2,6 +2,7 @@
 using projet_CDAA_2020_2021.CLI;
 using System;
 using System.Runtime.CompilerServices;
+using projet_CDAA_2020_2021.core.jeux;
 
 namespace projet_CDAA_2020_2021
 {
@@ -24,14 +25,15 @@ namespace projet_CDAA_2020_2021
                 cli = new CLIManager();
                 cli.init();
 
-                CLIWindow w = new CLIWindow(0, 0, 200, 40);
+                CLIWindow w = new CLIWindow(0, 0, 190, 40);
                 //taille yann PC FIXE: 200x40
+                //taille yann  MAC 192x48
 
                 cli.AddElement(w);
 
                 string[] tableHeader = { "NOM", "DESCRIPTION", "PLATEFORME", "EDITEUR", "GENRE", "PRIX", "SORTIE", "RECONDITIONNE" };
-                int[] sizes = { 50, 50, 25, 25, 15, 5, 10, 14};
-                table = new CLITable(2, 30, tableHeader,sizes,  null);
+                int[] sizes = { 50, 50, 25, 25, 15, 5, 10, 14 };
+                table = new CLITable(2, 30, tableHeader, sizes, null);
                 table.Data = c.getJeux().ToStringArray().ToArray();
 
                 CLIMenu menu = new CLIMenu(5, 5);
@@ -133,9 +135,12 @@ namespace projet_CDAA_2020_2021
                     break;
 
                 case 1:             // TODO: suppression d'un jeu
-                    Jeu j2 = new Jeu();
-                    j2.input();
-                    c.Remove(j2);
+                    CLIInputWindow nameInput = new CLIInputWindow(50, 3, 50, "Entrez le nom du jeu a supprimer");
+                    cli.AddElement(nameInput);
+                    cli.Update();
+                    nameInput.handleInput(Console.ReadKey(true).Key);
+
+                    //c.Remove(new Jeu(nameInput.Text));
                     break;
 
                 case 2:             //Tri des jeux: menu de choix du champ
@@ -205,7 +210,7 @@ namespace projet_CDAA_2020_2021
                     updateMainTable();
                     break;
 
-                //TODO: faire tous les cas de recherche
+                    //TODO: faire tous les cas de recherche
 
             }
         }

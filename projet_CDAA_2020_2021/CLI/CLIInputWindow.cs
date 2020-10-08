@@ -10,7 +10,7 @@ namespace projet_CDAA_2020_2021.CLI
     class CLIInputWindow : CLIWindow
     {
         private string text;
-        public string Text { set => text = value;  }
+        public string Text { set => text = value; }
 
         private string userText;
         public string UserText { get => userText; }
@@ -39,26 +39,27 @@ namespace projet_CDAA_2020_2021.CLI
             base.Draw();
             SetCursorPosition(this.X + (this.Width - text.Length) / 2, this.Y + 1);
             Write(text);
-            SetCursorPosition(this.X +1, this.Y + 3);
+            SetCursorPosition(this.X + 1, this.Y + 3);
             Write(" > " + (this.userText == "" ? this.placeholder : this.userText));
             //Console.CursorVisible = true;
         }
 
 
-        public void Flush()
+        public void ChangeText(string nText)
         {
             this.userText = "";
+            this.text = nText;
         }
 
         public override void Clear()
         {
             base.Clear();
             StringBuilder space = new StringBuilder();
-            space.Append(' ', this.Width+1);
+            space.Append(' ', this.Width + 1);
 
-            SetCursorPosition(this.X+1, this.Y + 1);
+            SetCursorPosition(this.X + 1, this.Y + 1);
             Write(space.ToString());
-            SetCursorPosition(this.X+1, this.Y + 3);
+            SetCursorPosition(this.X + 1, this.Y + 3);
             Write(space.ToString());
 
             space = null;

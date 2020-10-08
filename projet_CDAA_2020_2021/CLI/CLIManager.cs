@@ -17,7 +17,8 @@ namespace projet_CDAA_2020_2021.CLI
             Title = "Gestion des jeux | " + "[" + LargestWindowWidth + "x" + LargestWindowHeight + "]";
             drawStack = new Stack<CLIElement>();
             CursorVisible = false;
-            SetWindowSize(LargestWindowWidth, LargestWindowHeight);
+            //SetWindowSize(LargestWindowWidth, LargestWindowHeight);
+            SetWindowSize(191, 41);
         }
 
         public void AddElement(CLIElement e)
