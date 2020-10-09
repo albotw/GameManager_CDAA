@@ -49,6 +49,7 @@
     <Compile Include="CLI\CLIMenu.cs" />
     <Compile Include="CLI\CLITable.cs" />
     <Compile Include="CLI\CLIWindow.cs" />
+    <Compile Include="commands\CommandesJeux.cs" />
     <Compile Include="core\Catalogue.cs" />
     <Compile Include="core\consoles\Console.cs" />
     <Compile Include="core\consoles\EnsembleConsoles.cs" />

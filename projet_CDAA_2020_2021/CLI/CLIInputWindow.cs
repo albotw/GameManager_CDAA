@@ -34,6 +34,22 @@ namespace projet_CDAA_2020_2021.CLI
             this.userText = "";
         }
 
+        public void Init(int config)
+        {
+            this.userText = "";
+            switch (config)
+            {
+                case 0: this.text = "Entrez le nom"; break;
+                case 1: this.text = "Entrez une description:"; break;
+                case 2: this.text = "Entrez la/les plateforme/s du jeu"; break;
+                case 3: this.text = "Entrez l'editeur"; break;
+                case 4: this.text = "Entrez le genre"; break;
+                case 5: this.text = "Entrez le prix"; break;
+                case 6: this.text = "Entrez la date de sortie (jj/mm/aaaa) du jeu"; break;
+                case 7: this.text = "Le jeu est reconditionné ?"; break;
+            }
+        }
+
         public override void Draw()
         {
             base.Draw();
@@ -42,13 +58,6 @@ namespace projet_CDAA_2020_2021.CLI
             SetCursorPosition(this.X + 1, this.Y + 3);
             Write(" > " + (this.userText == "" ? this.placeholder : this.userText));
             //Console.CursorVisible = true;
-        }
-
-
-        public void ChangeText(string nText)
-        {
-            this.userText = "";
-            this.text = nText;
         }
 
         public override void Clear()

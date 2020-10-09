@@ -8,11 +8,15 @@ namespace projet_CDAA_2020_2021.core
     public class Catalogue
     {
         private EnsembleJeux lesJeux;
+        private EnsembleConsoles lesConsoles;
+
         private DateTime lastUpdate;
 
         public Catalogue()
         {
             lesJeux = new EnsembleJeux();
+            lesConsoles = new EnsembleConsoles();
+
             lastUpdate = DateTime.Now;
         }
 
@@ -42,9 +46,14 @@ namespace projet_CDAA_2020_2021.core
             lesJeux.Init();
         }
 
-        public EnsembleJeux getJeux()
+        public EnsembleJeux GetEnsembleJeux()
         {
             return this.lesJeux;
+        }
+
+        public EnsembleConsoles GetEnsembleConsoles()
+        {
+            return this.lesConsoles;
         }
     }
 }

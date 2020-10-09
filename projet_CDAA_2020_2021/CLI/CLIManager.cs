@@ -17,8 +17,7 @@ namespace projet_CDAA_2020_2021.CLI
             Title = "Gestion des jeux | " + "[" + LargestWindowWidth + "x" + LargestWindowHeight + "]";
             drawStack = new Stack<CLIElement>();
             CursorVisible = false;
-            //SetWindowSize(LargestWindowWidth, LargestWindowHeight);
-            SetWindowSize(191, 41);
+            SetWindowSize(LargestWindowWidth, LargestWindowHeight);
         }
 
         public void AddElement(CLIElement e)
@@ -47,12 +46,14 @@ namespace projet_CDAA_2020_2021.CLI
 
         public void Update()
         {
+            
             CLIElement[] tmp = drawStack.ToArray();
             for (int i = tmp.Length - 1; i >= 0; i--)
             {
                 tmp[i].Clear();
                 tmp[i].Draw();
             }
+            
             //drawStack.Peek().Draw();
             SetCursorPosition(0, 0);
         }
