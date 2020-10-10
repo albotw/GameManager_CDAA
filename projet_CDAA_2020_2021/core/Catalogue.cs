@@ -20,14 +20,20 @@ namespace projet_CDAA_2020_2021.core
             lastUpdate = DateTime.Now;
         }
 
-        public void Add(Jeu j)
+        public void Add(object o)
         {
-            lesJeux.Add(j);
+            if (o.GetType() == typeof(Jeu))
+                lesJeux.Add(o as Jeu);
+            else if (o.GetType() == typeof(consoles.Console))
+                lesConsoles.Add(o as consoles.Console);
         }
 
-        public void Remove(Jeu j)
+        public void Remove(object o)
         {
-            lesJeux.Remove(j);
+            if (o.GetType() == typeof(Jeu))
+                lesJeux.Remove(o as Jeu);
+            else if (o.GetType() == typeof(consoles.Console))
+                lesConsoles.Remove(o as consoles.Console);
         }
 
         public List<Jeu> Search(string property, object arg)

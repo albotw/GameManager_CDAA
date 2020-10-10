@@ -1,0 +1,16 @@
+﻿[-infini, -1] => commandes générales
+	-1 => suppression de la recherche et affichage de toute la table
+	-2 => changement de catégorie de produit
+
+[0, 99] => plage réservée pour les jeux
+	[0, 3] => commandes pour gestion des jeux
+		0 => ajouter un jeu
+		1 => supprimer un jeu
+		2 => trier les jeux
+		3 => faire une recherche
+
+	[20, 27] => commandes pour spécifier le champ de tri des jeux
+	[30, 37] => commandes pour spécifier le champ de recherche des jeux
+
+[100, 199] => plage réservée pour les consoles
+	[]

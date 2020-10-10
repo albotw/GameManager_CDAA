@@ -45,20 +45,22 @@ namespace projet_CDAA_2020_2021.CLI
             switch (config)
             {
                 case 1:
-                    this.commands = new string[5];
-                    this.commandID = new int[5];
+                    this.commands = new string[6];
+                    this.commandID = new int[6];
 
                     commands[0] = "[ ] Ajouter un jeu";
                     commands[1] = "[ ] Supprimer un jeu";
                     commands[2] = "[ ] Trier par champ";
                     commands[3] = "[ ] Faire une recherche";
                     commands[4] = "[ ] Afficher tout";
+                    commands[5] = "[ ] Afficher les consoles";
 
                     commandID[0] = 0;
                     commandID[1] = 1;
                     commandID[2] = 2;
                     commandID[3] = 3;
                     commandID[4] = -1;
+                    commandID[5] = -2;
                     break;
 
                 case 2:
