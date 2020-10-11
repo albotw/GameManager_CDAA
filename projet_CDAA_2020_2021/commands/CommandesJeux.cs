@@ -98,17 +98,20 @@ namespace projet_CDAA_2020_2021.commands
                 c.Add(j);
             }
 
-            else if (command == 1)
+            else if (command == 1)  //suppression d'un jeu, l'utilisateur n'a qu'a rentrer le nom du jeu pour le supprimer.
             {
                 CLIInputWindow nameInput = new CLIInputWindow(50, 3, 50, "Entrez le nom du jeu a supprimer");
                 cli.AddElement(nameInput);
                 cli.Update();
                 nameInput.handleInput(Console.ReadKey(true).Key);
+                cli.DeleteTop();
 
-                //c.Remove(new Jeu(nameInput.Text));
+                c.Remove(new Jeu(nameInput.UserText));
+                Program.table.Clear();
+                Program.updateMainTable();
             }
 
-            else if (command == 2)
+            else if (command == 2)  //partie 1 du tri: création du menu de séléction de champ de tri
             {
                 CLIMenu fieldSelector = new CLIMenu(35, 5);
                 fieldSelector.Init(2);
@@ -116,7 +119,7 @@ namespace projet_CDAA_2020_2021.commands
                 cli.Update();
             }
 
-            else if (command >= 20 && command < 30)
+            else if (command >= 20 && command < 30) //partie 2 du tri: application sur la table
             {
                 switch (command)
                 {
@@ -133,7 +136,7 @@ namespace projet_CDAA_2020_2021.commands
                 cli.DeleteTop(); //pour supprimer le menu.
             }
 
-            else if (command == 3)
+            else if (command == 3)  //partie 1 de la recherche: création du menu de séléction de champ de recherche
             {
                 CLIMenu fieldSelector = new CLIMenu(35, 5);
                 fieldSelector.Init(3);
@@ -141,7 +144,7 @@ namespace projet_CDAA_2020_2021.commands
                 cli.Update();
             }
 
-            else if (command >= 30 && command < 40)
+            else if (command >= 30 && command < 40) //partie 2 de la recherche: saisie de la valeur du champ, application de la recherche et mise a jour de la table d'affichage
             {
                 CLIInputWindow tmp = new CLIInputWindow(55, 5, 40, "");
                 tmp.Init(command - 20);

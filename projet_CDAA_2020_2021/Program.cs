@@ -55,6 +55,8 @@ namespace projet_CDAA_2020_2021
 
         public static void updateMainTable()
         {
+            Console.SetCursorPosition(1, 1);
+            Console.Write(c.GetEnsembleJeux().GetAll().Count);
             switch(state)
             {
                 case 0: table.Data = c.GetEnsembleJeux().ToStringArray().ToArray(); break;

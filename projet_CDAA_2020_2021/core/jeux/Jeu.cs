@@ -27,6 +27,7 @@ namespace projet_CDAA_2020_2021.core.jeux
         public DateTime Sortie { get => sortie; set => sortie = value; }
 
         private bool reconditionne;
+
         public bool Reconditionne { get => reconditionne; set => reconditionne = value; }
 
         public Jeu()
@@ -51,6 +52,11 @@ namespace projet_CDAA_2020_2021.core.jeux
             this.prix = prix;
             this.sortie = sortie;
             this.reconditionne = reconditionne;
+        }
+
+        public Jeu(string nom)
+        {
+            this.nom = nom;
         }
 
         public override string ToString()
@@ -109,22 +115,6 @@ namespace projet_CDAA_2020_2021.core.jeux
             Console.Write("reconditionné ? (oui | non) "); this.reconditionne = (Console.ReadLine() == "oui" ? true : false);
         }
 
-        //? méthode Equals de Object
-        /*
-        public override bool Equals(object obj)
-        {
-            if (obj != null)
-            {
-                Jeu tmp = obj as Jeu;
-                return (this.nom == tmp.nom
-                    && this.plateforme == tmp.plateforme
-                    && this.reconditionne == tmp.reconditionne
-                    && this.prix == tmp.prix);
-            }
-            return false;
-        }
-        */
-
         //? méthode Equals de IEquatable
         public bool Equals(Jeu other)
         {
@@ -134,10 +124,7 @@ namespace projet_CDAA_2020_2021.core.jeux
             }
             else
             {
-                return (other.nom == this.nom
-                    && other.Plateforme == this.plateforme
-                    && other.reconditionne == this.reconditionne
-                    && other.prix == this.prix);
+                return (this.nom.Equals(other.Nom));
             }
         }
 
