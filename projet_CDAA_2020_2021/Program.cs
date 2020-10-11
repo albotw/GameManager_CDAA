@@ -4,6 +4,11 @@ using System;
 using System.Runtime.CompilerServices;
 using projet_CDAA_2020_2021.core.jeux;
 using projet_CDAA_2020_2021.commands;
+using projet_CDAA_2020_2021.core.consoles;
+
+using static System.Console;
+
+using Console = projet_CDAA_2020_2021.core.consoles.Console;
 
 namespace projet_CDAA_2020_2021
 {
@@ -11,7 +16,9 @@ namespace projet_CDAA_2020_2021
     {
         public static Catalogue c;
 
-        public static EnsembleJeux searchResult = null;
+        public static EnsembleJeux searchResultJeux = null;
+
+        public static EnsembleConsoles searchResultConsoles = null;
 
         public static CLIManager cli;
 
@@ -55,13 +62,15 @@ namespace projet_CDAA_2020_2021
 
         public static void updateMainTable()
         {
-            Console.SetCursorPosition(1, 1);
-            Console.Write(c.GetEnsembleJeux().GetAll().Count);
+            SetCursorPosition(1, 1);
+            Write(c.GetEnsembleJeux().GetAll().Count);
+
             switch(state)
             {
                 case 0: table.Data = c.GetEnsembleJeux().ToStringArray().ToArray(); break;
                 case 1: table.Data = c.GetEnsembleConsoles().ToStringArray().ToArray(); break;
-                case 2: table.Data = searchResult.ToStringArray().ToArray(); break;
+                case 2: table.Data = searchResultJeux.ToStringArray().ToArray(); break;
+                case 3: table.Data = searchResultConsoles.ToStringArray().ToArray(); break;
             }
         }
 
@@ -72,13 +81,26 @@ namespace projet_CDAA_2020_2021
             {
                 CommandesJeux.handleCommand(command);
             }
+            else if (state == 1)
+            {
+                CommandesConsoles.handleCommand(command);
+            }
 
             switch (command)
             {
                 //commandes générales.
-                case -1:                    //suppression de la table de recherche et affichage de la table principale.
-                    searchResult = null;
+                case -1:                    //suppression de la table de recherche et affichage de la table principale (jeux);
+                    searchResultJeux = null;
                     state = 0;
+                    break;
+
+                case -2:                    //passage de jeux a console
+                    state = 1;
+                    break;
+
+                case -3:                    //suppression de la table de recherche et affichage de la table principale (consoles)
+                    searchResultConsoles = null;
+                    state = 1;
                     break;
             }
         }

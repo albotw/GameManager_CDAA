@@ -41,9 +41,12 @@ namespace projet_CDAA_2020_2021.core
             return lesJeux.Search(property, arg);
         }
 
-        public void Sort(string field, bool reverse)
+        public void Sort(string categorie, string field, bool reverse)
         {
-            lesJeux.Sort(field, reverse);
+            if (categorie == "jeux")
+                lesJeux.Sort(field, reverse);
+            else if (categorie == "consoles")
+                lesConsoles.Sort(field, reverse);
             //return lesJeux.Sort(field, reverse);
         }
 

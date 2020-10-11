@@ -102,6 +102,42 @@ namespace projet_CDAA_2020_2021.CLI
                     }
 
                     break;
+
+                case 4:
+                    this.commands = new string[7];
+                    this.commandID = new int[7];
+
+                    commands[0] = "[ ] Nom";
+                    commands[1] = "[ ] Fabriquant";
+                    commands[2] = "[ ] Génération";
+                    commands[3] = "[ ] Sortie";
+                    commands[4] = "[ ] Ports";
+                    commands[5] = "[ ] Support";
+                    commands[6] = "[ ] Type";
+
+                    for (int i = 120; i < 127; i++)
+                    {
+                        commandID[i - 120] = i;
+                    }
+                    break;
+
+                case 5:
+                    this.commands = new string[7];
+                    this.commandID = new int[7];
+
+                    commands[0] = "[ ] Nom";
+                    commands[1] = "[ ] Fabriquant";
+                    commands[2] = "[ ] Génération";
+                    commands[3] = "[ ] Sortie";
+                    commands[4] = "[ ] Ports";
+                    commands[5] = "[ ] Support";
+                    commands[6] = "[ ] Type";
+
+                    for (int i = 130; i < 137; i++)
+                    {
+                        commandID[i - 130] = i;
+                    }
+                    break;
             }
         }
 

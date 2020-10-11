@@ -40,6 +40,11 @@ namespace projet_CDAA_2020_2021.core.consoles
             this.type = "";
         }
 
+        public Console(string nom)
+        {
+            this.nom = nom;
+        }
+
         public Console(string nom, string fabriquant, int generation, DateTime sortie, int ports, Support sup, string type)
         {
             this.nom = nom;
@@ -97,9 +102,7 @@ namespace projet_CDAA_2020_2021.core.consoles
         public bool Equals (Console other)
         {
             if (other != null)
-                return (this.nom == other.Nom
-                    && this.fabriquant == other.Fabriquant
-                    && this.generation == other.Generation);
+                return (this.nom == other.Nom);
             else
                 return false;
         }
