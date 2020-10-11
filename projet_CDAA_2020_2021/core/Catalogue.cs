@@ -22,7 +22,7 @@ namespace projet_CDAA_2020_2021.core
 
         public void Add(object o)
         {
-            if (o.GetType() == typeof(Jeu))
+            if (o.GetType() == typeof(Jeu) || o.GetType() == typeof(JeuRetro))
                 lesJeux.Add(o as Jeu);
             else if (o.GetType() == typeof(consoles.Console))
                 lesConsoles.Add(o as consoles.Console);
@@ -30,7 +30,7 @@ namespace projet_CDAA_2020_2021.core
 
         public void Remove(object o)
         {
-            if (o.GetType() == typeof(Jeu))
+            if (o.GetType() == typeof(Jeu) || o.GetType() == typeof(JeuRetro))
                 lesJeux.Remove(o as Jeu);
             else if (o.GetType() == typeof(consoles.Console))
                 lesConsoles.Remove(o as consoles.Console);

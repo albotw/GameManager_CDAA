@@ -69,7 +69,7 @@ namespace projet_CDAA_2020_2021.core.jeux
         }
 
         //pour affichage dans une CLITable
-        public List<string> ToStringArray()
+        public virtual List<string> ToStringArray()
         {
             List<string> output= new List<string>();
 

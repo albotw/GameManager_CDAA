@@ -72,6 +72,7 @@
   <ItemGroup>
     <Content Include="doc\Affichage console.txt" />
     <Content Include="doc\Console.txt" />
+    <Content Include="doc\Plages commandes.txt" />
     <Content Include="doc\proto affichage console.txt" />
     <Content Include="doc\TODO.txt" />
   </ItemGroup>

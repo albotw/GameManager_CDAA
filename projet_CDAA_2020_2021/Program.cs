@@ -39,8 +39,8 @@ namespace projet_CDAA_2020_2021
 
                 cli.AddElement(w);
 
-                string[] tableHeader = { "NOM", "DESCRIPTION", "PLATEFORME", "EDITEUR", "GENRE", "PRIX", "SORTIE", "RECONDITIONNE" };
-                int[] sizes = { 50, 50, 25, 25, 15, 5, 10, 14 };
+                string[] tableHeader = { "NOM", "DESCRIPTION", "PLATEFORME", "EDITEUR", "GENRE", "PRIX", "SORTIE", "RECONDITIONNE", "ETAT", "NOTICE" };
+                int[] sizes = { 50, 50, 25, 25, 15, 5, 10, 14, 20, 5 };
                 table = new CLITable(2, 30, tableHeader, sizes, null);
                 table.Data = c.GetEnsembleJeux().ToStringArray().ToArray();
 

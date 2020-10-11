@@ -39,6 +39,7 @@ namespace projet_CDAA_2020_2021.CLI
             this.userText = "";
             switch (config)
             {
+
                 case 0: this.text = "Entrez le nom"; break;
                 case 1: this.text = "Entrez une description:"; break;
                 case 2: this.text = "Entrez la/les plateforme/s du jeu"; break;
@@ -47,6 +48,10 @@ namespace projet_CDAA_2020_2021.CLI
                 case 5: this.text = "Entrez le prix"; break;
                 case 6: this.text = "Entrez la date de sortie (jj/mm/aaaa) du jeu"; break;
                 case 7: this.text = "Le jeu est reconditionné ?"; break;
+
+                case 8: this.text = "Le jeu est un jeu rétro ?"; break;
+                case 9: this.text = "Entrez l'état du jeu ?"; break;
+                case 10: this.text = "Le jeu a une notice ?"; break;
             }
         }
 

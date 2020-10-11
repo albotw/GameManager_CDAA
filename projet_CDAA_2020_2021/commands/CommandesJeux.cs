@@ -20,10 +20,35 @@ namespace projet_CDAA_2020_2021.commands
 
             if (command == 0)
             {
-                Jeu j = new Jeu();
+                Jeu j;
 
-                CLIInputWindow tmp = new CLIInputWindow(50, 3, 50, "Entrez le nom du jeu");
+                CLIInputWindow tmp = new CLIInputWindow(50, 3, 50, "");
+                tmp.Init(8);
                 cli.AddElement(tmp);
+
+                cli.Update();
+                tmp.handleInput(Console.ReadKey(true).Key);
+
+                if (tmp.UserText == "oui")  //pour les params spécifiques au JeuRetro
+                {
+                    j = new JeuRetro();
+
+                    tmp.Init(9);
+                    cli.Update();
+                    tmp.handleInput(Console.ReadKey(true).Key);
+                    (j as JeuRetro).Etat = tmp.UserText;
+
+                    tmp.Init(10);
+                    cli.Update();
+                    tmp.handleInput(Console.ReadKey(true).Key);
+                    (j as JeuRetro).Notice = (tmp.UserText == "oui");
+                }
+                else
+                {
+                    j = new Jeu();
+                }
+
+                tmp.Init(0);
                 cli.Update();
                 tmp.handleInput(Console.ReadKey(true).Key);
                 j.Nom = tmp.UserText;
@@ -65,7 +90,7 @@ namespace projet_CDAA_2020_2021.commands
                 tmp.Init(7);
                 cli.Update();
                 tmp.handleInput(Console.ReadKey(true).Key);
-                j.Reconditionne = (tmp.UserText == "oui" ? true : false);
+                j.Reconditionne = (tmp.UserText == "oui");
 
                 cli.DeleteTop();
 

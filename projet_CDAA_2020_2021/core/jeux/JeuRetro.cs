@@ -37,24 +37,26 @@ namespace projet_CDAA_2020_2021.core.jeux
             return s;
         }
 
-        //TODO: modifier pour la CLI
-        public override void input()
+        public override List<string> ToStringArray()
         {
-            base.input();
+            List<String> output = base.ToStringArray();
 
-            Console.WriteLine("état ? "); this.etat = Console.ReadLine();
-            Console.WriteLine("notice ? (présente | absente) "); this.notice = (Console.ReadLine() == "présente" ? true : false);
+            output.Add(etat);
+            output.Add(notice.ToString());
 
+            return output;
         }
 
         public override bool Equals(object obj)
         {
-            return base.Equals(obj);
-        }
-
-        public override int GetHashCode()
-        {
-            return 0;
+            if (obj.GetType() == typeof(JeuRetro))
+            {
+                JeuRetro oAsJR = obj as JeuRetro;
+                return (this.etat == oAsJR.etat
+                    && this.notice == oAsJR.notice);
+            }
+            else 
+                return base.Equals(obj);
         }
 
         //TODO: tests
