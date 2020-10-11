@@ -60,7 +60,7 @@ namespace projet_CDAA_2020_2021
             switch(state)
             {
                 case 0: table.Data = c.GetEnsembleJeux().ToStringArray().ToArray(); break;
-                case 1: table.Data = c.GetEnsembleConsoles().ToStringArray().ToArray(); break;
+                case 1: table.Data = c.GetEnsembleAccessoires().ToStringArray().ToArray(); break;
                 case 2: table.Data = searchResult.ToStringArray().ToArray(); break;
             }
         }

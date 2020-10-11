@@ -54,27 +54,24 @@ namespace projet_CDAA_2020_2021.datastructures
 
         public void Sort()
         {
-            //utilisation du tri a bulle
-            for (int i = 0; i < size; i++)
+            //utilisation du tri par selection
+            for (int i = 0; i < size - 1; i++)
             {
-                bool modif = false;
-                for (int j = 0; j < size - i - 1; j++)
+                int v = i;
+                for (int j = i + 1; j < size; j++)
                 {
-                    if (tab[j].CompareTo(tab[j + 1]) > 0)
+                    if (tab[j].CompareTo(tab[v]) > 0)
                     {
-                        T tmp = tab[j];
-                        tab[j] = tab[j + 1];
-                        tab[j + 1] = tmp;
-                        modif = true;
+                       v = j;
                     }
 
-                    if (!modif)
-                    {
-                        break;
-                    }
                 }
+                var end = tab[i];
+                tab[i] = tab[v];
+                tab[v] = end;
             }
         }
+        
 
         public void Remove(T obj)
         {
