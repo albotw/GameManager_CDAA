@@ -20,14 +20,20 @@ namespace projet_CDAA_2020_2021.core
             lastUpdate = DateTime.Now;
         }
 
-        public void Add(Jeu j)
+        public void Add(object o)
         {
-            lesJeux.Add(j);
+            if (o.GetType() == typeof(Jeu) || o.GetType() == typeof(JeuRetro))
+                lesJeux.Add(o as Jeu);
+            else if (o.GetType() == typeof(Accessoire))
+                lesAccessoires.Add(o as Accessoire);
         }
 
-        public void Remove(Jeu j)
+        public void Remove(object o)
         {
-            lesJeux.Remove(j);
+            if (o.GetType() == typeof(Jeu) || o.GetType() == typeof(JeuRetro))
+                lesJeux.Add(o as Jeu);
+            else if (o.GetType() == typeof(Accessoire));
+                lesAccessoires.Remove( o as Accessoire);
         }
 
         public List<Jeu> Search(string property, object arg)
@@ -35,9 +41,15 @@ namespace projet_CDAA_2020_2021.core
             return lesJeux.Search(property, arg);
         }
 
-        public void Sort(string field, bool reverse)
+        public void Sort(string categorie, string field, bool reverse)
         {
-            lesJeux.Sort(field, reverse);
+            if(categorie == "jeux")
+                lesJeux.Sort(field, reverse);
+
+            else if ( categorie == "Accessoire")
+            {
+                lesAccessoires.Sort(field, reverse);
+            }
         }
 
         public void Init()

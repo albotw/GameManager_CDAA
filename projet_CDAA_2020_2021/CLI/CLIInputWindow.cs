@@ -52,6 +52,10 @@ namespace projet_CDAA_2020_2021.CLI
                 case 8: this.text = "Le jeu est un jeu rétro ?"; break;
                 case 9: this.text = "Entrez l'état du jeu ?"; break;
                 case 10: this.text = "Le jeu a une notice ?"; break;
+                case 11: this.text = "Entrez le pays de fabrication de l'accessoire"; break;
+                case 12: this.text = "Entre la plateforme de l'accessoire ( ex PS4, WII...)"; break;
+                case 13: this.text = "Entrez le type d'accessoire"; break;
+                case 14: this.text = " Entre le nom de votre accessoire"; break;
             }
         }
 

@@ -92,6 +92,8 @@ namespace projet_CDAA_2020_2021.commands
                 tmp.handleInput(Console.ReadKey(true).Key);
                 j.Reconditionne = (tmp.UserText == "oui");
 
+
+
                 cli.DeleteTop();
 
                 //j.input();
@@ -123,14 +125,14 @@ namespace projet_CDAA_2020_2021.commands
             {
                 switch (command)
                 {
-                    case 20: c.Sort("nom", false); break;
-                    case 21: c.Sort("description", false); break;
-                    case 22: c.Sort("plateforme", false); break;
-                    case 23: c.Sort("editeur", false); break;
-                    case 24: c.Sort("genre", false); break;
-                    case 25: c.Sort("prix", false); break;
-                    case 26: c.Sort("sortie", false); break;
-                    case 27: c.Sort("reconditionne", false); break;
+                    case 20: c.Sort("jeux","nom", false); break;
+                    case 21: c.Sort("jeux","description", false); break;
+                    case 22: c.Sort("jeux","plateforme", false); break;
+                    case 23: c.Sort("jeux","editeur", false); break;
+                    case 24: c.Sort("jeux","genre", false); break;
+                    case 25: c.Sort("jeux","prix", false); break;
+                    case 26: c.Sort("jeux","sortie", false); break;
+                    case 27: c.Sort("jeux","reconditionne", false); break;
                 }
 
                 cli.DeleteTop(); //pour supprimer le menu.

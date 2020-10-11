@@ -9,6 +9,10 @@ namespace projet_CDAA_2020_2021.core.accessoires
     public class Accessoire : IEquatable<Accessoire>, IComparable<Accessoire>, IFieldComparable<Accessoire>
     {
 
+        private string nom;
+
+        public string Nom { get => nom; set => nom = value; }
+
         private string fabriquantPays;
         public string FabriquantPays { get => fabriquantPays; set => fabriquantPays = value; }
 
@@ -17,15 +21,22 @@ namespace projet_CDAA_2020_2021.core.accessoires
         private Type type;
         public Type Type { get => type; set => type = value; }
 
+
+        public Accessoire(string nom)
+        {
+            this.nom = nom;
+        }
         public Accessoire()
         {
+            this.nom = "";
             this.fabriquantPays = "";
             this.plateforme = "";
             this.type = 0;
         }
 
-        public Accessoire(string fabriquant, string plateforme,  Type type)
+        public Accessoire(string nom, string fabriquant, string plateforme,  Type type)
         {
+            this.nom = nom;
             this.fabriquantPays = fabriquant;
             this.plateforme = plateforme;
             this.type = type;
@@ -34,6 +45,7 @@ namespace projet_CDAA_2020_2021.core.accessoires
         public override string ToString()
         {
             string s = "";
+            s += "\nnom: " + this.nom;
             s += "\nfabriquant: " + this.fabriquantPays;
             s += "\nplateforme: " + this.plateforme;
             s += "\ntype: " + this.type;
@@ -45,6 +57,7 @@ namespace projet_CDAA_2020_2021.core.accessoires
         {
             List<string> output = new List<string>();
 
+            output.Add("" + nom);
             output.Add(fabriquantPays);
             output.Add("" + plateforme);
             output.Add(type.ToString());
@@ -54,8 +67,7 @@ namespace projet_CDAA_2020_2021.core.accessoires
         public bool Equals (Accessoire other)
         {
             if (other != null)
-                return (this.fabriquantPays == other.FabriquantPays
-                    && this.plateforme == other.Plateforme);
+                return (this.nom == other.nom);
             else
                 return false;
         }
@@ -74,6 +86,7 @@ namespace projet_CDAA_2020_2021.core.accessoires
             {
                 switch (field)
                 {
+                    case "nom": return this.nom.CompareTo(other.nom);
                     case "fabriquant": return this.fabriquantPays.CompareTo(other.FabriquantPays);
                     case "plateforme": return this.plateforme.CompareTo(other.Plateforme);
                     case "type": return this.type.CompareTo(other.Type);

@@ -19,7 +19,7 @@ namespace projet_CDAA_2020_2021
 
         public static  int state = 0;
         // 0 -> affichage de la table des jeux
-        // 1 -> affichage de la table des consoles
+        // 1 -> affichage de la table des accessoires        
         // 2 -> affichage d'une recherche
 
         static void Main()
@@ -72,6 +72,10 @@ namespace projet_CDAA_2020_2021
             {
                 CommandesJeux.handleCommand(command);
             }
+            else if ( state==1 )
+            {
+                CommandAccessoires.handleCommand(command);
+            }
 
             switch (command)
             {
@@ -79,6 +83,9 @@ namespace projet_CDAA_2020_2021
                 case -1:                    //suppression de la table de recherche et affichage de la table principale.
                     searchResult = null;
                     state = 0;
+                    break;
+                case -2:
+                    state = 1;
                     break;
             }
         }
