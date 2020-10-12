@@ -137,8 +137,8 @@ namespace projet_CDAA_2020_2021.core.consoles
 
         public static bool operator == (Console c1, Console c2)
         {
-            if (c1 == null)
-                return c2 == null;
+            if ((object)c1 == null)
+                return (object)c2 == null;
             else
                 return c1.Equals(c2);
         }

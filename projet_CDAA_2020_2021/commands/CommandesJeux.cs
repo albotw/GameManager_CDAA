@@ -107,7 +107,7 @@ namespace projet_CDAA_2020_2021.commands
                 cli.DeleteTop();
 
                 c.Remove(new Jeu(nameInput.UserText));
-                Program.table.Clear();
+                Program.tableJeux.Clear();
                 Program.updateMainTable();
             }
 
@@ -169,7 +169,7 @@ namespace projet_CDAA_2020_2021.commands
                 cli.DeleteTop();    //on supprime le menu de séléction 
 
                 Program.state = 2;
-                Program.table.Clear();
+                Program.tableJeux.Clear();
                 Program.updateMainTable();
             }
         }

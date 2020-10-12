@@ -52,7 +52,7 @@ namespace projet_CDAA_2020_2021.CLI
                     commands[1] = "[ ] Supprimer un jeu";
                     commands[2] = "[ ] Trier par champ";
                     commands[3] = "[ ] Faire une recherche";
-                    commands[4] = "[ ] Afficher tout";
+                    commands[4] = "[ ] Afficher tout les jeux";
                     commands[5] = "[ ] Afficher les consoles";
 
                     commandID[0] = 0;
@@ -61,6 +61,26 @@ namespace projet_CDAA_2020_2021.CLI
                     commandID[3] = 3;
                     commandID[4] = -1;
                     commandID[5] = -2;
+                    break;
+
+                case 6:
+                    this.commands = new string[6];
+                    this.commandID = new int[6];
+
+                    commands[0] = "[ ] Ajouter une console";
+                    commands[1] = "[ ] Supprimer une console";
+                    commands[2] = "[ ] Trier par champ";
+                    commands[3] = "[ ] Faire une recherche";
+                    commands[4] = "[ ] Afficher toutes les consoles";
+                    commands[5] = "[ ] Afficher les jeux";
+
+                    commandID[0] = 100;
+                    commandID[1] = 101;
+                    commandID[2] = 102;
+                    commandID[3] = 103;
+                    commandID[4] = -2;
+                    commandID[5] = -1;
+
                     break;
 
                 case 2:

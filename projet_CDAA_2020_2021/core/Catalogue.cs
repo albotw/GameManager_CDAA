@@ -53,6 +53,7 @@ namespace projet_CDAA_2020_2021.core
         public void Init()
         {
             lesJeux.Init();
+            lesConsoles.Init();
         }
 
         public EnsembleJeux GetEnsembleJeux()

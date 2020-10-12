@@ -41,12 +41,7 @@ namespace projet_CDAA_2020_2021.commands
                 tmp.handleInput(System.Console.ReadKey(true).Key);
                 c.Generation = Int32.Parse(tmp.UserText);
 
-                tmp.Init(12);
-                cli.Update();
-                tmp.handleInput(System.Console.ReadKey(true).Key);
-                c.Fabriquant = tmp.UserText;
-
-                tmp.Init(13);
+                tmp.Init(14);
                 cli.Update();
                 tmp.handleInput(System.Console.ReadKey(true).Key);
                 int jour = Int32.Parse(tmp.UserText.Split('/')[0]);
@@ -54,12 +49,12 @@ namespace projet_CDAA_2020_2021.commands
                 int annee = Int32.Parse(tmp.UserText.Split('/')[2]);
                 c.Sortie = new DateTime(annee, mois, jour);
 
-                tmp.Init(14);
+                tmp.Init(15);
                 cli.Update();
                 tmp.handleInput(System.Console.ReadKey(true).Key);
                 c.Ports = Int32.Parse(tmp.UserText);
 
-                tmp.Init(15);
+                tmp.Init(16);
                 cli.Update();
                 tmp.handleInput(System.Console.ReadKey(true).Key);
                 c.Support = (Support)Enum.Parse(typeof(Support), tmp.UserText, true);
@@ -82,7 +77,7 @@ namespace projet_CDAA_2020_2021.commands
                 cli.DeleteTop();
 
                 cat.Remove(new Console(nameInput.UserText));
-                Program.table.Clear();
+                Program.tableJeux.Clear();
                 Program.updateMainTable();
             }
 
@@ -137,6 +132,13 @@ namespace projet_CDAA_2020_2021.commands
                     case 135: Program.searchResultConsoles = new EnsembleConsoles(cat.GetEnsembleConsoles().Search("support", tmp.UserText)); break;
                     case 136: Program.searchResultConsoles = new EnsembleConsoles(cat.GetEnsembleConsoles().Search("type", tmp.UserText)); break;
                 }
+
+                cli.DeleteTop();
+                cli.DeleteTop();
+
+                Program.state = 3;
+                Program.tableJeux.Clear();
+                Program.updateMainTable();
             }
         }
     }
