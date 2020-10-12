@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 
 namespace projet_CDAA_2020_2021.core
 {
@@ -29,6 +30,9 @@ namespace projet_CDAA_2020_2021.core
         private bool reconditionne;
         public bool Reconditionne { get => reconditionne; set => reconditionne = value; }
 
+
+        private Image photo;
+        public Image Photo { get => photo; set => photo = value; }
         public Jeu()
         {
             this.nom = "";
@@ -41,7 +45,7 @@ namespace projet_CDAA_2020_2021.core
             this.reconditionne = false;
         }
 
-        public Jeu(string nom, string desc, string plateforme, string editeur, Genre g, double prix, DateTime sortie, bool reconditionne)
+        public Jeu(string nom, string desc, string plateforme, string editeur, Genre g, double prix, DateTime sortie, bool reconditionne, Image p)
         {
             this.nom = nom;
             this.description = desc;
@@ -51,6 +55,7 @@ namespace projet_CDAA_2020_2021.core
             this.prix = prix;
             this.sortie = sortie;
             this.reconditionne = reconditionne;
+            this.photo = p;
         }
 
         public override string ToString()
