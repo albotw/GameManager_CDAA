@@ -142,24 +142,15 @@ namespace projet_CDAA_2020_2021.core.jeux
             {
                 switch (field)
                 {
-                    case "nom":
-                        return this.nom.CompareTo(other.nom);
-                    case "description":
-                        return this.description.CompareTo(other.Description);
-                    case "plateforme":
-                        return this.plateforme.CompareTo(other.plateforme);
-                    case "editeur":
-                        return this.editeur.CompareTo(other.editeur);
-                    case "genre":
-                        return this.genre.CompareTo(other.Genre);
-                    case "prix":
-                        return this.prix.CompareTo(other.prix);
-                    case "sortie":
-                        return this.sortie.CompareTo(other.sortie);
-                    case "reconditionne":
-                        return this.reconditionne.CompareTo(other.reconditionne);
-                    default:
-                        return -1;
+                    case "nom": return this.nom.CompareTo(other.nom);
+                    case "description": return this.description.CompareTo(other.Description);
+                    case "plateforme": return this.plateforme.CompareTo(other.plateforme);
+                    case "editeur": return this.editeur.CompareTo(other.editeur);
+                    case "genre": return this.genre.CompareTo(other.Genre);
+                    case "prix": return this.prix.CompareTo(other.prix);
+                    case "sortie": return this.sortie.CompareTo(other.sortie);
+                    case "reconditionne": return this.reconditionne.CompareTo(other.reconditionne);
+                    default: return -1;
                 }
             }
             else

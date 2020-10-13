@@ -133,8 +133,8 @@ namespace projet_CDAA_2020_2021.commands
                     case 136: Program.searchResultConsoles = new EnsembleConsoles(cat.GetEnsembleConsoles().Search("type", tmp.UserText)); break;
                 }
 
-                cli.DeleteTop();
-                cli.DeleteTop();
+                cli.DeleteTop();        //suppprime tmp
+                cli.DeleteTop();        //Supprime FieldSelector.
 
                 Program.state = 3;
                 Program.tableJeux.Clear();
