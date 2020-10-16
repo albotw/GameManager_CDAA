@@ -67,7 +67,7 @@ namespace projet_CDAA_2020_2021.CLI
             }
         }
 
-        public override void handleInput(ConsoleKey key)
+        public override void HandleInput(ConsoleKey key)
         {
 
         }

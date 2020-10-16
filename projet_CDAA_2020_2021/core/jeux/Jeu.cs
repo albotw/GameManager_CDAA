@@ -131,8 +131,10 @@ namespace projet_CDAA_2020_2021.core.jeux
         //? méthode CompareFieldTo de IComparable (classification par défaut)
         public int CompareTo(Jeu other)
         {
-            if (other == null) return 1;
-            else return this.nom.CompareTo(other.nom);
+            if (other == null) 
+                return 0;
+            else 
+                return this.nom.CompareTo(other.Nom);
         }
 
         //? méthode CompareFieldTo de IFieldComparison (classification par d'autres champs).

@@ -28,22 +28,22 @@ namespace projet_CDAA_2020_2021.commands
                 cli.AddElement(tmp);
 
                 cli.Update();
-                tmp.handleInput(System.Console.ReadKey(true).Key);
+                tmp.HandleInput(System.Console.ReadKey(true).Key);
                 c.Nom = tmp.UserText;
 
                 tmp.Init(12);
                 cli.Update();
-                tmp.handleInput(System.Console.ReadKey(true).Key);
+                tmp.HandleInput(System.Console.ReadKey(true).Key);
                 c.Fabriquant = tmp.UserText;
 
                 tmp.Init(13);
                 cli.Update();
-                tmp.handleInput(System.Console.ReadKey(true).Key);
+                tmp.HandleInput(System.Console.ReadKey(true).Key);
                 c.Generation = Int32.Parse(tmp.UserText);
 
                 tmp.Init(14);
                 cli.Update();
-                tmp.handleInput(System.Console.ReadKey(true).Key);
+                tmp.HandleInput(System.Console.ReadKey(true).Key);
                 int jour = Int32.Parse(tmp.UserText.Split('/')[0]);
                 int mois = Int32.Parse(tmp.UserText.Split('/')[1]);
                 int annee = Int32.Parse(tmp.UserText.Split('/')[2]);
@@ -51,17 +51,17 @@ namespace projet_CDAA_2020_2021.commands
 
                 tmp.Init(15);
                 cli.Update();
-                tmp.handleInput(System.Console.ReadKey(true).Key);
+                tmp.HandleInput(System.Console.ReadKey(true).Key);
                 c.Ports = Int32.Parse(tmp.UserText);
 
                 tmp.Init(16);
                 cli.Update();
-                tmp.handleInput(System.Console.ReadKey(true).Key);
+                tmp.HandleInput(System.Console.ReadKey(true).Key);
                 c.Support = (Support)Enum.Parse(typeof(Support), tmp.UserText, true);
 
                 tmp.Init(17);
                 cli.Update();
-                tmp.handleInput(System.Console.ReadKey(true).Key);
+                tmp.HandleInput(System.Console.ReadKey(true).Key);
                 c.Type = tmp.UserText;
 
                 cli.DeleteTop();
@@ -73,7 +73,7 @@ namespace projet_CDAA_2020_2021.commands
                 CLIInputWindow nameInput = new CLIInputWindow(50, 3, 50, "Entrez le nom de la console a supprimer");
                 cli.AddElement(nameInput);
                 cli.Update();
-                nameInput.handleInput(System.Console.ReadKey(true).Key);
+                nameInput.HandleInput(System.Console.ReadKey(true).Key);
                 cli.DeleteTop();
 
                 cat.Remove(new Console(nameInput.UserText));
@@ -120,17 +120,17 @@ namespace projet_CDAA_2020_2021.commands
 
                 cli.AddElement(tmp);
                 cli.Update();
-                tmp.handleInput(System.Console.ReadKey(true).Key);
+                tmp.HandleInput(System.Console.ReadKey(true).Key);
 
                 switch(command)
                 {
-                    case 130: Program.searchResultConsoles = new EnsembleConsoles(cat.GetEnsembleConsoles().Search("nom", tmp.UserText)); break;
-                    case 131: Program.searchResultConsoles = new EnsembleConsoles(cat.GetEnsembleConsoles().Search("fabriquant", tmp.UserText)); break;
-                    case 132: Program.searchResultConsoles = new EnsembleConsoles(cat.GetEnsembleConsoles().Search("generation", tmp.UserText)); break;
-                    case 133: Program.searchResultConsoles = new EnsembleConsoles(cat.GetEnsembleConsoles().Search("sortie", tmp.UserText)); break;
-                    case 134: Program.searchResultConsoles = new EnsembleConsoles(cat.GetEnsembleConsoles().Search("ports", tmp.UserText)); break;
-                    case 135: Program.searchResultConsoles = new EnsembleConsoles(cat.GetEnsembleConsoles().Search("support", tmp.UserText)); break;
-                    case 136: Program.searchResultConsoles = new EnsembleConsoles(cat.GetEnsembleConsoles().Search("type", tmp.UserText)); break;
+                    case 130: Program.searchResultConsoles = new EnsembleConsoles(cat.GetLesConsoles().Search("nom", tmp.UserText)); break;
+                    case 131: Program.searchResultConsoles = new EnsembleConsoles(cat.GetLesConsoles().Search("fabriquant", tmp.UserText)); break;
+                    case 132: Program.searchResultConsoles = new EnsembleConsoles(cat.GetLesConsoles().Search("generation", tmp.UserText)); break;
+                    case 133: Program.searchResultConsoles = new EnsembleConsoles(cat.GetLesConsoles().Search("sortie", tmp.UserText)); break;
+                    case 134: Program.searchResultConsoles = new EnsembleConsoles(cat.GetLesConsoles().Search("ports", tmp.UserText)); break;
+                    case 135: Program.searchResultConsoles = new EnsembleConsoles(cat.GetLesConsoles().Search("support", tmp.UserText)); break;
+                    case 136: Program.searchResultConsoles = new EnsembleConsoles(cat.GetLesConsoles().Search("type", tmp.UserText)); break;
                 }
 
                 cli.DeleteTop();        //suppprime tmp
