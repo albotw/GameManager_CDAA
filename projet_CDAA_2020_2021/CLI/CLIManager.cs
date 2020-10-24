@@ -39,7 +39,7 @@ namespace projet_CDAA_2020_2021.CLI
                 Program.updateMainTable();
                 Update();
                 cki = ReadKey(true);
-                drawStack.Peek().handleInput(cki.Key);
+                drawStack.Peek().HandleInput(cki.Key);
                 
             } while (cki.Key != ConsoleKey.Escape);
         }

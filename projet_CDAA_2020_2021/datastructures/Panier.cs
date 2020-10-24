@@ -1,4 +1,6 @@
-﻿using System;
+﻿using projet_CDAA_2020_2021.core;
+using projet_CDAA_2020_2021.core.jeux;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -42,7 +44,7 @@ namespace projet_CDAA_2020_2021.datastructures
                 bool shouldAdd = true;
                 foreach(T tmp in tab)
                 {
-                    if (tmp.Equals(obj))
+                    if (tmp != null && tmp.Equals(obj))
                         shouldAdd = false;
                 }
 
@@ -54,26 +56,21 @@ namespace projet_CDAA_2020_2021.datastructures
 
         public void Sort()
         {
-            //utilisation du tri a bulle
-            for (int i = 0; i < size; i++)
+            //tri a bulle naif
+
+            for (int i = 0; i <= size; i++)
             {
-                bool modif = false;
-                for (int j = 0; j < size - i - 1; j++)
+                for (int j = 0; j < size - i-1; j++)
                 {
                     if (tab[j].CompareTo(tab[j + 1]) > 0)
                     {
                         T tmp = tab[j];
                         tab[j] = tab[j + 1];
                         tab[j + 1] = tmp;
-                        modif = true;
-                    }
-
-                    if (!modif)
-                    {
-                        break;
                     }
                 }
             }
+
         }
 
         public void Remove(T obj)
@@ -87,6 +84,35 @@ namespace projet_CDAA_2020_2021.datastructures
                     i = size;
                 }
             }
+
+            Defrag();
+        }
+
+        private void Defrag()
+        {
+            for (int i = 0; i <= size; i++)
+            {
+                if (tab[i] == null)
+                {
+                    tab[i] = tab[i + 1];
+                    tab[i + 1] = default(T);
+                }
+            }
+        }
+
+        public override string ToString()
+        {
+            string s = "";
+
+            for (int i = 0; i < size; i++)
+            {
+                if (tab[i] != null)
+                {
+                    s += tab[i].ToString() + "\n";
+                }
+            }
+
+            return s;
         }
     }
 }

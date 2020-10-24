@@ -27,7 +27,7 @@ namespace projet_CDAA_2020_2021.commands
                 cli.AddElement(tmp);
 
                 cli.Update();
-                tmp.handleInput(Console.ReadKey(true).Key);
+                tmp.HandleInput(Console.ReadKey(true).Key);
 
                 if (tmp.UserText == "oui")  //pour les params spécifiques au JeuRetro
                 {
@@ -35,12 +35,12 @@ namespace projet_CDAA_2020_2021.commands
 
                     tmp.Init(9);
                     cli.Update();
-                    tmp.handleInput(Console.ReadKey(true).Key);
+                    tmp.HandleInput(Console.ReadKey(true).Key);
                     (j as JeuRetro).Etat = tmp.UserText;
 
                     tmp.Init(10);
                     cli.Update();
-                    tmp.handleInput(Console.ReadKey(true).Key);
+                    tmp.HandleInput(Console.ReadKey(true).Key);
                     (j as JeuRetro).Notice = (tmp.UserText == "oui");
                 }
                 else
@@ -50,38 +50,38 @@ namespace projet_CDAA_2020_2021.commands
 
                 tmp.Init(0);
                 cli.Update();
-                tmp.handleInput(Console.ReadKey(true).Key);
+                tmp.HandleInput(Console.ReadKey(true).Key);
                 j.Nom = tmp.UserText;
 
                 tmp.Init(1);
                 cli.Update();
-                tmp.handleInput(Console.ReadKey(true).Key);
+                tmp.HandleInput(Console.ReadKey(true).Key);
                 j.Description = tmp.UserText;
 
                 tmp.Init(2);
                 cli.Update();
-                tmp.handleInput(Console.ReadKey(true).Key);
+                tmp.HandleInput(Console.ReadKey(true).Key);
                 j.Plateforme = tmp.UserText;
 
                 tmp.Init(3);
                 cli.Update();
-                tmp.handleInput(Console.ReadKey(true).Key);
+                tmp.HandleInput(Console.ReadKey(true).Key);
                 j.Editeur = tmp.UserText;
 
                 tmp.Init(4);
                 cli.Update();
-                tmp.handleInput(Console.ReadKey(true).Key);
+                tmp.HandleInput(Console.ReadKey(true).Key);
                 string s = tmp.UserText;
                 j.Genre = (Genre)Enum.Parse(typeof(Genre), s, true);
 
                 tmp.Init(5);
                 cli.Update();
-                tmp.handleInput(Console.ReadKey(true).Key);
+                tmp.HandleInput(Console.ReadKey(true).Key);
                 j.Prix = Double.Parse(tmp.UserText);
 
                 tmp.Init(6);
                 cli.Update();
-                tmp.handleInput(Console.ReadKey(true).Key);
+                tmp.HandleInput(Console.ReadKey(true).Key);
                 int jour = Int32.Parse(tmp.UserText.Split('/')[0]);
                 int mois = Int32.Parse(tmp.UserText.Split('/')[1]);
                 int annee = Int32.Parse(tmp.UserText.Split('/')[2]);
@@ -89,7 +89,7 @@ namespace projet_CDAA_2020_2021.commands
 
                 tmp.Init(7);
                 cli.Update();
-                tmp.handleInput(Console.ReadKey(true).Key);
+                tmp.HandleInput(Console.ReadKey(true).Key);
                 j.Reconditionne = (tmp.UserText == "oui");
 
                 cli.DeleteTop();
@@ -103,7 +103,7 @@ namespace projet_CDAA_2020_2021.commands
                 CLIInputWindow nameInput = new CLIInputWindow(50, 3, 50, "Entrez le nom du jeu a supprimer");
                 cli.AddElement(nameInput);
                 cli.Update();
-                nameInput.handleInput(Console.ReadKey(true).Key);
+                nameInput.HandleInput(Console.ReadKey(true).Key);
                 cli.DeleteTop();
 
                 c.Remove(new Jeu(nameInput.UserText));
@@ -151,18 +151,18 @@ namespace projet_CDAA_2020_2021.commands
                 
                 cli.AddElement(tmp);
                 cli.Update();
-                tmp.handleInput(Console.ReadKey(true).Key);
+                tmp.HandleInput(Console.ReadKey(true).Key);
                 
                 switch(command)
                 {
-                    case 30: Program.searchResultJeux = new EnsembleJeux(c.GetEnsembleJeux().Search("nom", tmp.UserText)); break;
-                    case 31: Program.searchResultJeux = new EnsembleJeux(c.GetEnsembleJeux().Search("description", tmp.UserText)); break;
-                    case 32: Program.searchResultJeux = new EnsembleJeux(c.GetEnsembleJeux().Search("plateforme", tmp.UserText)); break;
-                    case 33: Program.searchResultJeux = new EnsembleJeux(c.GetEnsembleJeux().Search("editeur", tmp.UserText)); break;
-                    case 34: Program.searchResultJeux = new EnsembleJeux(c.GetEnsembleJeux().Search("genre", tmp.UserText)); break;
-                    case 35: Program.searchResultJeux = new EnsembleJeux(c.GetEnsembleJeux().Search("prix", tmp.UserText)); break;
-                    case 36: Program.searchResultJeux = new EnsembleJeux(c.GetEnsembleJeux().Search("sortie", tmp.UserText)); break;
-                    case 37: Program.searchResultJeux = new EnsembleJeux(c.GetEnsembleJeux().Search("reconditionne", tmp.UserText)); break;
+                    case 30: Program.searchResultJeux = new EnsembleJeux(c.GetLesJeux().Search("nom", tmp.UserText)); break;
+                    case 31: Program.searchResultJeux = new EnsembleJeux(c.GetLesJeux().Search("description", tmp.UserText)); break;
+                    case 32: Program.searchResultJeux = new EnsembleJeux(c.GetLesJeux().Search("plateforme", tmp.UserText)); break;
+                    case 33: Program.searchResultJeux = new EnsembleJeux(c.GetLesJeux().Search("editeur", tmp.UserText)); break;
+                    case 34: Program.searchResultJeux = new EnsembleJeux(c.GetLesJeux().Search("genre", tmp.UserText)); break;
+                    case 35: Program.searchResultJeux = new EnsembleJeux(c.GetLesJeux().Search("prix", tmp.UserText)); break;
+                    case 36: Program.searchResultJeux = new EnsembleJeux(c.GetLesJeux().Search("sortie", tmp.UserText)); break;
+                    case 37: Program.searchResultJeux = new EnsembleJeux(c.GetLesJeux().Search("reconditionne", tmp.UserText)); break;
                 }
 
                 cli.DeleteTop();    //on supprime tmp

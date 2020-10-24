@@ -38,7 +38,7 @@ namespace projet_CDAA_2020_2021.core.consoles
                             output.Add(c);
                         break;
                     case "generation":
-                        if (c.Generation == (int)arg)
+                        if (c.Generation == Int32.Parse((string)arg))
                             output.Add(c);
                         break;
                     case "sortie":

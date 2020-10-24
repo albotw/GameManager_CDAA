@@ -30,6 +30,6 @@ namespace projet_CDAA_2020_2021.CLI
 
         public abstract void Clear();
 
-        public abstract void handleInput(ConsoleKey key);
+        public abstract void HandleInput(ConsoleKey key);
     }
 }

@@ -87,7 +87,7 @@ namespace projet_CDAA_2020_2021.CLI
             space = null;
         }
 
-        public override void handleInput(ConsoleKey key)
+        public override void HandleInput(ConsoleKey key)
         {
             if (this.userText == "")
             {

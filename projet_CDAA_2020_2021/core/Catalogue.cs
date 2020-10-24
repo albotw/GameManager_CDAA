@@ -36,11 +36,6 @@ namespace projet_CDAA_2020_2021.core
                 lesConsoles.Remove(o as consoles.Console);
         }
 
-        public List<Jeu> Search(string property, object arg)
-        {
-            return lesJeux.Search(property, arg);
-        }
-
         public void Sort(string categorie, string field, bool reverse)
         {
             if (categorie == "jeux")
@@ -56,12 +51,12 @@ namespace projet_CDAA_2020_2021.core
             lesConsoles.Init();
         }
 
-        public EnsembleJeux GetEnsembleJeux()
+        public EnsembleJeux GetLesJeux()
         {
             return this.lesJeux;
         }
 
-        public EnsembleConsoles GetEnsembleConsoles()
+        public EnsembleConsoles GetLesConsoles()
         {
             return this.lesConsoles;
         }
