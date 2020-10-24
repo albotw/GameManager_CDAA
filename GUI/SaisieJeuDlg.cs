@@ -14,7 +14,12 @@ namespace GUI
     public partial class SaisieJeuDlg : Form
     {
         private Jeu j;
+        public Jeu J { get => j; }
+
         private Image photo;
+
+        private bool grabJeu = false;
+        public bool GrabJeu { get => grabJeu; set => grabJeu = value; }
 
         public SaisieJeuDlg()
         {
@@ -27,12 +32,7 @@ namespace GUI
             CBGenre.Items.AddRange(Enum.GetNames(typeof(Genre)));
         }
 
-        private void SaisieJeuDlg_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
+        private void ParcourirPB_Click(object sender, EventArgs e)
         {
             OpenFileDialog fdlg = new OpenFileDialog();
             
@@ -42,6 +42,33 @@ namespace GUI
                 DirTB.Text = fdlg.FileName;
             }
             fdlg.Dispose();
+
+            ApercuPB.Image = photo;
+        }
+
+        private void Annuler_Click(object sender, EventArgs e)
+        {
+            grabJeu = false;
+
+            this.Dispose();
+        }
+
+        private void Valider_Click(object sender, EventArgs e)
+        {
+            grabJeu = true;
+
+            j = new Jeu();
+            j.Nom = NomTB.Text;
+            j.Description = DescriptionTB.Text;
+            j.Plateforme = PlateformeTB.Text;
+            j.Editeur = EditeurTB.Text;
+            j.Genre = (Genre)Enum.Parse(typeof(Genre), CBGenre.SelectedItem as String);
+            j.Prix = Double.Parse(PrixTB.Text);
+            j.Sortie = SortieDTP.Value;
+            j.Photo = photo;
+            j.Reconditionne = reconditionneRB.Checked;
+
+            this.Dispose();
         }
     }
 }
