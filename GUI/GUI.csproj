@@ -46,18 +46,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="core\Catalogue.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="core\Genre.cs" />
-    <Compile Include="core\IFieldComparable.cs" />
-    <Compile Include="core\Jeu.cs" />
-    <Compile Include="core\JeuRetro.cs" />
-    <Compile Include="core\Jeux.cs" />
+    <Compile Include="PhotoList.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SaisieJeuDlg.cs">
@@ -66,7 +61,6 @@
     <Compile Include="SaisieJeuDlg.Designer.cs">
       <DependentUpon>SaisieJeuDlg.cs</DependentUpon>
     </Compile>
-    <Compile Include="utilities\QuickSort.cs" />
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -96,7 +90,16 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\core\CORE.csproj">
+      <Project>{EC29C7D3-1AD9-4880-BABB-9F090F05145D}</Project>
+      <Name>CORE</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\projet_CDAA_2020_2021\CLI.csproj">
+      <Project>{09cf3074-e991-4d8e-9478-3f91f8d8063c}</Project>
+      <Name>CLI</Name>
+    </ProjectReference>
+  </ItemGroup>
   <ItemGroup>
     <None Include="img\DBFZ.jpg" />
   </ItemGroup>

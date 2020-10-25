@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.28922.388
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "projet_CDAA_2020_2021", "projet_CDAA_2020_2021\projet_CDAA_2020_2021.csproj", "{09CF3074-E991-4D8E-9478-3F91F8D8063C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CLI", "projet_CDAA_2020_2021\CLI.csproj", "{09CF3074-E991-4D8E-9478-3F91F8D8063C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GUI", "GUI\GUI.csproj", "{CBB13339-05AF-4F1F-BC85-DC9221086C3D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CORE", "core\CORE.csproj", "{EC29C7D3-1AD9-4880-BABB-9F090F05145D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{CBB13339-05AF-4F1F-BC85-DC9221086C3D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CBB13339-05AF-4F1F-BC85-DC9221086C3D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CBB13339-05AF-4F1F-BC85-DC9221086C3D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EC29C7D3-1AD9-4880-BABB-9F090F05145D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC29C7D3-1AD9-4880-BABB-9F090F05145D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC29C7D3-1AD9-4880-BABB-9F090F05145D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC29C7D3-1AD9-4880-BABB-9F090F05145D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

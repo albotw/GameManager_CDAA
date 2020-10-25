@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace projet_CDAA_2020_2021.datastructures
 {
-    class Panier<T> where T: IEquatable<T>, IComparable<T>
+    public class Panier<T> where T: IEquatable<T>, IComparable<T>
     {
         private T[] tab;
         private int MAX_SIZE = 50;

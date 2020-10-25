@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace projet_CDAA_2020_2021.core.jeux
 {
-    class JeuRetro : Jeu, IFieldComparable<JeuRetro>
+    public class JeuRetro : Jeu, IFieldComparable<JeuRetro>
     {
         //TODO: vériifer l'implémentation dans le programme.
 

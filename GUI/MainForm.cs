@@ -1,4 +1,6 @@
-﻿using System;
+﻿using projet_CDAA_2020_2021.core;
+using projet_CDAA_2020_2021.core.jeux;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,7 +10,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-using projet_CDAA_2020_2021.core;
 
 namespace GUI
 {
@@ -22,7 +23,7 @@ namespace GUI
         {
             InitializeComponent();
             cat = new Catalogue();
-            Jeux jeux = cat.getJeux();
+            EnsembleJeux jeux = cat.GetLesJeux();
             jeux.Init();
             initGenres();
             initJeux();
@@ -34,7 +35,7 @@ namespace GUI
             listBox1.DrawMode = DrawMode.OwnerDrawVariable;
             imList = new ImageList();
             
-            foreach(Jeu j in cat.getJeux().Search())
+            foreach(Jeu j in cat.GetLesJeux().Search())
             {
                 imList.Images.Add(j.Photo);
                 listBox1.Items.Add(j.Nom);
@@ -51,7 +52,7 @@ namespace GUI
 
         public void initJeux()
         {
-            ListeJeux.Items.AddRange(cat.getJeux().getNames().ToArray());
+            ListeJeux.Items.AddRange(cat.GetLesJeux().getNames().ToArray());
         }
 
         public void initGenres()
