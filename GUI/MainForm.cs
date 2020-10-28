@@ -16,33 +16,44 @@ namespace GUI
     public partial class MainForm : Form
     {
         private Catalogue cat;
-        private ImageList photos;
 
         private ImageList imList;
+
         public MainForm()
         {
             InitializeComponent();
             cat = new Catalogue();
-            EnsembleJeux jeux = cat.GetLesJeux();
-            jeux.Init();
+            cat.Init();
+            linkPhotos();
             initGenres();
             initJeux();
             initPhotos();
         }
 
+        public void linkPhotos()
+        {
+            cat.GetLesJeux().SearchSingle("nom", "Metal Gear Solid").Photo = Properties.Resources.Metal_Gear_Solid;
+            cat.GetLesJeux().SearchSingle("nom", "Metal Gear Solid 2: Subsistance").Photo = Properties.Resources.Metal_Gear_Solid_2;
+            cat.GetLesJeux().SearchSingle("nom", "Metal Gear Solid V: The Phantom Pain").Photo = Properties.Resources.Metal_Gear_Solid_V__The_Phantom_Pain;
+            cat.GetLesJeux().SearchSingle("nom", "Dragon Ball: Fighter Z").Photo = Properties.Resources.Dragon_Ball__Fighter_Z;
+            cat.GetLesJeux().SearchSingle("nom", "Minecraft RTX Edition").Photo = Properties.Resources.Minecraft_RTX_Edition;
+            cat.GetLesJeux().SearchSingle("nom", "Genshin Impact").Photo = Properties.Resources.Genshin_Impact;
+            cat.GetLesJeux().SearchSingle("nom", "Mario Bros 3").Photo = Properties.Resources.Genshin_Impact;
+        }
+
         public void initPhotos()
         {
-            listBox1.DrawMode = DrawMode.OwnerDrawVariable;
+            ListeJeuxPhotos.DrawMode = DrawMode.OwnerDrawVariable;
             imList = new ImageList();
             
-            foreach(Jeu j in cat.GetLesJeux().Search())
+            foreach(Jeu j in cat.GetLesJeux().GetAll())
             {
                 imList.Images.Add(j.Photo);
-                listBox1.Items.Add(j.Nom);
+                ListeJeuxPhotos.Items.Add(j.Nom);
             }
 
             imList.ImageSize = new Size(255, 255);
-            listBox1.ItemHeight = 255;
+            ListeJeuxPhotos.ItemHeight = 255;
         }
 
         private void splitContainer2_Panel2_Paint(object sender, PaintEventArgs e)
@@ -52,7 +63,7 @@ namespace GUI
 
         public void initJeux()
         {
-            ListeJeux.Items.AddRange(cat.GetLesJeux().getNames().ToArray());
+            ListeJeux.Items.AddRange(cat.GetLesJeux().GetAllNames().ToArray());
         }
 
         public void initGenres()
@@ -62,15 +73,15 @@ namespace GUI
 
         private void ListeJeux_SelectedIndexChanged(object sender, EventArgs e)
         {
-            ToStringBox.Text = cat.getJeux().getJeu((string)ListeJeux.SelectedItem).ToString();
+            ToStringBox.Text = cat.GetLesJeux().SearchSingle("nom", (string)ListeJeux.SelectedItem).ToString();
         }
 
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void ListeJeuxPhotos_SelectedIndexChanged(object sender, EventArgs e)
         {
-            ToStringBox.Text = cat.getJeux().getJeu((string)listBox1.SelectedItem).ToString();
+            ToStringBox.Text = cat.GetLesJeux().SearchSingle("nom", (string)ListeJeuxPhotos.SelectedItem).ToString();
         }
 
-        private void listBox1_DrawItem(object sender, DrawItemEventArgs e)
+        private void ListeJeuxPhotos_DrawItem(object sender, DrawItemEventArgs e)
         {
             Point p = e.Bounds.Location;
             imList.Draw(e.Graphics, p, e.Index);

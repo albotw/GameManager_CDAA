@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.ListeJeuxPhotos = new System.Windows.Forms.ListBox();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.ToStringBox = new System.Windows.Forms.RichTextBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.PhotoPB = new System.Windows.Forms.PictureBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -54,7 +54,7 @@
             this.splitContainer2.Panel2.SuspendLayout();
             this.splitContainer2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PhotoPB)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -66,7 +66,7 @@
             // 
             // splitContainer1.Panel1
             // 
-            this.splitContainer1.Panel1.Controls.Add(this.listBox1);
+            this.splitContainer1.Panel1.Controls.Add(this.ListeJeuxPhotos);
             // 
             // splitContainer1.Panel2
             // 
@@ -75,20 +75,20 @@
             this.splitContainer1.SplitterDistance = 266;
             this.splitContainer1.TabIndex = 0;
             // 
-            // listBox1
+            // ListeJeuxPhotos
             // 
-            this.listBox1.Cursor = System.Windows.Forms.Cursors.Default;
-            this.listBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.listBox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 25;
-            this.listBox1.Location = new System.Drawing.Point(0, 0);
-            this.listBox1.Margin = new System.Windows.Forms.Padding(0);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(266, 426);
-            this.listBox1.TabIndex = 0;
-            this.listBox1.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.listBox1_DrawItem);
-            this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
+            this.ListeJeuxPhotos.Cursor = System.Windows.Forms.Cursors.Default;
+            this.ListeJeuxPhotos.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ListeJeuxPhotos.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.ListeJeuxPhotos.FormattingEnabled = true;
+            this.ListeJeuxPhotos.ItemHeight = 25;
+            this.ListeJeuxPhotos.Location = new System.Drawing.Point(0, 0);
+            this.ListeJeuxPhotos.Margin = new System.Windows.Forms.Padding(0);
+            this.ListeJeuxPhotos.Name = "ListeJeuxPhotos";
+            this.ListeJeuxPhotos.Size = new System.Drawing.Size(266, 426);
+            this.ListeJeuxPhotos.TabIndex = 0;
+            this.ListeJeuxPhotos.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.ListeJeuxPhotos_DrawItem);
+            this.ListeJeuxPhotos.SelectedIndexChanged += new System.EventHandler(this.ListeJeuxPhotos_SelectedIndexChanged);
             // 
             // splitContainer2
             // 
@@ -121,7 +121,7 @@
             // 
             this.tableLayoutPanel1.ColumnCount = 1;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Controls.Add(this.pictureBox1, 0, 5);
+            this.tableLayoutPanel1.Controls.Add(this.PhotoPB, 0, 5);
             this.tableLayoutPanel1.Controls.Add(this.button1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.button2, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 2);
@@ -140,14 +140,14 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(350, 426);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
-            // pictureBox1
+            // PhotoPB
             // 
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox1.Location = new System.Drawing.Point(3, 358);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(344, 65);
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
+            this.PhotoPB.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PhotoPB.Location = new System.Drawing.Point(3, 358);
+            this.PhotoPB.Name = "PhotoPB";
+            this.PhotoPB.Size = new System.Drawing.Size(344, 65);
+            this.PhotoPB.TabIndex = 1;
+            this.PhotoPB.TabStop = false;
             // 
             // button1
             // 
@@ -267,7 +267,7 @@
             this.splitContainer2.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PhotoPB)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -279,9 +279,9 @@
 
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.SplitContainer splitContainer2;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListBox ListeJeuxPhotos;
         private System.Windows.Forms.RichTextBox ToStringBox;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox PhotoPB;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;

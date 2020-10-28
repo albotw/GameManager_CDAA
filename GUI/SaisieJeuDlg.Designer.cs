@@ -284,7 +284,7 @@
             this.NonRecontidionneRB.Location = new System.Drawing.Point(25, 36);
             this.NonRecontidionneRB.Margin = new System.Windows.Forms.Padding(2);
             this.NonRecontidionneRB.Name = "NonRecontidionneRB";
-            this.NonRecontidionneRB.Size = new System.Drawing.Size(112, 17);
+            this.NonRecontidionneRB.Size = new System.Drawing.Size(129, 19);
             this.NonRecontidionneRB.TabIndex = 1;
             this.NonRecontidionneRB.TabStop = true;
             this.NonRecontidionneRB.Text = "Non reconditionné";
@@ -296,7 +296,7 @@
             this.reconditionneRB.Location = new System.Drawing.Point(25, 16);
             this.reconditionneRB.Margin = new System.Windows.Forms.Padding(2);
             this.reconditionneRB.Name = "reconditionneRB";
-            this.reconditionneRB.Size = new System.Drawing.Size(94, 17);
+            this.reconditionneRB.Size = new System.Drawing.Size(108, 19);
             this.reconditionneRB.TabIndex = 0;
             this.reconditionneRB.TabStop = true;
             this.reconditionneRB.Text = "Reconditionné";

@@ -1,4 +1,4 @@
-﻿using projet_CDAA_2020_2021.core;
+﻿using projet_CDAA_2020_2021.core.jeux;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;

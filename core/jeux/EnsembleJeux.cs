@@ -77,6 +77,55 @@ namespace projet_CDAA_2020_2021.core.jeux
             return tmp;
         }
 
+        //TODO: remonter la méthode à Ensemble et passer la signature en override
+        public Jeu SearchSingle(string property, object arg)
+        {
+            foreach(Jeu j in liste)
+            {
+                switch(property)
+                {
+                    case "nom":
+                        if (j.Nom == (string)arg)
+                            return j;
+                        break;
+                    case "genre":
+                        if (j.Genre == (Genre)arg)
+                            return j;
+                        break;
+                    case "plateforme":
+                        if (j.Plateforme == (string)arg)
+                            return j;
+                        break;
+                    case "editeur":
+                        if (j.Editeur == (string)arg)
+                            return j;
+                        break;
+
+                    case "prix":
+                        if (j.Prix == (double)arg)
+                            return j;
+                        break;
+
+                    case "sortie":
+                        if (j.Sortie == (DateTime)arg)
+                            return j;
+                        break;
+
+                    case "reconditionne":
+                        if (j.Reconditionne == (bool)arg)
+                            return j;
+                        break;
+
+                    case "retro":
+                        if (j.GetType().Equals(typeof(JeuRetro)))
+                            return j;
+                        break;
+                }
+            }
+
+            return null;
+        }
+
         public override List<string[]> ToStringArray()
         {
             List<string[]> output = new List<string[]>();
@@ -84,6 +133,18 @@ namespace projet_CDAA_2020_2021.core.jeux
             {
 
                 output.Add(j.ToStringArray().ToArray());
+            }
+
+            return output;
+        }
+
+        public List<string> GetAllNames()
+        {
+            List<string> output = new List<string>();
+
+            foreach(Jeu j in liste)
+            {
+                output.Add(j.Nom);
             }
 
             return output;

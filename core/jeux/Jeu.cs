@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 
 namespace projet_CDAA_2020_2021.core.jeux
 {
@@ -29,6 +30,9 @@ namespace projet_CDAA_2020_2021.core.jeux
         private bool reconditionne;
 
         public bool Reconditionne { get => reconditionne; set => reconditionne = value; }
+
+        private Image photo;
+        public Image Photo { get => photo; set => photo = value;  }
 
         public Jeu()
         {
