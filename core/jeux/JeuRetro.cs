@@ -42,7 +42,7 @@ namespace projet_CDAA_2020_2021.core.jeux
             List<String> output = base.ToStringArray();
 
             output.Add(etat);
-            output.Add(notice.ToString());
+            output.Add(notice ? "oui" : "non");
 
             return output;
         }

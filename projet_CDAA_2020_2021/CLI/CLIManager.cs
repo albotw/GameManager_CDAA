@@ -25,6 +25,15 @@ namespace projet_CDAA_2020_2021.CLI
             drawStack.Push(e);
         }
 
+        //pour forcer le traitement d'un élément
+        public void Interrupt(CLIElement e)
+        {
+            AddElement(e);
+            Update();
+            e.HandleInput(ReadKey(true).Key);
+            DeleteTop();
+        }
+
         public void DeleteTop()
         {
             drawStack.Peek().Clear();

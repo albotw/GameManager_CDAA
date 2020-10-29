@@ -72,13 +72,13 @@ namespace projet_CDAA_2020_2021
 
             string[] tableHeaderConsoles = { "NOM", "FABRIQUANT", "GENERATION", "SORTIE", "PORTS", "SUPPORT", "TYPE" };
             int[] sizesConsoles = { 50, 50, 15, 10, 10, 20, 20 };
-            tableConsoles = new CLITable(2, 30, tableHeaderConsoles, sizesConsoles, null);
+            tableConsoles = new CLITable(2, 10, tableHeaderConsoles, sizesConsoles, null);
             tableJeux.Data = c.GetLesConsoles().ToStringArray().ToArray();
 
             menuJeux = new CLIMenu(2, 1);
             menuJeux.Init(1);
 
-            menuConsoles = new CLIMenu(5, 3);
+            menuConsoles = new CLIMenu(2, 1);
             menuConsoles.Init(6);
 
             cli.AddElement(tableJeux);
@@ -88,9 +88,6 @@ namespace projet_CDAA_2020_2021
 
         public static void updateMainTable()
         {
-            SetCursorPosition(1, 1);
-            Write(c.GetLesJeux().GetAll().Count);
-
             switch(state)
             {
                 case 0: tableJeux.Data = c.GetLesJeux().ToStringArray().ToArray(); break;

@@ -24,23 +24,18 @@ namespace projet_CDAA_2020_2021.commands
 
                 CLIInputWindow tmp = new CLIInputWindow(50, 3, 50, "");
                 tmp.Init(8);
-                cli.AddElement(tmp);
-
-                cli.Update();
-                tmp.HandleInput(Console.ReadKey(true).Key);
+                cli.Interrupt(tmp);
 
                 if (tmp.UserText == "oui")  //pour les params spécifiques au JeuRetro
                 {
                     j = new JeuRetro();
 
                     tmp.Init(9);
-                    cli.Update();
-                    tmp.HandleInput(Console.ReadKey(true).Key);
+                    cli.Interrupt(tmp);
                     (j as JeuRetro).Etat = tmp.UserText;
 
                     tmp.Init(10);
-                    cli.Update();
-                    tmp.HandleInput(Console.ReadKey(true).Key);
+                    cli.Interrupt(tmp);
                     (j as JeuRetro).Notice = (tmp.UserText == "oui");
                 }
                 else
@@ -49,50 +44,40 @@ namespace projet_CDAA_2020_2021.commands
                 }
 
                 tmp.Init(0);
-                cli.Update();
-                tmp.HandleInput(Console.ReadKey(true).Key);
+                cli.Interrupt(tmp);
                 j.Nom = tmp.UserText;
 
                 tmp.Init(1);
-                cli.Update();
-                tmp.HandleInput(Console.ReadKey(true).Key);
+                cli.Interrupt(tmp);
                 j.Description = tmp.UserText;
 
                 tmp.Init(2);
-                cli.Update();
-                tmp.HandleInput(Console.ReadKey(true).Key);
+                cli.Interrupt(tmp);
                 j.Plateforme = tmp.UserText;
 
                 tmp.Init(3);
-                cli.Update();
-                tmp.HandleInput(Console.ReadKey(true).Key);
+                cli.Interrupt(tmp);
                 j.Editeur = tmp.UserText;
 
                 tmp.Init(4);
-                cli.Update();
-                tmp.HandleInput(Console.ReadKey(true).Key);
+                cli.Interrupt(tmp);
                 string s = tmp.UserText;
                 j.Genre = (Genre)Enum.Parse(typeof(Genre), s, true);
 
                 tmp.Init(5);
-                cli.Update();
-                tmp.HandleInput(Console.ReadKey(true).Key);
+                cli.Interrupt(tmp);
                 j.Prix = Double.Parse(tmp.UserText);
 
                 tmp.Init(6);
-                cli.Update();
-                tmp.HandleInput(Console.ReadKey(true).Key);
+                cli.Interrupt(tmp);
                 int jour = Int32.Parse(tmp.UserText.Split('/')[0]);
                 int mois = Int32.Parse(tmp.UserText.Split('/')[1]);
                 int annee = Int32.Parse(tmp.UserText.Split('/')[2]);
                 j.Sortie = new DateTime(annee, mois, jour);
 
                 tmp.Init(7);
-                cli.Update();
-                tmp.HandleInput(Console.ReadKey(true).Key);
+                cli.Interrupt(tmp);
                 j.Reconditionne = (tmp.UserText == "oui");
-
-                cli.DeleteTop();
 
                 //j.input();
                 c.Add(j);
@@ -101,10 +86,7 @@ namespace projet_CDAA_2020_2021.commands
             else if (command == 1)  //suppression d'un jeu, l'utilisateur n'a qu'a rentrer le nom du jeu pour le supprimer.
             {
                 CLIInputWindow nameInput = new CLIInputWindow(50, 3, 50, "Entrez le nom du jeu a supprimer");
-                cli.AddElement(nameInput);
-                cli.Update();
-                nameInput.HandleInput(Console.ReadKey(true).Key);
-                cli.DeleteTop();
+                cli.Interrupt(nameInput);
 
                 c.Remove(new Jeu(nameInput.UserText));
                 Program.tableJeux.Clear();
@@ -113,7 +95,7 @@ namespace projet_CDAA_2020_2021.commands
 
             else if (command == 2)  //partie 1 du tri: création du menu de séléction de champ de tri
             {
-                CLIMenu fieldSelector = new CLIMenu(35, 5);
+                CLIMenu fieldSelector = new CLIMenu(35, 1);
                 fieldSelector.Init(2);
                 cli.AddElement(fieldSelector);
                 cli.Update();
@@ -123,10 +105,10 @@ namespace projet_CDAA_2020_2021.commands
             {
                 switch (command)
                 {
-                    case 20: c.Sort("jeux","nom", false); break;
-                    case 21: c.Sort("jeux","description", false); break;
-                    case 22: c.Sort("jeux","plateforme", false); break;
-                    case 23: c.Sort("jeux","editeur", false); break;
+                    case 20: c.Sort("jeux", "nom", false); break;
+                    case 21: c.Sort("jeux", "description", false); break;
+                    case 22: c.Sort("jeux", "plateforme", false); break;
+                    case 23: c.Sort("jeux", "editeur", false); break;
                     case 24: c.Sort("jeux", "genre", false); break;
                     case 25: c.Sort("jeux", "prix", false); break;
                     case 26: c.Sort("jeux", "sortie", false); break;
@@ -138,7 +120,7 @@ namespace projet_CDAA_2020_2021.commands
 
             else if (command == 3)  //partie 1 de la recherche: création du menu de séléction de champ de recherche
             {
-                CLIMenu fieldSelector = new CLIMenu(35, 5);
+                CLIMenu fieldSelector = new CLIMenu(35, 1);
                 fieldSelector.Init(3);
                 cli.AddElement(fieldSelector);
                 cli.Update();
@@ -146,14 +128,14 @@ namespace projet_CDAA_2020_2021.commands
 
             else if (command >= 30 && command < 40) //partie 2 de la recherche: saisie de la valeur du champ, application de la recherche et mise a jour de la table d'affichage
             {
-                CLIInputWindow tmp = new CLIInputWindow(55, 5, 40, "");
-                tmp.Init(command - 20);
-                
+                CLIInputWindow tmp = new CLIInputWindow(55, 1, 40, "");
+                tmp.Init(command - 30);
+
                 cli.AddElement(tmp);
                 cli.Update();
                 tmp.HandleInput(Console.ReadKey(true).Key);
-                
-                switch(command)
+
+                switch (command)
                 {
                     case 30: Program.searchResultJeux = new EnsembleJeux(c.GetLesJeux().Search("nom", tmp.UserText)); break;
                     case 31: Program.searchResultJeux = new EnsembleJeux(c.GetLesJeux().Search("description", tmp.UserText)); break;

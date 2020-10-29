@@ -25,46 +25,36 @@ namespace projet_CDAA_2020_2021.commands
 
                 CLIInputWindow tmp = new CLIInputWindow(50, 3, 50, "");
                 tmp.Init(11);
-                cli.AddElement(tmp);
-
-                cli.Update();
-                tmp.HandleInput(System.Console.ReadKey(true).Key);
+                cli.Interrupt(tmp);
                 c.Nom = tmp.UserText;
 
                 tmp.Init(12);
-                cli.Update();
-                tmp.HandleInput(System.Console.ReadKey(true).Key);
+                cli.Interrupt(tmp);
                 c.Fabriquant = tmp.UserText;
 
                 tmp.Init(13);
-                cli.Update();
-                tmp.HandleInput(System.Console.ReadKey(true).Key);
+                cli.Interrupt(tmp);
                 c.Generation = Int32.Parse(tmp.UserText);
 
                 tmp.Init(14);
-                cli.Update();
-                tmp.HandleInput(System.Console.ReadKey(true).Key);
+                cli.Interrupt(tmp);
                 int jour = Int32.Parse(tmp.UserText.Split('/')[0]);
                 int mois = Int32.Parse(tmp.UserText.Split('/')[1]);
                 int annee = Int32.Parse(tmp.UserText.Split('/')[2]);
                 c.Sortie = new DateTime(annee, mois, jour);
 
                 tmp.Init(15);
-                cli.Update();
-                tmp.HandleInput(System.Console.ReadKey(true).Key);
+                cli.Interrupt(tmp);
                 c.Ports = Int32.Parse(tmp.UserText);
 
                 tmp.Init(16);
-                cli.Update();
-                tmp.HandleInput(System.Console.ReadKey(true).Key);
+                cli.Interrupt(tmp);
                 c.Support = (Support)Enum.Parse(typeof(Support), tmp.UserText, true);
 
                 tmp.Init(17);
-                cli.Update();
-                tmp.HandleInput(System.Console.ReadKey(true).Key);
+                cli.Interrupt(tmp);
                 c.Type = tmp.UserText;
 
-                cli.DeleteTop();
                 cat.Add(c);
             }
 
@@ -83,7 +73,7 @@ namespace projet_CDAA_2020_2021.commands
 
             else if (command == 102)
             {
-                CLIMenu fieldSelector = new CLIMenu(35, 5);
+                CLIMenu fieldSelector = new CLIMenu(35, 1);
                 fieldSelector.Init(4);
                 cli.AddElement(fieldSelector);
                 cli.Update();
@@ -107,7 +97,7 @@ namespace projet_CDAA_2020_2021.commands
 
             else if (command == 103)
             {
-                CLIMenu fieldSelector = new CLIMenu(35, 5);
+                CLIMenu fieldSelector = new CLIMenu(35, 1);
                 fieldSelector.Init(5);
                 cli.AddElement(fieldSelector);
                 cli.Update();
@@ -115,7 +105,7 @@ namespace projet_CDAA_2020_2021.commands
 
             else if (command >= 130 && command < 137)
             {
-                CLIInputWindow tmp = new CLIInputWindow(55, 5, 40, "");
+                CLIInputWindow tmp = new CLIInputWindow(55, 1, 40, "");
                 tmp.Init(command - 119);
 
                 cli.AddElement(tmp);
