@@ -1,4 +1,5 @@
-﻿using System;
+﻿using projet_CDAA_2020_2021.core.sort;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -72,15 +73,16 @@ namespace projet_CDAA_2020_2021.core.consoles
 
         public List<string> ToStringArray()
         {
-            List<string> output = new List<string>();
-
-            output.Add(nom);
-            output.Add(fabriquant);
-            output.Add("" + generation);
-            output.Add(sortie.ToString("d", new System.Globalization.CultureInfo("fr-FR")));
-            output.Add("" + ports);
-            output.Add(support.ToString());
-            output.Add(type);
+            List<string> output = new List<string>
+            {
+                nom,
+                fabriquant,
+                "" + generation,
+                sortie.ToString("d", new System.Globalization.CultureInfo("fr-FR")),
+                "" + ports,
+                support.ToString(),
+                type
+            };
 
             return output;
         }
@@ -115,32 +117,24 @@ namespace projet_CDAA_2020_2021.core.consoles
                 return this.nom.CompareTo(other.nom);
         }
 
-        public int CompareFieldTo(string field, Console other)
+        public int CompareFieldTo(Field field, Console other)
         {
             if (other != null)
             {
-                switch (field)
-                {
-                    case "nom": return this.nom.CompareTo(other.Nom);
-                    case "fabriquant": return this.fabriquant.CompareTo(other.Fabriquant);
-                    case "generation": return this.generation.CompareTo(other.Generation);
-                    case "sortie": return this.sortie.CompareTo(other.Sortie);
-                    case "ports": return this.ports.CompareTo(other.Ports);
-                    case "support": return this.support.CompareTo(other.Support);
-                    case "type": return this.type.CompareTo(other.Type);
-                    default: return -1;
-                }
+                if (field == FieldConsole.Nom) return this.Nom.CompareTo(other.Nom);
+                else if (field == FieldConsole.Fabriquant) return this.Fabriquant.CompareTo(other.Fabriquant);
+                else if(field == FieldConsole.Generation) return this.Generation.CompareTo(other.Generation);
+                else if(field == FieldConsole.Sortie) return this.Sortie.CompareTo(other.Sortie);
+                else if(field == FieldConsole.Ports) return this.Ports.CompareTo(other.Ports);
+                else if(field == FieldConsole.Support) return this.Support.CompareTo(other.Support);
+                else if(field == FieldConsole.Type) return this.Type.CompareTo(other.Type);
             }
-            else
-                return 1;
+            return 1;
         }
 
         public static bool operator == (Console c1, Console c2)
         {
-            if ((object)c1 == null)
-                return (object)c2 == null;
-            else
-                return c1.Equals(c2);
+            return c1 is null ? c2 is null : c1.Equals(c2);
         }
         
         public static bool operator != (Console c1, Console c2)

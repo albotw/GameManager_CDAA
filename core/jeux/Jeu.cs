@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using projet_CDAA_2020_2021.core.sort;
 
 namespace projet_CDAA_2020_2021.core.jeux
 {
@@ -81,22 +82,23 @@ namespace projet_CDAA_2020_2021.core.jeux
         //pour affichage dans une CLITable
         public virtual List<string> ToStringArray()
         {
-            List<string> output= new List<string>();
-
-            output.Add(nom);
-            output.Add(description);
-            output.Add(plateforme);
-            output.Add(editeur);
-            output.Add(genre.ToString());
-            output.Add("" + prix);
-            output.Add(sortie.ToString("d", new System.Globalization.CultureInfo("fr-FR")));
-            output.Add((this.reconditionne == true ? "oui" : "non"));
+            List<string> output = new List<string>
+            {
+                nom,
+                description,
+                plateforme,
+                editeur,
+                genre.ToString(),
+                "" + prix,
+                sortie.ToString("d", new System.Globalization.CultureInfo("fr-FR")),
+                (this.reconditionne == true ? "oui" : "non")
+            };
 
             return output;
         }
 
         //inutile car utilisation de la CLI
-        public virtual void input()
+        public virtual void Input()
         {
             Console.Write("nom ?"); this.nom = Console.ReadLine();
             Console.Write("description ? "); this.description = Console.ReadLine();
@@ -116,7 +118,7 @@ namespace projet_CDAA_2020_2021.core.jeux
             annee = Int32.Parse(Console.ReadLine());
             this.sortie = new DateTime(annee, mois, jour);
 
-            Console.Write("reconditionné ? (oui | non) "); this.reconditionne = (Console.ReadLine() == "oui" ? true : false);
+            Console.Write("reconditionné ? (oui | non) "); this.reconditionne = (Console.ReadLine() == "oui");
         }
 
         //? méthode Equals de IEquatable
@@ -142,36 +144,27 @@ namespace projet_CDAA_2020_2021.core.jeux
         }
 
         //? méthode CompareFieldTo de IFieldComparison (classification par d'autres champs).
-        public int CompareFieldTo(string field, Jeu other)
+        public int CompareFieldTo(Field field, Jeu other)
         {
             if (other != null)
             {
-                switch (field)
-                {
-                    case "nom": return this.nom.CompareTo(other.nom);
-                    case "description": return this.description.CompareTo(other.Description);
-                    case "plateforme": return this.plateforme.CompareTo(other.plateforme);
-                    case "editeur": return this.editeur.CompareTo(other.editeur);
-                    case "genre": return this.genre.CompareTo(other.Genre);
-                    case "prix": return this.prix.CompareTo(other.prix);
-                    case "sortie": return this.sortie.CompareTo(other.sortie);
-                    case "reconditionne": return this.reconditionne.CompareTo(other.reconditionne);
-                    default: return -1;
-                }
+                if      (field == FieldJeu.Nom)             return this.nom.CompareTo(other.Nom);
+                else if (field == FieldJeu.Description)     return this.description.CompareTo(other.description);
+                else if (field == FieldJeu.Plateforme)      return this.Plateforme.CompareTo(other.Plateforme);
+                else if (field == FieldJeu.Editeur)         return this.Editeur.CompareTo(other.Editeur);
+                else if (field == FieldJeu.Genre)           return this.Genre.CompareTo(other.Genre);
+                else if (field == FieldJeu.Prix)            return this.Prix.CompareTo(other.Prix);
+                else if (field == FieldJeu.Sortie)          return this.Sortie.CompareTo(other.Sortie);
+                else if (field == FieldJeu.Reconditionne)   return this.Reconditionne.CompareTo(other.Reconditionne);
             }
-            else
-            {
-                return 1;
-            }
+
+            return -1;
         }
 
         // pour pouvoir faire j1 == j2
         public static bool operator ==(Jeu j1, Jeu j2)
         {
-            if ((Object)j1 == null)
-                return (Object)j2 == null;
-            else
-                return j1.Equals(j2);
+            return j1 is null ? j2 is null : j1.Equals(j2);
         }
 
         //pour pouvoir faire j1 != j2

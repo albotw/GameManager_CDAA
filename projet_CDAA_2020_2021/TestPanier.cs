@@ -42,7 +42,7 @@ namespace projet_CDAA_2020_2021
                 {
                     case "1":
                         Jeu j = new Jeu();
-                        j.input();
+                        j.Input();
 
                         try
                         {

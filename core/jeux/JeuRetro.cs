@@ -1,4 +1,5 @@
-﻿using System;
+﻿using projet_CDAA_2020_2021.core.sort;
+using System;
 using System.Collections.Generic;
 
 namespace projet_CDAA_2020_2021.core.jeux
@@ -60,33 +61,21 @@ namespace projet_CDAA_2020_2021.core.jeux
         }
 
         //TODO: tests
-        public int CompareFieldTo(string field, JeuRetro other)
+        public int CompareFieldTo(Field field, JeuRetro other)
         {
             if (other != null)
             {
                 base.CompareFieldTo(field, other);
-                switch (field)
-                {
-                    case "etat":
-                        return this.etat.CompareTo(other.etat);
-                    case "notice":
-                        return this.notice.CompareTo(other.notice);
-                    default:
-                        return -1;
-                }
+
+                if (field == FieldJeu.Etat) return this.Etat.CompareTo(other.Etat);
+                else if (field == FieldJeu.Notice) return this.Notice.CompareTo(other.Notice);
             }
-            else
-            {
-                return 1;
-            }
+            return -1;
         }
 
         public static bool operator ==(JeuRetro j1, JeuRetro j2)
         {
-            if ((Object)j1 == null)
-                return (Object)j2 == null;
-            else
-                return j1.Equals(j2);
+            return j1 is null ? j2 is null : j1.Equals(j2);
         }
 
         public static bool operator !=(JeuRetro j1, JeuRetro j2)

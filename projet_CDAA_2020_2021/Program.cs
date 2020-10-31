@@ -106,7 +106,7 @@ namespace projet_CDAA_2020_2021
             }
             else if (state == 1)
             {
-                CommandesConsoles.handleCommand(command);
+                CommandesConsoles.HandleCommand(command);
             }
 
             switch (command)

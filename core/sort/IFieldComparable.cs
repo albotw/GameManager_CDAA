@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace projet_CDAA_2020_2021.core
+namespace projet_CDAA_2020_2021.core.sort
 {
     /*
         * interface qui permet la comparaison par rapport à plusieurs champs.
@@ -12,6 +12,6 @@ namespace projet_CDAA_2020_2021.core
     */
     public interface IFieldComparable<T>
     {
-        int CompareFieldTo(string field, T other);
+        int CompareFieldTo(Field field, T other);
     }
 }

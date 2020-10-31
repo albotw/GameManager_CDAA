@@ -1,11 +1,12 @@
 ﻿using projet_CDAA_2020_2021.core;
+using projet_CDAA_2020_2021.core.sort;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace projet_CDAA_2020_2021.datastructures
+namespace projet_CDAA_2020_2021.core.datastructures
 {
     abstract public class Ensemble<T> where T : IFieldComparable<T>
     {
@@ -47,9 +48,9 @@ namespace projet_CDAA_2020_2021.datastructures
             return this.liste;
         }
 
-        public abstract List<T> Search(string property, object arg);
+        public abstract List<T> Search(Field field, object arg);
 
-        public void Sort(string field, bool reverse)
+        public void Sort(Field field, bool reverse)
         {
             QuickSort<T> qk = new QuickSort<T>();
             T[] tmp = liste.ToArray();

@@ -6,12 +6,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace projet_CDAA_2020_2021.datastructures
+namespace projet_CDAA_2020_2021.core.datastructures
 {
     public class Panier<T> where T: IEquatable<T>, IComparable<T>
     {
-        private T[] tab;
-        private int MAX_SIZE = 50;
+        private readonly T[] tab;
+        private readonly int MAX_SIZE = 50;
         private int size;
 
         public Panier()
@@ -79,7 +79,7 @@ namespace projet_CDAA_2020_2021.datastructures
             {
                 if (tab[i].Equals(obj))
                 {
-                    tab[i] = default(T);
+                    tab[i] = default;
                     size--;
                     i = size;
                 }
@@ -95,7 +95,7 @@ namespace projet_CDAA_2020_2021.datastructures
                 if (tab[i] == null)
                 {
                     tab[i] = tab[i + 1];
-                    tab[i + 1] = default(T);
+                    tab[i + 1] = default;
                 }
             }
         }

@@ -45,8 +45,11 @@
     <Compile Include="Catalogue.cs" />
     <Compile Include="consoles\Console.cs" />
     <Compile Include="consoles\EnsembleConsoles.cs" />
+    <Compile Include="consoles\FieldConsole.cs" />
     <Compile Include="datastructures\Ensemble.cs" />
+    <Compile Include="Field.cs" />
     <Compile Include="jeux\EnsembleJeux.cs" />
+    <Compile Include="jeux\FieldJeu.cs" />
     <Compile Include="jeux\Genre.cs" />
     <Compile Include="sort\IFieldComparable.cs" />
     <Compile Include="jeux\Jeu.cs" />

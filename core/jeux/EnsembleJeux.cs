@@ -1,6 +1,7 @@
-﻿using projet_CDAA_2020_2021.datastructures;
+﻿using projet_CDAA_2020_2021.core.datastructures;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Runtime.InteropServices;
 using System.Text;
 
@@ -25,55 +26,51 @@ namespace projet_CDAA_2020_2021.core.jeux
             Add(new JeuRetro("Mario Bros 3", "Un clasiqque des jeux de plateforme", "Super NES", "Nintendo", Genre.Plateforme, 40.00, new DateTime(1991, 11, 30), false, "presque neuf", true));
         }
 
-        public override List<Jeu> Search(string property, object arg)
+        //TODO: vérifier les cast dans les appels a search, surtout les DateTime.
+        public override List<Jeu> Search(Field field, object arg)
         {
             List<Jeu> tmp = new List<Jeu>();
 
             foreach (Jeu j in liste)
             {
-                switch (property)
-                {
-                    case "nom":
-                        if (j.Nom == (string)arg)
-                            tmp.Add(j);
-                        break;
-                    case "genre":
-                        if (j.Genre == (Genre)arg)
-                            tmp.Add(j);
-                        break;
+                if (field == FieldJeu.Nom && j.Nom == (string)arg)
+                    tmp.Add(j);
 
-                    case "plateforme":
-                        if (j.Plateforme == (string)arg)
-                            tmp.Add(j);
-                        break;
+                else if (field == FieldJeu.Genre && j.Genre == (Genre)arg)
+                    tmp.Add(j);
 
-                    case "editeur":
-                        if (j.Editeur == (string)arg)
-                            tmp.Add(j);
-                        break;
+                else if (field == FieldJeu.Description && j.Description == (string)arg)
+                    tmp.Add(j);
 
-                    case "prix":
-                        if (j.Prix == (double)arg)
-                            tmp.Add(j);
-                        break;
+                else if (field == FieldJeu.Plateforme && j.Plateforme == (string)arg)
+                    tmp.Add(j);
 
-                    case "sortie":
-                        if (j.Sortie == (DateTime)arg)
-                            tmp.Add(j);
-                        break;
+                else if (field == FieldJeu.Editeur && j.Editeur == (string)arg)
+                    tmp.Add(j);
 
-                    case "reconditionne":
-                        if (j.Reconditionne == (bool)arg)
-                            tmp.Add(j);
-                        break;
+                else if (field == FieldJeu.Prix && j.Prix == (double)arg)
+                    tmp.Add(j);
 
-                    case "retro":
-                        if (j.GetType().Equals(typeof(JeuRetro)))
-                            tmp.Add(j);
-                        break;
-                }
+                else if (field == FieldJeu.Sortie && j.Sortie == (DateTime)arg)
+                    tmp.Add(j);
+
+                else if (field == FieldJeu.Reconditionne && j.Reconditionne == (bool)arg)
+                    tmp.Add(j);
+
+                else if (field == FieldJeu.Photo && j.Photo == (Image)arg)
+                    tmp.Add(j);
+
+                else if (field == FieldJeu.Retro && j.GetType().Equals(typeof(JeuRetro)))
+                    tmp.Add(j);
+
+                //pas sure que ça fonctionne
+                else if (field == FieldJeu.Etat && (j as JeuRetro).Etat == (string)arg)
+                    tmp.Add(j);
+
+                else if (field == FieldJeu.Notice && (j as JeuRetro).Notice == (bool)arg)
+                    tmp.Add(j);
             }
-
+            
             return tmp;
         }
 
@@ -149,19 +146,5 @@ namespace projet_CDAA_2020_2021.core.jeux
 
             return output;
         }
-
-        //Inutile pour le moment.
-        /*
-        public override string ToString()
-        {
-            string s = base.ToString();
-            s += "\ndenière modification : " + lastUpdate.ToString("F", new System.Globalization.CultureInfo("fr-FR"));
-            s += "\n Contenu:";
-            foreach (Jeu j in liste)
-            {
-                s += "\n\n" + j.ToString();
-            }
-            return s;
-        }*/
     }
 }

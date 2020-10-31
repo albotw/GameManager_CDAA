@@ -14,7 +14,7 @@ namespace projet_CDAA_2020_2021.commands
     class CommandesConsoles
     {
 
-        public static void handleCommand(int command)
+        public static void HandleCommand(int command)
         {
             CLIManager cli = Program.cli;
             Catalogue cat = Program.c;
@@ -114,13 +114,14 @@ namespace projet_CDAA_2020_2021.commands
 
                 switch(command)
                 {
-                    case 130: Program.searchResultConsoles = new EnsembleConsoles(cat.GetLesConsoles().Search("nom", tmp.UserText)); break;
-                    case 131: Program.searchResultConsoles = new EnsembleConsoles(cat.GetLesConsoles().Search("fabriquant", tmp.UserText)); break;
-                    case 132: Program.searchResultConsoles = new EnsembleConsoles(cat.GetLesConsoles().Search("generation", tmp.UserText)); break;
-                    case 133: Program.searchResultConsoles = new EnsembleConsoles(cat.GetLesConsoles().Search("sortie", tmp.UserText)); break;
-                    case 134: Program.searchResultConsoles = new EnsembleConsoles(cat.GetLesConsoles().Search("ports", tmp.UserText)); break;
-                    case 135: Program.searchResultConsoles = new EnsembleConsoles(cat.GetLesConsoles().Search("support", tmp.UserText)); break;
-                    case 136: Program.searchResultConsoles = new EnsembleConsoles(cat.GetLesConsoles().Search("type", tmp.UserText)); break;
+                    //TODO: Faire casts pour éviter les exceptions.
+                    case 130: Program.searchResultConsoles = new EnsembleConsoles(cat.GetLesConsoles().Search(FieldConsole.Nom, tmp.UserText)); break;
+                    case 131: Program.searchResultConsoles = new EnsembleConsoles(cat.GetLesConsoles().Search(FieldConsole.Fabriquant, tmp.UserText)); break;
+                    case 132: Program.searchResultConsoles = new EnsembleConsoles(cat.GetLesConsoles().Search(FieldConsole.Generation, tmp.UserText)); break;
+                    case 133: Program.searchResultConsoles = new EnsembleConsoles(cat.GetLesConsoles().Search(FieldConsole.Sortie, tmp.UserText)); break;
+                    case 134: Program.searchResultConsoles = new EnsembleConsoles(cat.GetLesConsoles().Search(FieldConsole.Ports, tmp.UserText)); break;
+                    case 135: Program.searchResultConsoles = new EnsembleConsoles(cat.GetLesConsoles().Search(FieldConsole.Support, tmp.UserText)); break;
+                    case 136: Program.searchResultConsoles = new EnsembleConsoles(cat.GetLesConsoles().Search(FieldConsole.Type, tmp.UserText)); break;
                 }
 
                 cli.DeleteTop();        //suppprime tmp

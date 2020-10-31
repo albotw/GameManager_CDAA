@@ -5,11 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace projet_CDAA_2020_2021.core
+namespace projet_CDAA_2020_2021.core.sort
 {
     class QuickSort<T> where T : IFieldComparable<T>
     {
-        public void Sort(ref T[] tab, int gauche, int droite, string champ, bool inverse)
+        public void Sort(ref T[] tab, int gauche, int droite, Field champ, bool inverse)
         {
             //tableau impossible à trier
             if (gauche >= droite)
@@ -23,7 +23,7 @@ namespace projet_CDAA_2020_2021.core
             Sort(ref tab, p + 1, droite, champ, inverse);
         }
 
-        private int Partition(ref T[] tab, int gauche, int droite, string champ, bool inverse)
+        private int Partition(ref T[] tab, int gauche, int droite, Field champ, bool inverse)
         {
             //on prend l'élément du milieu
             T pivot = tab[gauche + (droite - gauche) / 2];
