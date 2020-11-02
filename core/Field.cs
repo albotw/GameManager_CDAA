@@ -16,5 +16,10 @@ namespace projet_CDAA_2020_2021.core
         {
             return Value.Equals(other.Value);
         }
+
+        public override bool Equals(object obj)
+        {
+            return Value.Equals((obj as Field).Value);
+        }
     }
 }

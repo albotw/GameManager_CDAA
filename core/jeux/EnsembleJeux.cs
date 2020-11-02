@@ -33,10 +33,12 @@ namespace projet_CDAA_2020_2021.core.jeux
 
             foreach (Jeu j in liste)
             {
+                //TODO: passer tous les Field == Field en Field.Equals(Field) OU IMPLEMNETER OPERATOR==
+
                 if (field == FieldJeu.Nom && j.Nom == (string)arg)
                     tmp.Add(j);
 
-                else if (field == FieldJeu.Genre && j.Genre == (Genre)arg)
+                else if (field.Equals(FieldJeu.Genre) && j.Genre.Equals((Genre)arg))
                     tmp.Add(j);
 
                 else if (field == FieldJeu.Description && j.Description == (string)arg)
@@ -70,7 +72,6 @@ namespace projet_CDAA_2020_2021.core.jeux
                 else if (field == FieldJeu.Notice && (j as JeuRetro).Notice == (bool)arg)
                     tmp.Add(j);
             }
-            
             return tmp;
         }
 

@@ -8,17 +8,19 @@ using projet_CDAA_2020_2021.CLI;
 using projet_CDAA_2020_2021.core;
 using projet_CDAA_2020_2021.core.jeux;
 
+using static projet_CDAA_2020_2021.commands.Command;
+using static projet_CDAA_2020_2021.core.jeux.FieldJeu;
 
 namespace projet_CDAA_2020_2021.commands
 {
     class CommandesJeux
     {
-        public static void handleCommand(int command)
+        public static void HandleCommand(Command command)
         {
             CLIManager cli = Program.cli;
             Catalogue c = Program.c;
 
-            if (command == 0)
+            if (command == AjouterJeu)
             {
                 Jeu j;
 
@@ -83,17 +85,17 @@ namespace projet_CDAA_2020_2021.commands
                 c.Add(j);
             }
 
-            else if (command == 1)  //suppression d'un jeu, l'utilisateur n'a qu'a rentrer le nom du jeu pour le supprimer.
+            else if (command == SupprimerJeu)  //suppression d'un jeu, l'utilisateur n'a qu'a rentrer le nom du jeu pour le supprimer.
             {
                 CLIInputWindow nameInput = new CLIInputWindow(50, 3, 50, "Entrez le nom du jeu a supprimer");
                 cli.Interrupt(nameInput);
 
                 c.Remove(new Jeu(nameInput.UserText));
                 Program.tableJeux.Clear();
-                Program.updateMainTable();
+                Program.UpdateMainTable();
             }
 
-            else if (command == 2)  //partie 1 du tri: création du menu de séléction de champ de tri
+            else if (command == TrierJeu)  //partie 1 du tri: création du menu de séléction de champ de tri
             {
                 CLIMenu fieldSelector = new CLIMenu(35, 1);
                 fieldSelector.Init(2);
@@ -101,24 +103,24 @@ namespace projet_CDAA_2020_2021.commands
                 cli.Update();
             }
 
-            else if (command >= 20 && command < 30) //partie 2 du tri: application sur la table
+            else if (command >= TriNomJeu && command <= TriReconditionneJeu) //partie 2 du tri: application sur la table
             {
                 switch (command)
                 {
-                    case 20: c.Sort("jeux", "nom", false); break;
-                    case 21: c.Sort("jeux", "description", false); break;
-                    case 22: c.Sort("jeux", "plateforme", false); break;
-                    case 23: c.Sort("jeux", "editeur", false); break;
-                    case 24: c.Sort("jeux", "genre", false); break;
-                    case 25: c.Sort("jeux", "prix", false); break;
-                    case 26: c.Sort("jeux", "sortie", false); break;
-                    case 27: c.Sort("jeux", "reconditionne", false); break;
+                    case TriNomJeu: c.Sort("jeux", Nom, false); break;
+                    case TriDescriptionJeu: c.Sort("jeux", Description, false); break;
+                    case TriPlateformeJeu: c.Sort("jeux", Plateforme, false); break;
+                    case TriEditeurJeu: c.Sort("jeux", Editeur, false); break;
+                    case TriGenreJeu: c.Sort("jeux", FieldJeu.Genre, false); break;
+                    case TriPrixJeu: c.Sort("jeux", Prix, false); break;
+                    case TriSortieJeu: c.Sort("jeux", Sortie, false); break;
+                    case TriReconditionneJeu: c.Sort("jeux", Reconditionne, false); break;
                 }
 
                 cli.DeleteTop(); //pour supprimer le menu.
             }
 
-            else if (command == 3)  //partie 1 de la recherche: création du menu de séléction de champ de recherche
+            else if (command == RechercherJeu)  //partie 1 de la recherche: création du menu de séléction de champ de recherche
             {
                 CLIMenu fieldSelector = new CLIMenu(35, 1);
                 fieldSelector.Init(3);
@@ -126,10 +128,10 @@ namespace projet_CDAA_2020_2021.commands
                 cli.Update();
             }
 
-            else if (command >= 30 && command < 40) //partie 2 de la recherche: saisie de la valeur du champ, application de la recherche et mise a jour de la table d'affichage
+            else if (command >= RechNomJeu && command <= RechReconditionneJeu) //partie 2 de la recherche: saisie de la valeur du champ, application de la recherche et mise a jour de la table d'affichage
             {
                 CLIInputWindow tmp = new CLIInputWindow(55, 1, 40, "");
-                tmp.Init(command - 30);
+                tmp.Init((int)command - 30);
 
                 cli.AddElement(tmp);
                 cli.Update();
@@ -137,14 +139,14 @@ namespace projet_CDAA_2020_2021.commands
 
                 switch (command)
                 {
-                    case 30: Program.searchResultJeux = new EnsembleJeux(c.GetLesJeux().Search("nom", tmp.UserText)); break;
-                    case 31: Program.searchResultJeux = new EnsembleJeux(c.GetLesJeux().Search("description", tmp.UserText)); break;
-                    case 32: Program.searchResultJeux = new EnsembleJeux(c.GetLesJeux().Search("plateforme", tmp.UserText)); break;
-                    case 33: Program.searchResultJeux = new EnsembleJeux(c.GetLesJeux().Search("editeur", tmp.UserText)); break;
-                    case 34: Program.searchResultJeux = new EnsembleJeux(c.GetLesJeux().Search("genre", tmp.UserText)); break;
-                    case 35: Program.searchResultJeux = new EnsembleJeux(c.GetLesJeux().Search("prix", tmp.UserText)); break;
-                    case 36: Program.searchResultJeux = new EnsembleJeux(c.GetLesJeux().Search("sortie", tmp.UserText)); break;
-                    case 37: Program.searchResultJeux = new EnsembleJeux(c.GetLesJeux().Search("reconditionne", tmp.UserText)); break;
+                    case RechNomJeu: Program.searchResultJeux = new EnsembleJeux(c.GetLesJeux().Search(Nom, tmp.UserText)); break;
+                    case RechDescriptionJeu: Program.searchResultJeux = new EnsembleJeux(c.GetLesJeux().Search(Description, tmp.UserText)); break;
+                    case RechPlateformeJeu: Program.searchResultJeux = new EnsembleJeux(c.GetLesJeux().Search(Plateforme, tmp.UserText)); break;
+                    case RechEditeurJeu: Program.searchResultJeux = new EnsembleJeux(c.GetLesJeux().Search(Editeur, tmp.UserText)); break;
+                    case RechGenreJeu: Program.searchResultJeux = new EnsembleJeux(c.GetLesJeux().Search(FieldJeu.Genre, tmp.UserText)); break;
+                    case RechPrixJeu: Program.searchResultJeux = new EnsembleJeux(c.GetLesJeux().Search(Prix, tmp.UserText)); break;
+                    case RechSortieJeu: Program.searchResultJeux = new EnsembleJeux(c.GetLesJeux().Search(Sortie, tmp.UserText)); break;
+                    case RechReconditionneJeu: Program.searchResultJeux = new EnsembleJeux(c.GetLesJeux().Search(Reconditionne, tmp.UserText)); break;
                 }
 
                 cli.DeleteTop();    //on supprime tmp
@@ -152,7 +154,7 @@ namespace projet_CDAA_2020_2021.commands
 
                 Program.state = 2;
                 Program.tableJeux.Clear();
-                Program.updateMainTable();
+                Program.UpdateMainTable();
             }
         }
     }

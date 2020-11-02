@@ -86,7 +86,7 @@ namespace projet_CDAA_2020_2021
             cli.Loop();
         }
 
-        public static void updateMainTable()
+        public static void UpdateMainTable()
         {
             switch(state)
             {
@@ -97,12 +97,12 @@ namespace projet_CDAA_2020_2021
             }
         }
 
-        public static void dispatchCommand(int command)
+        public static void DispatchCommand(Command command)
         {
             //commandes particulières.
             if (state == 0)
             {
-                CommandesJeux.handleCommand(command);
+                CommandesJeux.HandleCommand(command);
             }
             else if (state == 1)
             {
@@ -112,16 +112,16 @@ namespace projet_CDAA_2020_2021
             switch (command)
             {
                 //commandes générales.
-                case -1:                    //suppression de la table de recherche et affichage de la table principale (jeux);
-                    cli.DeleteTop();        //suppression de la table (jeux ou console) de la pile d'affichage
-                    cli.DeleteTop();        //pour s'assurer qu'il s'agit bien des objets concernant les jeux (comme la commande est utilisée comme commande de réinitialisation)
+                case Command.AfficherTousJeux:      //suppression de la table de recherche et affichage de la table principale (jeux);
+                    cli.DeleteTop();                //suppression de la table (jeux ou console) de la pile d'affichage
+                    cli.DeleteTop();                //pour s'assurer qu'il s'agit bien des objets concernant les jeux (comme la commande est utilisée comme commande de réinitialisation)
                     cli.AddElement(tableJeux);
                     cli.AddElement(menuJeux);
                     searchResultJeux = null;
                     state = 0;
                     break;
 
-                case -2:                    //suppression de la table de recherche et affichage de la table principale (consoles)
+                case Command.AfficherTousConsoles:  //suppression de la table de recherche et affichage de la table principale (consoles)
                     cli.DeleteTop();
                     cli.DeleteTop();
                     cli.AddElement(tableConsoles);

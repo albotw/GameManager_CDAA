@@ -36,7 +36,7 @@ namespace projet_CDAA_2020_2021.core
                 lesConsoles.Remove(o as consoles.Console);
         }
 
-        public void Sort(string categorie, string field, bool reverse)
+        public void Sort(string categorie, Field field, bool reverse)
         {
             if (categorie == "jeux")
                 lesJeux.Sort(field, reverse);

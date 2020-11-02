@@ -3,7 +3,7 @@ using System.Linq.Expressions;
 using projet_CDAA_2020_2021.CLI;
 using projet_CDAA_2020_2021.core;
 using projet_CDAA_2020_2021.core.jeux;
-using projet_CDAA_2020_2021.datastructures;
+using projet_CDAA_2020_2021.core.datastructures;
 
 namespace projet_CDAA_2020_2021
 {

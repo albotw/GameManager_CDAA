@@ -18,7 +18,7 @@ namespace projet_CDAA_2020_2021.core.jeux
         public static FieldJeu Description { get { return new FieldJeu("description"); } }
         public static FieldJeu Plateforme { get { return new FieldJeu("plateforme"); } }
         public static FieldJeu Editeur { get { return new FieldJeu("editeur"); } }
-        public static FieldJeu Genre { get { return new FieldJeu("Genre"); } }
+        public static FieldJeu Genre { get { return new FieldJeu("genre"); } }
         public static FieldJeu Prix { get { return new FieldJeu("prix"); } }
         public static FieldJeu Sortie { get { return new FieldJeu("sortie"); } }
         public static FieldJeu Reconditionne { get { return new FieldJeu("reconditionne"); } }

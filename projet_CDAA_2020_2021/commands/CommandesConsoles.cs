@@ -7,6 +7,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
+
+using static projet_CDAA_2020_2021.commands.Command;
+using static projet_CDAA_2020_2021.core.consoles.FieldConsole;
+
 using Console = projet_CDAA_2020_2021.core.consoles.Console;
 
 namespace projet_CDAA_2020_2021.commands
@@ -14,12 +18,12 @@ namespace projet_CDAA_2020_2021.commands
     class CommandesConsoles
     {
 
-        public static void HandleCommand(int command)
+        public static void HandleCommand(Command command)
         {
             CLIManager cli = Program.cli;
             Catalogue cat = Program.c;
 
-            if (command == 100)
+            if (command == AjouterConsole)
             {
                 Console c = new Console();
 
@@ -58,7 +62,7 @@ namespace projet_CDAA_2020_2021.commands
                 cat.Add(c);
             }
 
-            else if (command == 101)
+            else if (command == SupprimerConsole)
             {
                 CLIInputWindow nameInput = new CLIInputWindow(50, 3, 50, "Entrez le nom de la console a supprimer");
                 cli.AddElement(nameInput);
@@ -68,10 +72,10 @@ namespace projet_CDAA_2020_2021.commands
 
                 cat.Remove(new Console(nameInput.UserText));
                 Program.tableJeux.Clear();
-                Program.updateMainTable();
+                Program.UpdateMainTable();
             }
 
-            else if (command == 102)
+            else if (command == TrierConsole)
             {
                 CLIMenu fieldSelector = new CLIMenu(35, 1);
                 fieldSelector.Init(4);
@@ -79,23 +83,23 @@ namespace projet_CDAA_2020_2021.commands
                 cli.Update();
             }
 
-            else if (command >= 120 && command < 127)
+            else if (command >= TriNomConsole && command <= TriTypeConsole)
             {
                 switch(command)
                 {
-                    case 120: cat.Sort("consoles", "nom", false); break;
-                    case 121: cat.Sort("consoles", "fabriquant", false); break;
-                    case 122: cat.Sort("consoles", "generation", false); break;
-                    case 123: cat.Sort("consoles", "sortie", false); break;
-                    case 124: cat.Sort("consoles", "ports", false); break;
-                    case 125: cat.Sort("consoles", "support", false); break;
-                    case 126: cat.Sort("consoles", "type", false); break;
+                    case TriNomConsole: cat.Sort("consoles", Nom, false); break;
+                    case TriFabriquantConsole: cat.Sort("consoles", Fabriquant, false); break;
+                    case TriGenerationConsole: cat.Sort("consoles", Generation, false); break;
+                    case TriSortieConsole: cat.Sort("consoles", Sortie, false); break;
+                    case TriPortsConsole: cat.Sort("consoles", Ports, false); break;
+                    case TriSupportConsole: cat.Sort("consoles", FieldConsole.Support, false); break;
+                    case TriTypeConsole: cat.Sort("consoles", FieldConsole.Type, false); break;
                 }
 
                 cli.DeleteTop();
             }
 
-            else if (command == 103)
+            else if (command == RechercherConsole)
             {
                 CLIMenu fieldSelector = new CLIMenu(35, 1);
                 fieldSelector.Init(5);
@@ -103,10 +107,10 @@ namespace projet_CDAA_2020_2021.commands
                 cli.Update();
             }
 
-            else if (command >= 130 && command < 137)
+            else if (command >= RechNomConsole && command <= RechTypeConsole)
             {
-                CLIInputWindow tmp = new CLIInputWindow(55, 1, 40, "");
-                tmp.Init(command - 119);
+                CLIInputWindow tmp = new CLIInputWindow(60, 1, 40, "");
+                tmp.Init((int)command - 119);
 
                 cli.AddElement(tmp);
                 cli.Update();
@@ -115,13 +119,13 @@ namespace projet_CDAA_2020_2021.commands
                 switch(command)
                 {
                     //TODO: Faire casts pour éviter les exceptions.
-                    case 130: Program.searchResultConsoles = new EnsembleConsoles(cat.GetLesConsoles().Search(FieldConsole.Nom, tmp.UserText)); break;
-                    case 131: Program.searchResultConsoles = new EnsembleConsoles(cat.GetLesConsoles().Search(FieldConsole.Fabriquant, tmp.UserText)); break;
-                    case 132: Program.searchResultConsoles = new EnsembleConsoles(cat.GetLesConsoles().Search(FieldConsole.Generation, tmp.UserText)); break;
-                    case 133: Program.searchResultConsoles = new EnsembleConsoles(cat.GetLesConsoles().Search(FieldConsole.Sortie, tmp.UserText)); break;
-                    case 134: Program.searchResultConsoles = new EnsembleConsoles(cat.GetLesConsoles().Search(FieldConsole.Ports, tmp.UserText)); break;
-                    case 135: Program.searchResultConsoles = new EnsembleConsoles(cat.GetLesConsoles().Search(FieldConsole.Support, tmp.UserText)); break;
-                    case 136: Program.searchResultConsoles = new EnsembleConsoles(cat.GetLesConsoles().Search(FieldConsole.Type, tmp.UserText)); break;
+                    case RechNomConsole: Program.searchResultConsoles = new EnsembleConsoles(cat.GetLesConsoles().Search(Nom, tmp.UserText)); break;
+                    case RechFabriquantConsole: Program.searchResultConsoles = new EnsembleConsoles(cat.GetLesConsoles().Search(Fabriquant, tmp.UserText)); break;
+                    case RechGenerationConsole: Program.searchResultConsoles = new EnsembleConsoles(cat.GetLesConsoles().Search(Generation, tmp.UserText)); break;
+                    case RechSortieConsole: Program.searchResultConsoles = new EnsembleConsoles(cat.GetLesConsoles().Search(Sortie, tmp.UserText)); break;
+                    case RechPortsConsole: Program.searchResultConsoles = new EnsembleConsoles(cat.GetLesConsoles().Search(Ports, tmp.UserText)); break;
+                    case RechSupportConsole: Program.searchResultConsoles = new EnsembleConsoles(cat.GetLesConsoles().Search(FieldConsole.Support, tmp.UserText)); break;
+                    case RechTypeConsole: Program.searchResultConsoles = new EnsembleConsoles(cat.GetLesConsoles().Search(FieldConsole.Type, tmp.UserText)); break;
                 }
 
                 cli.DeleteTop();        //suppprime tmp
@@ -129,7 +133,7 @@ namespace projet_CDAA_2020_2021.commands
 
                 Program.state = 3;
                 Program.tableJeux.Clear();
-                Program.updateMainTable();
+                Program.UpdateMainTable();
             }
         }
     }

@@ -15,7 +15,7 @@ namespace GUI
 {
     public partial class MainForm : Form
     {
-        private Catalogue cat;
+        public static Catalogue cat;
 
         private ImageList imList;
 
@@ -100,6 +100,19 @@ namespace GUI
 
             initJeux();
             initPhotos();
+        }
+
+        private void jeuxToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            VisuJeuDlg vjdlg = new VisuJeuDlg();
+            vjdlg.ShowDialog();
+
+        }
+
+        private void modifierToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MajDlg mdlg = new MajDlg();
+            mdlg.ShowDialog();
         }
     }
 }

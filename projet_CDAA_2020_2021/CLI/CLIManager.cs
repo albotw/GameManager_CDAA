@@ -45,7 +45,7 @@ namespace projet_CDAA_2020_2021.CLI
             ConsoleKeyInfo cki;
             do
             {
-                Program.updateMainTable();
+                Program.UpdateMainTable();
                 Update();
                 cki = ReadKey(true);
                 drawStack.Peek().HandleInput(cki.Key);

@@ -43,6 +43,7 @@
             this.gérerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ajouterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.supprimerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.modifierToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.visualiserToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.jeuxToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -77,7 +78,6 @@
             // 
             // ListeJeuxPhotos
             // 
-            this.ListeJeuxPhotos.Cursor = System.Windows.Forms.Cursors.Default;
             this.ListeJeuxPhotos.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ListeJeuxPhotos.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
             this.ListeJeuxPhotos.FormattingEnabled = true;
@@ -215,7 +215,8 @@
             // 
             this.gérerToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ajouterToolStripMenuItem,
-            this.supprimerToolStripMenuItem});
+            this.supprimerToolStripMenuItem,
+            this.modifierToolStripMenuItem});
             this.gérerToolStripMenuItem.Name = "gérerToolStripMenuItem";
             this.gérerToolStripMenuItem.Size = new System.Drawing.Size(47, 22);
             this.gérerToolStripMenuItem.Text = "Gérer";
@@ -223,15 +224,22 @@
             // ajouterToolStripMenuItem
             // 
             this.ajouterToolStripMenuItem.Name = "ajouterToolStripMenuItem";
-            this.ajouterToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
+            this.ajouterToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.ajouterToolStripMenuItem.Text = "Ajouter";
             this.ajouterToolStripMenuItem.Click += new System.EventHandler(this.ajouterToolStripMenuItem_Click);
             // 
             // supprimerToolStripMenuItem
             // 
             this.supprimerToolStripMenuItem.Name = "supprimerToolStripMenuItem";
-            this.supprimerToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
+            this.supprimerToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.supprimerToolStripMenuItem.Text = "Supprimer";
+            // 
+            // modifierToolStripMenuItem
+            // 
+            this.modifierToolStripMenuItem.Name = "modifierToolStripMenuItem";
+            this.modifierToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.modifierToolStripMenuItem.Text = "Modifier";
+            this.modifierToolStripMenuItem.Click += new System.EventHandler(this.modifierToolStripMenuItem_Click);
             // 
             // visualiserToolStripMenuItem
             // 
@@ -246,6 +254,7 @@
             this.jeuxToolStripMenuItem.Name = "jeuxToolStripMenuItem";
             this.jeuxToolStripMenuItem.Size = new System.Drawing.Size(97, 22);
             this.jeuxToolStripMenuItem.Text = "Jeux";
+            this.jeuxToolStripMenuItem.Click += new System.EventHandler(this.jeuxToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -294,6 +303,7 @@
         private System.Windows.Forms.ToolStripMenuItem supprimerToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem visualiserToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem jeuxToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem modifierToolStripMenuItem;
     }
 }
 
