@@ -21,5 +21,15 @@ namespace projet_CDAA_2020_2021.core
         {
             return Value.Equals((obj as Field).Value);
         }
+
+        public static bool operator== (Field f1, Field f2)
+        {
+            return f1 is null ? f2 is null : f1.Equals(f2);
+        }
+
+        public static bool operator!=(Field f1, Field f2)
+        {
+            return !(f1 == f2);
+        }
     }
 }

@@ -43,6 +43,7 @@ namespace GUI
 
         public void initPhotos()
         {
+            ListeJeuxPhotos.Items.Clear();
             ListeJeuxPhotos.DrawMode = DrawMode.OwnerDrawVariable;
             imList = new ImageList();
             
@@ -63,11 +64,12 @@ namespace GUI
 
         public void initJeux()
         {
-            ListeJeux.Items.AddRange(cat.GetLesJeux().GetAllNames().ToArray());
+            ListeJeux.DataSource = cat.GetLesJeux().GetAllNames();
         }
 
         public void initGenres()
         {
+            CBGenre.Items.Add("Afficher tous");
             CBGenre.Items.AddRange(Enum.GetNames(typeof(Genre)));
         }
 
@@ -113,6 +115,31 @@ namespace GUI
         {
             MajDlg mdlg = new MajDlg();
             mdlg.ShowDialog();
+        }
+
+        private void CBGenre_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            if (CBGenre.SelectedIndex == 0)
+            {
+                initPhotos();
+            }
+            else
+            {
+                Genre selected = (Genre)Enum.Parse(typeof(Genre), (string)CBGenre.SelectedItem);
+
+                ListeJeuxPhotos.Items.Clear();
+                ListeJeuxPhotos.DrawMode = DrawMode.OwnerDrawVariable;
+                imList = new ImageList();
+
+                foreach (Jeu j in cat.GetLesJeux().Search(FieldJeu.Genre, selected))
+                {
+                    imList.Images.Add(j.Photo);
+                    ListeJeuxPhotos.Items.Add(j.Nom);
+                }
+
+                imList.ImageSize = new Size(255, 255);
+                ListeJeuxPhotos.ItemHeight = 255;
+            }
         }
     }
 }

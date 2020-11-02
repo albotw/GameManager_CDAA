@@ -38,7 +38,7 @@ namespace projet_CDAA_2020_2021.core.jeux
                 if (field == FieldJeu.Nom && j.Nom == (string)arg)
                     tmp.Add(j);
 
-                else if (field.Equals(FieldJeu.Genre) && j.Genre.Equals((Genre)arg))
+                else if (field == FieldJeu.Genre && j.Genre.Equals((Genre)arg))
                     tmp.Add(j);
 
                 else if (field == FieldJeu.Description && j.Description == (string)arg)
