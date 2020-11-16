@@ -70,5 +70,20 @@ namespace GUI
 
             this.Dispose();
         }
+
+        private void SaisieJeuDlg_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label18_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

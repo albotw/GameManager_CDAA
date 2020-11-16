@@ -63,9 +63,9 @@ namespace GUI.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Dragon_Ball__Fighter_Z {
+        internal static System.Drawing.Bitmap DBFZ {
             get {
-                object obj = ResourceManager.GetObject("Dragon Ball: Fighter Z", resourceCulture);
+                object obj = ResourceManager.GetObject("DBFZ", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -73,9 +73,9 @@ namespace GUI.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Genshin_Impact {
+        internal static System.Drawing.Bitmap GENSHIN {
             get {
-                object obj = ResourceManager.GetObject("Genshin Impact", resourceCulture);
+                object obj = ResourceManager.GetObject("GENSHIN", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -83,9 +83,9 @@ namespace GUI.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Metal_Gear_Solid {
+        internal static System.Drawing.Bitmap MC_RTX {
             get {
-                object obj = ResourceManager.GetObject("Metal Gear Solid", resourceCulture);
+                object obj = ResourceManager.GetObject("MC_RTX", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -93,9 +93,9 @@ namespace GUI.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Metal_Gear_Solid_2 {
+        internal static System.Drawing.Bitmap MGS {
             get {
-                object obj = ResourceManager.GetObject("Metal Gear Solid 2", resourceCulture);
+                object obj = ResourceManager.GetObject("MGS", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -103,9 +103,9 @@ namespace GUI.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Metal_Gear_Solid_V__The_Phantom_Pain {
+        internal static System.Drawing.Bitmap MGS2 {
             get {
-                object obj = ResourceManager.GetObject("Metal Gear Solid V: The Phantom Pain", resourceCulture);
+                object obj = ResourceManager.GetObject("MGS2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -113,9 +113,19 @@ namespace GUI.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Minecraft_RTX_Edition {
+        internal static System.Drawing.Bitmap MGSV {
             get {
-                object obj = ResourceManager.GetObject("Minecraft RTX Edition", resourceCulture);
+                object obj = ResourceManager.GetObject("MGSV", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SMB3 {
+            get {
+                object obj = ResourceManager.GetObject("SMB3", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

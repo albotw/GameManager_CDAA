@@ -34,8 +34,8 @@
             this.ToStringBox = new System.Windows.Forms.RichTextBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.PhotoPB = new System.Windows.Forms.PictureBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.TousJeuxBouton = new System.Windows.Forms.Button();
+            this.JeuxRetroButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.CBGenre = new System.Windows.Forms.ComboBox();
             this.ListeJeux = new System.Windows.Forms.ListBox();
@@ -79,9 +79,7 @@
             // ListeJeuxPhotos
             // 
             this.ListeJeuxPhotos.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ListeJeuxPhotos.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
             this.ListeJeuxPhotos.FormattingEnabled = true;
-            this.ListeJeuxPhotos.ItemHeight = 25;
             this.ListeJeuxPhotos.Location = new System.Drawing.Point(0, 0);
             this.ListeJeuxPhotos.Margin = new System.Windows.Forms.Padding(0);
             this.ListeJeuxPhotos.Name = "ListeJeuxPhotos";
@@ -113,6 +111,7 @@
             this.ToStringBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ToStringBox.Location = new System.Drawing.Point(0, 0);
             this.ToStringBox.Name = "ToStringBox";
+            this.ToStringBox.ReadOnly = true;
             this.ToStringBox.Size = new System.Drawing.Size(176, 426);
             this.ToStringBox.TabIndex = 0;
             this.ToStringBox.Text = "";
@@ -122,8 +121,8 @@
             this.tableLayoutPanel1.ColumnCount = 1;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.Controls.Add(this.PhotoPB, 0, 5);
-            this.tableLayoutPanel1.Controls.Add(this.button1, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.button2, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.TousJeuxBouton, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.JeuxRetroButton, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.CBGenre, 0, 3);
             this.tableLayoutPanel1.Controls.Add(this.ListeJeux, 0, 4);
@@ -149,25 +148,25 @@
             this.PhotoPB.TabIndex = 1;
             this.PhotoPB.TabStop = false;
             // 
-            // button1
+            // TousJeuxBouton
             // 
-            this.button1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button1.Location = new System.Drawing.Point(3, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(344, 65);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.TousJeuxBouton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TousJeuxBouton.Location = new System.Drawing.Point(3, 3);
+            this.TousJeuxBouton.Name = "TousJeuxBouton";
+            this.TousJeuxBouton.Size = new System.Drawing.Size(344, 65);
+            this.TousJeuxBouton.TabIndex = 0;
+            this.TousJeuxBouton.Text = "Tous les jeux";
+            this.TousJeuxBouton.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // JeuxRetroButton
             // 
-            this.button2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button2.Location = new System.Drawing.Point(3, 74);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(344, 65);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
+            this.JeuxRetroButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.JeuxRetroButton.Location = new System.Drawing.Point(3, 74);
+            this.JeuxRetroButton.Name = "JeuxRetroButton";
+            this.JeuxRetroButton.Size = new System.Drawing.Size(344, 65);
+            this.JeuxRetroButton.TabIndex = 1;
+            this.JeuxRetroButton.Text = "Jeux Retro";
+            this.JeuxRetroButton.UseVisualStyleBackColor = true;
             // 
             // label1
             // 
@@ -177,13 +176,14 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(344, 71);
             this.label1.TabIndex = 2;
-            this.label1.Text = "label1";
+            this.label1.Text = "Séléctionner un genre !";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // CBGenre
             // 
-            this.CBGenre.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.CBGenre.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.CBGenre.FormattingEnabled = true;
-            this.CBGenre.Location = new System.Drawing.Point(3, 216);
+            this.CBGenre.Location = new System.Drawing.Point(3, 238);
             this.CBGenre.Name = "CBGenre";
             this.CBGenre.Size = new System.Drawing.Size(344, 21);
             this.CBGenre.TabIndex = 3;
@@ -293,8 +293,8 @@
         private System.Windows.Forms.RichTextBox ToStringBox;
         private System.Windows.Forms.PictureBox PhotoPB;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button TousJeuxBouton;
+        private System.Windows.Forms.Button JeuxRetroButton;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox CBGenre;
         private System.Windows.Forms.ListBox ListeJeux;

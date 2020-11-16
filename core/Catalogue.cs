@@ -10,14 +10,10 @@ namespace projet_CDAA_2020_2021.core
         private EnsembleJeux lesJeux;
         private EnsembleConsoles lesConsoles;
 
-        private DateTime lastUpdate;
-
         public Catalogue()
         {
             lesJeux = new EnsembleJeux();
             lesConsoles = new EnsembleConsoles();
-
-            lastUpdate = DateTime.Now;
         }
 
         public void Add(object o)

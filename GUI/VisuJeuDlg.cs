@@ -53,8 +53,8 @@ namespace GUI
 
             if (tn.Nodes.Count == 0 && tn.Parent != null)
             {
-                InfoTB.Text = cat.GetLesJeux().SearchSingle("nom", tn.Text).ToString();
-                PhotoPB.Image = cat.GetLesJeux().SearchSingle("nom", tn.Text).Photo;
+                InfoTB.Text = cat.GetLesJeux().SearchSingle(FieldJeu.Nom, tn.Text).ToString();
+                PhotoPB.Image = cat.GetLesJeux().SearchSingle(FieldJeu.Nom, tn.Text).Photo;
             }
         }
     }

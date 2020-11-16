@@ -17,11 +17,19 @@ namespace GUI
     {
         public static Catalogue cat;
 
-        private ImageList imList;
+        private ImageList listeImages;
 
         public MainForm()
         {
             InitializeComponent();
+            Main m = new Main();
+            m.ShowDialog();
+
+            //pour centrer le texte.
+            ToStringBox.SelectAll();
+            ToStringBox.SelectionAlignment = HorizontalAlignment.Center;
+            ToStringBox.DeselectAll();
+
             cat = new Catalogue();
             cat.Init();
             linkPhotos();
@@ -32,29 +40,31 @@ namespace GUI
 
         public void linkPhotos()
         {
-            cat.GetLesJeux().SearchSingle("nom", "Metal Gear Solid").Photo = Properties.Resources.Metal_Gear_Solid;
-            cat.GetLesJeux().SearchSingle("nom", "Metal Gear Solid 2: Subsistance").Photo = Properties.Resources.Metal_Gear_Solid_2;
-            cat.GetLesJeux().SearchSingle("nom", "Metal Gear Solid V: The Phantom Pain").Photo = Properties.Resources.Metal_Gear_Solid_V__The_Phantom_Pain;
-            cat.GetLesJeux().SearchSingle("nom", "Dragon Ball: Fighter Z").Photo = Properties.Resources.Dragon_Ball__Fighter_Z;
-            cat.GetLesJeux().SearchSingle("nom", "Minecraft RTX Edition").Photo = Properties.Resources.Minecraft_RTX_Edition;
-            cat.GetLesJeux().SearchSingle("nom", "Genshin Impact").Photo = Properties.Resources.Genshin_Impact;
-            cat.GetLesJeux().SearchSingle("nom", "Mario Bros 3").Photo = Properties.Resources.Genshin_Impact;
+            cat.GetLesJeux().SearchSingle(FieldJeu.Nom, "Metal Gear Solid").Photo = Properties.Resources.MGS;
+            cat.GetLesJeux().SearchSingle(FieldJeu.Nom, "Metal Gear Solid 2: Subsistance").Photo = Properties.Resources.MGS2;
+            cat.GetLesJeux().SearchSingle(FieldJeu.Nom, "Metal Gear Solid V: The Phantom Pain").Photo = Properties.Resources.MGSV;
+            cat.GetLesJeux().SearchSingle(FieldJeu.Nom, "Dragon Ball: Fighter Z").Photo = Properties.Resources.DBFZ;
+            cat.GetLesJeux().SearchSingle(FieldJeu.Nom, "Minecraft RTX Edition").Photo = Properties.Resources.MC_RTX;
+            cat.GetLesJeux().SearchSingle(FieldJeu.Nom, "Genshin Impact").Photo = Properties.Resources.GENSHIN;
+            cat.GetLesJeux().SearchSingle(FieldJeu.Nom, "Mario Bros 3").Photo = Properties.Resources.SMB3;
         }
 
         public void initPhotos()
         {
+            ListeJeuxPhotos.BeginUpdate();  //pour éviter un rafraichissement pendant la mise a jour des données.
+            listeImages = new ImageList();
             ListeJeuxPhotos.Items.Clear();
             ListeJeuxPhotos.DrawMode = DrawMode.OwnerDrawVariable;
-            imList = new ImageList();
             
-            foreach(Jeu j in cat.GetLesJeux().GetAll())
+            foreach (Jeu j in cat.GetLesJeux().GetAll())
             {
-                imList.Images.Add(j.Photo);
+                listeImages.Images.Add(j.Photo);
                 ListeJeuxPhotos.Items.Add(j.Nom);
             }
 
-            imList.ImageSize = new Size(255, 255);
+            listeImages.ImageSize = new Size(255, 255);
             ListeJeuxPhotos.ItemHeight = 255;
+            ListeJeuxPhotos.EndUpdate(); //fin de la mise a jour des données, débloquage de l'affichage.
         }
 
         private void splitContainer2_Panel2_Paint(object sender, PaintEventArgs e)
@@ -75,18 +85,21 @@ namespace GUI
 
         private void ListeJeux_SelectedIndexChanged(object sender, EventArgs e)
         {
-            ToStringBox.Text = cat.GetLesJeux().SearchSingle("nom", (string)ListeJeux.SelectedItem).ToString();
+            ToStringBox.Text = cat.GetLesJeux().SearchSingle(FieldJeu.Nom, (string)ListeJeux.SelectedItem).ToString();
         }
 
         private void ListeJeuxPhotos_SelectedIndexChanged(object sender, EventArgs e)
         {
-            ToStringBox.Text = cat.GetLesJeux().SearchSingle("nom", (string)ListeJeuxPhotos.SelectedItem).ToString();
+            ToStringBox.Text = cat.GetLesJeux().SearchSingle(FieldJeu.Nom, (string)ListeJeuxPhotos.SelectedItem).ToString();
         }
 
         private void ListeJeuxPhotos_DrawItem(object sender, DrawItemEventArgs e)
         {
-            Point p = e.Bounds.Location;
-            imList.Draw(e.Graphics, p, e.Index);
+            if (!listeImages.Images.Empty)   //pour éviter de sortir une exception
+            {
+                Point p = e.Bounds.Location;
+                listeImages.Draw(e.Graphics, p, e.Index);
+            }
         }
 
         private void ajouterToolStripMenuItem_Click(object sender, EventArgs e)
@@ -99,7 +112,6 @@ namespace GUI
                 cat.Add(sdlg.J);
                 Console.WriteLine("jeu ajouté");
             }
-
             initJeux();
             initPhotos();
         }
@@ -129,15 +141,15 @@ namespace GUI
 
                 ListeJeuxPhotos.Items.Clear();
                 ListeJeuxPhotos.DrawMode = DrawMode.OwnerDrawVariable;
-                imList = new ImageList();
+                listeImages = new ImageList();
 
                 foreach (Jeu j in cat.GetLesJeux().Search(FieldJeu.Genre, selected))
                 {
-                    imList.Images.Add(j.Photo);
+                    listeImages.Images.Add(j.Photo);
                     ListeJeuxPhotos.Items.Add(j.Nom);
                 }
 
-                imList.ImageSize = new Size(255, 255);
+                listeImages.ImageSize = new Size(255, 255);
                 ListeJeuxPhotos.ItemHeight = 255;
             }
         }

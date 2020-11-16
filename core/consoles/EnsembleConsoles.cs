@@ -46,6 +46,40 @@ namespace projet_CDAA_2020_2021.core.consoles
             return output;
         }
 
+        public override Console SearchSingle(Field field, object arg)
+        {
+            foreach (Console c in liste)
+            {
+                if (field == FieldConsole.Nom && c.Nom == (string)arg)
+                    return c;
+                else if (field == FieldConsole.Fabriquant && c.Fabriquant == (string)arg)
+                    return c;
+                else if (field == FieldConsole.Generation && c.Generation == (int)arg)
+                    return c;
+                else if (field == FieldConsole.Sortie && c.Sortie == (DateTime)arg)
+                    return c;
+                else if (field == FieldConsole.Ports && c.Ports == (int)arg)
+                    return c;
+                else if (field == FieldConsole.Support && c.Support == (Support)arg)
+                    return c;
+                else if (field == FieldConsole.Type && c.Type == (string)arg)
+                    return c;
+            }
+
+            return null;
+        }
+
+        public override List<string> GetAllNames()
+        {
+            List<string> output = new List<string>();
+            foreach(Console c in liste)
+            {
+                output.Add(c.Nom);
+            }
+
+            return output;
+        }
+
         public override List<string[]> ToStringArray()
         {
             List<string[]> output = new List<string[]>();

@@ -1,0 +1,23 @@
+﻿Passer la CLI en bibliothèque de classes pour autres projets
+Remonter searchSingle de ensembleJeux dans Ensemble
+
+POUR LA PARTIE 2 DU PROJET:
+Rajouter une catégorie supplémentaire ?
+rajouter les consoles dans l'application en plus des jeux et jeux rétro
+
+CONTRAINTE: utilisation de composants riches comme TreeView ou DataGridView
+
+Rapport:
+6 parties
+	- cahier des charges
+	- analyse avec diagramme de classes
+	- diagramme de séquence et description des interfaces
+	- analyse des fonctionnalités
+	- dossier de prog pour l'implémentation des parties importantes
+	- bilan
+
+Fonctionnalités à implémenter:
+Recherche
+Tri
+Ajout
+Suppression

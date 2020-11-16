@@ -27,6 +27,7 @@ namespace projet_CDAA_2020_2021.core.jeux
         }
 
         //TODO: vérifier les cast dans les appels a search, surtout les DateTime.
+        //TODO: Faire en sorte que les recherches soient plus flexibles, entre autre utiliser Contains au lieu de == pour les strings.
         public override List<Jeu> Search(Field field, object arg)
         {
             List<Jeu> tmp = new List<Jeu>();
@@ -75,50 +76,46 @@ namespace projet_CDAA_2020_2021.core.jeux
             return tmp;
         }
 
-        //TODO: remonter la méthode à Ensemble et passer la signature en override
-        public Jeu SearchSingle(string property, object arg)
+        public override Jeu SearchSingle(Field field, object arg)
         {
             foreach(Jeu j in liste)
             {
-                switch(property)
-                {
-                    case "nom":
-                        if (j.Nom == (string)arg)
-                            return j;
-                        break;
-                    case "genre":
-                        if (j.Genre == (Genre)arg)
-                            return j;
-                        break;
-                    case "plateforme":
-                        if (j.Plateforme == (string)arg)
-                            return j;
-                        break;
-                    case "editeur":
-                        if (j.Editeur == (string)arg)
-                            return j;
-                        break;
+                if (field == FieldJeu.Nom && j.Nom == (string)arg)
+                    return j;
 
-                    case "prix":
-                        if (j.Prix == (double)arg)
-                            return j;
-                        break;
+                else if (field == FieldJeu.Genre && j.Genre.Equals((Genre)arg))
+                    return j;
 
-                    case "sortie":
-                        if (j.Sortie == (DateTime)arg)
-                            return j;
-                        break;
+                else if (field == FieldJeu.Description && j.Description == (string)arg)
+                    return j;
 
-                    case "reconditionne":
-                        if (j.Reconditionne == (bool)arg)
-                            return j;
-                        break;
+                else if (field == FieldJeu.Plateforme && j.Plateforme == (string)arg)
+                    return j;
 
-                    case "retro":
-                        if (j.GetType().Equals(typeof(JeuRetro)))
-                            return j;
-                        break;
-                }
+                else if (field == FieldJeu.Editeur && j.Editeur == (string)arg)
+                    return j;
+
+                else if (field == FieldJeu.Prix && j.Prix == (double)arg)
+                    return j;
+
+                else if (field == FieldJeu.Sortie && j.Sortie == (DateTime)arg)
+                    return j;
+
+                else if (field == FieldJeu.Reconditionne && j.Reconditionne == (bool)arg)
+                    return j;
+
+                else if (field == FieldJeu.Photo && j.Photo == (Image)arg)
+                    return j;
+
+                else if (field == FieldJeu.Retro && j.GetType().Equals(typeof(JeuRetro)))
+                    return j;
+
+                //pas sure que ça fonctionne
+                else if (field == FieldJeu.Etat && (j as JeuRetro).Etat == (string)arg)
+                    return j;
+
+                else if (field == FieldJeu.Notice && (j as JeuRetro).Notice == (bool)arg)
+                    return j;
             }
 
             return null;
@@ -136,7 +133,7 @@ namespace projet_CDAA_2020_2021.core.jeux
             return output;
         }
 
-        public List<string> GetAllNames()
+        public override List<string> GetAllNames()
         {
             List<string> output = new List<string>();
 

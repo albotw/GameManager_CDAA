@@ -50,6 +50,8 @@ namespace projet_CDAA_2020_2021.core.datastructures
 
         public abstract List<T> Search(Field field, object arg);
 
+        public abstract T SearchSingle(Field field, object arg);
+
         public void Sort(Field field, bool reverse)
         {
             QuickSort<T> qk = new QuickSort<T>();
@@ -59,5 +61,7 @@ namespace projet_CDAA_2020_2021.core.datastructures
         }
 
         public abstract List<string[]> ToStringArray();
+
+        public abstract List<string> GetAllNames();
     }
 }
