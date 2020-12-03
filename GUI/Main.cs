@@ -59,7 +59,6 @@ namespace GUI
             SupprimerButton.Enabled = false;
             ModifierButton.Enabled = false;
             VisualiserButton.Enabled = false;
-            SwapCategorieButton.Enabled = false;
             TriFieldCB.Enabled = false;
             TriButton.Enabled = false;
             RechercheFieldCB.Enabled = false;
@@ -72,7 +71,6 @@ namespace GUI
             SupprimerButton.Enabled = true;
             ModifierButton.Enabled = true;
             VisualiserButton.Enabled = true;
-            SwapCategorieButton.Enabled = true;
             TriFieldCB.Enabled = true;
             TriButton.Enabled = true;
             RechercheFieldCB.Enabled = true;
@@ -193,12 +191,15 @@ namespace GUI
             SaisieJeuDlg sdlg = new SaisieJeuDlg();
             sdlg.ShowDialog();
 
-            //Ajouter support pour les jeux rétros et les consoles.
-            if (sdlg.GrabJeu)
+            if (sdlg.Grab)
             {
-                cat.Add(sdlg.J);
+                cat.Add(sdlg.Out);
                 InitPhotos();
             }
+            /*
+             * Pas besoin de donner un type autre que Object pour le passage de la dlg à catalogue.
+             * Comme catalogue vérifie le type à l'ajout pour le placer dans le bon ensemble.
+             */
         }
 
         private void VisualiserButton_Click(object sender, EventArgs e)
@@ -274,6 +275,27 @@ namespace GUI
                 RechercheButton.Text = "Rechercher";
                 state = AppState.ShowJeux;
                 toDisplay_jeux = cat.GetLesJeux().GetAll();
+                InitPhotos();
+            }
+        }
+
+        private void toolStripSplitButton1_ButtonClick(object sender, EventArgs e)
+        {
+
+        }
+
+        private void SupprimerButton_Click(object sender, EventArgs e)
+        {
+            SupprDlg sdlg = new SupprDlg();
+            sdlg.ShowDialog();
+
+            if (sdlg.Delete)
+            {
+                if (state == AppState.ShowJeux)
+                    cat.Remove(new Jeu(sdlg.DeleteName));
+                else if (state == AppState.ShowConsoles)
+                    cat.Remove(new Console(sdlg.DeleteName));
+
                 InitPhotos();
             }
         }

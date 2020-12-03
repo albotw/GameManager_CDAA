@@ -59,6 +59,7 @@ namespace projet_CDAA_2020_2021.core.jeux
             this.reconditionne = reconditionne;
         }
 
+        // Constructeur pour la suppression
         public Jeu(string nom)
         {
             this.nom = nom;

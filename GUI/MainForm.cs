@@ -107,9 +107,9 @@ namespace GUI
             SaisieJeuDlg sdlg = new SaisieJeuDlg();
             sdlg.ShowDialog();
 
-            if (sdlg.GrabJeu)
+            if (sdlg.Grab)
             {
-                cat.Add(sdlg.J);
+                cat.Add(sdlg.Out);
                 Console.WriteLine("jeu ajouté");
             }
             initJeux();

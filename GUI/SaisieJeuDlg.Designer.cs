@@ -48,7 +48,6 @@
             this.reconditionneRB = new System.Windows.Forms.RadioButton();
             this.DirTB = new System.Windows.Forms.TextBox();
             this.CBGenre = new System.Windows.Forms.ComboBox();
-            this.PrixTB = new System.Windows.Forms.TextBox();
             this.SortieDTP = new System.Windows.Forms.DateTimePicker();
             this.ParcourirButton = new System.Windows.Forms.Button();
             this.Annuler = new System.Windows.Forms.Button();
@@ -60,31 +59,32 @@
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.NomRetro = new System.Windows.Forms.TextBox();
+            this.DescriptionRetro = new System.Windows.Forms.TextBox();
+            this.PlateformeRetro = new System.Windows.Forms.TextBox();
+            this.EditeurRetro = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.button1 = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.NonReconditionneRetro = new System.Windows.Forms.RadioButton();
+            this.ReconditionneRetro = new System.Windows.Forms.RadioButton();
+            this.ImgDirRetro = new System.Windows.Forms.TextBox();
+            this.GenreRetro = new System.Windows.Forms.ComboBox();
+            this.SortieRetro = new System.Windows.Forms.DateTimePicker();
+            this.ImgFileRetro = new System.Windows.Forms.Button();
+            this.ImgRetro = new System.Windows.Forms.PictureBox();
+            this.EtatRetro = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.radioButton4 = new System.Windows.Forms.RadioButton();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.NoNoticeRetro = new System.Windows.Forms.RadioButton();
+            this.YesNoticeRetro = new System.Windows.Forms.RadioButton();
+            this.AnnulerRetro = new System.Windows.Forms.Button();
+            this.ValiderRetro = new System.Windows.Forms.Button();
+            this.PrixRetro = new System.Windows.Forms.NumericUpDown();
+            this.PrixJeu = new System.Windows.Forms.NumericUpDown();
             this.tabControl.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -93,8 +93,10 @@
             this.tabPage2.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ImgRetro)).BeginInit();
             this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PrixRetro)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PrixJeu)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl
@@ -143,12 +145,12 @@
             this.tableLayoutPanel1.Controls.Add(this.groupBox1, 1, 4);
             this.tableLayoutPanel1.Controls.Add(this.DirTB, 2, 4);
             this.tableLayoutPanel1.Controls.Add(this.CBGenre, 3, 0);
-            this.tableLayoutPanel1.Controls.Add(this.PrixTB, 3, 1);
             this.tableLayoutPanel1.Controls.Add(this.SortieDTP, 3, 2);
             this.tableLayoutPanel1.Controls.Add(this.ParcourirButton, 3, 3);
             this.tableLayoutPanel1.Controls.Add(this.Annuler, 1, 5);
             this.tableLayoutPanel1.Controls.Add(this.Valider, 2, 5);
             this.tableLayoutPanel1.Controls.Add(this.ApercuPB, 3, 4);
+            this.tableLayoutPanel1.Controls.Add(this.PrixJeu, 3, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(2, 2);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(2);
@@ -349,23 +351,13 @@
             // 
             // CBGenre
             // 
-            this.CBGenre.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.CBGenre.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.CBGenre.FormattingEnabled = true;
-            this.CBGenre.Location = new System.Drawing.Point(545, 2);
+            this.CBGenre.Location = new System.Drawing.Point(545, 31);
             this.CBGenre.Margin = new System.Windows.Forms.Padding(2);
             this.CBGenre.Name = "CBGenre";
             this.CBGenre.Size = new System.Drawing.Size(180, 21);
             this.CBGenre.TabIndex = 14;
-            // 
-            // PrixTB
-            // 
-            this.PrixTB.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PrixTB.Location = new System.Drawing.Point(545, 86);
-            this.PrixTB.Margin = new System.Windows.Forms.Padding(2);
-            this.PrixTB.Multiline = true;
-            this.PrixTB.Name = "PrixTB";
-            this.PrixTB.Size = new System.Drawing.Size(180, 80);
-            this.PrixTB.TabIndex = 15;
             // 
             // SortieDTP
             // 
@@ -446,27 +438,27 @@
             this.tableLayoutPanel2.Controls.Add(this.label10, 0, 1);
             this.tableLayoutPanel2.Controls.Add(this.label11, 0, 2);
             this.tableLayoutPanel2.Controls.Add(this.label12, 0, 3);
-            this.tableLayoutPanel2.Controls.Add(this.textBox1, 1, 0);
-            this.tableLayoutPanel2.Controls.Add(this.textBox2, 1, 1);
-            this.tableLayoutPanel2.Controls.Add(this.textBox3, 1, 2);
-            this.tableLayoutPanel2.Controls.Add(this.textBox4, 1, 3);
+            this.tableLayoutPanel2.Controls.Add(this.NomRetro, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.DescriptionRetro, 1, 1);
+            this.tableLayoutPanel2.Controls.Add(this.PlateformeRetro, 1, 2);
+            this.tableLayoutPanel2.Controls.Add(this.EditeurRetro, 1, 3);
             this.tableLayoutPanel2.Controls.Add(this.label13, 2, 0);
             this.tableLayoutPanel2.Controls.Add(this.label14, 2, 1);
             this.tableLayoutPanel2.Controls.Add(this.label15, 2, 2);
             this.tableLayoutPanel2.Controls.Add(this.label16, 2, 3);
             this.tableLayoutPanel2.Controls.Add(this.groupBox2, 1, 4);
-            this.tableLayoutPanel2.Controls.Add(this.textBox5, 2, 4);
-            this.tableLayoutPanel2.Controls.Add(this.comboBox1, 3, 0);
-            this.tableLayoutPanel2.Controls.Add(this.textBox6, 3, 1);
-            this.tableLayoutPanel2.Controls.Add(this.dateTimePicker1, 3, 2);
-            this.tableLayoutPanel2.Controls.Add(this.button1, 3, 3);
-            this.tableLayoutPanel2.Controls.Add(this.pictureBox1, 3, 4);
-            this.tableLayoutPanel2.Controls.Add(this.textBox7, 1, 5);
+            this.tableLayoutPanel2.Controls.Add(this.ImgDirRetro, 2, 4);
+            this.tableLayoutPanel2.Controls.Add(this.GenreRetro, 3, 0);
+            this.tableLayoutPanel2.Controls.Add(this.SortieRetro, 3, 2);
+            this.tableLayoutPanel2.Controls.Add(this.ImgFileRetro, 3, 3);
+            this.tableLayoutPanel2.Controls.Add(this.ImgRetro, 3, 4);
+            this.tableLayoutPanel2.Controls.Add(this.EtatRetro, 1, 5);
             this.tableLayoutPanel2.Controls.Add(this.label17, 0, 5);
             this.tableLayoutPanel2.Controls.Add(this.label18, 2, 5);
             this.tableLayoutPanel2.Controls.Add(this.groupBox3, 3, 5);
-            this.tableLayoutPanel2.Controls.Add(this.button2, 1, 6);
-            this.tableLayoutPanel2.Controls.Add(this.button3, 2, 6);
+            this.tableLayoutPanel2.Controls.Add(this.AnnulerRetro, 1, 6);
+            this.tableLayoutPanel2.Controls.Add(this.ValiderRetro, 2, 6);
+            this.tableLayoutPanel2.Controls.Add(this.PrixRetro, 3, 1);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(2, 2);
             this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(2);
@@ -481,6 +473,7 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(727, 509);
             this.tableLayoutPanel2.TabIndex = 1;
+            this.tableLayoutPanel2.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel2_Paint);
             // 
             // label9
             // 
@@ -530,46 +523,46 @@
             this.label12.Text = "Editeur ?";
             this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // textBox1
+            // NomRetro
             // 
-            this.textBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox1.Location = new System.Drawing.Point(183, 2);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(177, 68);
-            this.textBox1.TabIndex = 4;
-            this.textBox1.TabStop = false;
+            this.NomRetro.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.NomRetro.Location = new System.Drawing.Point(183, 2);
+            this.NomRetro.Margin = new System.Windows.Forms.Padding(2);
+            this.NomRetro.Multiline = true;
+            this.NomRetro.Name = "NomRetro";
+            this.NomRetro.Size = new System.Drawing.Size(177, 68);
+            this.NomRetro.TabIndex = 4;
+            this.NomRetro.TabStop = false;
             // 
-            // textBox2
+            // DescriptionRetro
             // 
-            this.textBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox2.Location = new System.Drawing.Point(183, 74);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(177, 68);
-            this.textBox2.TabIndex = 5;
+            this.DescriptionRetro.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DescriptionRetro.Location = new System.Drawing.Point(183, 74);
+            this.DescriptionRetro.Margin = new System.Windows.Forms.Padding(2);
+            this.DescriptionRetro.Multiline = true;
+            this.DescriptionRetro.Name = "DescriptionRetro";
+            this.DescriptionRetro.Size = new System.Drawing.Size(177, 68);
+            this.DescriptionRetro.TabIndex = 5;
             // 
-            // textBox3
+            // PlateformeRetro
             // 
-            this.textBox3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox3.Location = new System.Drawing.Point(183, 146);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox3.Multiline = true;
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(177, 68);
-            this.textBox3.TabIndex = 6;
+            this.PlateformeRetro.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PlateformeRetro.Location = new System.Drawing.Point(183, 146);
+            this.PlateformeRetro.Margin = new System.Windows.Forms.Padding(2);
+            this.PlateformeRetro.Multiline = true;
+            this.PlateformeRetro.Name = "PlateformeRetro";
+            this.PlateformeRetro.Size = new System.Drawing.Size(177, 68);
+            this.PlateformeRetro.TabIndex = 6;
             // 
-            // textBox4
+            // EditeurRetro
             // 
-            this.textBox4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox4.Location = new System.Drawing.Point(183, 218);
-            this.textBox4.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox4.Multiline = true;
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(177, 68);
-            this.textBox4.TabIndex = 7;
+            this.EditeurRetro.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.EditeurRetro.Location = new System.Drawing.Point(183, 218);
+            this.EditeurRetro.Margin = new System.Windows.Forms.Padding(2);
+            this.EditeurRetro.Multiline = true;
+            this.EditeurRetro.Name = "EditeurRetro";
+            this.EditeurRetro.Size = new System.Drawing.Size(177, 68);
+            this.EditeurRetro.TabIndex = 7;
             // 
             // label13
             // 
@@ -622,8 +615,8 @@
             // groupBox2
             // 
             this.groupBox2.AutoSize = true;
-            this.groupBox2.Controls.Add(this.radioButton1);
-            this.groupBox2.Controls.Add(this.radioButton2);
+            this.groupBox2.Controls.Add(this.NonReconditionneRetro);
+            this.groupBox2.Controls.Add(this.ReconditionneRetro);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox2.Location = new System.Drawing.Point(183, 290);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
@@ -633,101 +626,92 @@
             this.groupBox2.TabIndex = 12;
             this.groupBox2.TabStop = false;
             // 
-            // radioButton1
+            // NonReconditionneRetro
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(25, 37);
-            this.radioButton1.Margin = new System.Windows.Forms.Padding(2);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(112, 17);
-            this.radioButton1.TabIndex = 1;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Non reconditionné";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.NonReconditionneRetro.AutoSize = true;
+            this.NonReconditionneRetro.Location = new System.Drawing.Point(25, 37);
+            this.NonReconditionneRetro.Margin = new System.Windows.Forms.Padding(2);
+            this.NonReconditionneRetro.Name = "NonReconditionneRetro";
+            this.NonReconditionneRetro.Size = new System.Drawing.Size(112, 17);
+            this.NonReconditionneRetro.TabIndex = 1;
+            this.NonReconditionneRetro.TabStop = true;
+            this.NonReconditionneRetro.Text = "Non reconditionné";
+            this.NonReconditionneRetro.UseVisualStyleBackColor = true;
             // 
-            // radioButton2
+            // ReconditionneRetro
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(25, 16);
-            this.radioButton2.Margin = new System.Windows.Forms.Padding(2);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(94, 17);
-            this.radioButton2.TabIndex = 0;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "Reconditionné";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.ReconditionneRetro.AutoSize = true;
+            this.ReconditionneRetro.Location = new System.Drawing.Point(25, 16);
+            this.ReconditionneRetro.Margin = new System.Windows.Forms.Padding(2);
+            this.ReconditionneRetro.Name = "ReconditionneRetro";
+            this.ReconditionneRetro.Size = new System.Drawing.Size(94, 17);
+            this.ReconditionneRetro.TabIndex = 0;
+            this.ReconditionneRetro.TabStop = true;
+            this.ReconditionneRetro.Text = "Reconditionné";
+            this.ReconditionneRetro.UseVisualStyleBackColor = true;
             // 
-            // textBox5
+            // ImgDirRetro
             // 
-            this.textBox5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox5.Location = new System.Drawing.Point(364, 290);
-            this.textBox5.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox5.Multiline = true;
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(177, 68);
-            this.textBox5.TabIndex = 13;
+            this.ImgDirRetro.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ImgDirRetro.Location = new System.Drawing.Point(364, 290);
+            this.ImgDirRetro.Margin = new System.Windows.Forms.Padding(2);
+            this.ImgDirRetro.Multiline = true;
+            this.ImgDirRetro.Name = "ImgDirRetro";
+            this.ImgDirRetro.Size = new System.Drawing.Size(177, 68);
+            this.ImgDirRetro.TabIndex = 13;
             // 
-            // comboBox1
+            // GenreRetro
             // 
-            this.comboBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(545, 2);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(180, 21);
-            this.comboBox1.TabIndex = 14;
+            this.GenreRetro.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.GenreRetro.FormattingEnabled = true;
+            this.GenreRetro.Location = new System.Drawing.Point(545, 25);
+            this.GenreRetro.Margin = new System.Windows.Forms.Padding(2);
+            this.GenreRetro.Name = "GenreRetro";
+            this.GenreRetro.Size = new System.Drawing.Size(180, 21);
+            this.GenreRetro.TabIndex = 14;
             // 
-            // textBox6
+            // SortieRetro
             // 
-            this.textBox6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox6.Location = new System.Drawing.Point(545, 74);
-            this.textBox6.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox6.Multiline = true;
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(180, 68);
-            this.textBox6.TabIndex = 15;
+            this.SortieRetro.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.SortieRetro.Location = new System.Drawing.Point(545, 170);
+            this.SortieRetro.Margin = new System.Windows.Forms.Padding(2);
+            this.SortieRetro.Name = "SortieRetro";
+            this.SortieRetro.Size = new System.Drawing.Size(180, 20);
+            this.SortieRetro.TabIndex = 16;
             // 
-            // dateTimePicker1
+            // ImgFileRetro
             // 
-            this.dateTimePicker1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dateTimePicker1.Location = new System.Drawing.Point(545, 146);
-            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(2);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(180, 20);
-            this.dateTimePicker1.TabIndex = 16;
+            this.ImgFileRetro.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ImgFileRetro.Location = new System.Drawing.Point(545, 218);
+            this.ImgFileRetro.Margin = new System.Windows.Forms.Padding(2);
+            this.ImgFileRetro.Name = "ImgFileRetro";
+            this.ImgFileRetro.Size = new System.Drawing.Size(180, 68);
+            this.ImgFileRetro.TabIndex = 17;
+            this.ImgFileRetro.Text = "Parcourir";
+            this.ImgFileRetro.UseVisualStyleBackColor = true;
+            this.ImgFileRetro.Click += new System.EventHandler(this.ParcourirPB_Click);
             // 
-            // button1
+            // ImgRetro
             // 
-            this.button1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button1.Location = new System.Drawing.Point(545, 218);
-            this.button1.Margin = new System.Windows.Forms.Padding(2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(180, 68);
-            this.button1.TabIndex = 17;
-            this.button1.Text = "Parcourir";
-            this.button1.UseVisualStyleBackColor = true;
+            this.ImgRetro.Cursor = System.Windows.Forms.Cursors.Default;
+            this.ImgRetro.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ImgRetro.Location = new System.Drawing.Point(546, 291);
+            this.ImgRetro.Name = "ImgRetro";
+            this.ImgRetro.Size = new System.Drawing.Size(178, 66);
+            this.ImgRetro.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.ImgRetro.TabIndex = 20;
+            this.ImgRetro.TabStop = false;
             // 
-            // pictureBox1
+            // EtatRetro
             // 
-            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Default;
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox1.Location = new System.Drawing.Point(546, 291);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(178, 66);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 20;
-            this.pictureBox1.TabStop = false;
-            // 
-            // textBox7
-            // 
-            this.textBox7.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.EtatRetro.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox7.Location = new System.Drawing.Point(184, 363);
-            this.textBox7.Multiline = true;
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(175, 66);
-            this.textBox7.TabIndex = 21;
+            this.EtatRetro.Location = new System.Drawing.Point(184, 363);
+            this.EtatRetro.Multiline = true;
+            this.EtatRetro.Name = "EtatRetro";
+            this.EtatRetro.Size = new System.Drawing.Size(175, 66);
+            this.EtatRetro.TabIndex = 21;
             // 
             // label17
             // 
@@ -754,56 +738,73 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.radioButton4);
-            this.groupBox3.Controls.Add(this.radioButton3);
+            this.groupBox3.Controls.Add(this.NoNoticeRetro);
+            this.groupBox3.Controls.Add(this.YesNoticeRetro);
             this.groupBox3.Location = new System.Drawing.Point(546, 363);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(178, 66);
             this.groupBox3.TabIndex = 24;
             this.groupBox3.TabStop = false;
             // 
-            // radioButton4
+            // NoNoticeRetro
             // 
-            this.radioButton4.AutoSize = true;
-            this.radioButton4.Location = new System.Drawing.Point(44, 42);
-            this.radioButton4.Name = "radioButton4";
-            this.radioButton4.Size = new System.Drawing.Size(45, 17);
-            this.radioButton4.TabIndex = 1;
-            this.radioButton4.TabStop = true;
-            this.radioButton4.Text = "Non";
-            this.radioButton4.UseVisualStyleBackColor = true;
+            this.NoNoticeRetro.AutoSize = true;
+            this.NoNoticeRetro.Location = new System.Drawing.Point(44, 42);
+            this.NoNoticeRetro.Name = "NoNoticeRetro";
+            this.NoNoticeRetro.Size = new System.Drawing.Size(45, 17);
+            this.NoNoticeRetro.TabIndex = 1;
+            this.NoNoticeRetro.TabStop = true;
+            this.NoNoticeRetro.Text = "Non";
+            this.NoNoticeRetro.UseVisualStyleBackColor = true;
             // 
-            // radioButton3
+            // YesNoticeRetro
             // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.Location = new System.Drawing.Point(44, 19);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(41, 17);
-            this.radioButton3.TabIndex = 0;
-            this.radioButton3.TabStop = true;
-            this.radioButton3.Text = "Oui";
-            this.radioButton3.UseVisualStyleBackColor = true;
+            this.YesNoticeRetro.AutoSize = true;
+            this.YesNoticeRetro.Location = new System.Drawing.Point(44, 19);
+            this.YesNoticeRetro.Name = "YesNoticeRetro";
+            this.YesNoticeRetro.Size = new System.Drawing.Size(41, 17);
+            this.YesNoticeRetro.TabIndex = 0;
+            this.YesNoticeRetro.TabStop = true;
+            this.YesNoticeRetro.Text = "Oui";
+            this.YesNoticeRetro.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // AnnulerRetro
             // 
-            this.button2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button2.Location = new System.Drawing.Point(184, 435);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(175, 71);
-            this.button2.TabIndex = 25;
-            this.button2.Text = "Annuler";
-            this.button2.UseVisualStyleBackColor = true;
+            this.AnnulerRetro.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.AnnulerRetro.Location = new System.Drawing.Point(184, 435);
+            this.AnnulerRetro.Name = "AnnulerRetro";
+            this.AnnulerRetro.Size = new System.Drawing.Size(175, 71);
+            this.AnnulerRetro.TabIndex = 25;
+            this.AnnulerRetro.Text = "Annuler";
+            this.AnnulerRetro.UseVisualStyleBackColor = true;
+            this.AnnulerRetro.Click += new System.EventHandler(this.Annuler_Click);
             // 
-            // button3
+            // ValiderRetro
             // 
-            this.button3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button3.Location = new System.Drawing.Point(365, 435);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(175, 71);
-            this.button3.TabIndex = 26;
-            this.button3.Text = "Valider";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.ValiderRetro.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ValiderRetro.Location = new System.Drawing.Point(365, 435);
+            this.ValiderRetro.Name = "ValiderRetro";
+            this.ValiderRetro.Size = new System.Drawing.Size(175, 71);
+            this.ValiderRetro.TabIndex = 26;
+            this.ValiderRetro.Text = "Valider";
+            this.ValiderRetro.UseVisualStyleBackColor = true;
+            this.ValiderRetro.Click += new System.EventHandler(this.ValiderRetro_Click);
+            // 
+            // PrixRetro
+            // 
+            this.PrixRetro.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.PrixRetro.Location = new System.Drawing.Point(575, 98);
+            this.PrixRetro.Name = "PrixRetro";
+            this.PrixRetro.Size = new System.Drawing.Size(120, 20);
+            this.PrixRetro.TabIndex = 27;
+            // 
+            // PrixJeu
+            // 
+            this.PrixJeu.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.PrixJeu.Location = new System.Drawing.Point(575, 116);
+            this.PrixJeu.Name = "PrixJeu";
+            this.PrixJeu.Size = new System.Drawing.Size(120, 20);
+            this.PrixJeu.TabIndex = 21;
             // 
             // SaisieJeuDlg
             // 
@@ -827,9 +828,11 @@
             this.tableLayoutPanel2.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ImgRetro)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PrixRetro)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PrixJeu)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -857,7 +860,6 @@
         private System.Windows.Forms.RadioButton reconditionneRB;
         private System.Windows.Forms.TextBox DirTB;
         private System.Windows.Forms.ComboBox CBGenre;
-        private System.Windows.Forms.TextBox PrixTB;
         private System.Windows.Forms.DateTimePicker SortieDTP;
         private System.Windows.Forms.Button ParcourirButton;
         private System.Windows.Forms.Button Annuler;
@@ -868,30 +870,31 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox NomRetro;
+        private System.Windows.Forms.TextBox DescriptionRetro;
+        private System.Windows.Forms.TextBox PlateformeRetro;
+        private System.Windows.Forms.TextBox EditeurRetro;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.RadioButton NonReconditionneRetro;
+        private System.Windows.Forms.RadioButton ReconditionneRetro;
+        private System.Windows.Forms.TextBox ImgDirRetro;
+        private System.Windows.Forms.ComboBox GenreRetro;
+        private System.Windows.Forms.DateTimePicker SortieRetro;
+        private System.Windows.Forms.Button ImgFileRetro;
+        private System.Windows.Forms.PictureBox ImgRetro;
+        private System.Windows.Forms.TextBox EtatRetro;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.RadioButton radioButton4;
-        private System.Windows.Forms.RadioButton radioButton3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.RadioButton NoNoticeRetro;
+        private System.Windows.Forms.RadioButton YesNoticeRetro;
+        private System.Windows.Forms.Button AnnulerRetro;
+        private System.Windows.Forms.Button ValiderRetro;
+        private System.Windows.Forms.NumericUpDown PrixRetro;
+        private System.Windows.Forms.NumericUpDown PrixJeu;
     }
 }

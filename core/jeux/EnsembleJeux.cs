@@ -26,7 +26,6 @@ namespace projet_CDAA_2020_2021.core.jeux
             Add(new JeuRetro("Mario Bros 3", "Un clasiqque des jeux de plateforme", "Super NES", "Nintendo", Genre.Plateforme, 40.00, new DateTime(1991, 11, 30), false, "presque neuf", true));
         }
 
-        //TODO: vérifier les cast dans les appels a search, surtout les DateTime.
         //TODO: Faire en sorte que les recherches soient plus flexibles, entre autre utiliser Contains au lieu de == pour les strings.
         public override List<Jeu> Search(Field field, string arg)
         {

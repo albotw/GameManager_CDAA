@@ -16,12 +16,6 @@ Rapport:
 	- dossier de prog pour l'implémentation des parties importantes
 	- bilan
 
-Fonctionnalités à implémenter:
-Recherche
-Tri
-Ajout
-Suppression
-
 
 //////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////
@@ -29,8 +23,15 @@ Suppression
 
 
 remonter searchSingle dans Ensemble																		=> FAIT
-vérifier implémentation de l'attibut prix dans la CLI pour les consoles
-récupérer le code de MainForm et le passer dans Main
+vérifier implémentation de l'attibut prix dans la CLI pour les consoles									=> FAIT
+récupérer le code de MainForm et le passer dans Main													=> FAIT
+Ajout jeu / jeu rétro																					=> FAIT
+Changement de catégorie
+suppression Jeu / Console																				=> FAIT
+Débugger JeuRetro pour la recherche et le tri
+Ajouter l'attribut photo dans Console
+finir la section Modifier
+Implémenter la gestion du panier
 
 pour modifier un attribut dans le noyau
 	-> l'ajouter dans la classe (attribut / constructeur/ toString / CompareTo)

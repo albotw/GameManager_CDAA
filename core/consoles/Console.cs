@@ -1,6 +1,7 @@
 ﻿using projet_CDAA_2020_2021.core.sort;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -33,6 +34,9 @@ namespace projet_CDAA_2020_2021.core.consoles
         private double prix;
         public double Prix { get => prix; set => prix = value; }
 
+        private Image photo;
+        public Image Photo { get => photo; set => photo = value; }
+
         public Console()
         {
             this.nom = "";
@@ -45,6 +49,7 @@ namespace projet_CDAA_2020_2021.core.consoles
             this.prix = 0.0;
         }
 
+        //constructeur pour la suppression.
         public Console(string nom)
         {
             this.nom = nom;

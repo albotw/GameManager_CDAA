@@ -13,13 +13,13 @@ namespace GUI
 {
     public partial class SaisieJeuDlg : Form
     {
-        private Jeu j;
-        public Jeu J { get => j; }
+        private object o;
+        public object Out { get => o; }
 
         private Image photo;
 
-        private bool grabJeu = false;
-        public bool GrabJeu { get => grabJeu; set => grabJeu = value; }
+        private bool grab = false;
+        public bool Grab { get => grab; set => grab = value; }
 
         public SaisieJeuDlg()
         {
@@ -30,6 +30,7 @@ namespace GUI
         private void initListeGenres()
         {
             CBGenre.Items.AddRange(Enum.GetNames(typeof(Genre)));
+            GenreRetro.Items.AddRange(Enum.GetNames(typeof(Genre)));
         }
 
         private void ParcourirPB_Click(object sender, EventArgs e)
@@ -40,34 +41,38 @@ namespace GUI
             {
                 photo = Image.FromFile(fdlg.FileName);
                 DirTB.Text = fdlg.FileName;
+                ImgDirRetro.Text = fdlg.FileName;
             }
             fdlg.Dispose();
 
             ApercuPB.Image = photo;
+            ImgRetro.Image = photo;
         }
 
         private void Annuler_Click(object sender, EventArgs e)
         {
-            grabJeu = false;
+            grab = false;
 
             this.Dispose();
         }
 
         private void Valider_Click(object sender, EventArgs e)
         {
-            grabJeu = true;
+            grab = true;
 
-            j = new Jeu();
+            
+            Jeu j = new Jeu();
             j.Nom = NomTB.Text;
             j.Description = DescriptionTB.Text;
             j.Plateforme = PlateformeTB.Text;
             j.Editeur = EditeurTB.Text;
             j.Genre = (Genre)Enum.Parse(typeof(Genre), CBGenre.SelectedItem as String);
-            j.Prix = Double.Parse(PrixTB.Text);
+            j.Prix = (double)PrixJeu.Value;
             j.Sortie = SortieDTP.Value;
             j.Photo = photo;
             j.Reconditionne = reconditionneRB.Checked;
 
+            o = j;
             this.Dispose();
         }
 
@@ -81,7 +86,29 @@ namespace GUI
 
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void ValiderRetro_Click(object sender, EventArgs e)
+        {
+            grab = true;
+
+            Jeu j = new JeuRetro();
+
+            j.Nom = NomRetro.Text;
+            j.Description = DescriptionRetro.Text;
+            j.Plateforme = PlateformeRetro.Text;
+            j.Editeur = EditeurRetro.Text;
+            j.Genre = (Genre)Enum.Parse(typeof(Genre), GenreRetro.SelectedItem.ToString());
+            j.Prix = (double)PrixRetro.Value;
+            j.Sortie = SortieRetro.Value;
+            j.Photo = photo;
+            j.Reconditionne = ReconditionneRetro.Checked;
+            (j as JeuRetro).Etat = EtatRetro.Text;
+            (j as JeuRetro).Notice = YesNoticeRetro.Checked;
+
+            o = j;
+            this.Dispose();
+        }
+
+        private void tableLayoutPanel2_Paint(object sender, PaintEventArgs e)
         {
 
         }

@@ -39,7 +39,6 @@
             this.AjouterButton = new System.Windows.Forms.ToolStripButton();
             this.SupprimerButton = new System.Windows.Forms.ToolStripButton();
             this.ModifierButton = new System.Windows.Forms.ToolStripButton();
-            this.SwapCategorieButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
@@ -54,6 +53,9 @@
             this.RechercheButton = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.VisualiserButton = new System.Windows.Forms.ToolStripButton();
+            this.CategorieButton = new System.Windows.Forms.ToolStripSplitButton();
+            this.jeuxToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.consolesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -186,6 +188,7 @@
             this.SupprimerButton.Name = "SupprimerButton";
             this.SupprimerButton.Size = new System.Drawing.Size(66, 22);
             this.SupprimerButton.Text = "Supprimer";
+            this.SupprimerButton.Click += new System.EventHandler(this.SupprimerButton_Click);
             // 
             // ModifierButton
             // 
@@ -195,15 +198,6 @@
             this.ModifierButton.Name = "ModifierButton";
             this.ModifierButton.Size = new System.Drawing.Size(56, 22);
             this.ModifierButton.Text = "Modifier";
-            // 
-            // SwapCategorieButton
-            // 
-            this.SwapCategorieButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.SwapCategorieButton.Image = ((System.Drawing.Image)(resources.GetObject("SwapCategorieButton.Image")));
-            this.SwapCategorieButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.SwapCategorieButton.Name = "SwapCategorieButton";
-            this.SwapCategorieButton.Size = new System.Drawing.Size(59, 22);
-            this.SwapCategorieButton.Text = "Consoles";
             // 
             // toolStripSeparator1
             // 
@@ -294,7 +288,7 @@
             this.SupprimerButton,
             this.ModifierButton,
             this.VisualiserButton,
-            this.SwapCategorieButton,
+            this.CategorieButton,
             this.toolStripSeparator1,
             this.toolStripSeparator3,
             this.toolStripLabel1,
@@ -325,6 +319,31 @@
             this.VisualiserButton.Size = new System.Drawing.Size(60, 22);
             this.VisualiserButton.Text = "Visualiser";
             this.VisualiserButton.Click += new System.EventHandler(this.VisualiserButton_Click);
+            // 
+            // CategorieButton
+            // 
+            this.CategorieButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.CategorieButton.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.jeuxToolStripMenuItem,
+            this.consolesToolStripMenuItem});
+            this.CategorieButton.Image = ((System.Drawing.Image)(resources.GetObject("CategorieButton.Image")));
+            this.CategorieButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.CategorieButton.Name = "CategorieButton";
+            this.CategorieButton.Size = new System.Drawing.Size(74, 22);
+            this.CategorieButton.Text = "Catégorie";
+            this.CategorieButton.ButtonClick += new System.EventHandler(this.toolStripSplitButton1_ButtonClick);
+            // 
+            // jeuxToolStripMenuItem
+            // 
+            this.jeuxToolStripMenuItem.Name = "jeuxToolStripMenuItem";
+            this.jeuxToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.jeuxToolStripMenuItem.Text = "Jeux";
+            // 
+            // consolesToolStripMenuItem
+            // 
+            this.consolesToolStripMenuItem.Name = "consolesToolStripMenuItem";
+            this.consolesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.consolesToolStripMenuItem.Text = "Consoles";
             // 
             // Main
             // 
@@ -362,7 +381,6 @@
         private System.Windows.Forms.ToolStripButton AjouterButton;
         private System.Windows.Forms.ToolStripButton SupprimerButton;
         private System.Windows.Forms.ToolStripButton ModifierButton;
-        private System.Windows.Forms.ToolStripButton SwapCategorieButton;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.ToolStripLabel toolStripLabel1;
@@ -382,5 +400,8 @@
         private System.Windows.Forms.FlowLayoutPanel ImagePanel;
         private System.Windows.Forms.Button AjoutPanierButton;
         private System.Windows.Forms.ToolStripButton VisualiserButton;
+        private System.Windows.Forms.ToolStripSplitButton CategorieButton;
+        private System.Windows.Forms.ToolStripMenuItem jeuxToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem consolesToolStripMenuItem;
     }
 }
