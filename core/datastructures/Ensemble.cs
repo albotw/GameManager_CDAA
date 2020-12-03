@@ -48,9 +48,9 @@ namespace projet_CDAA_2020_2021.core.datastructures
             return this.liste;
         }
 
-        public abstract List<T> Search(Field field, object arg);
+        public abstract List<T> Search(Field field, string arg);
 
-        public abstract T SearchSingle(Field field, object arg);
+        public abstract T SearchSingle(Field field, string arg);
 
         public void Sort(Field field, bool reverse)
         {

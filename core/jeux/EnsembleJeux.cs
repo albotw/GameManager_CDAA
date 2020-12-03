@@ -28,94 +28,148 @@ namespace projet_CDAA_2020_2021.core.jeux
 
         //TODO: vérifier les cast dans les appels a search, surtout les DateTime.
         //TODO: Faire en sorte que les recherches soient plus flexibles, entre autre utiliser Contains au lieu de == pour les strings.
-        public override List<Jeu> Search(Field field, object arg)
+        public override List<Jeu> Search(Field field, string arg)
         {
             List<Jeu> tmp = new List<Jeu>();
 
             foreach (Jeu j in liste)
             {
-                //TODO: passer tous les Field == Field en Field.Equals(Field) OU IMPLEMNETER OPERATOR==
-
-                if (field == FieldJeu.Nom && j.Nom == (string)arg)
+                if (field == FieldJeu.Nom && j.Nom == arg)
                     tmp.Add(j);
 
-                else if (field == FieldJeu.Genre && j.Genre.Equals((Genre)arg))
+                else if (field == FieldJeu.Genre)
+                {
+                    Genre g = (Genre)Enum.Parse(typeof(Genre), arg);
+                    if (j.Genre == g)
+                        tmp.Add(j);
+                }
+                
+                //TODO: retirer car test virtuellement toujours faux.
+                else if (field == FieldJeu.Description && j.Description == arg)
                     tmp.Add(j);
 
-                else if (field == FieldJeu.Description && j.Description == (string)arg)
+                else if (field == FieldJeu.Plateforme && j.Plateforme ==arg)
                     tmp.Add(j);
 
-                else if (field == FieldJeu.Plateforme && j.Plateforme == (string)arg)
+                else if (field == FieldJeu.Editeur && j.Editeur == arg)
                     tmp.Add(j);
 
-                else if (field == FieldJeu.Editeur && j.Editeur == (string)arg)
-                    tmp.Add(j);
+                else if (field == FieldJeu.Prix)
+                {
+                    double p = Double.Parse(arg);
+                    if (j.Prix == p)
+                        tmp.Add(j);
+                }
 
-                else if (field == FieldJeu.Prix && j.Prix == (double)arg)
-                    tmp.Add(j);
+                else if (field == FieldJeu.Sortie)
+                {
+                    //date au format jj/mm/aaaa, tout autre format provoquera une exception
+                    string[] date_values = arg.Split('/');
+                    DateTime d = new DateTime(Int32.Parse(date_values[2]), Int32.Parse(date_values[1]), Int32.Parse(date_values[0]));
+                    if (j.Sortie == d)
+                        tmp.Add(j);
+                }
 
-                else if (field == FieldJeu.Sortie && j.Sortie == (DateTime)arg)
-                    tmp.Add(j);
+                else if (field == FieldJeu.Reconditionne)
+                {
+                    bool r = Boolean.Parse(arg);
+                    if (j.Reconditionne == r)
+                        tmp.Add(j);
+                }
 
-                else if (field == FieldJeu.Reconditionne && j.Reconditionne == (bool)arg)
-                    tmp.Add(j);
-
-                else if (field == FieldJeu.Photo && j.Photo == (Image)arg)
-                    tmp.Add(j);
+                //TODO: retirer les photos car test impossible.
+                //else if (field == FieldJeu.Photo && j.Photo == (Image)arg)
+                    //tmp.Add(j);
 
                 else if (field == FieldJeu.Retro && j.GetType().Equals(typeof(JeuRetro)))
                     tmp.Add(j);
 
-                //pas sure que ça fonctionne
-                else if (field == FieldJeu.Etat && (j as JeuRetro).Etat == (string)arg)
-                    tmp.Add(j);
+                //pas sur que ça fonctionne
+                else if (field == FieldJeu.Etat && j.GetType().Equals(typeof(JeuRetro)))
+                {
+                    if ((j as JeuRetro).Etat == arg)
+                        tmp.Add(j);
 
-                else if (field == FieldJeu.Notice && (j as JeuRetro).Notice == (bool)arg)
-                    tmp.Add(j);
+                }
+
+                else if (field == FieldJeu.Notice && j.GetType().Equals(typeof(JeuRetro)))
+                {
+                    bool n = Boolean.Parse(arg);
+                    if ((j as JeuRetro).Notice == n)
+                        tmp.Add(j);
+                }
             }
             return tmp;
         }
 
-        public override Jeu SearchSingle(Field field, object arg)
+        public override Jeu SearchSingle(Field field, string arg)
         {
             foreach(Jeu j in liste)
             {
-                if (field == FieldJeu.Nom && j.Nom == (string)arg)
+                if (field == FieldJeu.Nom && j.Nom == arg)
                     return j;
 
-                else if (field == FieldJeu.Genre && j.Genre.Equals((Genre)arg))
+                else if (field == FieldJeu.Genre)
+                {
+                    Genre g = (Genre)Enum.Parse(typeof(Genre), arg);
+                    if (j.Genre == g)
+                        return j;
+                }
+
+                //TODO: retirer car test virtuellement toujours faux.
+                else if (field == FieldJeu.Description && j.Description == arg)
                     return j;
 
-                else if (field == FieldJeu.Description && j.Description == (string)arg)
+                else if (field == FieldJeu.Plateforme && j.Plateforme == arg)
                     return j;
 
-                else if (field == FieldJeu.Plateforme && j.Plateforme == (string)arg)
+                else if (field == FieldJeu.Editeur && j.Editeur == arg)
                     return j;
 
-                else if (field == FieldJeu.Editeur && j.Editeur == (string)arg)
-                    return j;
+                else if (field == FieldJeu.Prix)
+                {
+                    double p = Double.Parse(arg);
+                    if (j.Prix == p)
+                        return j;
+                }
 
-                else if (field == FieldJeu.Prix && j.Prix == (double)arg)
-                    return j;
+                else if (field == FieldJeu.Sortie)
+                {
+                    //date au format jj/mm/aaaa, tout autre format provoquera une exception
+                    string[] date_values = arg.Split('/');
+                    DateTime d = new DateTime(Int32.Parse(date_values[2]), Int32.Parse(date_values[1]), Int32.Parse(date_values[0]));
+                    if (j.Sortie == d)
+                        return j;
+                }
 
-                else if (field == FieldJeu.Sortie && j.Sortie == (DateTime)arg)
-                    return j;
+                else if (field == FieldJeu.Reconditionne)
+                {
+                    bool r = Boolean.Parse(arg);
+                    if (j.Reconditionne == r)
+                        return j;
+                }
 
-                else if (field == FieldJeu.Reconditionne && j.Reconditionne == (bool)arg)
-                    return j;
-
-                else if (field == FieldJeu.Photo && j.Photo == (Image)arg)
-                    return j;
+                //TODO: retirer les photos car test impossible.
+                //else if (field == FieldJeu.Photo && j.Photo == (Image)arg)
+                //tmp.Add(j);
 
                 else if (field == FieldJeu.Retro && j.GetType().Equals(typeof(JeuRetro)))
                     return j;
 
-                //pas sure que ça fonctionne
-                else if (field == FieldJeu.Etat && (j as JeuRetro).Etat == (string)arg)
-                    return j;
+                //pas sur que ça fonctionne
+                else if (field == FieldJeu.Etat && j.GetType().Equals(typeof(JeuRetro)))
+                {
+                    if ((j as JeuRetro).Etat == arg)
+                        return j;
 
-                else if (field == FieldJeu.Notice && (j as JeuRetro).Notice == (bool)arg)
-                    return j;
+                }
+
+                else if (field == FieldJeu.Notice && j.GetType().Equals(typeof(JeuRetro)))
+                {
+                    bool n = Boolean.Parse(arg);
+                    if ((j as JeuRetro).Notice == n)
+                        return j;
+                }
             }
 
             return null;

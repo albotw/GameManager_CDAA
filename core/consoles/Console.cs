@@ -30,6 +30,9 @@ namespace projet_CDAA_2020_2021.core.consoles
         private string type;
         public string Type { get => type; set => type = value; }
 
+        private double prix;
+        public double Prix { get => prix; set => prix = value; }
+
         public Console()
         {
             this.nom = "";
@@ -39,6 +42,7 @@ namespace projet_CDAA_2020_2021.core.consoles
             this.ports = 0;
             this.Support = 0;
             this.type = "";
+            this.prix = 0.0;
         }
 
         public Console(string nom)
@@ -46,7 +50,7 @@ namespace projet_CDAA_2020_2021.core.consoles
             this.nom = nom;
         }
 
-        public Console(string nom, string fabriquant, int generation, DateTime sortie, int ports, Support sup, string type)
+        public Console(string nom, string fabriquant, int generation, DateTime sortie, int ports, Support sup, string type, double prix)
         {
             this.nom = nom;
             this.fabriquant = fabriquant;
@@ -55,6 +59,7 @@ namespace projet_CDAA_2020_2021.core.consoles
             this.ports = ports;
             this.support = sup;
             this.type = type;
+            this.prix = prix;
         }
 
         public override string ToString()
@@ -67,6 +72,7 @@ namespace projet_CDAA_2020_2021.core.consoles
             s += "\nports: " + this.ports;
             s += "\nsupport: " + this.support;
             s += "\ntype: " + this.type;
+            s += "\nprix: " + this.prix;
 
             return s;
         }
@@ -81,7 +87,8 @@ namespace projet_CDAA_2020_2021.core.consoles
                 sortie.ToString("d", new System.Globalization.CultureInfo("fr-FR")),
                 "" + ports,
                 support.ToString(),
-                type
+                type,
+                prix.ToString()
             };
 
             return output;
@@ -123,11 +130,12 @@ namespace projet_CDAA_2020_2021.core.consoles
             {
                 if (field == FieldConsole.Nom) return this.Nom.CompareTo(other.Nom);
                 else if (field == FieldConsole.Fabriquant) return this.Fabriquant.CompareTo(other.Fabriquant);
-                else if(field == FieldConsole.Generation) return this.Generation.CompareTo(other.Generation);
-                else if(field == FieldConsole.Sortie) return this.Sortie.CompareTo(other.Sortie);
-                else if(field == FieldConsole.Ports) return this.Ports.CompareTo(other.Ports);
-                else if(field == FieldConsole.Support) return this.Support.CompareTo(other.Support);
-                else if(field == FieldConsole.Type) return this.Type.CompareTo(other.Type);
+                else if (field == FieldConsole.Generation) return this.Generation.CompareTo(other.Generation);
+                else if (field == FieldConsole.Sortie) return this.Sortie.CompareTo(other.Sortie);
+                else if (field == FieldConsole.Ports) return this.Ports.CompareTo(other.Ports);
+                else if (field == FieldConsole.Support) return this.Support.CompareTo(other.Support);
+                else if (field == FieldConsole.Type) return this.Type.CompareTo(other.Type);
+                else if (field == FieldConsole.Prix) return this.Prix.CompareTo(other.Prix);
             }
             return 1;
         }

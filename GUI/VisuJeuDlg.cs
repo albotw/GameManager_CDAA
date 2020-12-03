@@ -14,7 +14,7 @@ namespace GUI
 {
     public partial class VisuJeuDlg : Form
     {
-        private Catalogue cat = MainForm.cat;
+        private Catalogue cat = Main.cat;
         public VisuJeuDlg()
         {
             InitializeComponent();
@@ -29,7 +29,7 @@ namespace GUI
             foreach(Genre g in Enum.GetValues(typeof(Genre)))
             {
                 treeView1.Nodes.Add(g.ToString());
-                foreach (Jeu j in cat.GetLesJeux().Search(FieldJeu.Genre, g))
+                foreach (Jeu j in cat.GetLesJeux().Search(FieldJeu.Genre, g.ToString()))
                 {
                     treeView1.Nodes[i].Nodes.Add(j.Nom);
                     Console.WriteLine("\t" + j.Nom);

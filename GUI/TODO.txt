@@ -1,5 +1,5 @@
 ﻿Passer la CLI en bibliothèque de classes pour autres projets
-Remonter searchSingle de ensembleJeux dans Ensemble
+
 
 POUR LA PARTIE 2 DU PROJET:
 Rajouter une catégorie supplémentaire ?
@@ -21,3 +21,19 @@ Recherche
 Tri
 Ajout
 Suppression
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////
+
+
+remonter searchSingle dans Ensemble																		=> FAIT
+vérifier implémentation de l'attibut prix dans la CLI pour les consoles
+récupérer le code de MainForm et le passer dans Main
+
+pour modifier un attribut dans le noyau
+	-> l'ajouter dans la classe (attribut / constructeur/ toString / CompareTo)
+	-> ajouter dans le Field ( valeur / GetNames)
+	-> implémenter dans les ensembles (init / search / searchSingle)
+	-> implémenter dans la CLI...

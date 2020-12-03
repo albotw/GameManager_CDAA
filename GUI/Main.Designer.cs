@@ -45,7 +45,6 @@
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.TriFieldCB = new System.Windows.Forms.ToolStripComboBox();
             this.GenreCB = new System.Windows.Forms.ToolStripComboBox();
-            this.TriValueTB = new System.Windows.Forms.ToolStripTextBox();
             this.TriButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
@@ -54,6 +53,7 @@
             this.RechercheValueTB = new System.Windows.Forms.ToolStripTextBox();
             this.RechercheButton = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.VisualiserButton = new System.Windows.Forms.ToolStripButton();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -71,6 +71,7 @@
             // 
             // splitContainer1
             // 
+            this.splitContainer1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.splitContainer1.Cursor = System.Windows.Forms.Cursors.Default;
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer1.FixedPanel = System.Windows.Forms.FixedPanel.Panel2;
@@ -85,16 +86,18 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.splitContainer2);
-            this.splitContainer1.Size = new System.Drawing.Size(1084, 536);
-            this.splitContainer1.SplitterDistance = 900;
+            this.splitContainer1.Size = new System.Drawing.Size(1235, 536);
+            this.splitContainer1.SplitterDistance = 1001;
             this.splitContainer1.TabIndex = 0;
             // 
             // ImagePanel
             // 
+            this.ImagePanel.AutoScroll = true;
+            this.ImagePanel.AutoSize = true;
             this.ImagePanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ImagePanel.Location = new System.Drawing.Point(0, 0);
             this.ImagePanel.Name = "ImagePanel";
-            this.ImagePanel.Size = new System.Drawing.Size(900, 536);
+            this.ImagePanel.Size = new System.Drawing.Size(997, 532);
             this.ImagePanel.TabIndex = 0;
             // 
             // splitContainer2
@@ -111,8 +114,8 @@
             // splitContainer2.Panel2
             // 
             this.splitContainer2.Panel2.Controls.Add(this.splitContainer3);
-            this.splitContainer2.Size = new System.Drawing.Size(180, 536);
-            this.splitContainer2.SplitterDistance = 400;
+            this.splitContainer2.Size = new System.Drawing.Size(226, 532);
+            this.splitContainer2.SplitterDistance = 397;
             this.splitContainer2.TabIndex = 0;
             // 
             // InfoTB
@@ -123,7 +126,7 @@
             this.InfoTB.Location = new System.Drawing.Point(0, 0);
             this.InfoTB.Name = "InfoTB";
             this.InfoTB.ReadOnly = true;
-            this.InfoTB.Size = new System.Drawing.Size(180, 400);
+            this.InfoTB.Size = new System.Drawing.Size(226, 397);
             this.InfoTB.TabIndex = 0;
             this.InfoTB.Text = "INFORMATIONS";
             // 
@@ -141,8 +144,8 @@
             // splitContainer3.Panel2
             // 
             this.splitContainer3.Panel2.Controls.Add(this.AjoutPanierButton);
-            this.splitContainer3.Size = new System.Drawing.Size(180, 132);
-            this.splitContainer3.SplitterDistance = 59;
+            this.splitContainer3.Size = new System.Drawing.Size(226, 131);
+            this.splitContainer3.SplitterDistance = 57;
             this.splitContainer3.TabIndex = 0;
             // 
             // PrixLabel
@@ -150,7 +153,7 @@
             this.PrixLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PrixLabel.Location = new System.Drawing.Point(0, 0);
             this.PrixLabel.Name = "PrixLabel";
-            this.PrixLabel.Size = new System.Drawing.Size(180, 59);
+            this.PrixLabel.Size = new System.Drawing.Size(226, 57);
             this.PrixLabel.TabIndex = 0;
             this.PrixLabel.Text = "Prix: 0.00 €";
             this.PrixLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -160,7 +163,7 @@
             this.AjoutPanierButton.Dock = System.Windows.Forms.DockStyle.Fill;
             this.AjoutPanierButton.Location = new System.Drawing.Point(0, 0);
             this.AjoutPanierButton.Name = "AjoutPanierButton";
-            this.AjoutPanierButton.Size = new System.Drawing.Size(180, 69);
+            this.AjoutPanierButton.Size = new System.Drawing.Size(226, 70);
             this.AjoutPanierButton.TabIndex = 0;
             this.AjoutPanierButton.Text = "Ajouter au panier";
             this.AjoutPanierButton.UseVisualStyleBackColor = true;
@@ -220,20 +223,16 @@
             // 
             // TriFieldCB
             // 
+            this.TriFieldCB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.TriFieldCB.Name = "TriFieldCB";
             this.TriFieldCB.Size = new System.Drawing.Size(121, 25);
+            this.TriFieldCB.SelectedIndexChanged += new System.EventHandler(this.TriFieldCB_SelectedIndexChanged);
             // 
             // GenreCB
             // 
+            this.GenreCB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.GenreCB.Name = "GenreCB";
             this.GenreCB.Size = new System.Drawing.Size(121, 25);
-            // 
-            // TriValueTB
-            // 
-            this.TriValueTB.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.TriValueTB.Name = "TriValueTB";
-            this.TriValueTB.Size = new System.Drawing.Size(100, 25);
-            this.TriValueTB.Text = "Valeur";
             // 
             // TriButton
             // 
@@ -243,6 +242,7 @@
             this.TriButton.Name = "TriButton";
             this.TriButton.Size = new System.Drawing.Size(33, 22);
             this.TriButton.Text = "Trier";
+            this.TriButton.Click += new System.EventHandler(this.TriButton_Click);
             // 
             // toolStripSeparator4
             // 
@@ -262,8 +262,10 @@
             // 
             // RechercheFieldCB
             // 
+            this.RechercheFieldCB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.RechercheFieldCB.Name = "RechercheFieldCB";
             this.RechercheFieldCB.Size = new System.Drawing.Size(121, 25);
+            this.RechercheFieldCB.SelectedIndexChanged += new System.EventHandler(this.RechercheFieldCB_SelectedIndexChanged);
             // 
             // RechercheValueTB
             // 
@@ -280,6 +282,7 @@
             this.RechercheButton.Name = "RechercheButton";
             this.RechercheButton.Size = new System.Drawing.Size(70, 22);
             this.RechercheButton.Text = "Rechercher";
+            this.RechercheButton.Click += new System.EventHandler(this.RechercheButton_Click);
             // 
             // toolStrip1
             // 
@@ -290,39 +293,50 @@
             this.AjouterButton,
             this.SupprimerButton,
             this.ModifierButton,
+            this.VisualiserButton,
             this.SwapCategorieButton,
             this.toolStripSeparator1,
             this.toolStripSeparator3,
             this.toolStripLabel1,
             this.TriFieldCB,
-            this.GenreCB,
-            this.TriValueTB,
             this.TriButton,
             this.toolStripSeparator4,
             this.toolStripSeparator2,
             this.toolStripLabel2,
             this.RechercheFieldCB,
+            this.GenreCB,
             this.RechercheValueTB,
             this.RechercheButton});
             this.toolStrip1.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.toolStrip1.Size = new System.Drawing.Size(1084, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(1235, 25);
             this.toolStrip1.Stretch = true;
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
+            // 
+            // VisualiserButton
+            // 
+            this.VisualiserButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.VisualiserButton.Image = ((System.Drawing.Image)(resources.GetObject("VisualiserButton.Image")));
+            this.VisualiserButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.VisualiserButton.Name = "VisualiserButton";
+            this.VisualiserButton.Size = new System.Drawing.Size(60, 22);
+            this.VisualiserButton.Text = "Visualiser";
+            this.VisualiserButton.Click += new System.EventHandler(this.VisualiserButton_Click);
             // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1084, 561);
+            this.ClientSize = new System.Drawing.Size(1235, 561);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.toolStrip1);
             this.Name = "Main";
             this.Text = "Main";
             this.splitContainer1.Panel1.ResumeLayout(false);
+            this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
@@ -354,7 +368,6 @@
         private System.Windows.Forms.ToolStripLabel toolStripLabel1;
         private System.Windows.Forms.ToolStripComboBox TriFieldCB;
         private System.Windows.Forms.ToolStripComboBox GenreCB;
-        private System.Windows.Forms.ToolStripTextBox TriValueTB;
         private System.Windows.Forms.ToolStripButton TriButton;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
@@ -368,5 +381,6 @@
         private System.Windows.Forms.Label PrixLabel;
         private System.Windows.Forms.FlowLayoutPanel ImagePanel;
         private System.Windows.Forms.Button AjoutPanierButton;
+        private System.Windows.Forms.ToolStripButton VisualiserButton;
     }
 }

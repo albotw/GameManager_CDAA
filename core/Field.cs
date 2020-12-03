@@ -12,6 +12,9 @@ namespace projet_CDAA_2020_2021.core
 
         public string Value { get; set; }
 
+        //présence d'une méthode GetNames qui retourne toutes les valeurs possibles d'un Field.
+        //Comme elle est statique dans les classes héritières, on ne peut la mettre ici.
+
         public bool Equals(Field other)
         {
             return Value.Equals(other.Value);
@@ -30,6 +33,12 @@ namespace projet_CDAA_2020_2021.core
         public static bool operator!=(Field f1, Field f2)
         {
             return !(f1 == f2);
+        }
+
+        /*Nécessaire pour faire des cast object -> string -> Field*/
+        public override string ToString()
+        {
+            return this.Value;
         }
     }
 }

@@ -18,52 +18,98 @@ namespace projet_CDAA_2020_2021.core.consoles
 
         public override void Init()
         {
-            Add(new Console("Switch", "Nintendo", 8, new DateTime(2017, 03, 1), 8, Support.Cartouche, "hybride"));
+            Add(new Console("Switch", "Nintendo", 8, new DateTime(2017, 03, 1), 8, Support.Cartouche, "hybride", 300.0));
         }
 
-        public override List<Console> Search(Field field, object arg)
+        public override List<Console> Search(Field field, string arg)
         {
             List<Console> output = new List<Console>();
 
             foreach (Console c in liste)
             {
-                if (field == FieldConsole.Nom && c.Nom == (string)arg)
+                if (field == FieldConsole.Nom && c.Nom == arg)
                     output.Add(c);
-                else if (field == FieldConsole.Fabriquant && c.Fabriquant == (string)arg)
+                else if (field == FieldConsole.Fabriquant && c.Fabriquant == arg)
                     output.Add(c);
-                else if (field == FieldConsole.Generation && c.Generation == (int)arg)
+                else if (field == FieldConsole.Generation)
+                {
+                    int g = Int32.Parse(arg);
+                    if (c.Generation == g)
+                        output.Add(c);
+                }
+                else if (field == FieldConsole.Sortie)
+                {
+                    string[] d_values = arg.Split('/');
+                    DateTime d = new DateTime(Int32.Parse(d_values[2]), Int32.Parse(d_values[1]), Int32.Parse(d_values[0]));
+                    if (c.Sortie == d)
+                        output.Add(c);
+                }
+                else if (field == FieldConsole.Ports)
+                {
+                    int p = Int32.Parse(arg);
+                    if (c.Ports == p)
+                        output.Add(c);
+                }
+                else if (field == FieldConsole.Support)
+                {
+                    Support s = (Support)Enum.Parse(typeof(Support), arg);
+                    if (c.Support == s)
+                        output.Add(c);
+                }
+                else if (field == FieldConsole.Type && c.Type == arg)
                     output.Add(c);
-                else if (field == FieldConsole.Sortie && c.Sortie == (DateTime)arg)
-                    output.Add(c);
-                else if (field == FieldConsole.Ports && c.Ports == (int)arg)
-                    output.Add(c);
-                else if (field == FieldConsole.Support && c.Support == (Support)arg)
-                    output.Add(c);
-                else if (field == FieldConsole.Type && c.Type == (string)arg)
-                    output.Add(c);
+                else if (field == FieldConsole.Prix)
+                {
+                    double p = Double.Parse(arg);
+                    if (c.Prix == p)
+                        output.Add(c);
+                }
             }
 
             return output;
         }
 
-        public override Console SearchSingle(Field field, object arg)
+        public override Console SearchSingle(Field field, string arg)
         {
             foreach (Console c in liste)
             {
-                if (field == FieldConsole.Nom && c.Nom == (string)arg)
+                if (field == FieldConsole.Nom && c.Nom == arg)
                     return c;
-                else if (field == FieldConsole.Fabriquant && c.Fabriquant == (string)arg)
+                else if (field == FieldConsole.Fabriquant && c.Fabriquant == arg)
                     return c;
-                else if (field == FieldConsole.Generation && c.Generation == (int)arg)
+                else if (field == FieldConsole.Generation)
+                {
+                    int g = Int32.Parse(arg);
+                    if (c.Generation == g)
+                        return c;
+                }
+                else if (field == FieldConsole.Sortie)
+                {
+                    string[] d_values = arg.Split('/');
+                    DateTime d = new DateTime(Int32.Parse(d_values[2]), Int32.Parse(d_values[1]), Int32.Parse(d_values[0]));
+                    if (c.Sortie == d)
+                        return c;
+                }
+                else if (field == FieldConsole.Ports)
+                {
+                    int p = Int32.Parse(arg);
+                    if (c.Ports == p)
+                        return c; ;
+                }
+                else if (field == FieldConsole.Support)
+                {
+                    Support s = (Support)Enum.Parse(typeof(Support), arg);
+                    if (c.Support == s)
+                        return c;
+                }
+                else if (field == FieldConsole.Type && c.Type == arg)
                     return c;
-                else if (field == FieldConsole.Sortie && c.Sortie == (DateTime)arg)
-                    return c;
-                else if (field == FieldConsole.Ports && c.Ports == (int)arg)
-                    return c;
-                else if (field == FieldConsole.Support && c.Support == (Support)arg)
-                    return c;
-                else if (field == FieldConsole.Type && c.Type == (string)arg)
-                    return c;
+                else if (field == FieldConsole.Prix)
+                {
+                    double p = Double.Parse(arg);
+                    if (c.Prix == p)
+                        return c;
+                }
             }
 
             return null;

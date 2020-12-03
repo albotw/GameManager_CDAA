@@ -12,6 +12,28 @@ namespace projet_CDAA_2020_2021.core.jeux
         private FieldJeu(string value) : base(value)
         { }
 
+        /*opérateurs de cast implicite et explicite depuis et vers un string*/
+        public static explicit operator string(FieldJeu f) { return f.Value; }
+        public static explicit operator FieldJeu(string s) { return new FieldJeu(s); }
+
+        public static string[] GetNames()
+        {
+            return new string[]
+            {
+                Nom.Value,
+                Description.Value,
+                Plateforme.Value,
+                Editeur.Value,
+                Genre.Value,
+                Prix.Value,
+                Sortie.Value,
+                Reconditionne.Value,
+                Photo.Value,
+                Retro.Value,
+                Etat.Value,
+                Notice.Value
+            };
+        }
 
         //Champs JEU
         public static FieldJeu Nom { get { return new FieldJeu("nom"); } }

@@ -137,13 +137,11 @@ namespace GUI
             }
             else
             {
-                Genre selected = (Genre)Enum.Parse(typeof(Genre), (string)CBGenre.SelectedItem);
-
                 ListeJeuxPhotos.Items.Clear();
                 ListeJeuxPhotos.DrawMode = DrawMode.OwnerDrawVariable;
                 listeImages = new ImageList();
 
-                foreach (Jeu j in cat.GetLesJeux().Search(FieldJeu.Genre, selected))
+                foreach (Jeu j in cat.GetLesJeux().Search(FieldJeu.Genre, CBGenre.SelectedItem.ToString()))
                 {
                     listeImages.Images.Add(j.Photo);
                     ListeJeuxPhotos.Items.Add(j.Nom);
