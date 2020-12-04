@@ -338,12 +338,14 @@
             this.jeuxToolStripMenuItem.Name = "jeuxToolStripMenuItem";
             this.jeuxToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.jeuxToolStripMenuItem.Text = "Jeux";
+            this.jeuxToolStripMenuItem.Click += new System.EventHandler(this.jeuxToolStripMenuItem_Click);
             // 
             // consolesToolStripMenuItem
             // 
             this.consolesToolStripMenuItem.Name = "consolesToolStripMenuItem";
             this.consolesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.consolesToolStripMenuItem.Text = "Consoles";
+            this.consolesToolStripMenuItem.Click += new System.EventHandler(this.consolesToolStripMenuItem_Click);
             // 
             // Main
             // 

@@ -26,10 +26,10 @@ remonter searchSingle dans Ensemble																		=> FAIT
 vérifier implémentation de l'attibut prix dans la CLI pour les consoles									=> FAIT
 récupérer le code de MainForm et le passer dans Main													=> FAIT
 Ajout jeu / jeu rétro																					=> FAIT
-Changement de catégorie
+Changement de catégorie																					=> FAIT
 suppression Jeu / Console																				=> FAIT
 Débugger JeuRetro pour la recherche et le tri
-Ajouter l'attribut photo dans Console
+Ajouter l'attribut photo dans Console																	=> FAIT
 finir la section Modifier
 Implémenter la gestion du panier
 

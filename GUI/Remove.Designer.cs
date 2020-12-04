@@ -1,6 +1,6 @@
 ﻿namespace GUI
 {
-    partial class SupprDlg
+    partial class Remove
     {
         /// <summary>
         /// Required designer variable.

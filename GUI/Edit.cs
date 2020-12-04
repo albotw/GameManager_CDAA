@@ -12,10 +12,10 @@ using System.Windows.Forms;
 
 namespace GUI
 {
-    public partial class MajDlg : Form
+    public partial class Edit : Form
     {
         private Catalogue cat = MainForm.cat;
-        public MajDlg()
+        public Edit()
         {
             InitializeComponent();
             InitGrid();

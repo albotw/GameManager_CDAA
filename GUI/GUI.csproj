@@ -74,11 +74,11 @@
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="MajDlg.cs">
+    <Compile Include="Edit.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MajDlg.Designer.cs">
-      <DependentUpon>MajDlg.cs</DependentUpon>
+    <Compile Include="Edit.Designer.cs">
+      <DependentUpon>Edit.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -87,23 +87,29 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="SaisieJeuDlg.cs">
+    <Compile Include="AddJeu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SaisieJeuDlg.Designer.cs">
-      <DependentUpon>SaisieJeuDlg.cs</DependentUpon>
+    <Compile Include="AddJeu.Designer.cs">
+      <DependentUpon>AddJeu.cs</DependentUpon>
     </Compile>
-    <Compile Include="SupprDlg.cs">
+    <Compile Include="Remove.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SupprDlg.Designer.cs">
-      <DependentUpon>SupprDlg.cs</DependentUpon>
+    <Compile Include="Remove.Designer.cs">
+      <DependentUpon>Remove.cs</DependentUpon>
     </Compile>
-    <Compile Include="VisuJeuDlg.cs">
+    <Compile Include="TreeViewGenre.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="VisuJeuDlg.Designer.cs">
-      <DependentUpon>VisuJeuDlg.cs</DependentUpon>
+    <Compile Include="TreeViewGenre.Designer.cs">
+      <DependentUpon>TreeViewGenre.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TreeViewSupport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TreeViewSupport.Designer.cs">
+      <DependentUpon>TreeViewSupport.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
@@ -111,22 +117,25 @@
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MajDlg.resx">
-      <DependentUpon>MajDlg.cs</DependentUpon>
+    <EmbeddedResource Include="Edit.resx">
+      <DependentUpon>Edit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="SaisieJeuDlg.resx">
-      <DependentUpon>SaisieJeuDlg.cs</DependentUpon>
+    <EmbeddedResource Include="AddJeu.resx">
+      <DependentUpon>AddJeu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SupprDlg.resx">
-      <DependentUpon>SupprDlg.cs</DependentUpon>
+    <EmbeddedResource Include="Remove.resx">
+      <DependentUpon>Remove.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="VisuJeuDlg.resx">
-      <DependentUpon>VisuJeuDlg.cs</DependentUpon>
+    <EmbeddedResource Include="TreeViewGenre.resx">
+      <DependentUpon>TreeViewGenre.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TreeViewSupport.resx">
+      <DependentUpon>TreeViewSupport.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -167,6 +176,9 @@
     <None Include="img\MC_RTX.png" />
     <None Include="img\GENSHIN.png" />
     <None Include="img\DBFZ.png" />
+    <None Include="img\SWITCH.png" />
+    <None Include="img\SNES.jpg" />
+    <None Include="img\PS3.png" />
     <Content Include="TODO.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

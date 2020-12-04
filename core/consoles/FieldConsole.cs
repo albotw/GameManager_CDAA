@@ -11,6 +11,10 @@ namespace projet_CDAA_2020_2021.core.consoles
         private FieldConsole(string value) : base(value)
         { }
 
+        /*opérateurs de cast implicite et explicite depuis et vers un string*/
+        public static explicit operator string(FieldConsole f) { return f.Value; }
+        public static explicit operator FieldConsole(string s) { return new FieldConsole(s); }
+
         public static string[] GetNames()
         {
             return new string[]

@@ -104,7 +104,7 @@ namespace GUI
 
         private void ajouterToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            SaisieJeuDlg sdlg = new SaisieJeuDlg();
+            AddJeu sdlg = new AddJeu();
             sdlg.ShowDialog();
 
             if (sdlg.Grab)
@@ -118,14 +118,14 @@ namespace GUI
 
         private void jeuxToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            VisuJeuDlg vjdlg = new VisuJeuDlg();
+            TreeViewGenre vjdlg = new TreeViewGenre();
             vjdlg.ShowDialog();
 
         }
 
         private void modifierToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MajDlg mdlg = new MajDlg();
+            Edit mdlg = new Edit();
             mdlg.ShowDialog();
         }
 

@@ -19,6 +19,8 @@ namespace projet_CDAA_2020_2021.core.consoles
         public override void Init()
         {
             Add(new Console("Switch", "Nintendo", 8, new DateTime(2017, 03, 1), 8, Support.Cartouche, "hybride", 300.0));
+            Add(new Console("PlayStation 3", "Sony", 7, new DateTime(2007, 05, 23), 4, Support.Blu_Ray, "salon", 100.0));
+            Add(new Console("Super NES", "Nintendo", 4, new DateTime(1992, 06, 6), 4, Support.Cartouche, "salon", 40.0));
         }
 
         public override List<Console> Search(Field field, string arg)

@@ -63,6 +63,7 @@ namespace GUI
             TriButton.Enabled = false;
             RechercheFieldCB.Enabled = false;
             GenreCB.Enabled = false;
+            CategorieButton.Enabled = false;
         }
 
         public void unlockUI()
@@ -75,10 +76,12 @@ namespace GUI
             TriButton.Enabled = true;
             RechercheFieldCB.Enabled = true;
             GenreCB.Enabled = true;
+            CategorieButton.Enabled = true;
         }
 
         public void LinkPhotos()
         {
+            //Liaison entre les jeux et leurs photos.
             cat.GetLesJeux().SearchSingle(FieldJeu.Nom, "Metal Gear Solid").Photo = Properties.Resources.MGS;
             cat.GetLesJeux().SearchSingle(FieldJeu.Nom, "Metal Gear Solid 2: Subsistance").Photo = Properties.Resources.MGS2;
             cat.GetLesJeux().SearchSingle(FieldJeu.Nom, "Metal Gear Solid V: The Phantom Pain").Photo = Properties.Resources.MGSV;
@@ -86,6 +89,11 @@ namespace GUI
             cat.GetLesJeux().SearchSingle(FieldJeu.Nom, "Minecraft RTX Edition").Photo = Properties.Resources.MC_RTX;
             cat.GetLesJeux().SearchSingle(FieldJeu.Nom, "Genshin Impact").Photo = Properties.Resources.GENSHIN;
             cat.GetLesJeux().SearchSingle(FieldJeu.Nom, "Mario Bros 3").Photo = Properties.Resources.SMB3;
+
+            //liaison entre les consoles et leurs photos
+            cat.GetLesConsoles().SearchSingle(FieldConsole.Nom, "Switch").Photo = Properties.Resources.SWITCH;
+            cat.GetLesConsoles().SearchSingle(FieldConsole.Nom, "Super NES").Photo = Properties.Resources.SNES;
+            cat.GetLesConsoles().SearchSingle(FieldConsole.Nom, "PlayStation 3").Photo = Properties.Resources.PS3;
         }
 
         public void CenterTextInfoTB()
@@ -128,7 +136,7 @@ namespace GUI
                     PictureBox pb = new PictureBox();
                     pb.Name = c.Nom;
                     //TODO: Implémenter les images dans les consoles.
-                    //pb.Image = c.Photo;
+                    pb.Image = c.Photo;
                     pb.Size = new Size(300, 300);
                     pb.SizeMode = PictureBoxSizeMode.StretchImage;
 
@@ -155,7 +163,7 @@ namespace GUI
             }
             else if (state == AppState.ShowConsoles)
             {
-                TriFieldCB.Items.AddRange(FieldJeu.GetNames());
+                TriFieldCB.Items.AddRange(FieldConsole.GetNames());
             }
         }
 
@@ -188,7 +196,7 @@ namespace GUI
 
         private void AjouterButton_Click(object sender, EventArgs e)
         {
-            SaisieJeuDlg sdlg = new SaisieJeuDlg();
+            AddJeu sdlg = new AddJeu();
             sdlg.ShowDialog();
 
             if (sdlg.Grab)
@@ -204,8 +212,16 @@ namespace GUI
 
         private void VisualiserButton_Click(object sender, EventArgs e)
         {
-            VisuJeuDlg vjdlg = new VisuJeuDlg();
-            vjdlg.ShowDialog();
+            if (state == AppState.ShowJeux)
+            {
+                TreeViewGenre tvg = new TreeViewGenre();
+                tvg.ShowDialog();
+            }
+            else if (state == AppState.ShowConsoles)
+            {
+                TreeViewSupport tvs = new TreeViewSupport();
+                tvs.ShowDialog();
+            }
         }
 
         private void TriFieldCB_SelectedIndexChanged(object sender, EventArgs e)
@@ -215,11 +231,23 @@ namespace GUI
 
         private void TriButton_Click(object sender, EventArgs e)
         {
-            if (TriFieldCB.SelectedItem != null)
+            if (state == AppState.ShowJeux)
             {
-                cat.GetLesJeux().Sort((FieldJeu)TriFieldCB.SelectedItem.ToString(), false);
-                toDisplay_jeux = cat.GetLesJeux().GetAll();
-                InitPhotos();
+                if (TriFieldCB.SelectedItem != null)
+                {
+                    cat.GetLesJeux().Sort((FieldJeu)TriFieldCB.SelectedItem.ToString(), false);
+                    toDisplay_jeux = cat.GetLesJeux().GetAll();
+                    InitPhotos();
+                }
+            }
+            else if (state == AppState.ShowConsoles)
+            {
+                if (TriFieldCB.SelectedItem != null)
+                {
+                    cat.GetLesConsoles().Sort((FieldConsole)TriFieldCB.SelectedItem.ToString(), false);
+                    toDisplay_consoles = cat.GetLesConsoles().GetAll();
+                    InitPhotos();
+                }
             }
         }
 
@@ -228,6 +256,19 @@ namespace GUI
             if (state == AppState.ShowJeux)
             {
                 if ((FieldJeu)RechercheFieldCB.SelectedItem.ToString() == FieldJeu.Genre)
+                {
+                    GenreCB.Enabled = true;
+                    RechercheValueTB.Enabled = false;
+                }
+                else
+                {
+                    GenreCB.Enabled = false;
+                    RechercheValueTB.Enabled = true;
+                }
+            }
+            else if (state == AppState.ShowConsoles)
+            {
+                if ((FieldConsole)RechercheFieldCB.SelectedItem.ToString() == FieldConsole.Support)
                 {
                     GenreCB.Enabled = true;
                     RechercheValueTB.Enabled = false;
@@ -277,6 +318,37 @@ namespace GUI
                 toDisplay_jeux = cat.GetLesJeux().GetAll();
                 InitPhotos();
             }
+            else if (state == AppState.ShowConsoles)
+            {
+                if (RechercheFieldCB.SelectedItem != null)
+                {
+                    FieldConsole champ = (FieldConsole)RechercheFieldCB.SelectedItem.ToString();
+                    if((FieldConsole)RechercheFieldCB.SelectedItem.ToString() == FieldConsole.Support)
+                    {
+                        if (GenreCB.SelectedItem != null)
+                        {
+                            toDisplay_consoles = cat.GetLesConsoles().Search(champ, GenreCB.SelectedItem.ToString());
+                        }
+                    }
+                    else
+                    {
+                        toDisplay_consoles = cat.GetLesConsoles().Search(champ, RechercheValueTB.Text);
+                    }
+
+                    state = AppState.ShowSearchConsoles;
+                    lockUI();
+                    RechercheButton.Text = "Réinitialiser";
+                    InitPhotos();
+                }
+            }
+            else if (state == AppState.ShowSearchConsoles)
+            {
+                unlockUI();
+                RechercheButton.Text = "Rechercher";
+                state = AppState.ShowConsoles;
+                toDisplay_consoles = cat.GetLesConsoles().GetAll();
+                InitPhotos();
+            }
         }
 
         private void toolStripSplitButton1_ButtonClick(object sender, EventArgs e)
@@ -286,7 +358,7 @@ namespace GUI
 
         private void SupprimerButton_Click(object sender, EventArgs e)
         {
-            SupprDlg sdlg = new SupprDlg();
+            Remove sdlg = new Remove();
             sdlg.ShowDialog();
 
             if (sdlg.Delete)
@@ -298,6 +370,24 @@ namespace GUI
 
                 InitPhotos();
             }
+        }
+
+        private void jeuxToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            state = AppState.ShowJeux;
+            InitPhotos();
+            InitGenreCB();
+            InitTriFieldCB();
+            InitRechercheFieldCB();
+        }
+
+        private void consolesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            state = AppState.ShowConsoles;
+            InitPhotos();
+            InitGenreCB();
+            InitTriFieldCB();
+            InitRechercheFieldCB();
         }
     }
 }

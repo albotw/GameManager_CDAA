@@ -1,5 +1,5 @@
 ﻿using projet_CDAA_2020_2021.core;
-using projet_CDAA_2020_2021.core.jeux;
+using projet_CDAA_2020_2021.core.consoles;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,13 +9,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Console = projet_CDAA_2020_2021.core.consoles.Console;
 
 namespace GUI
 {
-    public partial class VisuJeuDlg : Form
+    public partial class TreeViewSupport : Form
     {
         private Catalogue cat = Main.cat;
-        public VisuJeuDlg()
+        public TreeViewSupport()
         {
             InitializeComponent();
             InitTree();
@@ -26,24 +27,17 @@ namespace GUI
             treeView1.BeginUpdate();
 
             int i = 0;
-            foreach(Genre g in Enum.GetValues(typeof(Genre)))
+            foreach(Support s in Enum.GetValues(typeof(Support)))
             {
-                treeView1.Nodes.Add(g.ToString());
-                foreach (Jeu j in cat.GetLesJeux().Search(FieldJeu.Genre, g.ToString()))
+                treeView1.Nodes.Add(s.ToString());
+                foreach(Console c in cat.GetLesConsoles().Search(FieldConsole.Support, s.ToString()))
                 {
-                    treeView1.Nodes[i].Nodes.Add(j.Nom);
-                    Console.WriteLine("\t" + j.Nom);
+                    treeView1.Nodes[i].Nodes.Add(c.Nom);
                 }
-
                 i++;
             }
 
             treeView1.EndUpdate();
-        }
-
-        private void treeView1_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
-        {
-            
         }
 
         private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
@@ -53,8 +47,8 @@ namespace GUI
 
             if (tn.Nodes.Count == 0 && tn.Parent != null)
             {
-                InfoTB.Text = cat.GetLesJeux().SearchSingle(FieldJeu.Nom, tn.Text).ToString();
-                PhotoPB.Image = cat.GetLesJeux().SearchSingle(FieldJeu.Nom, tn.Text).Photo;
+                InfoTB.Text = cat.GetLesConsoles().SearchSingle(FieldConsole.Nom, tn.Text).ToString();
+                PhotoPB.Image = cat.GetLesConsoles().SearchSingle(FieldConsole.Nom, tn.Text).Photo;
             }
         }
     }

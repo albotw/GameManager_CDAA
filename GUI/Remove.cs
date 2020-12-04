@@ -10,12 +10,12 @@ using System.Windows.Forms;
 
 namespace GUI
 {
-    public partial class SupprDlg : Form
+    public partial class Remove : Form
     {
 
         public bool Delete;
         public string DeleteName;
-        public SupprDlg()
+        public Remove()
         {
             InitializeComponent();
         }

@@ -1,6 +1,6 @@
 ﻿namespace GUI
 {
-    partial class MajDlg
+    partial class Edit
     {
         /// <summary>
         /// Required designer variable.
