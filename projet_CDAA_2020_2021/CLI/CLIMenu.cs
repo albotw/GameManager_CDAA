@@ -53,7 +53,7 @@ namespace projet_CDAA_2020_2021.CLI
                     commands[2] = "[ ] Trier par champ";
                     commands[3] = "[ ] Faire une recherche";
                     commands[4] = "[ ] Afficher tout";
-                    commands[5] = "[ ] Afficher les consoles";
+                    commands[5] = "[ ] Afficher les accessoires";
 
                     commandID[0] = 0;
                     commandID[1] = 1;
@@ -134,6 +134,29 @@ namespace projet_CDAA_2020_2021.CLI
                     }
 
                     break;
+
+                case 6:
+                    this.commands = new string[6];
+                    this.commandID = new int[6];
+
+                    commands[0] = "[ ] Ajouter un accessoire";
+                    commands[1] = "[ ] Supprimer un accessoire";
+                    commands[2] = "[ ] trier par champs";
+                    commands[3] = "[ ] faire une recherche ";
+                    commands[4] = "[ ] Afficher tous les accessoires";
+                    commands[5] = "[ ] Afficher les jeux";
+
+                    commandID[0] = 100;
+                    commandID[1] = 101;
+                    commandID[2] = 102;
+                    commandID[3] = 103;
+                    commandID[4] = -2;
+                    commandID[5] = -1;
+
+
+                    break;
+
+
             }
         }
 

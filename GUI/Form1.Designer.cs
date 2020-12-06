@@ -29,16 +29,16 @@
         private void InitializeComponent()
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.List1 = new System.Windows.Forms.ListBox();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
-            this.listBox1 = new System.Windows.Forms.ListBox();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.CBGenre = new System.Windows.Forms.ComboBox();
             this.ListeJeux = new System.Windows.Forms.ListBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.gérerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ajouterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -66,7 +66,7 @@
             // 
             // splitContainer1.Panel1
             // 
-            this.splitContainer1.Panel1.Controls.Add(this.listBox1);
+            this.splitContainer1.Panel1.Controls.Add(this.List1);
             // 
             // splitContainer1.Panel2
             // 
@@ -74,6 +74,16 @@
             this.splitContainer1.Size = new System.Drawing.Size(800, 426);
             this.splitContainer1.SplitterDistance = 266;
             this.splitContainer1.TabIndex = 0;
+            // 
+            // List1
+            // 
+            this.List1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.List1.FormattingEnabled = true;
+            this.List1.Location = new System.Drawing.Point(0, 0);
+            this.List1.Name = "List1";
+            this.List1.Size = new System.Drawing.Size(266, 426);
+            this.List1.TabIndex = 0;
+            this.List1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
             // splitContainer2
             // 
@@ -92,15 +102,6 @@
             this.splitContainer2.Size = new System.Drawing.Size(530, 426);
             this.splitContainer2.SplitterDistance = 176;
             this.splitContainer2.TabIndex = 0;
-            // 
-            // listBox1
-            // 
-            this.listBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(0, 0);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(266, 426);
-            this.listBox1.TabIndex = 0;
             // 
             // richTextBox1
             // 
@@ -134,6 +135,15 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(350, 426);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox1.Location = new System.Drawing.Point(3, 358);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(344, 65);
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
+            // 
             // button1
             // 
             this.button1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -141,7 +151,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(344, 65);
             this.button1.TabIndex = 0;
-            this.button1.Text = "button1";
+            this.button1.Text = "Tous les jeux";
             this.button1.UseVisualStyleBackColor = true;
             // 
             // button2
@@ -151,7 +161,7 @@
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(344, 65);
             this.button2.TabIndex = 1;
-            this.button2.Text = "button2";
+            this.button2.Text = "Jeux Retro";
             this.button2.UseVisualStyleBackColor = true;
             // 
             // label1
@@ -162,7 +172,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(344, 71);
             this.label1.TabIndex = 2;
-            this.label1.Text = "label1";
+            this.label1.Text = "Sélectionner un genre !";
             // 
             // CBGenre
             // 
@@ -172,6 +182,7 @@
             this.CBGenre.Name = "CBGenre";
             this.CBGenre.Size = new System.Drawing.Size(344, 21);
             this.CBGenre.TabIndex = 3;
+            this.CBGenre.SelectedIndexChanged += new System.EventHandler(this.CBGenre_SelectedIndexChanged);
             // 
             // ListeJeux
             // 
@@ -181,15 +192,7 @@
             this.ListeJeux.Name = "ListeJeux";
             this.ListeJeux.Size = new System.Drawing.Size(344, 65);
             this.ListeJeux.TabIndex = 4;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox1.Location = new System.Drawing.Point(3, 358);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(344, 65);
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
+            this.ListeJeux.SelectedIndexChanged += new System.EventHandler(this.ListeJeux_SelectedIndexChanged);
             // 
             // menuStrip1
             // 
@@ -269,7 +272,7 @@
 
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.SplitContainer splitContainer2;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListBox List1;
         private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;

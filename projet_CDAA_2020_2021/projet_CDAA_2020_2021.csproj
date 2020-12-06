@@ -60,6 +60,7 @@
     <Compile Include="core\jeux\JeuRetro.cs" />
     <Compile Include="core\jeux\EnsembleJeux.cs" />
     <Compile Include="core\accessoires\Type.cs" />
+    <Compile Include="TestPanier.cs" />
     <Compile Include="datastructures\Ensemble.cs" />
     <Compile Include="datastructures\Panier.cs" />
     <Compile Include="utilities\QuickSort.cs" />

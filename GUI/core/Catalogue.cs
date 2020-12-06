@@ -1,52 +1,71 @@
 ﻿using System;
 using System.Collections.Generic;
+using projet_CDAA_2020_2021.core.jeux;
+using projet_CDAA_2020_2021.core.accessoires;
 
 namespace projet_CDAA_2020_2021.core
 {
     public class Catalogue
     {
-        private Jeux lesJeux;
+        private EnsembleJeux lesJeux;
+       private EnsembleAccessoire lesAccessoires;
+
         private DateTime lastUpdate;
 
         public Catalogue()
         {
-            lesJeux = new Jeux();
+            lesJeux = new EnsembleJeux();
+            lesAccessoires = new EnsembleAccessoire();
+
             lastUpdate = DateTime.Now;
         }
 
-        public void Add(Jeu j)
+        public void Add(object o)
         {
-            lesJeux.Add(j);
+            if (o.GetType() == typeof(Jeu) || o.GetType() == typeof(JeuRetro))
+                lesJeux.Add(o as Jeu);
+            else if (o.GetType() == typeof(Accessoire))
+                lesAccessoires.Add(o as Accessoire);
         }
 
-        public void Remove(Jeu j)
+        public void Remove(object o)
         {
-            lesJeux.Remove(j);
+            if (o.GetType() == typeof(Jeu) || o.GetType() == typeof(JeuRetro))
+                lesJeux.Remove(o as Jeu);
+            else if (o.GetType() == typeof(Accessoire));
+                lesAccessoires.Remove( o as Accessoire);
         }
 
-        public List<Jeu> getAll(string property, object arg)
+        public List<Jeu> Search(string property, object arg)
         {
             return lesJeux.Search(property, arg);
         }
 
-        public Jeu getJeu(string name)
+        public void Sort(string categorie, string field, bool reverse)
         {
-            return getJeu(name);
-        }
+            if(categorie == "jeux")
+                lesJeux.Sort(field, reverse);
 
-        public List<Jeu> Sort(string field, bool reverse)
-        {
-            return lesJeux.Sort(field, reverse);
+            else if ( categorie == "Accessoire")
+            {
+                lesAccessoires.Sort(field, reverse);
+            }
         }
 
         public void Init()
         {
             lesJeux.Init();
+            lesAccessoires.Init();
         }
 
-        public Jeux getJeux()
+        public EnsembleJeux GetEnsembleJeux()
         {
             return this.lesJeux;
+        }
+
+        public EnsembleAccessoire GetEnsembleAccessoires()
+        {
+            return this.lesAccessoires;
         }
     }
 }

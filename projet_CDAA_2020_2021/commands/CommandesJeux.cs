@@ -109,7 +109,7 @@ namespace projet_CDAA_2020_2021.commands
                 cli.DeleteTop();
 
                 c.Remove(new Jeu(nameInput.UserText));
-                Program.table.Clear();
+                Program.tableJeux.Clear();
                 Program.updateMainTable();
             }
 
@@ -157,21 +157,21 @@ namespace projet_CDAA_2020_2021.commands
                 
                 switch(command)
                 {
-                    case 30: Program.searchResult = new EnsembleJeux(c.GetEnsembleJeux().Search("nom", tmp.UserText)); break;
-                    case 31: Program.searchResult = new EnsembleJeux(c.GetEnsembleJeux().Search("description", tmp.UserText)); break;
-                    case 32: Program.searchResult = new EnsembleJeux(c.GetEnsembleJeux().Search("plateforme", tmp.UserText)); break;
-                    case 33: Program.searchResult = new EnsembleJeux(c.GetEnsembleJeux().Search("editeur", tmp.UserText)); break;
-                    case 34: Program.searchResult = new EnsembleJeux(c.GetEnsembleJeux().Search("genre", tmp.UserText)); break;
-                    case 35: Program.searchResult = new EnsembleJeux(c.GetEnsembleJeux().Search("prix", tmp.UserText)); break;
-                    case 36: Program.searchResult = new EnsembleJeux(c.GetEnsembleJeux().Search("sortie", tmp.UserText)); break;
-                    case 37: Program.searchResult = new EnsembleJeux(c.GetEnsembleJeux().Search("reconditionne", tmp.UserText)); break;
+                    case 30: Program.searchResultJeux = new EnsembleJeux(c.GetEnsembleJeux().Search("nom", tmp.UserText)); break;
+                    case 31: Program.searchResultJeux = new EnsembleJeux(c.GetEnsembleJeux().Search("description", tmp.UserText)); break;
+                    case 32: Program.searchResultJeux = new EnsembleJeux(c.GetEnsembleJeux().Search("plateforme", tmp.UserText)); break;
+                    case 33: Program.searchResultJeux = new EnsembleJeux(c.GetEnsembleJeux().Search("editeur", tmp.UserText)); break;
+                    case 34: Program.searchResultJeux = new EnsembleJeux(c.GetEnsembleJeux().Search("genre", tmp.UserText)); break;
+                    case 35: Program.searchResultJeux = new EnsembleJeux(c.GetEnsembleJeux().Search("prix", tmp.UserText)); break;
+                    case 36: Program.searchResultJeux = new EnsembleJeux(c.GetEnsembleJeux().Search("sortie", tmp.UserText)); break;
+                    case 37: Program.searchResultJeux = new EnsembleJeux(c.GetEnsembleJeux().Search("reconditionne", tmp.UserText)); break;
                 }
 
                 cli.DeleteTop();    //on supprime tmp
                 cli.DeleteTop();    //on supprime le menu de séléction 
 
                 Program.state = 2;
-                Program.table.Clear();
+                Program.tableJeux.Clear();
                 Program.updateMainTable();
             }
         }

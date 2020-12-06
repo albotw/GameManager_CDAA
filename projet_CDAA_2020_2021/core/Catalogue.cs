@@ -31,7 +31,7 @@ namespace projet_CDAA_2020_2021.core
         public void Remove(object o)
         {
             if (o.GetType() == typeof(Jeu) || o.GetType() == typeof(JeuRetro))
-                lesJeux.Add(o as Jeu);
+                lesJeux.Remove(o as Jeu);
             else if (o.GetType() == typeof(Accessoire));
                 lesAccessoires.Remove( o as Accessoire);
         }
@@ -55,6 +55,7 @@ namespace projet_CDAA_2020_2021.core
         public void Init()
         {
             lesJeux.Init();
+            lesAccessoires.Init();
         }
 
         public EnsembleJeux GetEnsembleJeux()

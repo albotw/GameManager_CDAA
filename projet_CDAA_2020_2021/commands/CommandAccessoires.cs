@@ -23,23 +23,23 @@ namespace projet_CDAA_2020_2021.commands
 
                 CLIInputWindow temp = new CLIInputWindow(100, 2, 100, "");
 
-                temp.Init(14);
+                temp.Init(11);
                 cli.AddElement(temp);
                 cli.Update();
                 temp.handleInput(Console.ReadKey(true).Key);
                 a.Nom = temp.UserText;
 
-                temp.Init(11);
+                temp.Init(12);
                 cli.Update();
                 temp.handleInput(Console.ReadKey(true).Key);
                 a.FabriquantPays = temp.UserText;
 
-                temp.Init(12);
+                temp.Init(13);
                 cli.Update();
                 temp.handleInput(Console.ReadKey(true).Key);
                 a.Plateforme = temp.UserText;
 
-                temp.Init(13);
+                temp.Init(14);
                 cli.Update();
                 temp.handleInput(Console.ReadKey(true).Key);
                 String j = temp.UserText;
@@ -59,7 +59,7 @@ namespace projet_CDAA_2020_2021.commands
                 cli.DeleteTop();
 
                 c.Remove(new Accessoire(nameInput.UserText));
-                Program.table.Clear();
+                Program.tableJeux.Clear();
                 Program.updateMainTable();
 
             }
@@ -77,10 +77,47 @@ namespace projet_CDAA_2020_2021.commands
                 switch( command)
                 {
                     case 120: c.Sort("Accessoire", "nom", false); break;
-                    case 121: c.Sort("Accessoire", "fabriquandPays", false);break;
+                    case 121: c.Sort("Accessoire", "fabriquantPays", false);break;
                     case 122: c.Sort("Accessoire", "plateforme", false); break;
                     case 123: c.Sort("Accessoire", "type", false); break;
+
                 }
+                cli.DeleteTop();
+            }
+
+            else if ( command == 103)
+            {
+                CLIMenu fieldSelector = new CLIMenu(35, 5);
+                fieldSelector.Init(5);
+                cli.AddElement(fieldSelector);
+                cli.Update();
+            }
+
+            else if ( command >= 130 && command < 134)
+            {
+                CLIInputWindow temp = new CLIInputWindow(100, 2, 100,"");
+                temp.Init(command - 119);
+                cli.AddElement(temp);
+                cli.Update();
+                temp.handleInput(System.Console.ReadKey(true).Key);
+                Console.SetCursorPosition(40,40);
+                Console.WriteLine(command);
+
+                switch(command)
+                {
+                    case 130: Program.searchResultAccessoire = new EnsembleAccessoire(c.GetEnsembleAccessoires().Search("nom", temp.UserText)); break;
+                    case 131: Program.searchResultAccessoire = new EnsembleAccessoire(c.GetEnsembleAccessoires().Search("fabriquant", temp.UserText)); break;
+                    case 132: Program.searchResultAccessoire = new EnsembleAccessoire(c.GetEnsembleAccessoires().Search("plateforme", temp.UserText)); break;
+                    case 133: Program.searchResultAccessoire = new EnsembleAccessoire(c.GetEnsembleAccessoires().Search("type", temp.UserText)); break;
+                }
+
+                cli.DeleteTop();
+                cli.DeleteTop();
+
+                Program.state = 3;
+                Program.tableJeux.Clear();
+                Program.updateMainTable();
+                  
             }
 
         }

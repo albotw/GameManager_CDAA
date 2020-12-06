@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using projet_CDAA_2020_2021.core;
@@ -24,7 +17,23 @@ namespace GUI
             jeux.Init();
             initGenres();
             initJeux();
-            //initPhotos();
+            initListePhotos();
+        }
+
+        public void initListePhotos()
+        {
+            List1.BeginUpdate();
+            photos = new ImageList();
+            List1.Items.Clear();
+            List1.DrawMode = DrawMode.OwnerDrawFixed;
+            foreach (Jeu j in cat.getJeux().GetAll())
+            {
+               photos.Images.Add(j.Photos);
+                List1.Items.Add(j.Nom);
+            }
+            photos.ImageSize = new Size(255, 255);
+            List1.ItemHeight = 255;
+            List1.EndUpdate();
         }
 
         private void splitContainer2_Panel2_Paint(object sender, PaintEventArgs e)
@@ -40,6 +49,21 @@ namespace GUI
         public void initGenres()
         {
             CBGenre.Items.AddRange(Enum.GetNames(typeof(Genre)));
+        }
+
+        private void CBGenre_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ListeJeux_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
