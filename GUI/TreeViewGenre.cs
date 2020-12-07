@@ -14,7 +14,7 @@ namespace GUI
 {
     public partial class TreeViewGenre : Form
     {
-        private Catalogue cat = Main.cat;
+        private readonly Catalogue cat = Main.cat;
         public TreeViewGenre()
         {
             InitializeComponent();
@@ -40,12 +40,12 @@ namespace GUI
             treeView1.EndUpdate();
         }
 
-        private void treeView1_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
+        private void TreeView1_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
         {
             
         }
 
-        private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
+        private void TreeView1_AfterSelect(object sender, TreeViewEventArgs e)
         {
             TreeView tv = (TreeView)sender;
             TreeNode tn = tv.SelectedNode;

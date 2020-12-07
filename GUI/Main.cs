@@ -25,6 +25,10 @@ namespace GUI
 
         public static List<Console> toDisplay_consoles;
 
+        private GestionPanier panier;
+
+        private object selected;
+
         public Main()
         {
             InitializeComponent();
@@ -46,14 +50,13 @@ namespace GUI
             InitGenreCB();
             InitRechercheFieldCB();
             InitTriFieldCB();
+
+            /*Affichage du panier*/
+            panier = new GestionPanier(this);
+            panier.Show();
         }
 
-        public static void ImageClicked(object sender, EventArgs e)
-        {
-            
-        }
-
-        public void lockUI()
+        public void LockUI()
         {
             AjouterButton.Enabled = false;
             SupprimerButton.Enabled = false;
@@ -65,7 +68,7 @@ namespace GUI
             CategorieButton.Enabled = false;
         }
 
-        public void unlockUI()
+        public void UnlockUI()
         {
             AjouterButton.Enabled = true;
             SupprimerButton.Enabled = true;
@@ -110,16 +113,20 @@ namespace GUI
             {
                 foreach(Jeu j in toDisplay_jeux)
                 {
-                    PictureBox pb = new PictureBox();
-                    pb.Name = j.Nom;
-                    pb.Image = j.Photo;
-                    pb.Size = new Size(300, 300);
-                    pb.SizeMode = PictureBoxSizeMode.StretchImage;
+                    PictureBox pb = new PictureBox
+                    {
+                        Name = j.Nom,
+                        Image = j.Photo,
+                        Size = new Size(300, 300),
+                        SizeMode = PictureBoxSizeMode.StretchImage
+                    };
 
                     pb.Click += (o, i) =>
                     {
-                        InfoTB.Text = cat.GetLesJeux().SearchSingle(FieldJeu.Nom, (o as PictureBox).Name).ToString();
-                        PrixLabel.Text = "Prix: " + cat.GetLesJeux().SearchSingle(FieldJeu.Nom, (o as PictureBox).Name).Prix + " €";
+                        Jeu temp = cat.GetLesJeux().SearchSingle(FieldJeu.Nom, (o as PictureBox).Name);
+                        InfoTB.Text = j.ToString();
+                        PrixLabel.Text = "Prix: " + j.Prix + " €";
+                        selected = temp;
 
                         CenterTextInfoTB();
                     };
@@ -131,17 +138,20 @@ namespace GUI
             {
                 foreach (Console c in toDisplay_consoles)
                 {
-                    PictureBox pb = new PictureBox();
-                    pb.Name = c.Nom;
-                    //TODO: Implémenter les images dans les consoles.
-                    pb.Image = c.Photo;
-                    pb.Size = new Size(300, 300);
-                    pb.SizeMode = PictureBoxSizeMode.StretchImage;
+                    PictureBox pb = new PictureBox
+                    {
+                        Name = c.Nom,
+                        Image = c.Photo,
+                        Size = new Size(300, 300),
+                        SizeMode = PictureBoxSizeMode.StretchImage
+                    };
 
                     pb.Click += (o, i) =>
                     {
-                        InfoTB.Text = cat.GetLesConsoles().SearchSingle(FieldConsole.Nom, (o as PictureBox).Name).ToString();
-                        PrixLabel.Text = "Prix: " + cat.GetLesConsoles().SearchSingle(FieldConsole.Nom, (o as PictureBox).Name).Prix + " €";
+                        Console temp = cat.GetLesConsoles().SearchSingle(FieldConsole.Nom, (o as PictureBox).Name);
+                        InfoTB.Text = temp.ToString();
+                        PrixLabel.Text = "Prix: " + temp.Prix + " €";
+                        selected = temp;
 
                         CenterTextInfoTB();
                     };
@@ -149,6 +159,12 @@ namespace GUI
                     ImagePanel.Controls.Add(pb);
                 }
             }
+        }
+
+        public void GrabFromPanier(object o)
+        {
+            cat.Add(o);
+            InitPhotos();
         }
 
 
@@ -321,14 +337,14 @@ namespace GUI
                     }
 
                     state = AppState.ShowSearchJeux;
-                    lockUI();
+                    LockUI();
                     RechercheButton.Text = "Réinitialiser";
                     InitPhotos();
                 }
             }
             else if (state == AppState.ShowSearchJeux)
             {
-                unlockUI();
+                UnlockUI();
                 RechercheButton.Text = "Rechercher";
                 state = AppState.ShowJeux;
                 toDisplay_jeux = cat.GetLesJeux().GetAll();
@@ -352,14 +368,14 @@ namespace GUI
                     }
 
                     state = AppState.ShowSearchConsoles;
-                    lockUI();
+                    LockUI();
                     RechercheButton.Text = "Réinitialiser";
                     InitPhotos();
                 }
             }
             else if (state == AppState.ShowSearchConsoles)
             {
-                unlockUI();
+                UnlockUI();
                 RechercheButton.Text = "Rechercher";
                 state = AppState.ShowConsoles;
                 toDisplay_consoles = cat.GetLesConsoles().GetAll();
@@ -367,15 +383,15 @@ namespace GUI
             }
         }
 
-        private void toolStripSplitButton1_ButtonClick(object sender, EventArgs e)
+        private void ToolStripSplitButton1_ButtonClick(object sender, EventArgs e)
         {
             if(state == AppState.ShowJeux)
             {
-                consolesToolStripMenuItem_Click(null, null);
+                ConsolesToolStripMenuItem_Click(null, null);
             }
             else if (state == AppState.ShowConsoles)
             {
-                jeuxToolStripMenuItem_Click(null, null);
+                JeuxToolStripMenuItem_Click(null, null);
             }
         }
 
@@ -395,7 +411,7 @@ namespace GUI
             }
         }
 
-        private void jeuxToolStripMenuItem_Click(object sender, EventArgs e)
+        private void JeuxToolStripMenuItem_Click(object sender, EventArgs e)
         {
             state = AppState.ShowJeux;
             InitPhotos();
@@ -404,7 +420,7 @@ namespace GUI
             InitRechercheFieldCB();
         }
 
-        private void consolesToolStripMenuItem_Click(object sender, EventArgs e)
+        private void ConsolesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             state = AppState.ShowConsoles;
             InitPhotos();
@@ -427,6 +443,16 @@ namespace GUI
             }
 
             InitPhotos();
+        }
+
+        private void AjoutPanierButton_Click(object sender, EventArgs e)
+        {
+            if (selected != null)
+            {
+                panier.GrabFromMain(selected);
+                cat.Remove(selected);
+                InitPhotos();
+            }
         }
     }
 }

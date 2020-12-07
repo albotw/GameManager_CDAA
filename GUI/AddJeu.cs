@@ -24,10 +24,10 @@ namespace GUI
         public AddJeu()
         {
             InitializeComponent();
-            initListeGenres();
+            InitListeGenres();
         }
 
-        private void initListeGenres()
+        private void InitListeGenres()
         {
             CBGenre.Items.AddRange(Enum.GetNames(typeof(Genre)));
             GenreRetro.Items.AddRange(Enum.GetNames(typeof(Genre)));
@@ -60,17 +60,19 @@ namespace GUI
         {
             grab = true;
 
-            
-            Jeu j = new Jeu();
-            j.Nom = NomTB.Text;
-            j.Description = DescriptionTB.Text;
-            j.Plateforme = PlateformeTB.Text;
-            j.Editeur = EditeurTB.Text;
-            j.Genre = (Genre)Enum.Parse(typeof(Genre), CBGenre.SelectedItem as String);
-            j.Prix = (double)PrixJeu.Value;
-            j.Sortie = SortieDTP.Value;
-            j.Photo = photo;
-            j.Reconditionne = reconditionneRB.Checked;
+
+            Jeu j = new Jeu
+            {
+                Nom = NomTB.Text,
+                Description = DescriptionTB.Text,
+                Plateforme = PlateformeTB.Text,
+                Editeur = EditeurTB.Text,
+                Genre = (Genre)Enum.Parse(typeof(Genre), CBGenre.SelectedItem as String),
+                Prix = (double)PrixJeu.Value,
+                Sortie = SortieDTP.Value,
+                Photo = photo,
+                Reconditionne = reconditionneRB.Checked
+            };
 
             o = j;
             this.Dispose();
@@ -81,7 +83,7 @@ namespace GUI
 
         }
 
-        private void label18_Click(object sender, EventArgs e)
+        private void Label18_Click(object sender, EventArgs e)
         {
 
         }
@@ -90,17 +92,18 @@ namespace GUI
         {
             grab = true;
 
-            Jeu j = new JeuRetro();
-
-            j.Nom = NomRetro.Text;
-            j.Description = DescriptionRetro.Text;
-            j.Plateforme = PlateformeRetro.Text;
-            j.Editeur = EditeurRetro.Text;
-            j.Genre = (Genre)Enum.Parse(typeof(Genre), GenreRetro.SelectedItem.ToString());
-            j.Prix = (double)PrixRetro.Value;
-            j.Sortie = SortieRetro.Value;
-            j.Photo = photo;
-            j.Reconditionne = ReconditionneRetro.Checked;
+            Jeu j = new JeuRetro
+            {
+                Nom = NomRetro.Text,
+                Description = DescriptionRetro.Text,
+                Plateforme = PlateformeRetro.Text,
+                Editeur = EditeurRetro.Text,
+                Genre = (Genre)Enum.Parse(typeof(Genre), GenreRetro.SelectedItem.ToString()),
+                Prix = (double)PrixRetro.Value,
+                Sortie = SortieRetro.Value,
+                Photo = photo,
+                Reconditionne = ReconditionneRetro.Checked
+            };
             (j as JeuRetro).Etat = EtatRetro.Text;
             (j as JeuRetro).Notice = YesNoticeRetro.Checked;
 
@@ -108,7 +111,7 @@ namespace GUI
             this.Dispose();
         }
 
-        private void tableLayoutPanel2_Paint(object sender, PaintEventArgs e)
+        private void TableLayoutPanel2_Paint(object sender, PaintEventArgs e)
         {
 
         }

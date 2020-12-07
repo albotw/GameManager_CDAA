@@ -33,12 +33,12 @@ namespace GUI
             CBSupport.Items.AddRange(Enum.GetNames(typeof(Support)));
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void Label1_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void Button3_Click(object sender, EventArgs e)
         {
             OpenFileDialog fdlg = new OpenFileDialog();
 
@@ -50,26 +50,28 @@ namespace GUI
             fdlg.Dispose();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void Button1_Click(object sender, EventArgs e)
         {
             grab = false;
             this.Dispose();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void Button2_Click(object sender, EventArgs e)
         {
             grab = true;
 
-            c = new Console();
-            c.Nom = Nom.Text;
-            c.Fabriquant = Fabriquant.Text;
-            c.Generation = (int)Generation.Value;
-            c.Sortie = Sortie.Value;
-            c.Ports = (int)Manette.Value;
-            c.Support = (Support)Enum.Parse(typeof(Support), CBSupport.Text);
-            c.Type = TypeConsole.Text;
-            c.Prix = (double)Prix.Value;
-            c.Photo = photo;
+            c = new Console
+            {
+                Nom = Nom.Text,
+                Fabriquant = Fabriquant.Text,
+                Generation = (int)Generation.Value,
+                Sortie = Sortie.Value,
+                Ports = (int)Manette.Value,
+                Support = (Support)Enum.Parse(typeof(Support), CBSupport.Text),
+                Type = TypeConsole.Text,
+                Prix = (double)Prix.Value,
+                Photo = photo
+            };
 
             this.Dispose();
         }

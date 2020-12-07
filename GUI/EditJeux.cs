@@ -14,7 +14,7 @@ namespace GUI
 {
     public partial class EditJeux : Form
     {
-        private Catalogue cat = Main.cat;
+        private readonly Catalogue cat = Main.cat;
 
         private bool isUpdating = false;
         public EditJeux()
@@ -39,69 +39,93 @@ namespace GUI
              * bool -> isJeuRétro ?
              * string
              * bool
-             */ 
+             */
 
-            DataGridViewTextBoxColumn nom = new DataGridViewTextBoxColumn();
-            nom.HeaderText = "Nom";
-            nom.Name = "nom";
-            nom.ReadOnly = false;
+            DataGridViewTextBoxColumn nom = new DataGridViewTextBoxColumn
+            {
+                HeaderText = "Nom",
+                Name = "nom",
+                ReadOnly = false
+            };
 
 
-            DataGridViewTextBoxColumn description = new DataGridViewTextBoxColumn();
-            description.HeaderText = "description";
-            description.Name = "description";
-            description.ReadOnly = false;
+            DataGridViewTextBoxColumn description = new DataGridViewTextBoxColumn
+            {
+                HeaderText = "description",
+                Name = "description",
+                ReadOnly = false
+            };
 
-            DataGridViewTextBoxColumn editeur = new DataGridViewTextBoxColumn();
-            editeur.HeaderText = "editeur";
-            editeur.Name = "editeur";
-            editeur.ReadOnly = false;
+            DataGridViewTextBoxColumn editeur = new DataGridViewTextBoxColumn
+            {
+                HeaderText = "editeur",
+                Name = "editeur",
+                ReadOnly = false
+            };
 
-            DataGridViewTextBoxColumn plateforme = new DataGridViewTextBoxColumn();
-            plateforme.HeaderText = "plateforme";
-            plateforme.Name = "plateforme";
-            plateforme.ReadOnly = false;
+            DataGridViewTextBoxColumn plateforme = new DataGridViewTextBoxColumn
+            {
+                HeaderText = "plateforme",
+                Name = "plateforme",
+                ReadOnly = false
+            };
 
-            DataGridViewComboBoxColumn genre = new DataGridViewComboBoxColumn();
-            genre.Name = "genre";
-            genre.HeaderText = "genre";
-            genre.ReadOnly = false;
-            genre.DataSource = Enum.GetNames(typeof(Genre));
+            DataGridViewComboBoxColumn genre = new DataGridViewComboBoxColumn
+            {
+                Name = "genre",
+                HeaderText = "genre",
+                ReadOnly = false,
+                DataSource = Enum.GetNames(typeof(Genre))
+            };
 
-            DataGridViewTextBoxColumn prix = new DataGridViewTextBoxColumn();
-            prix.HeaderText = "prix";
-            prix.Name = "prix";
-            prix.ReadOnly = false;
+            DataGridViewTextBoxColumn prix = new DataGridViewTextBoxColumn
+            {
+                HeaderText = "prix",
+                Name = "prix",
+                ReadOnly = false
+            };
 
-            DataGridViewTextBoxColumn sortie = new DataGridViewTextBoxColumn();
-            sortie.HeaderText = "sortie";
-            sortie.Name = "sortie";
-            sortie.ReadOnly = false;
+            DataGridViewTextBoxColumn sortie = new DataGridViewTextBoxColumn
+            {
+                HeaderText = "sortie",
+                Name = "sortie",
+                ReadOnly = false
+            };
 
-            DataGridViewTextBoxColumn reconditionne = new DataGridViewTextBoxColumn();
-            reconditionne.HeaderText = "reconditionne";
-            reconditionne.Name = "reconditionne";
-            reconditionne.ReadOnly = false;
+            DataGridViewTextBoxColumn reconditionne = new DataGridViewTextBoxColumn
+            {
+                HeaderText = "reconditionne",
+                Name = "reconditionne",
+                ReadOnly = false
+            };
 
-            DataGridViewImageColumn photo = new DataGridViewImageColumn();
-            photo.HeaderText = "Image";
-            photo.Name = "photo";
-            photo.ReadOnly = true;
+            DataGridViewImageColumn photo = new DataGridViewImageColumn
+            {
+                HeaderText = "Image",
+                Name = "photo",
+                ReadOnly = true
+            };
 
-            DataGridViewCheckBoxColumn retro = new DataGridViewCheckBoxColumn();
-            retro.HeaderText = "Jeu Retro";
-            retro.Name = "retro";
-            retro.ReadOnly = true;
+            DataGridViewCheckBoxColumn retro = new DataGridViewCheckBoxColumn
+            {
+                HeaderText = "Jeu Retro",
+                Name = "retro",
+                ReadOnly = true
+            };
 
-            DataGridViewTextBoxColumn etat = new DataGridViewTextBoxColumn();
-            etat.HeaderText = "etat";
-            etat.Name = "etat";
-            etat.ReadOnly = false;
+            DataGridViewTextBoxColumn etat = new DataGridViewTextBoxColumn
+            {
+                HeaderText = "etat",
+                Name = "etat",
+                ReadOnly = false
+            };
 
-            DataGridViewCheckBoxColumn notice = new DataGridViewCheckBoxColumn();
-            notice.HeaderText = "notice";
-            notice.Name = "notice";
-            notice.ReadOnly = false;
+            DataGridViewCheckBoxColumn notice = new DataGridViewCheckBoxColumn
+            {
+                HeaderText = "notice",
+                Name = "notice",
+                ReadOnly = false
+            };
 
             grille.Columns.AddRange(new DataGridViewColumn[] { nom, description, editeur, plateforme, genre, prix, sortie, reconditionne, photo, retro, etat, notice });
 
@@ -117,9 +141,9 @@ namespace GUI
                 grille.Rows[i].Cells["sortie"].Value = j.Sortie;
                 grille.Rows[i].Cells["reconditionne"].Value = j.Reconditionne;
                 grille.Rows[i].Cells["photo"].Value = j.Photo;
-                grille.Rows[i].Cells["retro"].Value = j is JeuRetro ? true : false;
+                grille.Rows[i].Cells["retro"].Value = j is JeuRetro;
                 grille.Rows[i].Cells["etat"].Value = j is JeuRetro ? (j as JeuRetro).Etat : "";
-                grille.Rows[i].Cells["notice"].Value = j is JeuRetro ? true : false;
+                grille.Rows[i].Cells["notice"].Value = j is JeuRetro && (j as JeuRetro).Notice;
                 grille.Rows[i].Cells["genre"].Value = j.Genre.ToString();
                 i++;
             }
@@ -127,12 +151,12 @@ namespace GUI
             isUpdating = false;
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void DataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }
 
-        private void grille_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        private void Grille_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
            if (!isUpdating)
             {

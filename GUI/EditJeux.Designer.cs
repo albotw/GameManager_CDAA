@@ -41,8 +41,8 @@
             this.grille.Name = "grille";
             this.grille.Size = new System.Drawing.Size(1208, 347);
             this.grille.TabIndex = 0;
-            this.grille.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            this.grille.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.grille_CellValueChanged);
+            this.grille.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView1_CellContentClick);
+            this.grille.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.Grille_CellValueChanged);
             // 
             // Edit
             // 

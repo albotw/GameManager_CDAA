@@ -40,7 +40,7 @@
             this.grid.Name = "grid";
             this.grid.Size = new System.Drawing.Size(1251, 231);
             this.grid.TabIndex = 0;
-            this.grid.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.grid_CellValueChanged);
+            this.grid.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.Grid_CellValueChanged);
             // 
             // EditConsoles
             // 

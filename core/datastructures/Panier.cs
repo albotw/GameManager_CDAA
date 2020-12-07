@@ -12,7 +12,7 @@ namespace projet_CDAA_2020_2021.core.datastructures
     {
         private readonly T[] tab;
         private readonly int MAX_SIZE = 50;
-        private int size;
+        public int size;
 
         public Panier()
         {
@@ -31,6 +31,16 @@ namespace projet_CDAA_2020_2021.core.datastructures
             {
                 throw new IndexOutOfRangeException("Plus de place dans le panier !");
             }
+        }
+
+        public T[] GetAll()
+        {
+            return tab;
+        }
+
+        public bool IsEmpty()
+        {
+            return this.size == 0;
         }
 
         public void Add(T obj) //tester les doublons.
@@ -70,7 +80,28 @@ namespace projet_CDAA_2020_2021.core.datastructures
                     }
                 }
             }
+        }
 
+        public T Find(T equiv)
+        {
+            for (int i = 0; i < size; i++)
+            {
+                if (tab[i].Equals(equiv))
+                    return tab[i];
+            }
+            return default(T);
+        }
+
+        public T Get(int index)
+        {
+            if (index < size)
+            {
+                return tab[index];
+            }
+            else
+            {
+                return default(T);
+            }
         }
 
         public void Remove(T obj)

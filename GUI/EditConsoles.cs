@@ -15,7 +15,7 @@ namespace GUI
 {
     public partial class EditConsoles : Form
     {
-        private Catalogue cat = Main.cat;
+        private readonly Catalogue cat = Main.cat;
         private bool isUpdating = false;
         public EditConsoles()
         {
@@ -38,51 +38,69 @@ namespace GUI
              * image        photo
              */
 
-            DataGridViewTextBoxColumn nom = new DataGridViewTextBoxColumn();
-            nom.HeaderText = "nom";
-            nom.Name = "nom";
-            nom.ReadOnly = false;
+            DataGridViewTextBoxColumn nom = new DataGridViewTextBoxColumn
+            {
+                HeaderText = "nom",
+                Name = "nom",
+                ReadOnly = false
+            };
 
-            DataGridViewTextBoxColumn fabriquant = new DataGridViewTextBoxColumn();
-            fabriquant.HeaderText = "fabriquant";
-            fabriquant.Name = "fabriquant";
-            fabriquant.ReadOnly = false;
+            DataGridViewTextBoxColumn fabriquant = new DataGridViewTextBoxColumn
+            {
+                HeaderText = "fabriquant",
+                Name = "fabriquant",
+                ReadOnly = false
+            };
 
-            DataGridViewTextBoxColumn generation = new DataGridViewTextBoxColumn();
-            generation.HeaderText = "generation";
-            generation.Name = "generation";
-            generation.ReadOnly = false;
+            DataGridViewTextBoxColumn generation = new DataGridViewTextBoxColumn
+            {
+                HeaderText = "generation",
+                Name = "generation",
+                ReadOnly = false
+            };
 
-            DataGridViewTextBoxColumn sortie = new DataGridViewTextBoxColumn();
-            sortie.HeaderText = "sortie";
-            sortie.Name = "sortie";
-            sortie.ReadOnly = false;
+            DataGridViewTextBoxColumn sortie = new DataGridViewTextBoxColumn
+            {
+                HeaderText = "sortie",
+                Name = "sortie",
+                ReadOnly = false
+            };
 
-            DataGridViewTextBoxColumn ports = new DataGridViewTextBoxColumn();
-            ports.HeaderText = "ports";
-            ports.Name = "ports";
-            ports.ReadOnly = false;
+            DataGridViewTextBoxColumn ports = new DataGridViewTextBoxColumn
+            {
+                HeaderText = "ports",
+                Name = "ports",
+                ReadOnly = false
+            };
 
-            DataGridViewComboBoxColumn support = new DataGridViewComboBoxColumn();
-            support.HeaderText = "support";
-            support.Name = "support";
-            support.ReadOnly = false;
-            support.DataSource = Enum.GetNames((typeof(Support)));
+            DataGridViewComboBoxColumn support = new DataGridViewComboBoxColumn
+            {
+                HeaderText = "support",
+                Name = "support",
+                ReadOnly = false,
+                DataSource = Enum.GetNames((typeof(Support)))
+            };
 
-            DataGridViewTextBoxColumn type = new DataGridViewTextBoxColumn();
-            type.HeaderText = "type";
-            type.Name = "type";
-            type.ReadOnly = false;
+            DataGridViewTextBoxColumn type = new DataGridViewTextBoxColumn
+            {
+                HeaderText = "type",
+                Name = "type",
+                ReadOnly = false
+            };
 
-            DataGridViewTextBoxColumn prix = new DataGridViewTextBoxColumn();
-            prix.HeaderText = "prix";
-            prix.Name = "prix";
-            prix.ReadOnly = false;
+            DataGridViewTextBoxColumn prix = new DataGridViewTextBoxColumn
+            {
+                HeaderText = "prix",
+                Name = "prix",
+                ReadOnly = false
+            };
 
-            DataGridViewImageColumn photo = new DataGridViewImageColumn();
-            photo.HeaderText = "photo";
-            photo.Name = "photo";
-            photo.ReadOnly = true;
+            DataGridViewImageColumn photo = new DataGridViewImageColumn
+            {
+                HeaderText = "photo",
+                Name = "photo",
+                ReadOnly = true
+            };
 
             grid.Columns.AddRange(new DataGridViewColumn[] { nom, fabriquant, generation, sortie, ports, support, type, prix, photo });
 
@@ -105,7 +123,7 @@ namespace GUI
             isUpdating = false;
         }
 
-        private void grid_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        private void Grid_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
             if (!isUpdating)
             {

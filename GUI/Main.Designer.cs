@@ -168,6 +168,7 @@
             this.AjoutPanierButton.TabIndex = 0;
             this.AjoutPanierButton.Text = "Ajouter au panier";
             this.AjoutPanierButton.UseVisualStyleBackColor = true;
+            this.AjoutPanierButton.Click += new System.EventHandler(this.AjoutPanierButton_Click);
             // 
             // AjouterButton
             // 
@@ -253,6 +254,7 @@
             // 
             // RechercheValueTB
             // 
+            this.RechercheValueTB.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.RechercheValueTB.Name = "RechercheValueTB";
             this.RechercheValueTB.Size = new System.Drawing.Size(100, 25);
             this.RechercheValueTB.Text = "Valeur";
@@ -319,21 +321,21 @@
             this.CategorieButton.Name = "CategorieButton";
             this.CategorieButton.Size = new System.Drawing.Size(74, 22);
             this.CategorieButton.Text = "Catégorie";
-            this.CategorieButton.ButtonClick += new System.EventHandler(this.toolStripSplitButton1_ButtonClick);
+            this.CategorieButton.ButtonClick += new System.EventHandler(this.ToolStripSplitButton1_ButtonClick);
             // 
             // jeuxToolStripMenuItem
             // 
             this.jeuxToolStripMenuItem.Name = "jeuxToolStripMenuItem";
             this.jeuxToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
             this.jeuxToolStripMenuItem.Text = "Jeux";
-            this.jeuxToolStripMenuItem.Click += new System.EventHandler(this.jeuxToolStripMenuItem_Click);
+            this.jeuxToolStripMenuItem.Click += new System.EventHandler(this.JeuxToolStripMenuItem_Click);
             // 
             // consolesToolStripMenuItem
             // 
             this.consolesToolStripMenuItem.Name = "consolesToolStripMenuItem";
             this.consolesToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
             this.consolesToolStripMenuItem.Text = "Consoles";
-            this.consolesToolStripMenuItem.Click += new System.EventHandler(this.consolesToolStripMenuItem_Click);
+            this.consolesToolStripMenuItem.Click += new System.EventHandler(this.ConsolesToolStripMenuItem_Click);
             // 
             // Main
             // 
