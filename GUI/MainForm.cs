@@ -125,7 +125,7 @@ namespace GUI
 
         private void modifierToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Edit mdlg = new Edit();
+            EditJeux mdlg = new EditJeux();
             mdlg.ShowDialog();
         }
 
@@ -150,6 +150,11 @@ namespace GUI
                 listeImages.ImageSize = new Size(255, 255);
                 ListeJeuxPhotos.ItemHeight = 255;
             }
+        }
+
+        private void TousJeuxBouton_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -157,6 +157,7 @@
             this.TousJeuxBouton.TabIndex = 0;
             this.TousJeuxBouton.Text = "Tous les jeux";
             this.TousJeuxBouton.UseVisualStyleBackColor = true;
+            this.TousJeuxBouton.Click += new System.EventHandler(this.TousJeuxBouton_Click);
             // 
             // JeuxRetroButton
             // 

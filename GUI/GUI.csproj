@@ -61,7 +61,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddConsole.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddConsole.Designer.cs">
+      <DependentUpon>AddConsole.cs</DependentUpon>
+    </Compile>
     <Compile Include="AppState.cs" />
+    <Compile Include="EditConsoles.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditConsoles.Designer.cs">
+      <DependentUpon>EditConsoles.cs</DependentUpon>
+    </Compile>
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -74,11 +86,11 @@
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Edit.cs">
+    <Compile Include="EditJeux.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Edit.Designer.cs">
-      <DependentUpon>Edit.cs</DependentUpon>
+    <Compile Include="EditJeux.Designer.cs">
+      <DependentUpon>EditJeux.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -111,14 +123,20 @@
     <Compile Include="TreeViewSupport.Designer.cs">
       <DependentUpon>TreeViewSupport.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AddConsole.resx">
+      <DependentUpon>AddConsole.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditConsoles.resx">
+      <DependentUpon>EditConsoles.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Edit.resx">
-      <DependentUpon>Edit.cs</DependentUpon>
+    <EmbeddedResource Include="EditJeux.resx">
+      <DependentUpon>EditJeux.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

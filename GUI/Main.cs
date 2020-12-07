@@ -60,7 +60,6 @@ namespace GUI
             ModifierButton.Enabled = false;
             VisualiserButton.Enabled = false;
             TriFieldCB.Enabled = false;
-            TriButton.Enabled = false;
             RechercheFieldCB.Enabled = false;
             GenreCB.Enabled = false;
             CategorieButton.Enabled = false;
@@ -73,7 +72,6 @@ namespace GUI
             ModifierButton.Enabled = true;
             VisualiserButton.Enabled = true;
             TriFieldCB.Enabled = true;
-            TriButton.Enabled = true;
             RechercheFieldCB.Enabled = true;
             GenreCB.Enabled = true;
             CategorieButton.Enabled = true;
@@ -159,7 +157,14 @@ namespace GUI
             TriFieldCB.Items.Clear();
             if (state == AppState.ShowJeux)
             {
-                TriFieldCB.Items.AddRange(FieldJeu.GetNames());
+                TriFieldCB.Items.Add(FieldJeu.Nom);
+                TriFieldCB.Items.Add(FieldJeu.Plateforme);
+                TriFieldCB.Items.Add(FieldJeu.Editeur);
+                TriFieldCB.Items.Add(FieldJeu.Genre);
+                TriFieldCB.Items.Add(FieldJeu.Prix);
+                TriFieldCB.Items.Add(FieldJeu.Sortie);
+                TriFieldCB.Items.Add(FieldJeu.Reconditionne);
+
             }
             else if (state == AppState.ShowConsoles)
             {
@@ -196,13 +201,29 @@ namespace GUI
 
         private void AjouterButton_Click(object sender, EventArgs e)
         {
-            AddJeu sdlg = new AddJeu();
-            sdlg.ShowDialog();
-
-            if (sdlg.Grab)
+            if (state == AppState.ShowJeux)
             {
-                cat.Add(sdlg.Out);
-                InitPhotos();
+                AddJeu sdlg = new AddJeu();
+                sdlg.ShowDialog();
+
+                if (sdlg.Grab)
+                {
+                    cat.Add(sdlg.Out);
+                    InitPhotos();
+                }
+            }
+            else if (state == AppState.ShowConsoles)
+            {
+                AddConsole ac = new AddConsole();
+                ac.ShowDialog();
+
+                if (ac.Grab)
+                {
+                    System.Console.WriteLine(ac.C.ToString());
+                    cat.Add(ac.C);
+                    InitPhotos();
+
+                }
             }
             /*
              * Pas besoin de donner un type autre que Object pour le passage de la dlg à catalogue.
@@ -225,11 +246,6 @@ namespace GUI
         }
 
         private void TriFieldCB_SelectedIndexChanged(object sender, EventArgs e)
-        { 
-
-        }
-
-        private void TriButton_Click(object sender, EventArgs e)
         {
             if (state == AppState.ShowJeux)
             {
@@ -353,7 +369,14 @@ namespace GUI
 
         private void toolStripSplitButton1_ButtonClick(object sender, EventArgs e)
         {
-
+            if(state == AppState.ShowJeux)
+            {
+                consolesToolStripMenuItem_Click(null, null);
+            }
+            else if (state == AppState.ShowConsoles)
+            {
+                jeuxToolStripMenuItem_Click(null, null);
+            }
         }
 
         private void SupprimerButton_Click(object sender, EventArgs e)
@@ -388,6 +411,22 @@ namespace GUI
             InitGenreCB();
             InitTriFieldCB();
             InitRechercheFieldCB();
+        }
+
+        private void ModifierButton_Click(object sender, EventArgs e)
+        {
+            if (state == AppState.ShowJeux)
+            {
+                EditJeux ed = new EditJeux();
+                ed.ShowDialog();
+            }
+            else if (state == AppState.ShowConsoles)
+            {
+                EditConsoles ed = new EditConsoles();
+                ed.ShowDialog();
+            }
+
+            InitPhotos();
         }
     }
 }

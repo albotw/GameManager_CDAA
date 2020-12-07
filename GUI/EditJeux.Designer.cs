@@ -1,6 +1,6 @@
 ﻿namespace GUI
 {
-    partial class Edit
+    partial class EditJeux
     {
         /// <summary>
         /// Required designer variable.
@@ -39,17 +39,18 @@
             this.grille.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grille.Location = new System.Drawing.Point(0, 0);
             this.grille.Name = "grille";
-            this.grille.Size = new System.Drawing.Size(800, 450);
+            this.grille.Size = new System.Drawing.Size(1208, 347);
             this.grille.TabIndex = 0;
             this.grille.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.grille.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.grille_CellValueChanged);
             // 
-            // MajDlg
+            // Edit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1208, 347);
             this.Controls.Add(this.grille);
-            this.Name = "MajDlg";
+            this.Name = "Edit";
             this.Text = "MajDlg";
             ((System.ComponentModel.ISupportInitialize)(this.grille)).EndInit();
             this.ResumeLayout(false);

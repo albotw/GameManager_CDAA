@@ -44,7 +44,6 @@
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.TriFieldCB = new System.Windows.Forms.ToolStripComboBox();
             this.GenreCB = new System.Windows.Forms.ToolStripComboBox();
-            this.TriButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
@@ -198,6 +197,7 @@
             this.ModifierButton.Name = "ModifierButton";
             this.ModifierButton.Size = new System.Drawing.Size(56, 22);
             this.ModifierButton.Text = "Modifier";
+            this.ModifierButton.Click += new System.EventHandler(this.ModifierButton_Click);
             // 
             // toolStripSeparator1
             // 
@@ -228,16 +228,6 @@
             this.GenreCB.Name = "GenreCB";
             this.GenreCB.Size = new System.Drawing.Size(121, 25);
             // 
-            // TriButton
-            // 
-            this.TriButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.TriButton.Image = ((System.Drawing.Image)(resources.GetObject("TriButton.Image")));
-            this.TriButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.TriButton.Name = "TriButton";
-            this.TriButton.Size = new System.Drawing.Size(33, 22);
-            this.TriButton.Text = "Trier";
-            this.TriButton.Click += new System.EventHandler(this.TriButton_Click);
-            // 
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
@@ -263,7 +253,6 @@
             // 
             // RechercheValueTB
             // 
-            this.RechercheValueTB.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.RechercheValueTB.Name = "RechercheValueTB";
             this.RechercheValueTB.Size = new System.Drawing.Size(100, 25);
             this.RechercheValueTB.Text = "Valeur";
@@ -293,7 +282,6 @@
             this.toolStripSeparator3,
             this.toolStripLabel1,
             this.TriFieldCB,
-            this.TriButton,
             this.toolStripSeparator4,
             this.toolStripSeparator2,
             this.toolStripLabel2,
@@ -336,14 +324,14 @@
             // jeuxToolStripMenuItem
             // 
             this.jeuxToolStripMenuItem.Name = "jeuxToolStripMenuItem";
-            this.jeuxToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.jeuxToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
             this.jeuxToolStripMenuItem.Text = "Jeux";
             this.jeuxToolStripMenuItem.Click += new System.EventHandler(this.jeuxToolStripMenuItem_Click);
             // 
             // consolesToolStripMenuItem
             // 
             this.consolesToolStripMenuItem.Name = "consolesToolStripMenuItem";
-            this.consolesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.consolesToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
             this.consolesToolStripMenuItem.Text = "Consoles";
             this.consolesToolStripMenuItem.Click += new System.EventHandler(this.consolesToolStripMenuItem_Click);
             // 
@@ -388,7 +376,6 @@
         private System.Windows.Forms.ToolStripLabel toolStripLabel1;
         private System.Windows.Forms.ToolStripComboBox TriFieldCB;
         private System.Windows.Forms.ToolStripComboBox GenreCB;
-        private System.Windows.Forms.ToolStripButton TriButton;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripLabel toolStripLabel2;
