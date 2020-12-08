@@ -46,23 +46,88 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="core\Catalogue.cs" />
-    <Compile Include="Form1.cs">
+    <Compile Include="core\accessoires\Accessoire.cs" />
+    <Compile Include="UI\accessoires\AddAccessoire.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="UI\accessoires\AddAccessoire.Designer.cs">
+      <DependentUpon>AddAccessoire.cs</DependentUpon>
     </Compile>
-    <Compile Include="core\Genre.cs" />
+    <Compile Include="UI\accessoires\EditAccessoire.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\accessoires\EditAccessoire.Designer.cs">
+      <DependentUpon>EditAccessoire.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\accessoires\MainFormAccessoires.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\accessoires\MainFormAccessoires.Designer.cs">
+      <DependentUpon>MainFormAccessoires.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\accessoires\TreeViewType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\accessoires\TreeViewType.Designer.cs">
+      <DependentUpon>TreeViewType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\jeux\AddJeu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\jeux\AddJeu.Designer.cs">
+      <DependentUpon>AddJeu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="core\Catalogue.cs" />
+    <Compile Include="datastrutures\Ensemble.cs" />
+    <Compile Include="datastrutures\Panier.cs" />
+    <Compile Include="core\accessoires\EnsembleAccessoire.cs" />
+    <Compile Include="core\jeux\EnsembleJeux.cs" />
+    <Compile Include="UI\jeux\EditJeux.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\jeux\EditJeux.Designer.cs">
+      <DependentUpon>EditJeux.cs</DependentUpon>
+    </Compile>
     <Compile Include="core\IFieldComparable.cs" />
-    <Compile Include="core\Jeu.cs" />
-    <Compile Include="core\JeuRetro.cs" />
-    <Compile Include="core\Jeux.cs" />
+    <Compile Include="core\jeux\Genre.cs" />
+    <Compile Include="core\jeux\Jeu.cs" />
+    <Compile Include="core\jeux\JeuRetro.cs" />
+    <Compile Include="UI\jeux\MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\jeux\MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="core\accessoires\Type.cs" />
+    <Compile Include="UI\jeux\TreeViewGenre.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\jeux\TreeViewGenre.Designer.cs">
+      <DependentUpon>TreeViewGenre.cs</DependentUpon>
+    </Compile>
     <Compile Include="utilities\QuickSort.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="UI\accessoires\AddAccessoire.resx">
+      <DependentUpon>AddAccessoire.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\accessoires\EditAccessoire.resx">
+      <DependentUpon>EditAccessoire.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\accessoires\MainFormAccessoires.resx">
+      <DependentUpon>MainFormAccessoires.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\accessoires\TreeViewType.resx">
+      <DependentUpon>TreeViewType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\jeux\AddJeu.resx">
+      <DependentUpon>AddJeu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\jeux\EditJeux.resx">
+      <DependentUpon>EditJeux.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\jeux\MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -74,6 +139,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="UI\jeux\TreeViewGenre.resx">
+      <DependentUpon>TreeViewGenre.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -87,7 +155,9 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="img\SMB3.png" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="img\DBFZ.jpg" />
   </ItemGroup>
@@ -105,6 +175,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="img\MGSV.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\CAMERA.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\CASQUE.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\ECRAN.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\MANETTE.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

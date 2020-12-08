@@ -18,7 +18,10 @@ namespace projet_CDAA_2020_2021.core.accessoires
 
         public override void Init()
         {
-            Add(new Accessoire("Mannette de ps4","Chine", "Playstation", Type.Mannette));
+            Add(new Accessoire("Mannette de ps4","Sony", "Playstation", Type.Mannette, GUI.Properties.Resources.MANETTE));
+            Add(new Accessoire("écran 144Hz","ACER", "PC", Type.TV, GUI.Properties.Resources.ECRAN));
+            Add(new Accessoire("Casqe GAMERZ","Logitech", "PC", Type.Casque, GUI.Properties.Resources.CASQUE));
+            Add(new Accessoire("Camera","Logitech", "PC", Type.Camera, GUI.Properties.Resources.CAMERA));
         }
 
         public override List<Accessoire> Search(string property, object arg)

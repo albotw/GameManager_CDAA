@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 
+using System.Drawing;
+
 namespace projet_CDAA_2020_2021.core.jeux
 {
     class JeuRetro : Jeu, IFieldComparable<JeuRetro>
@@ -21,7 +23,7 @@ namespace projet_CDAA_2020_2021.core.jeux
             this.notice = true;
         }
 
-        public JeuRetro(string nom, string description, string plateforme, string editeur, Genre genre, double prix, DateTime sortie, bool reconditionne, string etat, bool notice) : base(nom, description, plateforme, editeur, genre, prix, sortie, reconditionne)
+        public JeuRetro(string nom, string description, string plateforme, string editeur, Genre genre, double prix, DateTime sortie, bool reconditionne, string etat, bool notice, Image photo) : base(nom, description, plateforme, editeur, genre, prix, sortie, reconditionne, photo)
         {
             this.etat = etat;
             this.notice = notice;

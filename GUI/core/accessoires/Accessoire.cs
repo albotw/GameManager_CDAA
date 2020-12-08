@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Drawing;
 
 namespace projet_CDAA_2020_2021.core.accessoires
 {
@@ -21,6 +22,8 @@ namespace projet_CDAA_2020_2021.core.accessoires
         private Type type;
         public Type Type { get => type; set => type = value; }
 
+        private Image photo;
+        public Image Photo { get => photo; set => photo = value; }
 
         public Accessoire(string nom)
         {
@@ -34,12 +37,13 @@ namespace projet_CDAA_2020_2021.core.accessoires
             this.type = 0;
         }
 
-        public Accessoire(string nom, string fabriquant, string plateforme,  Type type)
+        public Accessoire(string nom, string fabriquant, string plateforme,  Type type, Image photo)
         {
             this.nom = nom;
             this.fabriquantPays = fabriquant;
             this.plateforme = plateforme;
             this.type = type;
+            this.photo = photo;
         }
 
         public override string ToString()

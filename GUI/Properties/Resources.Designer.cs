@@ -63,6 +63,26 @@ namespace GUI.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap CAMERA {
+            get {
+                object obj = ResourceManager.GetObject("CAMERA", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap CASQUE {
+            get {
+                object obj = ResourceManager.GetObject("CASQUE", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap DBFZ {
             get {
                 object obj = ResourceManager.GetObject("DBFZ", resourceCulture);
@@ -73,9 +93,29 @@ namespace GUI.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ECRAN {
+            get {
+                object obj = ResourceManager.GetObject("ECRAN", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap GENSHIN {
             get {
                 object obj = ResourceManager.GetObject("GENSHIN", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap MANETTE {
+            get {
+                object obj = ResourceManager.GetObject("MANETTE", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -116,6 +156,16 @@ namespace GUI.Properties {
         internal static System.Drawing.Bitmap MGSV {
             get {
                 object obj = ResourceManager.GetObject("MGSV", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SMB3 {
+            get {
+                object obj = ResourceManager.GetObject("SMB3", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
