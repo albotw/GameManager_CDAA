@@ -117,17 +117,17 @@
     <Compile Include="Remove.Designer.cs">
       <DependentUpon>Remove.cs</DependentUpon>
     </Compile>
-    <Compile Include="TreeViewGenre.cs">
+    <Compile Include="VisuGenre.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="TreeViewGenre.Designer.cs">
-      <DependentUpon>TreeViewGenre.cs</DependentUpon>
+    <Compile Include="VisuGenre.Designer.cs">
+      <DependentUpon>VisuGenre.cs</DependentUpon>
     </Compile>
-    <Compile Include="TreeViewSupport.cs">
+    <Compile Include="VisuSupport.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="TreeViewSupport.Designer.cs">
-      <DependentUpon>TreeViewSupport.cs</DependentUpon>
+    <Compile Include="VisuSupport.Designer.cs">
+      <DependentUpon>VisuSupport.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="AddConsole.resx">
       <DependentUpon>AddConsole.cs</DependentUpon>
@@ -158,11 +158,11 @@
     <EmbeddedResource Include="Remove.resx">
       <DependentUpon>Remove.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="TreeViewGenre.resx">
-      <DependentUpon>TreeViewGenre.cs</DependentUpon>
+    <EmbeddedResource Include="VisuGenre.resx">
+      <DependentUpon>VisuGenre.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="TreeViewSupport.resx">
-      <DependentUpon>TreeViewSupport.cs</DependentUpon>
+    <EmbeddedResource Include="VisuSupport.resx">
+      <DependentUpon>VisuSupport.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -206,7 +206,6 @@
     <None Include="img\SWITCH.png" />
     <None Include="img\SNES.jpg" />
     <None Include="img\PS3.png" />
-    <Content Include="TODO.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

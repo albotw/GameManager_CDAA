@@ -118,7 +118,7 @@ namespace GUI
 
         private void jeuxToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            TreeViewGenre vjdlg = new TreeViewGenre();
+            VisuGenre vjdlg = new VisuGenre();
             vjdlg.ShowDialog();
 
         }

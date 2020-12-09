@@ -1,6 +1,6 @@
 ﻿namespace GUI
 {
-    partial class TreeViewGenre
+    partial class VisuGenre
     {
         /// <summary>
         /// Required designer variable.

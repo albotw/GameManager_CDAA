@@ -59,7 +59,7 @@ namespace GUI
             InitListes();
         }
 
-        public void InitListes()
+        private void InitListes()
         {
             Jeux.BeginUpdate();
             Jeux.Items.Clear();

@@ -12,7 +12,7 @@ namespace projet_CDAA_2020_2021.core.jeux
         private FieldJeu(string value) : base(value)
         { }
 
-        /*opérateurs de cast implicite et explicite depuis et vers un string*/
+        /*opérateurs de cast explicite depuis et vers un string*/
         public static explicit operator string(FieldJeu f) { return f.Value; }
         public static explicit operator FieldJeu(string s) { return new FieldJeu(s); }
 

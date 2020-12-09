@@ -13,10 +13,10 @@ using Console = projet_CDAA_2020_2021.core.consoles.Console;
 
 namespace GUI
 {
-    public partial class TreeViewSupport : Form
+    public partial class VisuSupport : Form
     {
         private readonly Catalogue cat = Main.cat;
-        public TreeViewSupport()
+        public VisuSupport()
         {
             InitializeComponent();
             InitTree();

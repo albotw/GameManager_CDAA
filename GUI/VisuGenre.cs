@@ -12,16 +12,16 @@ using System.Windows.Forms;
 
 namespace GUI
 {
-    public partial class TreeViewGenre : Form
+    public partial class VisuGenre : Form
     {
         private readonly Catalogue cat = Main.cat;
-        public TreeViewGenre()
+        public VisuGenre()
         {
             InitializeComponent();
             InitTree();
         }
 
-        public void InitTree()
+        private void InitTree()
         {
             treeView1.BeginUpdate();
 

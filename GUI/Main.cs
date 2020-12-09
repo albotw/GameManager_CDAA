@@ -21,9 +21,9 @@ namespace GUI
 
         public static AppState state = 0;
 
-        public static List<Jeu> toDisplay_jeux;
+        private List<Jeu> toDisplay_jeux;
 
-        public static List<Console> toDisplay_consoles;
+        private List<Console> toDisplay_consoles;
 
         private GestionPanier panier;
 
@@ -56,7 +56,7 @@ namespace GUI
             panier.Show();
         }
 
-        public void LockUI()
+        private void LockUI()
         {
             AjouterButton.Enabled = false;
             SupprimerButton.Enabled = false;
@@ -68,7 +68,7 @@ namespace GUI
             CategorieButton.Enabled = false;
         }
 
-        public void UnlockUI()
+        private void UnlockUI()
         {
             AjouterButton.Enabled = true;
             SupprimerButton.Enabled = true;
@@ -80,7 +80,7 @@ namespace GUI
             CategorieButton.Enabled = true;
         }
 
-        public void LinkPhotos()
+        private void LinkPhotos()
         {
             //Liaison entre les jeux et leurs photos.
             cat.GetLesJeux().SearchSingle(FieldJeu.Nom, "Metal Gear Solid").Photo = Properties.Resources.MGS;
@@ -97,7 +97,7 @@ namespace GUI
             cat.GetLesConsoles().SearchSingle(FieldConsole.Nom, "PlayStation 3").Photo = Properties.Resources.PS3;
         }
 
-        public void CenterTextInfoTB()
+        private void CenterTextInfoTB()
         {
             /*Mise en forme du texte des informations pour qu'il soit au centre*/
             InfoTB.SelectAll();
@@ -105,7 +105,7 @@ namespace GUI
             InfoTB.DeselectAll();
         }
 
-        public void InitPhotos()
+        private void InitPhotos()
         {
             ImagePanel.Controls.Clear();
 
@@ -168,7 +168,7 @@ namespace GUI
         }
 
 
-        public void InitTriFieldCB()
+        private void InitTriFieldCB()
         {
             TriFieldCB.Items.Clear();
             if (state == AppState.ShowJeux)
@@ -188,7 +188,7 @@ namespace GUI
             }
         }
 
-        public void InitRechercheFieldCB()
+        private void InitRechercheFieldCB()
         {
             RechercheFieldCB.Items.Clear();
             if (state == AppState.ShowJeux)
@@ -201,7 +201,7 @@ namespace GUI
             }
         }
 
-        public void InitGenreCB()
+        private void InitGenreCB()
         {
             //La combobox pour les genre(jeux) sert aussi pour les supports(console)
             GenreCB.Items.Clear();
@@ -251,12 +251,12 @@ namespace GUI
         {
             if (state == AppState.ShowJeux)
             {
-                TreeViewGenre tvg = new TreeViewGenre();
+                VisuGenre tvg = new VisuGenre();
                 tvg.ShowDialog();
             }
             else if (state == AppState.ShowConsoles)
             {
-                TreeViewSupport tvs = new TreeViewSupport();
+                VisuSupport tvs = new VisuSupport();
                 tvs.ShowDialog();
             }
         }
@@ -344,6 +344,7 @@ namespace GUI
             }
             else if (state == AppState.ShowSearchJeux)
             {
+                /* reset de l'interface */
                 UnlockUI();
                 RechercheButton.Text = "Rechercher";
                 state = AppState.ShowJeux;

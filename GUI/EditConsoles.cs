@@ -23,7 +23,7 @@ namespace GUI
             InitGrid();
         }
 
-        public void InitGrid()
+        private void InitGrid()
         {
             isUpdating = true;
             /*
