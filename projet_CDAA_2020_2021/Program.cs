@@ -70,8 +70,8 @@ namespace projet_CDAA_2020_2021
             tableJeux = new CLITable(2, 10, tableHeader, sizes, null);
             tableJeux.Data = c.GetLesJeux().ToStringArray().ToArray();
 
-            string[] tableHeaderConsoles = { "NOM", "FABRIQUANT", "GENERATION", "SORTIE", "PORTS", "SUPPORT", "TYPE" };
-            int[] sizesConsoles = { 50, 50, 15, 10, 10, 20, 20 };
+            string[] tableHeaderConsoles = { "NOM", "FABRIQUANT", "GENERATION", "SORTIE", "PORTS", "SUPPORT", "TYPE", "PRIX" };
+            int[] sizesConsoles = { 50, 50, 15, 10, 10, 20, 20, 5 };
             tableConsoles = new CLITable(2, 10, tableHeaderConsoles, sizesConsoles, null);
             tableJeux.Data = c.GetLesConsoles().ToStringArray().ToArray();
 
