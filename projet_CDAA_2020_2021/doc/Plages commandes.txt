@@ -13,4 +13,11 @@
 	[30, 37] => commandes pour spécifier le champ de recherche des jeux
 
 [100, 199] => plage réservée pour les consoles
-	[]
+	[100, 103] => commandes pour gestion des consoles
+		100 => ajouter une console
+		101 => supprimer une console
+		102 => trier les consoles
+		103 => rechercher dans les consoles.
+
+	[120, 127] => commandes pour spécifier le champ de tri des consoles
+	[130, 137] => commandes pour spécifier le champ de recherche des consoles.

@@ -52,6 +52,14 @@ namespace projet_CDAA_2020_2021.CLI
                 case 8: this.text = "Le jeu est un jeu rétro ?"; break;
                 case 9: this.text = "Entrez l'état du jeu ?"; break;
                 case 10: this.text = "Le jeu a une notice ?"; break;
+
+                case 11: this.text = "Entrez le nom de la console"; break;
+                case 12: this.text = "Entrez le fabriquant de la console"; break;
+                case 13: this.text = "Entrez la génération de la console"; break;
+                case 14: this.text = "Entrez la date (jj/mm/aaaa) de sortie de la console"; break;
+                case 15: this.text = "Entrez le nombre de ports manettes"; break;
+                case 16: this.text = "Entrez le support des jeux pour la console"; break;
+                case 17: this.text = "Entrez le type de la console (salon/portable)"; break;
             }
         }
 
@@ -79,7 +87,7 @@ namespace projet_CDAA_2020_2021.CLI
             space = null;
         }
 
-        public override void handleInput(ConsoleKey key)
+        public override void HandleInput(ConsoleKey key)
         {
             if (this.userText == "")
             {

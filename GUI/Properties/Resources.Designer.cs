@@ -93,9 +93,9 @@ namespace GUI.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap MGS1 {
+        internal static System.Drawing.Bitmap MGS {
             get {
-                object obj = ResourceManager.GetObject("MGS1", resourceCulture);
+                object obj = ResourceManager.GetObject("MGS", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -116,6 +116,46 @@ namespace GUI.Properties {
         internal static System.Drawing.Bitmap MGSV {
             get {
                 object obj = ResourceManager.GetObject("MGSV", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap PS3 {
+            get {
+                object obj = ResourceManager.GetObject("PS3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SMB3 {
+            get {
+                object obj = ResourceManager.GetObject("SMB3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SNES {
+            get {
+                object obj = ResourceManager.GetObject("SNES", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SWITCH {
+            get {
+                object obj = ResourceManager.GetObject("SWITCH", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

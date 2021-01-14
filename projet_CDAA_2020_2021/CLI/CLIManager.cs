@@ -25,6 +25,15 @@ namespace projet_CDAA_2020_2021.CLI
             drawStack.Push(e);
         }
 
+        //pour forcer le traitement d'un élément
+        public void Interrupt(CLIElement e)
+        {
+            AddElement(e);
+            Update();
+            e.HandleInput(ReadKey(true).Key);
+            DeleteTop();
+        }
+
         public void DeleteTop()
         {
             drawStack.Peek().Clear();
@@ -36,10 +45,10 @@ namespace projet_CDAA_2020_2021.CLI
             ConsoleKeyInfo cki;
             do
             {
-                Program.updateMainTable();
+                Program.UpdateMainTable();
                 Update();
                 cki = ReadKey(true);
-                drawStack.Peek().handleInput(cki.Key);
+                drawStack.Peek().HandleInput(cki.Key);
                 
             } while (cki.Key != ConsoleKey.Escape);
         }

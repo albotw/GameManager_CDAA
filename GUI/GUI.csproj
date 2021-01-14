@@ -12,6 +12,21 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -46,34 +61,100 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="core\Catalogue.cs" />
-    <Compile Include="Form1.cs">
+    <Compile Include="AddConsole.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="AddConsole.Designer.cs">
+      <DependentUpon>AddConsole.cs</DependentUpon>
     </Compile>
-    <Compile Include="core\Genre.cs" />
-    <Compile Include="core\IFieldComparable.cs" />
-    <Compile Include="core\Jeu.cs" />
-    <Compile Include="core\JeuRetro.cs" />
-    <Compile Include="core\Jeux.cs" />
+    <Compile Include="AppState.cs" />
+    <Compile Include="EditConsoles.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditConsoles.Designer.cs">
+      <DependentUpon>EditConsoles.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main.Designer.cs">
+      <DependentUpon>Main.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EditJeux.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditJeux.Designer.cs">
+      <DependentUpon>EditJeux.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GestionPanier.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GestionPanier.Designer.cs">
+      <DependentUpon>GestionPanier.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="utilities\QuickSort.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="AddJeu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddJeu.Designer.cs">
+      <DependentUpon>AddJeu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Remove.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Remove.Designer.cs">
+      <DependentUpon>Remove.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VisuGenre.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VisuGenre.Designer.cs">
+      <DependentUpon>VisuGenre.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VisuSupport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VisuSupport.Designer.cs">
+      <DependentUpon>VisuSupport.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="AddConsole.resx">
+      <DependentUpon>AddConsole.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditConsoles.resx">
+      <DependentUpon>EditConsoles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main.resx">
+      <DependentUpon>Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditJeux.resx">
+      <DependentUpon>EditJeux.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GestionPanier.resx">
+      <DependentUpon>GestionPanier.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
+    <EmbeddedResource Include="AddJeu.resx">
+      <DependentUpon>AddJeu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Remove.resx">
+      <DependentUpon>Remove.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VisuGenre.resx">
+      <DependentUpon>VisuGenre.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VisuSupport.resx">
+      <DependentUpon>VisuSupport.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -87,24 +168,35 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
-    <None Include="img\DBFZ.jpg" />
+    <ProjectReference Include="..\core\CORE.csproj">
+      <Project>{EC29C7D3-1AD9-4880-BABB-9F090F05145D}</Project>
+      <Name>CORE</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="img\GENSHIN.jpg" />
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 et x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <None Include="img\MC_RTX.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="img\MGS1.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="img\MGS2.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="img\MGSV.jpg" />
+    <None Include="img\SMB3.jpg" />
+    <None Include="img\MGSV.png" />
+    <None Include="img\MGS2.png" />
+    <None Include="img\MGS.png" />
+    <None Include="img\MC_RTX.png" />
+    <None Include="img\GENSHIN.png" />
+    <None Include="img\DBFZ.png" />
+    <None Include="img\SWITCH.png" />
+    <None Include="img\SNES.jpg" />
+    <None Include="img\PS3.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,0 +1,40 @@
+﻿Passer la CLI en bibliothèque de classes pour autres projets
+
+
+POUR LA PARTIE 2 DU PROJET:
+Rajouter une catégorie supplémentaire ?
+rajouter les consoles dans l'application en plus des jeux et jeux rétro
+
+CONTRAINTE: utilisation de composants riches comme TreeView ou DataGridView
+
+Rapport:
+6 parties
+	- cahier des charges
+	- analyse avec diagramme de classes
+	- diagramme de séquence et description des interfaces
+	- analyse des fonctionnalités
+	- dossier de prog pour l'implémentation des parties importantes
+	- bilan
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////
+
+
+remonter searchSingle dans Ensemble																		=> FAIT
+vérifier implémentation de l'attibut prix dans la CLI pour les consoles									=> FAIT
+récupérer le code de MainForm et le passer dans Main													=> FAIT
+Ajout jeu / jeu rétro																					=> FAIT
+Changement de catégorie																					=> FAIT
+suppression Jeu / Console																				=> FAIT
+Débugger JeuRetro pour la recherche et le tri
+Ajouter l'attribut photo dans Console																	=> FAIT
+finir la section Modifier
+Implémenter la gestion du panier
+
+pour modifier un attribut dans le noyau
+	-> l'ajouter dans la classe (attribut / constructeur/ toString / CompareTo)
+	-> ajouter dans le Field ( valeur / GetNames)
+	-> implémenter dans les ensembles (init / search / searchSingle)
+	-> implémenter dans la CLI...
